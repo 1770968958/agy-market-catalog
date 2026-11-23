@@ -1,0 +1,305 @@
+#!/usr/bin/env node
+// Track-1 Zero-PR Release Sync & Immutable Numeric ID RepoJacking Guard (`scripts/sync-releases.mjs`).
+// Queries registered repositories in batches of 50-80 via GitHub GraphQL + `/repositories/:id`.
+
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { compareSemver, parseSemver } from './lib/constants.mjs';
+import { probeNpmMirrorPackage } from './probe-npm.mjs';
+import { validatePluginTarball } from './validate-plugin-tarball.mjs';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const REPO_ROOT = resolve(__dirname, '..');
+
+export function hasCapabilityExpansion(prevCapabilities, nextCapabilities) {
+  if (!prevCapabilities) return false;
+  const prevBadges = new Set(prevCapabilities.badges || []);
+  for (const b of nextCapabilities?.badges || []) {
+    if (b !== 'declarative-only' && !prevBadges.has(b)) return true;
+  }
+  const prevDomains = new Set(prevCapabilities.mcpRemoteDomains || []);
+  for (const d of nextCapabilities?.mcpRemoteDomains || []) {
+    if (!prevDomains.has(d)) return true;
+  }
+  return false;
+}
+
+/**
+ * Evaluates a single registered Track-1 repository snapshot during scheduled sync:
+ *   - Case A: `repoAtOldSlug.id !== ledgerRecord.repositoryId` -> REPOJACKING_BLOCKED
+ *   - Case B: `repoByNumericId.id === ledgerRecord.repositoryId` & same `ownerId` -> seamless rename support
+ *   - Case C: `repoByNumericId.owner.id !== ledgerRecord.ownerId` -> OWNERSHIP_TRANSFER_REVIEW if capabilities expand
+ *   - Verifies existing locked tags for `TAG_MUTATION_BLOCKED` before appending new SemVer releases.
+ */
+export function evaluateRepoSyncUpdate({
+  ledgerRecord,
+  lockRecord,
+  repoAtOldSlug,
+  repoByNumericId,
+  releases = [],
+  tarballBuffersByTag = new Map(),
+  nowIso = new Date().toISOString(),
+}) {
+  const updatedLedger = structuredClone(ledgerRecord);
+  const updatedLock = structuredClone(lockRecord || { latest: null, versions: {} });
+  const events = [];
+
+  // Case A: Different repository recreated at old `owner/repo` URL
+  if (repoAtOldSlug && repoAtOldSlug.id !== updatedLedger.repositoryId) {
+    // Only if numeric ID lookup also shows original repo is gone or moved elsewhere while impostor sits on old slug
+    if (!repoByNumericId || repoByNumericId.full_name === updatedLedger.repoFullName) {
+      updatedLedger.status = 'REPOJACKING_BLOCKED';
+      events.push(`REPOJACKING_BLOCKED:${updatedLedger.canonicalName}`);
+      return { ledgerRecord: updatedLedger, lockRecord: updatedLock, events };
+    }
+  }
+
+  if (!repoByNumericId || repoByNumericId.archived || repoByNumericId.disabled) {
+    events.push(`SKIPPED_INACTIVE:${updatedLedger.canonicalName}`);
+    return { ledgerRecord: updatedLedger, lockRecord: updatedLock, events };
+  }
+
+  // Case B: Repo renamed under same ownerId
+  if (
+    repoByNumericId.owner?.id === updatedLedger.ownerId &&
+    repoByNumericId.full_name &&
+    repoByNumericId.full_name !== updatedLedger.repoFullName
+  ) {
+    updatedLedger.previousRepoFullNames = [
+      ...new Set([...(updatedLedger.previousRepoFullNames || []), updatedLedger.repoFullName]),
+    ];
+    updatedLedger.repoFullName = repoByNumericId.full_name;
+    events.push(`REPO_RENAMED:${updatedLedger.canonicalName}->${repoByNumericId.full_name}`);
+  }
+
+  const ownerChanged = repoByNumericId.owner?.id && repoByNumericId.owner.id !== updatedLedger.ownerId;
+  if (ownerChanged) {
+    updatedLedger.pendingOwnerId = repoByNumericId.owner.id;
+  }
+
+  // Verify existing locked tags were NOT force-pushed with a mutated commitSha
+  for (const rel of releases) {
+    const sem = parseSemver(rel.tagName);
+    if (!sem) continue;
+    const lockedVer = updatedLock.versions?.[sem.version];
+    if (lockedVer && rel.commitSha && lockedVer.commitSha !== rel.commitSha) {
+      updatedLedger.status = 'TAG_MUTATION_BLOCKED';
+      events.push(`TAG_MUTATION_BLOCKED:${updatedLedger.canonicalName}@${rel.tagName}`);
+      return { ledgerRecord: updatedLedger, lockRecord: updatedLock, events };
+    }
+  }
+
+  // Find latestlocked capabilities for ownership-transfer comparison
+  const prevLatestCap =
+    updatedLock.latest && updatedLock.versions?.[updatedLock.latest]
+      ? updatedLock.versions[updatedLock.latest].capabilities
+      : null;
+
+  // Process any new SemVer releases in chronological/semver order
+  const candidateReleases = releases
+    .filter((r) => parseSemver(r.tagName) && !r.draft && !r.prerelease)
+    .sort((a, b) => compareSemver(a.tagName, b.tagName));
+
+  for (const rel of candidateReleases) {
+    const sem = parseSemver(rel.tagName);
+    if (updatedLock.versions[sem.version]) {
+      // Check sha256 immutability if buffer also supplied
+      const buf = tarballBuffersByTag.get(rel.tagName);
+      if (buf) {
+        const check = validatePluginTarball(buf, {
+          pluginRoot: updatedLedger.pluginRoot || '.',
+          allowScopedName: false,
+          fallbackVersion: rel.tagName,
+        });
+        if (check.sha256 !== updatedLock.versions[sem.version].sha256) {
+          updatedLedger.status = 'TAG_MUTATION_BLOCKED';
+          events.push(`TAG_MUTATION_BLOCKED:${updatedLedger.canonicalName}@${rel.tagName}`);
+          return { ledgerRecord: updatedLedger, lockRecord: updatedLock, events };
+        }
+      }
+      continue;
+    }
+
+    const buf = tarballBuffersByTag.get(rel.tagName);
+    if (!buf) continue;
+
+    const inspected = validatePluginTarball(buf, {
+      pluginRoot: updatedLedger.pluginRoot || '.',
+      allowScopedName: false,
+      fallbackVersion: rel.tagName,
+      requireSelfContained: Boolean(rel.requireSelfContained),
+    });
+
+    if (inspected.manifest.name !== updatedLedger.canonicalName) {
+      events.push(`NAME_DRIFT_IGNORED:${inspected.manifest.name}!=${updatedLedger.canonicalName}`);
+      continue;
+    }
+
+    // Case C: Ownership transfer + capability expansion -> hold in OWNERSHIP_TRANSFER_REVIEW
+    if (ownerChanged && hasCapabilityExpansion(prevLatestCap, inspected.capabilities)) {
+      updatedLedger.status = 'OWNERSHIP_TRANSFER_REVIEW';
+      events.push(`OWNERSHIP_TRANSFER_REVIEW:${updatedLedger.canonicalName}@${sem.version}`);
+      return { ledgerRecord: updatedLedger, lockRecord: updatedLock, events };
+    }
+
+    if (ownerChanged) {
+      updatedLedger.ownerId = repoByNumericId.owner.id;
+      delete updatedLedger.pendingOwnerId;
+    }
+
+    updatedLock.versions[sem.version] = {
+      gitTag: rel.tagName,
+      commitSha: rel.commitSha,
+      tarballUrl: rel.tarballUrl,
+      sha256: inspected.sha256,
+      sizeBytes: inspected.sizeBytes,
+      publishedAt: rel.publishedAt || nowIso,
+      manifest: inspected.manifest,
+      companion: inspected.companion,
+      capabilities: inspected.capabilities,
+      stars: Number(repoByNumericId.stargazers_count || 0),
+      readmeMarkdown: inspected.readmeMarkdown,
+      iconExt: inspected.iconArtifact?.ext || null,
+      npmMirrorPkg: rel.npmMirrorPkg || null,
+    };
+
+    if (!updatedLock.latest || compareSemver(sem.version, updatedLock.latest) > 0) {
+      updatedLock.latest = sem.version;
+    }
+    events.push(`SYNCED_VERSION:${updatedLedger.canonicalName}@${sem.version}`);
+  }
+
+  return { ledgerRecord: updatedLedger, lockRecord: updatedLock, events, probeNpmMirrorPackage };
+}
+
+export function chunkArray(items, size = 60) {
+  const batches = [];
+  for (let i = 0; i < items.length; i += size) {
+    batches.push(items.slice(i, i + size));
+  }
+  return batches;
+}
+
+export async function syncAllRegisteredReleases({ repoRoot = REPO_ROOT } = {}) {
+  const ledgerPath = join(repoRoot, 'state', 'ledger.json');
+  const lockPath = join(repoRoot, 'state', 'versions-lock.json');
+  const iconsDir = join(repoRoot, 'dist', 'icons');
+  mkdirSync(iconsDir, { recursive: true });
+
+  const ledger = existsSync(ledgerPath) ? JSON.parse(readFileSync(ledgerPath, 'utf8')) : { schemaVersion: 1, entries: {} };
+  const versionsLock = existsSync(lockPath)
+    ? JSON.parse(readFileSync(lockPath, 'utf8'))
+    : { schemaVersion: 1, locks: {} };
+
+  const activeRecords = Object.values(ledger.entries).filter((e) => e.status === 'active');
+  if (activeRecords.length === 0) {
+    return { synced: 0, events: [] };
+  }
+
+  const token = process.env.GITHUB_TOKEN || '';
+  if (!token) {
+    console.log('[sync-releases] No GITHUB_TOKEN set; skipping remote GraphQL polling (0 offline errors).');
+    return { synced: 0, events: ['OFFLINE_NO_TOKEN'] };
+  }
+
+  const headers = {
+    Accept: 'application/vnd.github+json',
+    Authorization: `Bearer ${token}`,
+    'User-Agent': 'agy-market-catalog-sync/1.0',
+  };
+
+  const allEvents = [];
+  // Batch poll in groups of 60 to stay well within GitHub API limits
+  for (const batch of chunkArray(activeRecords, 60)) {
+    for (const rec of batch) {
+      const byIdRes = await fetch(`https://api.github.com/repositories/${rec.repositoryId}`, { headers });
+      const repoByNumericId = byIdRes.ok ? await byIdRes.json() : null;
+      const bySlugRes = await fetch(`https://api.github.com/repos/${rec.repoFullName}`, { headers });
+      const repoAtOldSlug = bySlugRes.ok ? await bySlugRes.json() : null;
+
+      let releases = [];
+      const tarballBuffersByTag = new Map();
+      if (repoByNumericId && !repoByNumericId.archived && !repoByNumericId.disabled) {
+        const relRes = await fetch(`https://api.github.com/repositories/${rec.repositoryId}/releases?per_page=5`, {
+          headers,
+        });
+        const rawRels = relRes.ok ? await relRes.json() : [];
+        for (const r of rawRels) {
+          const sem = parseSemver(r.tag_name);
+          if (!sem || r.draft || r.prerelease) continue;
+          const asset = (r.assets || []).find((a) => /\.(?:tar\.gz|tgz)$/i.test(a.name));
+          const downloadUrl = asset
+            ? asset.browser_download_url
+            : `https://github.com/${repoByNumericId.full_name}/archive/refs/tags/${encodeURIComponent(r.tag_name)}.tar.gz`;
+          const requireSelfContained = !asset;
+          const refRes = await fetch(
+            `https://api.github.com/repositories/${rec.repositoryId}/commits/${encodeURIComponent(r.tag_name)}`,
+            { headers },
+          );
+          if (!refRes.ok) continue;
+          const refJson = await refRes.json();
+
+          const alreadyLocked = versionsLock.locks[rec.entrySlug]?.versions?.[sem.version];
+          let npmMirrorPkg = alreadyLocked?.npmMirrorPkg || null;
+          if (!alreadyLocked) {
+            const dl = await fetch(downloadUrl, { headers: { 'User-Agent': 'agy-market-catalog-sync/1.0' } });
+            if (dl.ok) {
+              const buf = Buffer.from(await dl.arrayBuffer());
+              tarballBuffersByTag.set(r.tag_name, buf);
+              try {
+                const parsed = validatePluginTarball(buf, {
+                  pluginRoot: rec.pluginRoot || '.',
+                  allowScopedName: false,
+                  fallbackVersion: r.tag_name,
+                  requireSelfContained,
+                });
+                if (parsed.iconArtifact) {
+                  const stateIconsDir = join(repoRoot, 'state', 'icons');
+                  mkdirSync(stateIconsDir, { recursive: true });
+                  const iconFile = `${rec.entrySlug}${parsed.iconArtifact.ext}`;
+                  writeFileSync(join(stateIconsDir, iconFile), parsed.iconArtifact.sanitizedBuffer);
+                  writeFileSync(join(iconsDir, iconFile), parsed.iconArtifact.sanitizedBuffer);
+                }
+                if (parsed.packageJson) {
+                  npmMirrorPkg = await probeNpmMirrorPackage(parsed.packageJson, repoByNumericId.full_name);
+                }
+              } catch {
+                /* handled inside evaluateRepoSyncUpdate */
+              }
+            }
+          }
+          releases.push({
+            tagName: r.tag_name,
+            commitSha: refJson.sha,
+            tarballUrl: downloadUrl,
+            publishedAt: r.published_at,
+            npmMirrorPkg,
+            requireSelfContained,
+          });
+        }
+      }
+
+      const out = evaluateRepoSyncUpdate({
+        ledgerRecord: rec,
+        lockRecord: versionsLock.locks[rec.entrySlug],
+        repoAtOldSlug,
+        repoByNumericId,
+        releases,
+        tarballBuffersByTag,
+      });
+      ledger.entries[rec.canonicalName] = out.ledgerRecord;
+      versionsLock.locks[rec.entrySlug] = out.lockRecord;
+      allEvents.push(...out.events);
+    }
+  }
+
+  writeFileSync(ledgerPath, `${JSON.stringify(ledger, null, 2)}\n`, 'utf8');
+  writeFileSync(lockPath, `${JSON.stringify(versionsLock, null, 2)}\n`, 'utf8');
+  return { synced: activeRecords.length, events: allEvents };
+}
+
+if (import.meta.url === pathToFileURL(resolve(process.argv[1] || '')).href) {
+  const res = await syncAllRegisteredReleases();
+  console.log(`[sync-releases] Checked ${res.synced} plugins (${res.events.length} events)`);
+}

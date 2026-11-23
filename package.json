@@ -1,0 +1,37 @@
+{
+  "name": "@agy-market/catalog",
+  "version": "2026.1123.1",
+  "description": "Zero-backend GitOps plugin catalog index and mirror transport package for AGY Market (Google Antigravity).",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "files": [
+    "dist/index.json",
+    "dist/unverified-index.json",
+    "dist/readmes.json",
+    "dist/icons",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    "./index.json": "./dist/index.json",
+    "./unverified-index.json": "./dist/unverified-index.json",
+    "./readmes.json": "./dist/readmes.json"
+  },
+  "homepage": "https://github.com/azwosile/agy-market-catalog",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/azwosile/agy-market-catalog.git"
+  },
+  "scripts": {
+    "validate": "node scripts/validate-entries.mjs",
+    "check:submission": "node scripts/check-submission.mjs",
+    "sync": "node scripts/sync-releases.mjs",
+    "crawl": "node scripts/crawl-topics.mjs",
+    "build": "node scripts/build-catalog.mjs",
+    "publish:npm": "node scripts/publish-catalog-npm.mjs",
+    "test": "node --test test/*.test.mjs"
+  }
+}

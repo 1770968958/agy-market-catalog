@@ -1,0 +1,28 @@
+name: Track 2 — Topic Discovery Crawler (Every 6h)
+
+on:
+  schedule:
+    - cron: '45 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  crawl-topics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Crawl topic:antigravity-plugin & rebuild unverified-index.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/crawl-topics.mjs
+          node scripts/build-catalog.mjs

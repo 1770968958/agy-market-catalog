@@ -1,0 +1,40 @@
+name: Tier 2 — Fork-Safe Admission Gate & Auto-Merge
+
+on:
+  workflow_run:
+    workflows: ['Tier 1 — PR Entry Validation (Zero Secrets)']
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  admit-plugin:
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout trusted main branch ONLY (never PR head)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Safely extract data/plugins/*.yml from PR SHA via git archive
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          git fetch origin "${PR_HEAD_SHA}" --depth=1
+          mkdir -p .tmp/pr-extract
+          git archive "${PR_HEAD_SHA}" -- data/plugins/ | tar -x -C .tmp/pr-extract
+          for f in .tmp/pr-extract/data/plugins/*.yml; do
+            [ -e "$f" ] || continue
+            cp "$f" data/plugins/
+            node scripts/check-submission.mjs --write-state "data/plugins/$(basename "$f")"
+          done

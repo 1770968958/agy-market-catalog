@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/azwosile/agy-market-catalog/main/schemas/submission-entry.schema.json",
+  "title": "AGY Market Track-1 Submission YAML Entry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["url", "category", "description"],
+  "properties": {
+    "url": {
+      "type": "string",
+      "pattern": "^https://github\\.com/[A-Za-z0-9-]+/[A-Za-z0-9._-]+/?$"
+    },
+    "pluginRoot": { "type": "string" },
+    "category": { "type": "string" },
+    "releaseAsset": { "type": "string" },
+    "description": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["zh", "en"],
+      "properties": {
+        "zh": { "type": "string", "minLength": 2, "maxLength": 240 },
+        "en": { "type": "string", "minLength": 2, "maxLength": 300 }
+      }
+    }
+  }
+}

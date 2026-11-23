@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/azwosile/agy-market-catalog/main/schemas/agy-market.schema.json",
+  "title": "AGY Market Companion Manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "pluginRoot": { "type": "string" },
+    "categories": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "screenshots": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "minAntigravityVersion": { "type": "string" },
+    "platforms": {
+      "type": "array",
+      "items": { "enum": ["win32", "darwin", "linux"] }
+    },
+    "releaseAsset": { "type": "string" },
+    "preservePaths": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

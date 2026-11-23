@@ -1,0 +1,44 @@
+name: Scheduled Repo-Age Re-Gate (Every 6 Hours)
+
+on:
+  schedule:
+    - cron: '15 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  regate-pending:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Re-evaluate PRs labeled `pending: repo-age`
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          prs=$(gh pr list --repo "$REPO" --label "pending: repo-age" --json number,headRefOid --jq '.[] | "\(.number) \(.headRefOid)"')
+          echo "$prs" | while read -r pr_num head_sha; do
+            [ -z "$pr_num" ] && continue
+            git fetch origin "$head_sha" --depth=1
+            mkdir -p ".tmp/regate-$pr_num"
+            git archive "$head_sha" -- data/plugins/ | tar -x -C ".tmp/regate-$pr_num" || continue
+            for f in ".tmp/regate-$pr_num"/data/plugins/*.yml; do
+              [ -e "$f" ] || continue
+              cp "$f" data/plugins/
+              if node scripts/check-submission.mjs --write-state "data/plugins/$(basename "$f")"; then
+                gh pr edit "$pr_num" --repo "$REPO" --remove-label "pending: repo-age"
+                gh pr merge "$pr_num" --repo "$REPO" --squash --auto
+              fi
+            done
+          done
