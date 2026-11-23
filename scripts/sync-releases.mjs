@@ -198,36 +198,94 @@ export async function syncAllRegisteredReleases({ repoRoot = REPO_ROOT } = {}) {
   }
 
   const token = process.env.GITHUB_TOKEN || '';
-  if (!token) {
-    console.log('[sync-releases] No GITHUB_TOKEN set; skipping remote GraphQL polling (0 offline errors).');
-    return { synced: 0, events: ['OFFLINE_NO_TOKEN'] };
+  if (process.argv.includes('--offline')) {
+    console.log('[sync-releases] Offline mode enabled; skipping remote polling.');
+    return { synced: 0, events: ['OFFLINE_MODE'] };
   }
 
   const headers = {
     Accept: 'application/vnd.github+json',
-    Authorization: `Bearer ${token}`,
     'User-Agent': 'agy-market-catalog-sync/1.0',
   };
+  if (token) {
+    headers.Authorization = `Bearer ${token}`;
+  }
+
+  const stateIconsDir = join(repoRoot, 'state', 'icons');
+  mkdirSync(stateIconsDir, { recursive: true });
 
   const allEvents = [];
   // Batch poll in groups of 60 to stay well within GitHub API limits
   for (const batch of chunkArray(activeRecords, 60)) {
     for (const rec of batch) {
-      const byIdRes = await fetch(`https://api.github.com/repositories/${rec.repositoryId}`, { headers });
+      let byIdRes;
+      try {
+        byIdRes = await fetch(`https://api.github.com/repositories/${rec.repositoryId}`, {
+          headers,
+          signal: AbortSignal.timeout(15_000),
+        });
+      } catch {
+        allEvents.push(`SKIPPED_NETWORK_ERROR:${rec.canonicalName}`);
+        continue;
+      }
+      if (byIdRes.status !== 200 && byIdRes.status !== 404) {
+        allEvents.push(`SKIPPED_API_${byIdRes.status}:${rec.canonicalName}`);
+        continue;
+      }
       const repoByNumericId = byIdRes.ok ? await byIdRes.json() : null;
-      const bySlugRes = await fetch(`https://api.github.com/repos/${rec.repoFullName}`, { headers });
+      const bySlugRes = await fetch(`https://api.github.com/repos/${rec.repoFullName}`, {
+        headers,
+        signal: AbortSignal.timeout(15_000),
+      });
+      if (bySlugRes.status !== 200 && bySlugRes.status !== 404) {
+        allEvents.push(`SKIPPED_API_${bySlugRes.status}:${rec.canonicalName}`);
+        continue;
+      }
       const repoAtOldSlug = bySlugRes.ok ? await bySlugRes.json() : null;
 
       let releases = [];
       const tarballBuffersByTag = new Map();
       if (repoByNumericId && !repoByNumericId.archived && !repoByNumericId.disabled) {
-        const relRes = await fetch(`https://api.github.com/repositories/${rec.repositoryId}/releases?per_page=5`, {
+        const relRes = await fetch(`https://api.github.com/repositories/${rec.repositoryId}/releases?per_page=10`, {
           headers,
+          signal: AbortSignal.timeout(15_000),
         });
         const rawRels = relRes.ok ? await relRes.json() : [];
-        for (const r of rawRels) {
+        const seenTagNames = new Set();
+        const candidateTags = [];
+
+        for (const r of Array.isArray(rawRels) ? rawRels : []) {
           const sem = parseSemver(r.tag_name);
-          if (!sem || r.draft || r.prerelease) continue;
+          if (!sem || sem.prerelease.length > 0 || r.draft || r.prerelease) continue;
+          seenTagNames.add(r.tag_name);
+          candidateTags.push({
+            tag_name: r.tag_name,
+            assets: r.assets || [],
+            published_at: r.published_at || null,
+          });
+        }
+
+        // Also discover SemVer Git tags (e.g. `v1.0.1`) for self-contained zero-build-step bundles
+        const tagsRes = await fetch(`https://api.github.com/repositories/${rec.repositoryId}/tags?per_page=10`, {
+          headers,
+          signal: AbortSignal.timeout(15_000),
+        });
+        const rawTags = tagsRes.ok ? await tagsRes.json() : [];
+        for (const t of Array.isArray(rawTags) ? rawTags : []) {
+          if (!t?.name || seenTagNames.has(t.name)) continue;
+          const sem = parseSemver(t.name);
+          if (!sem || sem.prerelease.length > 0) continue;
+          seenTagNames.add(t.name);
+          candidateTags.push({
+            tag_name: t.name,
+            assets: [],
+            published_at: null,
+          });
+        }
+
+        for (const r of candidateTags) {
+          const sem = parseSemver(r.tag_name);
+          if (!sem) continue;
           const asset = (r.assets || []).find((a) => /\.(?:tar\.gz|tgz)$/i.test(a.name));
           const downloadUrl = asset
             ? asset.browser_download_url
@@ -235,15 +293,20 @@ export async function syncAllRegisteredReleases({ repoRoot = REPO_ROOT } = {}) {
           const requireSelfContained = !asset;
           const refRes = await fetch(
             `https://api.github.com/repositories/${rec.repositoryId}/commits/${encodeURIComponent(r.tag_name)}`,
-            { headers },
+            { headers, signal: AbortSignal.timeout(15_000) },
           );
           if (!refRes.ok) continue;
           const refJson = await refRes.json();
+          const publishedAt =
+            r.published_at || refJson?.commit?.committer?.date || refJson?.commit?.author?.date || null;
 
           const alreadyLocked = versionsLock.locks[rec.entrySlug]?.versions?.[sem.version];
           let npmMirrorPkg = alreadyLocked?.npmMirrorPkg || null;
           if (!alreadyLocked) {
-            const dl = await fetch(downloadUrl, { headers: { 'User-Agent': 'agy-market-catalog-sync/1.0' } });
+            const dl = await fetch(downloadUrl, {
+              headers: { 'User-Agent': 'agy-market-catalog-sync/1.0' },
+              signal: AbortSignal.timeout(45_000),
+            });
             if (dl.ok) {
               const buf = Buffer.from(await dl.arrayBuffer());
               tarballBuffersByTag.set(r.tag_name, buf);
@@ -255,8 +318,6 @@ export async function syncAllRegisteredReleases({ repoRoot = REPO_ROOT } = {}) {
                   requireSelfContained,
                 });
                 if (parsed.iconArtifact) {
-                  const stateIconsDir = join(repoRoot, 'state', 'icons');
-                  mkdirSync(stateIconsDir, { recursive: true });
                   const iconFile = `${rec.entrySlug}${parsed.iconArtifact.ext}`;
                   writeFileSync(join(stateIconsDir, iconFile), parsed.iconArtifact.sanitizedBuffer);
                   writeFileSync(join(iconsDir, iconFile), parsed.iconArtifact.sanitizedBuffer);
@@ -273,7 +334,7 @@ export async function syncAllRegisteredReleases({ repoRoot = REPO_ROOT } = {}) {
             tagName: r.tag_name,
             commitSha: refJson.sha,
             tarballUrl: downloadUrl,
-            publishedAt: r.published_at,
+            publishedAt,
             npmMirrorPkg,
             requireSelfContained,
           });

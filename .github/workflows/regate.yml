@@ -17,28 +17,60 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
 
-      - name: Re-evaluate PRs labeled `pending: repo-age`
+      - name: Re-evaluate PRs labeled `pending: repo-age`, commit state, and auto-merge
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
         run: |
-          prs=$(gh pr list --repo "$REPO" --label "pending: repo-age" --json number,headRefOid --jq '.[] | "\(.number) \(.headRefOid)"')
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          prs=$(gh pr list --repo "$REPO" --state open --label "pending: repo-age" --json number,headRefOid --jq '.[] | "\(.number) \(.headRefOid)"')
+          [ -z "$prs" ] && exit 0
+
           echo "$prs" | while read -r pr_num head_sha; do
             [ -z "$pr_num" ] && continue
-            git fetch origin "$head_sha" --depth=1
-            mkdir -p ".tmp/regate-$pr_num"
-            git archive "$head_sha" -- data/plugins/ | tar -x -C ".tmp/regate-$pr_num" || continue
-            for f in ".tmp/regate-$pr_num"/data/plugins/*.yml; do
-              [ -e "$f" ] || continue
-              cp "$f" data/plugins/
-              if node scripts/check-submission.mjs --write-state "data/plugins/$(basename "$f")"; then
-                gh pr edit "$pr_num" --repo "$REPO" --remove-label "pending: repo-age"
-                gh pr merge "$pr_num" --repo "$REPO" --squash --auto
+            git pull --rebase origin main
+            git fetch origin "$head_sha" --depth=1 || continue
+            changed=$(git diff --name-only --diff-filter=AM origin/main "$head_sha" -- 'data/plugins/*.yml' || true)
+            [ -z "$changed" ] && continue
+
+            rm -rf ".tmp/regate-$pr_num" ".tmp/regate-state-$pr_num"
+            mkdir -p ".tmp/regate-$pr_num" ".tmp/regate-state-$pr_num"
+            git archive "$head_sha" -- $changed | tar -x -C ".tmp/regate-$pr_num" || continue
+
+            all_approved=1
+            for rel in $changed; do
+              cp ".tmp/regate-$pr_num/$rel" "$rel"
+              if ! node scripts/check-submission.mjs --write-state "$rel"; then
+                all_approved=0
+                break
               fi
             done
+
+            if [ "$all_approved" -eq 1 ]; then
+              cp -r state/* ".tmp/regate-state-$pr_num/"
+              git checkout -- .
+              git clean -fd data/plugins/
+
+              gh pr edit "$pr_num" --repo "$REPO" --remove-label "pending: repo-age" || true
+              gh pr merge "$pr_num" --repo "$REPO" --squash
+              git pull --rebase origin main
+              cp -r ".tmp/regate-state-$pr_num/"* state/
+              git add state/
+              if ! git diff --cached --quiet; then
+                git commit -m "chore(regate): admit matured plugin from PR #${pr_num}"
+                git push origin HEAD:main
+              fi
+            else
+              git checkout -- .
+              git clean -fd data/plugins/
+            fi
           done

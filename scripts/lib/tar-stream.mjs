@@ -30,21 +30,22 @@ function parseTarOctal(buf, start, length) {
   return parsed;
 }
 
-function parsePaxRecords(buf) {
-  const text = buf.toString('utf8');
+export function parsePaxRecords(buf) {
   const attrs = {};
-  let idx = 0;
-  while (idx < text.length) {
-    const sp = text.indexOf(' ', idx);
+  let offset = 0;
+  while (offset < buf.length) {
+    const sp = buf.indexOf(0x20, offset); // ASCII space ' '
     if (sp === -1) break;
-    const len = parseInt(text.slice(idx, sp), 10);
-    if (!Number.isFinite(len) || len <= 0) break;
-    const record = text.slice(sp + 1, idx + len - 1); // strip trailing \n
+    const len = parseInt(buf.subarray(offset, sp).toString('ascii'), 10);
+    if (!Number.isFinite(len) || len <= sp - offset + 1 || offset + len > buf.length) break;
+    let recordEnd = offset + len;
+    if (buf[recordEnd - 1] === 0x0a) recordEnd -= 1; // strip trailing '\n'
+    const record = buf.subarray(sp + 1, recordEnd).toString('utf8');
     const eq = record.indexOf('=');
     if (eq !== -1) {
       attrs[record.slice(0, eq)] = record.slice(eq + 1);
     }
-    idx += len;
+    offset += len;
   }
   return attrs;
 }
@@ -138,7 +139,7 @@ export function inspectTarGzBuffer(
     offset += blocks * 512;
 
     // PAX extended headers
-    if (typeFlagChar === 'x') {
+    if (typeFlagChar === 'x' || typeFlagChar === 'X') {
       nextPax = parsePaxRecords(payload);
       continue;
     }

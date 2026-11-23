@@ -12,7 +12,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
   id-token: write
 
 jobs:
@@ -46,6 +45,8 @@ jobs:
           fi
 
       - name: Publish dist/* to gh-pages branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           mkdir -p .tmp/gh-pages
           cp -r dist/* .tmp/gh-pages/
@@ -57,8 +58,6 @@ jobs:
           git add -A
           git commit -m "chore(catalog): publish compiled catalog artifacts"
           git push --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages:gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish @agy-market/catalog to npm via OIDC on content change
         if: ${{ env.NPM_PUBLISH_ENABLED == 'true' }}
@@ -66,8 +65,3 @@ jobs:
           NPM_CONFIG_PROVENANCE: 'true'
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: node scripts/publish-catalog-npm.mjs
-
-      - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist

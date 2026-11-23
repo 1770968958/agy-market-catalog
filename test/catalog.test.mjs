@@ -5,7 +5,7 @@ import { gzipSync } from 'node:zlib';
 import { compileCatalogArtifacts } from '../scripts/build-catalog.mjs';
 import { evaluateSubmission } from '../scripts/check-submission.mjs';
 import { buildTrack2PluginRecord } from '../scripts/crawl-topics.mjs';
-import { createTarGzBuffer, inspectTarGzBuffer } from '../scripts/lib/tar-stream.mjs';
+import { createTarGzBuffer, inspectTarGzBuffer, parsePaxRecords } from '../scripts/lib/tar-stream.mjs';
 import { verifyBidirectionalNpmOwnership } from '../scripts/probe-npm.mjs';
 import { sanitizeSvgIcon } from '../scripts/sanitize-icon.mjs';
 import { evaluateRepoSyncUpdate } from '../scripts/sync-releases.mjs';
@@ -307,7 +307,7 @@ test('Track-2 crawler forces <owner>--<slug> scoped isolation and buildCatalogAr
   assert.equal(compiled.indexJson.plugins[0].forceScopedInstall, false);
   assert.equal(
     compiled.indexJson.plugins[0].media.iconUrl,
-    'https://raw.githubusercontent.com/azwosile/agy-market-catalog/gh-pages/icons/alice__prism-helper.svg',
+    'https://azwosile.github.io/agy-market-catalog/icons/alice__prism-helper.svg',
   );
   assert.equal(compiled.unverifiedIndexJson.plugins.length, 1);
   assert.equal(compiled.unverifiedIndexJson.plugins[0].forceScopedInstall, true);
@@ -446,4 +446,74 @@ test('Real-world plugin regressions: named hook groups, comment-safe asar detect
   });
   assert.equal(officialApproved.status, 'APPROVED');
   assert.equal(officialApproved.canonicalName, 'agy-market');
+});
+
+test('POSIX PAX extended header parser slices by UTF-8 byte length across multi-record Chinese paths', () => {
+  function encodePaxRecord(key, value) {
+    const suffix = ` ${key}=${value}\n`;
+    const suffixBytes = Buffer.byteLength(suffix, 'utf8');
+    let len = String(suffixBytes + 1).length + suffixBytes;
+    while (String(len).length + suffixBytes !== len) {
+      len = String(len).length + suffixBytes;
+    }
+    return Buffer.from(`${len}${suffix}`, 'utf8');
+  }
+
+  const utf8Path = 'gemini-neko-cockpit-1.2.0/双击安装观察窗补丁-超长中文路径测试目录/说明文档.md';
+  const filePayload = Buffer.from('# 猫娘观察台说明\nUTF-8 PAX verified!\n', 'utf8');
+  const paxPayload = Buffer.concat([
+    encodePaxRecord('mtime', '1732360000'),
+    encodePaxRecord('path', utf8Path),
+    encodePaxRecord('size', String(filePayload.length)),
+  ]);
+
+  const parsedAttrs = parsePaxRecords(paxPayload);
+  assert.equal(parsedAttrs.mtime, '1732360000');
+  assert.equal(parsedAttrs.path, utf8Path);
+  assert.equal(parsedAttrs.size, String(filePayload.length));
+  assert.ok(!parsedAttrs.path.includes('\n'));
+
+  // Also test full .tar.gz extraction through inspectTarGzBuffer with typeflag 'x' PAX header
+  function buildHeader(name, size, typeflag) {
+    const h = Buffer.alloc(512, 0);
+    h.write(name, 0, Math.min(100, Buffer.byteLength(name)), 'utf8');
+    h.write('0000644\0', 100, 'ascii');
+    h.write('0000000\0', 108, 'ascii');
+    h.write('0000000\0', 116, 'ascii');
+    h.write(`${size.toString(8).padStart(11, '0')}\0`, 124, 'ascii');
+    h.write('00000000000\0', 136, 'ascii');
+    h.fill(0x20, 148, 156);
+    h.write(typeflag, 156, 1, 'ascii');
+    h.write('ustar\0', 257, 6, 'ascii');
+    h.write('00', 263, 2, 'ascii');
+    let sum = 0;
+    for (let i = 0; i < 512; i++) sum += h[i];
+    h.write(sum.toString(8).padStart(6, '0'), 148, 6, 'ascii');
+    h[154] = 0;
+    h[155] = 0x20;
+    return h;
+  }
+  const pad512 = (b) => (b.length % 512 === 0 ? b : Buffer.concat([b, Buffer.alloc(512 - (b.length % 512), 0)]));
+
+  const manifestPayload = Buffer.from('{"name":"gemini-neko-cockpit","description":"PAX test"}', 'utf8');
+  const manifestPax = encodePaxRecord('path', 'gemini-neko-cockpit-1.2.0/plugin.json');
+  const rawTar = Buffer.concat([
+    buildHeader('PaxHeader/plugin.json', manifestPax.length, 'x'),
+    pad512(manifestPax),
+    buildHeader('truncated-plugin.json', manifestPayload.length, '0'),
+    pad512(manifestPayload),
+    buildHeader('PaxHeader/doc', paxPayload.length, 'x'),
+    pad512(paxPayload),
+    buildHeader('truncated-name', 0, '0'), // size overridden by PAX `size` record!
+    pad512(filePayload),
+    Buffer.alloc(1024, 0),
+  ]);
+
+  const inspected = inspectTarGzBuffer(gzipSync(rawTar));
+  assert.ok(inspected.files.has('plugin.json'));
+  assert.ok(inspected.files.has('双击安装观察窗补丁-超长中文路径测试目录/说明文档.md'));
+  assert.equal(
+    inspected.files.get('双击安装观察窗补丁-超长中文路径测试目录/说明文档.md').toString('utf8'),
+    filePayload.toString('utf8'),
+  );
 });

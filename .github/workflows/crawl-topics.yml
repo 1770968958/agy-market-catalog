@@ -26,3 +26,28 @@ jobs:
         run: |
           node scripts/crawl-topics.mjs
           node scripts/build-catalog.mjs
+
+      - name: Commit updated unverified-cache & sanitized Track-2 icons to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(crawl): update Track-2 unverified topic cache and icons"
+            git push origin HEAD:main
+          fi
+
+      - name: Publish dist/* to gh-pages branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mkdir -p .tmp/gh-pages
+          cp -r dist/* .tmp/gh-pages/
+          touch .tmp/gh-pages/.nojekyll
+          cd .tmp/gh-pages
+          git init -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore(catalog): publish Track-2 unverified-index and icons"
+          git push --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages:gh-pages

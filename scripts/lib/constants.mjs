@@ -9,8 +9,8 @@ export const MAX_TARBALL_BYTES = 100 * 1024 * 1024; // 100 MB
 export const MAX_RULE_FILE_BYTES = 24_000; // Antigravity per-rule ceiling
 
 export const DEFAULT_CATALOG_REPO_URL = 'https://github.com/azwosile/agy-market-catalog';
-export const DEFAULT_CATALOG_BASE_URL = 'https://raw.githubusercontent.com/azwosile/agy-market-catalog/gh-pages';
-export const DEFAULT_CATALOG_PAGES_URL = 'https://azwosile.github.io/agy-market-catalog';
+export const DEFAULT_CATALOG_BASE_URL = 'https://azwosile.github.io/agy-market-catalog';
+export const DEFAULT_CATALOG_RAW_URL = 'https://raw.githubusercontent.com/azwosile/agy-market-catalog/gh-pages';
 export const OFFICIAL_MARKET_CLIENT_REPO = 'azwosile/agy-market';
 
 export const PLUGIN_JSON_ALLOWED_KEYS = new Set([

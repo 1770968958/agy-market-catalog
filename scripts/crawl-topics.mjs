@@ -134,7 +134,9 @@ export async function crawlExperimentalTopics({ repoRoot = REPO_ROOT } = {}) {
   const seenRepoIds = new Set();
   const discoveredPlugins = [];
   const readmes = {};
+  const stateIconsDir = join(repoRoot, 'state', 'icons');
   const iconsDir = join(repoRoot, 'dist', 'icons');
+  mkdirSync(stateIconsDir, { recursive: true });
   mkdirSync(iconsDir, { recursive: true });
 
   for (const pushedWindow of buildShardedDateWindows()) {
@@ -189,8 +191,6 @@ export async function crawlExperimentalTopics({ repoRoot = REPO_ROOT } = {}) {
             readmes[built.pluginEntry.id] = built.readmeMarkdown;
           }
           if (built.iconArtifact) {
-            const stateIconsDir = join(repoRoot, 'state', 'icons');
-            mkdirSync(stateIconsDir, { recursive: true });
             const iconFile = `${built.pluginEntry.id}${built.iconArtifact.ext}`;
             writeFileSync(join(stateIconsDir, iconFile), built.iconArtifact.sanitizedBuffer);
             writeFileSync(join(iconsDir, iconFile), built.iconArtifact.sanitizedBuffer);

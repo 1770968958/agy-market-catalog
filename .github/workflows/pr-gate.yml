@@ -25,16 +25,68 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Safely extract data/plugins/*.yml from PR SHA via git archive
+      - name: Evaluate submission, lock state, and auto-merge or label pending:repo-age
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
           PR_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
         run: |
+          set -euo pipefail
+          PR_NUM=$(gh pr list --repo "$REPO" --state open --json number,headRefOid --jq ".[] | select(.headRefOid == \"$PR_HEAD_SHA\") | .number" | head -n 1)
+          if [ -z "$PR_NUM" ]; then
+            echo "No open PR matches head SHA $PR_HEAD_SHA; nothing to admit."
+            exit 0
+          fi
+
           git fetch origin "${PR_HEAD_SHA}" --depth=1
-          mkdir -p .tmp/pr-extract
-          git archive "${PR_HEAD_SHA}" -- data/plugins/ | tar -x -C .tmp/pr-extract
-          for f in .tmp/pr-extract/data/plugins/*.yml; do
-            [ -e "$f" ] || continue
-            cp "$f" data/plugins/
-            node scripts/check-submission.mjs --write-state "data/plugins/$(basename "$f")"
+          CHANGED_YMLS=$(git diff --name-only --diff-filter=AM origin/main "${PR_HEAD_SHA}" -- 'data/plugins/*.yml')
+          if [ -z "$CHANGED_YMLS" ]; then
+            echo "No added/modified data/plugins/*.yml entries in PR #$PR_NUM."
+            exit 0
+          fi
+
+          mkdir -p .tmp/pr-extract .tmp/gate-out
+          git archive "${PR_HEAD_SHA}" -- $CHANGED_YMLS | tar -x -C .tmp/pr-extract
+
+          PENDING_AGE=0
+          UNLOCK_NOTES=""
+          for rel in $CHANGED_YMLS; do
+            cp ".tmp/pr-extract/$rel" "$rel"
+            set +e
+            OUT=$(node scripts/check-submission.mjs --write-state "$rel" 2>&1)
+            CODE=$?
+            set -e
+            echo "$OUT"
+            if [ "$CODE" -eq 78 ]; then
+              PENDING_AGE=1
+              UNLOCK_AT=$(echo "$OUT" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{try{const j=JSON.parse(s.trim().split('\n').pop());console.log(j.unlockAtUtc||'soon')}catch{console.log('after 24h age threshold')}})")
+              UNLOCK_NOTES="${UNLOCK_NOTES}- \`${rel}\`: unlocks at **${UNLOCK_AT}**\n"
+            elif [ "$CODE" -ne 0 ]; then
+              gh pr comment "$PR_NUM" --repo "$REPO" --body "❌ **Track-1 Admission Gate Failed** for \`${rel}\`:\n\`\`\`\n${OUT}\n\`\`\`" || true
+              exit "$CODE"
+            fi
           done
+
+          if [ "$PENDING_AGE" -eq 1 ]; then
+            gh label create "pending: repo-age" --repo "$REPO" --color "FBCA04" --description "Awaiting 24h repository age gate" 2>/dev/null || true
+            gh pr edit "$PR_NUM" --repo "$REPO" --add-label "pending: repo-age"
+            gh pr comment "$PR_NUM" --repo "$REPO" --body "$(printf "⏳ **All static, tarball, and anti-collision checks passed!**\n\nThis repository is newer than 24 hours (\`MIN_AGE_DAYS = 1\`). \`regate.yml\` runs every 6 hours and will automatically re-verify and squash-merge once eligible:\n%b" "$UNLOCK_NOTES")"
+            exit 0
+          fi
+
+          mkdir -p .tmp/approved-state
+          cp -r state/* .tmp/approved-state/
+          git checkout -- .
+          git clean -fd data/plugins/
+
+          gh pr merge "$PR_NUM" --repo "$REPO" --squash
+          git pull --rebase origin main
+          cp -r .tmp/approved-state/* state/
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(admit): record ledger and release lock for PR #${PR_NUM}"
+            git push origin HEAD:main
+          fi
