@@ -1,0 +1,6 @@
+url: https://github.com/azwosile/agy-market
+pluginRoot: .
+category: developer-tools
+description:
+  zh: Google Antigravity 零 Token 损耗社区插件市场面板，支持双通道防篡改镜像加速、双层防冲突预检与一键安装更新。
+  en: Zero-token community plugin marketplace Sidecar & CLI for Google Antigravity with SHA-256 verified mirrors and two-layer collision protection.

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "entries": {
+    "agy-dart": {
+      "entrySlug": "zou172866__agy-dart",
+      "canonicalName": "agy-dart",
+      "repositoryId": 1465415390,
+      "ownerId": 295114258,
+      "repoFullName": "zou172866/agy-dart",
+      "pluginRoot": ".",
+      "status": "active",
+      "claimedSkills": [
+        "agy-dart"
+      ],
+      "claimedAgents": [],
+      "claimedMcpServers": [
+        "agy-dart_context",
+        "agy-dart_fast"
+      ],
+      "registeredAt": "2026-11-23T11:29:14.873Z"
+    },
+    "agy-market": {
+      "entrySlug": "azwosile__agy-market",
+      "canonicalName": "agy-market",
+      "repositoryId": 1468650761,
+      "ownerId": 103982769,
+      "repoFullName": "azwosile/agy-market",
+      "pluginRoot": ".",
+      "status": "active",
+      "claimedSkills": [
+        "agy-market"
+      ],
+      "claimedAgents": [],
+      "claimedMcpServers": [],
+      "registeredAt": "2026-11-23T11:32:50.740Z"
+    },
+    "agy-wallpaper-prism": {
+      "entrySlug": "azwosile__agy-wallpaper-prism",
+      "canonicalName": "agy-wallpaper-prism",
+      "repositoryId": 1467437597,
+      "ownerId": 103982769,
+      "repoFullName": "azwosile/agy-wallpaper-prism",
+      "pluginRoot": ".",
+      "status": "active",
+      "claimedSkills": [
+        "wallpaper-prism"
+      ],
+      "claimedAgents": [],
+      "claimedMcpServers": [],
+      "registeredAt": "2026-11-23T11:32:54.682Z"
+    },
+    "gemini-neko-cockpit": {
+      "entrySlug": "yunjuanyunshu114-byte__antigravity-observer",
+      "canonicalName": "gemini-neko-cockpit",
+      "repositoryId": 1459531455,
+      "ownerId": 346653287,
+      "repoFullName": "yunjuanyunshu114-byte/antigravity-observer",
+      "pluginRoot": ".",
+      "status": "active",
+      "claimedSkills": [
+        "gemini-neko-cockpit"
+      ],
+      "claimedAgents": [],
+      "claimedMcpServers": [],
+      "registeredAt": "2026-11-23T11:33:02.584Z"
+    }
+  }
+}
