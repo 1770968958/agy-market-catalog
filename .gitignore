@@ -1,0 +1,14 @@
+# Dependencies & build artifacts
+node_modules/
+dist/
+.cache/
+.scratch/
+*.tgz
+*.tar.gz
+
+# OS & logs
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
