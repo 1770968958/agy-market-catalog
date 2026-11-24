@@ -6,7 +6,7 @@
       "canonicalName": "agy-dart",
       "repositoryId": 1465415390,
       "ownerId": 295114258,
-      "repoFullName": "zou172866/agy-dart",
+      "repoFullName": "zou172866/Antigravity-agy-dart",
       "pluginRoot": ".",
       "status": "active",
       "claimedSkills": [
@@ -17,7 +17,10 @@
         "agy-dart_context",
         "agy-dart_fast"
       ],
-      "registeredAt": "2026-11-23T11:29:14.873Z"
+      "registeredAt": "2026-11-23T11:29:14.873Z",
+      "previousRepoFullNames": [
+        "zou172866/agy-dart"
+      ]
     },
     "agy-market": {
       "entrySlug": "azwosile__agy-market",
