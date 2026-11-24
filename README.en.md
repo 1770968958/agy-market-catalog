@@ -4,13 +4,20 @@
 
 **Zero-Backend GitOps Plugin Registry & Automated Indexing Engine for Google Antigravity**
 
-1-YAML Conflict-Free Submissions · Two-Layer Namespace Anti-Collision · Multilingual `README.zh-CN.md` Extraction · Track-2 `topic:antigravity-plugin` Discovery · 4-Layer Permissive Capability Scanner · Dual Global + China Mirror Delivery
+1-YAML Conflict-Free Submissions · Zero-PR Release Sync · Two-Layer Namespace Anti-Collision · Multilingual `README.zh-CN.md` Extraction · Track-2 `topic:antigravity-plugin` Discovery · 4-Layer Permissive Capability Scanner · Dual Global + China Mirror Delivery
 
-[简体中文](README.md) · **English** · [AGY Market Client](https://github.com/azwosile/agy-market) · [Architecture & CI Spec](AGENTS.md)
+[简体中文](./README.md) · **English** · **[📖 Submission Guide (简体中文)](./docs/SUBMISSION_GUIDE.md)** · [AGY Market Client](https://github.com/azwosile/agy-market) · [Architecture & CI Spec](./AGENTS.md)
 
 </div>
 
 ---
+
+> **🚀 Submit Your Plugin in 5 Minutes!**
+>
+> Read the full step-by-step **[📖 Plugin Submission Guide (`docs/SUBMISSION_GUIDE.md`, Simplified Chinese)](./docs/SUBMISSION_GUIDE.md)** with copy-pasteable `plugin.json`, `agy-market.json`, YAML templates, all 12 categories, packaging commands, and local pre-flight checks.
+>
+> - **Track 1 (Recommended — Curated Catalog)**: Submit **1 flat YAML PR** once → automated CI admission & squash-merge → **future SemVer releases sync automatically every 30m with 0 PRs**.
+> - **Track 2 (Experimental — Zero-PR Auto-Discovery)**: Add GitHub Topic `antigravity-plugin` and publish a SemVer Release → indexed every 6h with automatic `<owner>--<slug>` collision-safe isolation.
 
 > This repository ([`azwosile/agy-market-catalog`](https://github.com/azwosile/agy-market-catalog)) powers the zero-backend plugin registry for **[AGY Market](https://github.com/azwosile/agy-market)**, delivering compiled static feeds via **GitHub Pages** (`https://azwosile.github.io/agy-market-catalog/index.json`, with `gh-pages` raw fallback at `https://raw.githubusercontent.com/azwosile/agy-market-catalog/gh-pages/index.json`) and the OIDC-attested pure-JSON **`@agy-market/catalog`** npm mirror transport package (`registry.npmmirror.com` / Tencent Cloud).
 
@@ -20,16 +27,18 @@
 
 | ID | Canonical Name | Version | Repository | Capability Badges |
 | :--- | :--- | :--- | :--- | :--- |
-| `azwosile__agy-market` | `agy-market` | `1.0.0` | [`azwosile/agy-market`](https://github.com/azwosile/agy-market) | `sidecar-ui` |
-| `azwosile__agy-wallpaper-prism` | `agy-wallpaper-prism` | `2.0.3` | [`azwosile/agy-wallpaper-prism`](https://github.com/azwosile/agy-wallpaper-prism) | `sidecar-ui`, `host-enhancement` (`cdp`) |
+| `azwosile__agy-market` | `agy-market` | `1.1.0` | [`azwosile/agy-market`](https://github.com/azwosile/agy-market) | `sidecar-ui` |
+| `azwosile__agy-wallpaper-prism` | `agy-wallpaper-prism` | `2.0.5` | [`azwosile/agy-wallpaper-prism`](https://github.com/azwosile/agy-wallpaper-prism) | `sidecar-ui`, `host-enhancement` (`cdp`) |
 | `yunjuanyunshu114-byte__antigravity-observer` | `gemini-neko-cockpit` | `1.2.0` | [`yunjuanyunshu114-byte/antigravity-observer`](https://github.com/yunjuanyunshu114-byte/antigravity-observer) | `sidecar-ui`, `host-enhancement` (`app-asar`) |
-| `zou172866__agy-dart` | `agy-dart` | `1.5.0` | [`zou172866/agy-dart`](https://github.com/zou172866/agy-dart) | `global-rules`, `sidecar-ui`, `mcp-stdio`, `lifecycle-hooks` |
+| `zou172866__agy-dart` | `agy-dart` | `1.7.0` | [`zou172866/agy-dart`](https://github.com/zou172866/agy-dart) | `global-rules`, `sidecar-ui`, `mcp-stdio`, `lifecycle-hooks` |
 
 ---
 
 ## 🚀 Submitting a Plugin (Track-1 Single-YAML Pipeline)
 
-Track 1 uses **one flat YAML file per plugin** for conflict-free concurrent Pull Requests and supports language-agnostic plugins (pure Markdown `skills/`/`rules/`/`agents/`, Sidecar UIs, and Python/Rust/Go/Node MCP bundles) — **no `package.json` or npm publication required**.
+> For full copy-paste templates, packaging recipes, and troubleshooting, see **[📖 `docs/SUBMISSION_GUIDE.md`](./docs/SUBMISSION_GUIDE.md)**.
+
+Track 1 uses **one flat YAML file per plugin** for conflict-free concurrent Pull Requests and supports language-agnostic plugins (pure Markdown `skills/`/`rules/`/`agents/`, Sidebar panels, and Python/Rust/Go/Node MCP bundles) — **no `package.json` or npm publication required**.
 
 ### 1. Prepare Your Repository & Release
 1. **Anti-Spam Cold-Start Threshold**: Repository must be **>= 1 day old (`MIN_AGE_DAYS = 1`)** with **>= 3 commits having distinct Git tree hashes (`MIN_NON_EMPTY_COMMITS = 3`)**.
@@ -148,9 +157,10 @@ node scripts/sync-releases.mjs --offline
 
 ---
 
-## 📚 Architecture & CI Pipeline Rules
+## 📚 Guides & Architecture
 
-Read **[`AGENTS.md`](./AGENTS.md)** and **[`../AGENTS.md`](../AGENTS.md)** before modifying scripts, schemas, or GitHub Actions workflows.
+- **[📖 Plugin Submission Guide (`docs/SUBMISSION_GUIDE.md`)](./docs/SUBMISSION_GUIDE.md)** — Full step-by-step author tutorial, templates & FAQ (Simplified Chinese)
+- Read **[`AGENTS.md`](./AGENTS.md)** and **[`../AGENTS.md`](../AGENTS.md)** before modifying scripts, schemas, or GitHub Actions workflows.
 
 ## 📄 License
 

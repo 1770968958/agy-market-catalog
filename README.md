@@ -2,15 +2,23 @@
 
 # AGY Market Catalog · 反重力插件目录 (`agy-market-catalog`)
 
-**零后端 GitOps 插件注册表与自动化收录引擎**
+**Google Antigravity 零后端 GitOps 官方插件目录与自动化收录引擎**
 
-单文件 YAML 零冲突提交 · 双层命名防碰撞与防 RepoJacking · 多语言中文 README 自动提取 · Track 2 `topic:antigravity-plugin` 自动发现 · 4 层宽容静态能力扫描 · 双通道全球 + 中国镜像分发
+单文件 YAML 零冲突提交 · 后续发版 0 PR 自动同步 · 双层命名防碰撞与防 RepoJacking · 多语言中文 README 自动提取 · Track 2 `topic:antigravity-plugin` 自动发现 · 4 层宽容静态能力扫描 · 双通道全球 + 中国镜像分发
 
-**简体中文** · [English](README.en.md) · [AGY Market 客户端](https://github.com/azwosile/agy-market) · [架构与 CI 规范](AGENTS.md)
+**简体中文** · [English](./README.en.md) · **[📖 申请收录插件完整教程](./docs/SUBMISSION_GUIDE.md)** · [AGY Market 客户端](https://github.com/azwosile/agy-market) · [架构与 CI 规范](./AGENTS.md)
 
 </div>
 
 ---
+
+> **🚀 插件作者快速入口 — 5 分钟上架你的 Antigravity 插件！**
+>
+> 👉 点击阅读 **[📖 申请收录插件完整教程 (`docs/SUBMISSION_GUIDE.md`)](./docs/SUBMISSION_GUIDE.md)**（含可直接复制粘贴的 `plugin.json`、`agy-market.json`、单文件 YAML 模板、12 个分类枚举表、打包命令与本地自检脚本）。
+>
+> - **方式一（推荐 · Track 1 官方认证目录）**：提交 **1 个 YAML 文件 PR** → 全自动门禁校验与自动合并 → **后续每次发版 0 PR 每 30 分钟自动同步**！
+> - **方式二（Track 2 实验源免 PR）**：给公开 GitHub 仓库添加 Topic `antigravity-plugin` 并发布正式 SemVer Release → 每 6 小时自动发现，采用 `<owner>--<slug>` 安全隔离安装。
+> - **语言无关 & 欢迎宿主增强**：纯 Markdown（`skills/` / `rules/` / `agents/`）、Sidebar 侧边栏、Python / Rust / Go / Node MCP 均**无需发布 npm**；CDP 与 `app.asar` 宿主界面增强插件**100% 欢迎收录**。
 
 > 本仓库（[`azwosile/agy-market-catalog`](https://github.com/azwosile/agy-market-catalog)）是 **[AGY Market](https://github.com/azwosile/agy-market)** 的官方零后端目录注册表。
 >
@@ -22,21 +30,23 @@
 
 | 目录 ID | 规范名 (`canonicalName`) | 版本 | GitHub 仓库 | 能力徽章 |
 | :--- | :--- | :--- | :--- | :--- |
-| `azwosile__agy-market` | `agy-market` | `1.0.0` | [`azwosile/agy-market`](https://github.com/azwosile/agy-market) | `sidecar-ui` |
-| `azwosile__agy-wallpaper-prism` | `agy-wallpaper-prism` | `2.0.3` | [`azwosile/agy-wallpaper-prism`](https://github.com/azwosile/agy-wallpaper-prism) | `sidecar-ui`, `host-enhancement` (`cdp`) |
+| `azwosile__agy-market` | `agy-market` | `1.1.0` | [`azwosile/agy-market`](https://github.com/azwosile/agy-market) | `sidecar-ui` |
+| `azwosile__agy-wallpaper-prism` | `agy-wallpaper-prism` | `2.0.5` | [`azwosile/agy-wallpaper-prism`](https://github.com/azwosile/agy-wallpaper-prism) | `sidecar-ui`, `host-enhancement` (`cdp`) |
 | `yunjuanyunshu114-byte__antigravity-observer` | `gemini-neko-cockpit` | `1.2.0` | [`yunjuanyunshu114-byte/antigravity-observer`](https://github.com/yunjuanyunshu114-byte/antigravity-observer) | `sidecar-ui`, `host-enhancement` (`app-asar`) |
-| `zou172866__agy-dart` | `agy-dart` | `1.5.0` | [`zou172866/agy-dart`](https://github.com/zou172866/agy-dart) | `global-rules`, `sidecar-ui`, `mcp-stdio`, `lifecycle-hooks` |
+| `zou172866__agy-dart` | `agy-dart` | `1.7.0` | [`zou172866/agy-dart`](https://github.com/zou172866/agy-dart) | `global-rules`, `sidecar-ui`, `mcp-stdio`, `lifecycle-hooks` |
 
 ---
 
 ## 🚀 提交你的插件（Track 1 单文件 YAML 提交流程）
 
-Track 1 采用 **「一插件一 YAML 文件」** 的零冲突提交设计，支持纯 Markdown（`skills/` / `rules/` / `agents/`）、Sidecar UI 以及 Python / Rust / Go / Node 等任意语言插件——**完全无需发布到 npm，也无需包含 `package.json`**。
+> 完整图文与复制即用模板请直接查阅 **[📖 申请收录插件完整教程 (`docs/SUBMISSION_GUIDE.md`)](./docs/SUBMISSION_GUIDE.md)**。
+
+Track 1 采用 **「一插件一 YAML 文件」** 的零冲突提交设计，支持纯 Markdown（`skills/` / `rules/` / `agents/`）、Sidebar 侧边栏界面以及 Python / Rust / Go / Node 等任意语言插件——**完全无需发布到 npm，也无需包含 `package.json`**。
 
 ### 第 1 步：准备插件仓库与 GitHub Release
 1. 仓库需满足防垃圾冷启动门槛：**创建时长 >= 1 天（`MIN_AGE_DAYS = 1`）** 且包含 **>= 3 个不同 Git Tree 哈希的非空提交（`MIN_NON_EMPTY_COMMITS = 3`）**。
 2. 插件根目录（`pluginRoot`）包含符合 Antigravity 严格 10 字段白名单的 `plugin.json`（允许键：`name`、`displayName`、`description`、`version`、`logo`、`author`、`homepage`、`repository`、`suggestedPrompts`、`disabled`；`logo` 须为包内相对路径，不可使用 `https://`）。
-3. 发布至少一个 SemVer GitHub Release，并附带预构建完成的 `.tar.gz` 或 `.tgz` 压缩包（零构建步骤的纯声明式/自包含插件也支持直接使用 SemVer Tag 归档）。
+3. 发布至少一个正式 SemVer GitHub Release，并附带预构建完成的 `.tar.gz` 或 `.tgz` 压缩包（零构建步骤的纯声明式/自包含插件也支持直接使用 SemVer Tag 归档）。
 4. （可选）在仓库根目录或 `pluginRoot` 添加 `agy-market.json` 伴随清单，声明多分类（`categories`）、标签（`tags`）、截图（`screenshots`）、平台（`platforms`）、自定义资产名（`releaseAsset`）与更新保留路径（`preservePaths`）。
 
 ### 第 2 步：新增单个 YAML 文件并提交 PR
@@ -66,7 +76,7 @@ description:
 
 ## 🌐 多语言中文 README 支持（`README.zh-CN.md`）
 
-为让用户在 **AGY Market** 侧栏详情抽屉中开箱即阅简体中文文档，本仓库的压缩包检验器（`scripts/validate-plugin-tarball.mjs`）与目录编译器（`scripts/build-catalog.mjs`）原生支持多语言 README 自动提取：
+为让用户在 **AGY Market** 侧边栏详情抽屉中开箱即阅简体中文文档，本仓库的压缩包检验器（`scripts/validate-plugin-tarball.mjs`）与目录编译器（`scripts/build-catalog.mjs`）原生支持多语言 README 自动提取：
 
 ### 自动探测优先级
 - **简体中文文档（`readmeZhMarkdown`）**：按顺序探测 `pluginRoot`（及压缩包根目录兜底）中的：
@@ -154,7 +164,7 @@ npm run build
 # 运行防碰撞、RepoJacking、Tar/PAX 安全、多语言 README 提取与 4 层能力扫描单元测试
 npm test
 
-# （维护者）手动验证单个插件提交文件
+# （维护者 / 作者自检）模拟完整 Tier-2 门禁验证单个插件提交文件
 node scripts/check-submission.mjs data/plugins/owner__repo.yml
 
 # （维护者）离线演练同步脚本
@@ -163,9 +173,10 @@ node scripts/sync-releases.mjs --offline
 
 ---
 
-## 📚 架构与流水线规范
+## 📚 教程与架构规范
 
-修改脚本、Schema 或 GitHub Actions 工作流前，请先阅读 **[`AGENTS.md`](./AGENTS.md)** 与 **[`../AGENTS.md`](../AGENTS.md)**。
+- **[📖 申请收录插件完整教程 (`docs/SUBMISSION_GUIDE.md`)](./docs/SUBMISSION_GUIDE.md)** — 插件作者一步步收录指南、模板与 FAQ
+- **[`AGENTS.md`](./AGENTS.md)** 与 **[`../AGENTS.md`](../AGENTS.md)** — 修改脚本、Schema 或 GitHub Actions 工作流前必读
 
 ## 📄 许可证
 
