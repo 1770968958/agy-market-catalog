@@ -7,7 +7,7 @@
 //   - PERMISSIVELY PROFILE legitimate Antigravity capabilities (including CDP & `app.asar` host enhancements ->
 //     gentle `host-enhancement` badge `💡 宿主界面增强`, NEVER blocked or penalized).
 
-import { GENERIC_MCP_SERVER_NAMES, MAX_RULE_FILE_BYTES, parseJsonc } from './lib/constants.mjs';
+import { GENERIC_MCP_SERVER_NAMES, MAX_RULE_FILE_BYTES, normalizeRelPosix, parseJsonc } from './lib/constants.mjs';
 
 const INVISIBLE_SMUGGLING_RE = /[\u{E0000}-\u{E007F}\u202A-\u202E\u2066-\u2069]/u;
 
@@ -19,6 +19,65 @@ const ASAR_DETECTION_RE = /\bapp\.asar\b|asar\.extractAll|asar\.createPackage/;
 const NON_RUNTIME_TEST_PATH_RE = /(?:^|\/)(?:test|tests|__tests__)\/|\.(?:test|spec)\.[a-z0-9]+$/i;
 
 const HOOK_META_KEYS = new Set(['$schema', 'version', 'description', 'enabled']);
+
+const ANTIGRAVITY_HOOK_EVENTS = new Set([
+  'SessionStart',
+  'SessionEnd',
+  'PreInvocation',
+  'PostInvocation',
+  'PreToolUse',
+  'PostToolUse',
+  'Stop',
+  'SubagentStart',
+  'SubagentStop',
+  'UserPromptSubmit',
+  'PreCompact',
+  'Notification',
+]);
+
+function isValidSidecarManifestObject(obj) {
+  if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return false;
+  const hasCommand = typeof obj.command === 'string' && obj.command.trim().length > 0;
+  const hasUiConfig = Boolean(obj.ui_config && typeof obj.ui_config === 'object');
+  const hasWebUi = obj.has_web_ui === true;
+  return hasCommand || hasUiConfig || hasWebUi;
+}
+
+function inspectRootSidecarsJson(rawBuf, pluginFilesMap) {
+  const parsed = parseJsonc(rawBuf.toString('utf8'));
+  const entries = Array.isArray(parsed)
+    ? parsed
+    : Array.isArray(parsed?.sidecars)
+      ? parsed.sidecars
+      : [];
+  for (const item of entries) {
+    if (typeof item === 'string') {
+      const rel = normalizeRelPosix(item);
+      if (!rel || rel === '.' || rel.includes('..') || rel.startsWith('/')) continue;
+      const target = rel.toLowerCase().endsWith('.json') ? rel : `${rel}/sidecar.json`;
+      const targetBuf = pluginFilesMap.get(target);
+      if (!targetBuf) continue;
+      const sc = parseJsonc(targetBuf.toString('utf8'));
+      if (isValidSidecarManifestObject(sc)) return true;
+    } else if (item && typeof item === 'object' && !Array.isArray(item)) {
+      const relRef = String(
+        item.sidecarJson || item.manifest || item.config || item.path || item.dir || item.folder || '',
+      ).trim();
+      if (relRef && !item.ui_config && !item.command && !item.has_web_ui) {
+        const rel = normalizeRelPosix(relRef);
+        if (!rel || rel === '.' || rel.includes('..') || rel.startsWith('/')) continue;
+        const target = rel.toLowerCase().endsWith('.json') ? rel : `${rel}/sidecar.json`;
+        const targetBuf = pluginFilesMap.get(target);
+        if (!targetBuf) continue;
+        const sc = parseJsonc(targetBuf.toString('utf8'));
+        if (isValidSidecarManifestObject(sc)) return true;
+      } else if (isValidSidecarManifestObject(item)) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
 
 function stripMarkdownCodeExamples(mdText) {
   // Strip fenced code blocks (```...``` or ~~~...~~~) and single-line inline code spans (`...`)
@@ -163,6 +222,9 @@ export function scanPluginCapabilities(pluginFilesMap, { pluginName = '' } = {})
   let hasMcpRemote = false;
   let hasLifecycleHooks = false;
   let hasSkillsOrAgents = false;
+  let nonEmptySkillsCount = 0;
+  let nonEmptyAgentsCount = 0;
+  let nonEmptyRulesCount = 0;
 
   const mcpServers = [];
   const mcpRawKeys = [];
@@ -189,9 +251,12 @@ export function scanPluginCapabilities(pluginFilesMap, { pluginName = '' } = {})
         );
       }
       checkRulesExfiltration(relPath, text);
+      if (text.trim().length > 0) {
+        nonEmptyRulesCount += 1;
+      }
     }
 
-    // 2. Skills scan (`skills/<skill>/SKILL.md`)
+    // 2. Skills scan (`skills/<skill>/SKILL.md` & nested smuggling check)
     const skillMatch = /^skills\/([^/]+)\/SKILL\.md$/.exec(relPath);
     if (skillMatch) {
       hasSkillsOrAgents = true;
@@ -202,12 +267,22 @@ export function scanPluginCapabilities(pluginFilesMap, { pluginName = '' } = {})
           `ERR_INVISIBLE_PROMPT_INJECTION: Disallowed Unicode Tag or bidi override characters in "${relPath}"`,
         );
       }
+      if (text.trim().length > 0) {
+        nonEmptySkillsCount += 1;
+      }
       const fmName = parseSkillFrontmatterName(text);
       claimedSkills.push({ dir: skillDir, frontmatterName: fmName || skillDir });
+    } else if (/^skills\/.+\/SKILL\.md$/i.test(relPath)) {
+      const text = buf.toString('utf8');
+      if (INVISIBLE_SMUGGLING_RE.test(text)) {
+        throw new Error(
+          `ERR_INVISIBLE_PROMPT_INJECTION: Disallowed Unicode Tag or bidi override characters in "${relPath}"`,
+        );
+      }
     }
 
     // 3. Agents scan (`agents/<agent>.md`)
-    const agentMatch = /^agents\/([^/]+)\.md$/.exec(relPath);
+    const agentMatch = /^agents\/([^/]+)\.md$/i.exec(relPath);
     if (agentMatch) {
       hasSkillsOrAgents = true;
       const agentName = agentMatch[1];
@@ -217,13 +292,20 @@ export function scanPluginCapabilities(pluginFilesMap, { pluginName = '' } = {})
           `ERR_INVISIBLE_PROMPT_INJECTION: Disallowed Unicode Tag or bidi override characters in "${relPath}"`,
         );
       }
+      if (text.trim().length > 0) {
+        nonEmptyAgentsCount += 1;
+      }
       claimedAgents.push(agentName);
     }
 
-    // 4. Sidecar UI (`sidecars/<id>/sidecar.json`)
+    // 4. Sidecar UI (`sidecars/<id>/sidecar.json` & root `sidecars.json`)
     if (/^sidecars\/[^/]+\/sidecar\.json$/.test(relPath)) {
       const parsed = parseJsonc(buf.toString('utf8'));
-      if (parsed && typeof parsed === 'object') {
+      if (isValidSidecarManifestObject(parsed)) {
+        hasSidecarUi = true;
+      }
+    } else if (relPath === 'sidecars.json') {
+      if (inspectRootSidecarsJson(buf, pluginFilesMap)) {
         hasSidecarUi = true;
       }
     }
@@ -254,7 +336,6 @@ export function scanPluginCapabilities(pluginFilesMap, { pluginName = '' } = {})
 
     // 6. Lifecycle Hooks (`hooks.json` — supports Antigravity named hook groups, `{ hooks: {...} }`, & flat maps)
     if (relPath === 'hooks.json') {
-      hasLifecycleHooks = true;
       const parsed = parseJsonc(buf.toString('utf8'));
       if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
         for (const [topKey, topVal] of Object.entries(parsed)) {
@@ -272,6 +353,9 @@ export function scanPluginCapabilities(pluginFilesMap, { pluginName = '' } = {})
           }
         }
       }
+      if (hookEvents.size > 0) {
+        hasLifecycleHooks = true;
+      }
     }
 
     // 7. Permissive Host-Enhancement Profiling (CDP & app.asar — strip comments & skip non-runtime test suites!)
@@ -288,6 +372,17 @@ export function scanPluginCapabilities(pluginFilesMap, { pluginName = '' } = {})
 
   const rulesEstimatedTokens = hasRules ? Math.ceil(totalRuleBytes / 4) : 0;
   const hostEnhancementKind = [...hostEnhancementKinds].sort();
+  const hasAntigravityHookEvent = [...hookEvents].some((ev) => ANTIGRAVITY_HOOK_EVENTS.has(ev));
+  const hasMcp = hasMcpStdio || hasMcpRemote;
+  const hasAnyComponent =
+    nonEmptySkillsCount > 0 ||
+    nonEmptyAgentsCount > 0 ||
+    nonEmptyRulesCount > 0 ||
+    hasMcp ||
+    hasSidecarUi ||
+    hookEvents.size > 0;
+  const hasStrongSignal =
+    nonEmptySkillsCount > 0 || hasMcp || hasSidecarUi || hasAntigravityHookEvent;
 
   const isPureDeclarative =
     hasSkillsOrAgents &&
@@ -322,6 +417,17 @@ export function scanPluginCapabilities(pluginFilesMap, { pluginName = '' } = {})
       claimedAgents: claimedAgents.sort(),
       mcpRawKeys,
       genericMcpViolations,
+      signals: {
+        hasSkill: nonEmptySkillsCount > 0,
+        hasAgent: nonEmptyAgentsCount > 0,
+        hasRule: nonEmptyRulesCount > 0,
+        hasMcp,
+        hasSidecar: hasSidecarUi,
+        hasHooks: hookEvents.size > 0,
+        hasAntigravityHookEvent,
+        hasAnyComponent,
+        hasStrongSignal,
+      },
     },
   };
 }

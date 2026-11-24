@@ -6,7 +6,7 @@
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { DEFAULT_CATALOG_BASE_URL, toScopedPluginName } from './lib/constants.mjs';
+import { DEFAULT_CATALOG_BASE_URL, normalizeRelPosix, toScopedPluginName } from './lib/constants.mjs';
 import { validateEntriesDirectory } from './validate-entries.mjs';
 import { containsChineseCjk, isPredominantlyChinese } from './validate-plugin-tarball.mjs';
 
@@ -133,13 +133,47 @@ export function compileCatalogArtifacts({
     }
   }
 
-  const track1RepoIds = new Set(verifiedPlugins.map((p) => p.repository.repositoryId));
-  const unverifiedPlugins = (unverifiedCache.plugins || [])
-    .filter((p) => !track1RepoIds.has(p.repository?.repositoryId))
-    .map((p) => ({
+  const track1Ids = new Set(verifiedPlugins.map((p) => p.id));
+  const track1RepoRoots = new Set(
+    verifiedPlugins
+      .filter((p) => Number(p.repository?.repositoryId) > 0)
+      .map((p) => `${p.repository.repositoryId}:${normalizeRelPosix(p.repository?.pluginRoot || '.')}`),
+  );
+  const track1RepoUrlRoots = new Set(
+    verifiedPlugins
+      .filter((p) => p.repository?.url)
+      .map(
+        (p) =>
+          `${String(p.repository.url).toLowerCase().replace(/\/+$/, '')}:${normalizeRelPosix(p.repository?.pluginRoot || '.')}`,
+      ),
+  );
+  const seenUnverifiedIds = new Set();
+  const seenUnverifiedRepoRoots = new Set();
+  const unverifiedPlugins = [];
+  for (const p of unverifiedCache.plugins || []) {
+    if (!p || !p.id) continue;
+    const normRoot = normalizeRelPosix(p.repository?.pluginRoot || '.');
+    const repoId = Number(p.repository?.repositoryId || 0);
+    const repoRootKey = repoId > 0 ? `${repoId}:${normRoot}` : '';
+    const repoUrlRootKey = p.repository?.url
+      ? `${String(p.repository.url).toLowerCase().replace(/\/+$/, '')}:${normRoot}`
+      : '';
+    if (track1Ids.has(p.id)) continue;
+    if (repoRootKey && track1RepoRoots.has(repoRootKey)) continue;
+    if (repoUrlRootKey && track1RepoUrlRoots.has(repoUrlRootKey)) continue;
+    if (seenUnverifiedIds.has(p.id)) continue;
+    if (repoRootKey && seenUnverifiedRepoRoots.has(repoRootKey)) continue;
+    seenUnverifiedIds.add(p.id);
+    if (repoRootKey) seenUnverifiedRepoRoots.add(repoRootKey);
+    unverifiedPlugins.push({
       ...p,
+      repository: {
+        ...p.repository,
+        pluginRoot: normRoot,
+      },
       forceScopedInstall: true,
-    }));
+    });
+  }
 
   const indexJson = {
     schemaVersion: 1,

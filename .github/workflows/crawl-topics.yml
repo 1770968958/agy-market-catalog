@@ -1,4 +1,4 @@
-name: Track 2 — Topic Discovery Crawler (Every 6h)
+name: Track 2 — Multi-Source & Aggregator Discovery Crawler (Every 6h)
 
 on:
   schedule:
@@ -20,20 +20,20 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Crawl topic:antigravity-plugin & rebuild unverified-index.json
+      - name: Crawl multi-source GitHub topics, code signals & aggregators and rebuild catalog
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.CATALOG_CRAWLER_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
           node scripts/crawl-topics.mjs
           node scripts/build-catalog.mjs
 
-      - name: Commit updated unverified-cache & sanitized Track-2 icons to main
+      - name: Commit updated Track-2 cache, negative cache & sanitized icons to main
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add state/
           if ! git diff --cached --quiet; then
-            git commit -m "chore(crawl): update Track-2 unverified topic cache and icons"
+            git commit -m "chore(crawl): update Track-2 multi-source cache, negative cache and icons"
             git push origin HEAD:main
           fi
 

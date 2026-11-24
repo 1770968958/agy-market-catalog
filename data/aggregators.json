@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "aggregators": [
+    {
+      "id": "bitq-m__awesome-antigravity-plugins",
+      "repo": "biTQ-m/awesome-antigravity-plugins",
+      "kind": "awesome-list",
+      "files": [
+        "README.md"
+      ],
+      "scanSubdirs": false,
+      "enabled": true
+    },
+    {
+      "id": "wllzhang__awesome-antigravity-tools",
+      "repo": "wllzhang/awesome-antigravity-tools",
+      "kind": "json-index",
+      "files": [
+        "data/tools.json",
+        "README.md"
+      ],
+      "scanSubdirs": false,
+      "enabled": true
+    },
+    {
+      "id": "smartworldarafath__google_antigravity_plugins",
+      "repo": "smartworldarafath/Google_Antigravity_Plugins",
+      "kind": "monorepo",
+      "files": [
+        "plugins.json",
+        "marketplace.json"
+      ],
+      "subdirGlobs": [
+        "plugins/*"
+      ],
+      "maxPlugins": 80,
+      "scanSubdirs": true,
+      "enabled": true
+    },
+    {
+      "id": "xinghaix__antigravity-plugins",
+      "repo": "xinghaix/antigravity-plugins",
+      "kind": "monorepo",
+      "files": [
+        "registry.json"
+      ],
+      "subdirGlobs": [
+        "plugins/*"
+      ],
+      "maxPlugins": 30,
+      "scanSubdirs": true,
+      "enabled": true
+    },
+    {
+      "id": "realuu__antigravity-plugins",
+      "repo": "Realuu/antigravity-plugins",
+      "kind": "monorepo",
+      "subdirGlobs": [
+        ".agents/plugins/*"
+      ],
+      "maxPlugins": 30,
+      "scanSubdirs": true,
+      "enabled": true
+    }
+  ]
+}

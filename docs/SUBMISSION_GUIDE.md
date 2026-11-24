@@ -184,7 +184,7 @@ gh release create v1.0.0 my-agy-plugin.tar.gz --title "v1.0.0" --notes "Initial 
 
 > **⚠️ 两条打包红线（务必留意）**：
 > 1. 压缩包上限 **`100 MB`**（压缩体积与解压体积均受限），**严禁包含符号链接（symlink）、硬链接（hardlink）、绝对路径或 `..` 路径穿越**（Windows 下 Antigravity 会静默跳过符号链接插件，CI 会直接抛出 `ERR_TAR_SYMLINK_FORBIDDEN`）。
-> 2. **已发布的 SemVer Tag 不可变**：被目录锁定后，**切勿**对旧 Tag 执行 `git push --force` 或删除后重传不同内容的同名资产，否则会触发供应链防篡改保护 **`TAG_MUTATION_BLOCKED`**。需要修复问题时，直接发一个新小版本（如 `v1.0.1`）即可！
+> 2. **已发布的 SemVer Tag 不可变**：被目录锁定后，**切勿**对旧 Tag 执行 `git push --force` 或删除后重传不同内容的同名资产，否则会触发供应链完整性保护 **`TAG_MUTATION_BLOCKED`**。需要修复问题时，直接发一个新小版本（如 `v1.0.1`）即可！
 
 ---
 
@@ -341,7 +341,7 @@ node scripts/check-submission.mjs data/plugins/<owner>__<repo>.yml
 
 #### 离线预检你本地刚打包好的 `.tar.gz` 压缩包
 
-甚至在发布 GitHub Release 之前，就可以直接调用目录的校验脚本离线体检你的本地归档（检查 10 字段 `plugin.json`、图标、能力徽章、自包含状态以及中英文 README 是否成功命中）：
+甚至在发布 GitHub Release 之前，就可以直接调用目录的校验脚本离线校验你的本地归档（检查 10 字段 `plugin.json`、图标、能力徽章、自包含状态以及中英文 README 是否成功命中）：
 
 ```bash
 node --input-type=module -e "
