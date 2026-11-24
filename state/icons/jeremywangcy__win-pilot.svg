@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Win-Pilot">
+  <title>Win-Pilot</title>
+  <!--
+    A deep ink tile with a cool highlight, a white application window and a
+    DeepSeek-blue pointer that breaks out of the window's corner: "an agent
+    operating a Windows app". The pointer carries an ink outline the same
+    colour as the tile, so where it overlaps the frame it cuts a clean gap and
+    stays legible down to 16 px. The tile is self-contained, so the mark reads
+    on light and dark surfaces alike.
+
+      tile     #1C2333 -> #0A0D14
+      window   #FFFFFF (title bar dots at reduced opacity)
+      pointer  #8FB0FF -> #4D6BFE
+  -->
+  <defs>
+    <linearGradient id="wp-tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1C2333"/>
+      <stop offset="1" stop-color="#0A0D14"/>
+    </linearGradient>
+    <radialGradient id="wp-glow" cx="0.72" cy="0.78" r="0.55">
+      <stop offset="0" stop-color="#4D6BFE" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#4D6BFE" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wp-pointer" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0" stop-color="#8FB0FF"/>
+      <stop offset="1" stop-color="#4D6BFE"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="url(#wp-tile)"/>
+  <rect width="512" height="512" rx="112" fill="url(#wp-glow)"/>
+  <rect x="6" y="6" width="500" height="500" rx="106" fill="none" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="4"/>
+
+  <!-- Application window -->
+  <rect x="92" y="104" width="292" height="248" rx="40" fill="none" stroke="#FFFFFF" stroke-width="28"/>
+  <path d="M92 178 H384" stroke="#FFFFFF" stroke-width="22"/>
+  <circle cx="140" cy="141" r="11" fill="#FFFFFF"/>
+  <circle cx="176" cy="141" r="11" fill="#FFFFFF" fill-opacity="0.55"/>
+  <circle cx="212" cy="141" r="11" fill="#FFFFFF" fill-opacity="0.3"/>
+
+  <!-- Pointer, outlined in tile ink so it cuts through the frame -->
+  <path d="M276 236 L276 424 L322 380 L354 450 L398 430 L366 362 L430 362 Z"
+        fill="url(#wp-pointer)" stroke="#0A0D14" stroke-width="26" stroke-linejoin="round" paint-order="stroke"/>
+</svg>

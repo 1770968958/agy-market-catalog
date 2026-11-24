@@ -1,4 +1,3113 @@
 {
   "schemaVersion": 1,
-  "entries": {}
+  "entries": {
+    "2501136589/antigravity-cn": {
+      "repositoryId": 1344631279,
+      "headSha": "9572a3c74e966206a72cb46d0e1e2f9ebb751f4a",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "47thtechcorner/raycodes_i-have-adhd": {
+      "repositoryId": 1364974780,
+      "headSha": "07bce0b65544df7fab00686191e2ab3793499158",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "773archer/dsh-deepseek-mcp": {
+      "repositoryId": 1467207434,
+      "headSha": "46bb03c65376c51a4583c9caaf2e3661d0be69bc",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "a-cepheus/unified-memory-antigravity": {
+      "repositoryId": 1469878388,
+      "headSha": "120e0a8318d4116e30e781da1760a55323038a9b",
+      "reason": "ERR_UNBUNDLED_NPM_DEPS",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "a1lane/a1lane-mcp": {
+      "repositoryId": 1443379882,
+      "headSha": "76dc513b69bdc2b37214b73888a47cb491763d13",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "abeansits/mid-flight": {
+      "repositoryId": 1168304160,
+      "headSha": "c51b2cb0b570fc6f8d96cccb13aa0054008a1dbe",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "aberoham/contained-antigravity-for-claude-code": {
+      "repositoryId": 1432170097,
+      "headSha": "32f1be3bd6c249e892f804fb7f5bdf11f33d9b60",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "abhishekinvission/uiuxabhishek-devkit": {
+      "repositoryId": 1442633889,
+      "headSha": "b0ad72ec7aa8c9b57f392df8aa91c91bfc7e5839",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "abhishekjvfg-create/ui-skill-plugin-for-antigravity": {
+      "repositoryId": 1412927608,
+      "headSha": "2058748f58178dbad53ea8bdcf63e4c14737d37a",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "acamarinkovic/antigravity-plugin-cc": {
+      "repositoryId": 1425422225,
+      "headSha": "e0cab5c5a7c957153f73dd152d6d65a7149cbaab",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "acking-you/liftgate": {
+      "repositoryId": 1457889244,
+      "headSha": "121d97e420731cf641dce59c8b17720bfcc031a8",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "addyosmani/agent-skills": {
+      "repositoryId": 1158722119,
+      "headSha": "e997ac5b9a74eab332d5e9793bb38a38c8cfdd74",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "adevcorn/basalt-plugin-agent-antigravity": {
+      "repositoryId": 1379442591,
+      "headSha": "eadc8ae2106f60383427fe9f96c3757bdebbc458",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "aeisek/limitlyai": {
+      "repositoryId": 1421996975,
+      "headSha": "dc6ad4896c8ea01f31536f4ee4fd2db6b3b7c626",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "aetik-yue/godomaster": {
+      "repositoryId": 1258636870,
+      "headSha": "c2be0a5b98c91ecc6e7eed4668d2f8e42b54b6ed",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "agent-sh/agnix": {
+      "repositoryId": 1146336156,
+      "headSha": "fefbece836bd558bbbc0847633f995d8138e8f08",
+      "reason": "ERR_TAR_DECOMPRESS_LIMIT",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "agentic-control-plane/antigravity-acp-plugin": {
+      "repositoryId": 1347716797,
+      "headSha": "919fe7b954aaac4d751a15fb8962753b6a2ae673",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "agy-daddy/agy-daddy": {
+      "repositoryId": 1469831986,
+      "headSha": "3133ed36f5c1f5b080d54b9d124ab025f3f55287",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "ahmadghoniem/skills": {
+      "repositoryId": 1338382945,
+      "headSha": "6a9399aaac58e272cea402c2d6f885abf32ed567",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "ai-safeter/antigravity-cli-plugin": {
+      "repositoryId": 1244378540,
+      "headSha": "98dc83f74dfb31c36abceb10a52e8cd8f33b5e13",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "aicgen/aicgen": {
+      "repositoryId": 1110012611,
+      "headSha": "518164fc95ea625bfd9deeb686712d19d8f027b1",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "akashsebastian333/peephole": {
+      "repositoryId": 1319157824,
+      "headSha": "23134b34810ff39059512354615f4babf59a4024",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "alandvo/alandvo": {
+      "repositoryId": 1408246148,
+      "headSha": "83cab5f86efa6adf98a60b21264451413c92ef64",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "aleksejsvazenins-wq/cloudcli-plugin-antigravity-quota": {
+      "repositoryId": 1344000639,
+      "headSha": "ea32ecb282b698e8ae043cef32b84b17bd96a1b9",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "alexei-led/agentbundler": {
+      "repositoryId": 1298125102,
+      "headSha": "3527ab88437f6d417c1a0266be3adbbcb3c6da02",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "alexsan-dev/san_ai_harness": {
+      "repositoryId": 1430905870,
+      "headSha": "da0097faab2f8d3bcd4e7001f2dd060d6f098c1b",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "alishaqrany/antigravity-rtl-support": {
+      "repositoryId": 1334446394,
+      "headSha": "ccf7125621cec881dce2b0d79f2f72cff1e91afd",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "amrtawfik160/bb-plugin-antigravity": {
+      "repositoryId": 1356237117,
+      "headSha": "e11843bdc6fd00c2c53c71261b4e423bceea47cb",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "anglee0323/agy-switch": {
+      "repositoryId": 1371076232,
+      "headSha": "815714f9ef431233f663a3c9910071a683de7e5d",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "antigravity-cn-community/antigravity-chinese-localization": {
+      "repositoryId": 1248716248,
+      "headSha": "e66b5151cc4e09fb825b1ec0846d720ded7131dc",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "arsxxi/iterative-dev-workflow": {
+      "repositoryId": 1307748022,
+      "headSha": "cbf8b6d37bc0a9a24e12d3a75489ec904a1dab48",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "artemy/semaphore": {
+      "repositoryId": 1266302107,
+      "headSha": "772b35b342dde96b8d9e6740c50f2f61ee9231aa",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "arthurcavallari/antigravity-context-monitor": {
+      "repositoryId": 1425391622,
+      "headSha": "c560aca6182a68f15b6daada666b7640e87bc70b",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "arthurcavallari/antigravity-hangar": {
+      "repositoryId": 1425460378,
+      "headSha": "443b392346a3ee9239980619f7ed1feecc3f7094",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "arthurcavallari/antigravity-notes": {
+      "repositoryId": 1467640264,
+      "headSha": "f597aafd14097c8dd0a510de969a08c2ddf19e5f",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "arthurcavallari/antigravity-sidecar-kit": {
+      "repositoryId": 1426591030,
+      "headSha": "b185b7172d63c3ce71afd78505a5f20f9fe15cb7",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "assforge/antigravity-plugin-cc": {
+      "repositoryId": 1315730827,
+      "headSha": "9cb27dbce9032863849f7c26261dbc21ce8d9b6f",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "assforge/antigravity-plugin-codex": {
+      "repositoryId": 1315730918,
+      "headSha": "e1759636492fb7ca94bbc4f251af7be4492b8073",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "ast22005-crypto/antigravity-feishuplugin": {
+      "repositoryId": 1213340005,
+      "headSha": "72d78de271ea4a14fde07fcc366a9c5759be5503",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "axiomfab/pdf-reviewer": {
+      "repositoryId": 1427594236,
+      "headSha": "a8d19eb97bfa5a93f60a927db487be0473945de5",
+      "reason": "ERR_UNBUNDLED_NPM_DEPS",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "ayush1920/trafficmonitor_antigravity_plugin": {
+      "repositoryId": 1466802267,
+      "headSha": "9975f4e31d3f1aa369c8edc3fa54159ff25a3e16",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "azurefly/antigravity-category-plugin": {
+      "repositoryId": 1430448939,
+      "headSha": "b213aa0ecd481fbbca3d09b9742ac8202e45ad11",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "azwosile/agy-market-catalog": {
+      "repositoryId": 1468651451,
+      "headSha": "c0e1aba85f4ee8fb981f15cef772fd9fec4f7dc3",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "basil-as/antigravity-plugin-cc": {
+      "repositoryId": 1404846326,
+      "headSha": "ac6108bd4be7ea366562e67d0483edcd8811fe4b",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "batuhankiskac/batuhan-skills": {
+      "repositoryId": 1450439331,
+      "headSha": "94e9632e3166639e6db35dfe4e57f16912399345",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "benfirad/hermes-plugin-antigravity-duet": {
+      "repositoryId": 1433282320,
+      "headSha": "df39b73b83be7fda13380f58a7dffd21b914a993",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "benjaminthomas/spec-driven-dev": {
+      "repositoryId": 1322754929,
+      "headSha": "b1768eb8e2a71c6f2486b9ab21aa63229973da1a",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "beshoybaligh/antigravity-reels-studio": {
+      "repositoryId": 1465657726,
+      "headSha": "103016ab83ed5eb4115687ba201f4f22b077d175",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "beyondreal-smap/codex-agy-skill": {
+      "repositoryId": 1468112134,
+      "headSha": "79fd39c98b94bfdcc2036618cc307683c082bb75",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "bigliao/paseo-mcp-center": {
+      "repositoryId": 1469796872,
+      "headSha": "4c5743140fd6c5eac5faf8e085121845d1075a9f",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "bilalshabbir123/power-platform-claude-skills": {
+      "repositoryId": 1459959433,
+      "headSha": "c8f2aa20099e19f65f8a0d0ac342c10bd6f78a98",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "bitq-m/awesome-antigravity-plugins": {
+      "repositoryId": 1468167288,
+      "headSha": "c1e90355c25895b698d86e49ec4b5b77b280c1a1",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "bizshuk/cc-plugin": {
+      "repositoryId": 1235428773,
+      "headSha": "5b5ab8021e9bcff6f034e477417382fe87b49c6b",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "bizshuk/gosdk": {
+      "repositoryId": 522779386,
+      "headSha": "539cfc3fc4d467a8db7c8937203ca196d56fffc9",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "blockvectra/mcp": {
+      "repositoryId": 1404240757,
+      "headSha": "1c73dc54dffad54b9570eb4732fb9bed09cdf104",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "botchixiaoye/antigravity-cache-monitor": {
+      "repositoryId": 1469130683,
+      "headSha": "3afadd41343ccbcf2ba7fc9c85d5ca343006e15b",
+      "reason": "ERR_UNBUNDLED_NPM_DEPS",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "boulea7/agy-mcp": {
+      "repositoryId": 1243868004,
+      "headSha": "8829f5e0e23356b7591921e0b5ae387ad4128223",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "brandingflux/notchgent": {
+      "repositoryId": 1405902133,
+      "headSha": "0c331862920d1f7e419917476e91887e2047f249",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "brunoborgazzi/documen-pdf-generetor---plugin-antigravity.": {
+      "repositoryId": 1358535859,
+      "headSha": "5a543e1456db7d9cf0e4b21cc55df01c8dd6a1fe",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "btli/antigravity-plugin-cc": {
+      "repositoryId": 1200966234,
+      "headSha": "a40f17fd650ed81ff01fa05c98766dc8e83b518c",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "buiquangvu235/antigravity-skills-engine": {
+      "repositoryId": 1459165824,
+      "headSha": "0f542993befd5be178c8a31e53eb6b0abd32ed31",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "businesskitai/businesskit": {
+      "repositoryId": 1309849046,
+      "headSha": "98afc9aec1d1f7edb446dc5834288b29c8ca8316",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "bvarnai/agy-standards": {
+      "repositoryId": 1452265325,
+      "headSha": "70e0649dc83e9d665b8b2a7a43af3485a680c4bc",
+      "reason": "ERR_RULES_PATH_EXFILTRATION",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "bvarnai/git-brx": {
+      "repositoryId": 1409811626,
+      "headSha": "86d244b10ab84a5f2ed1bb50a9f6ebee60f6e999",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "c1ph3r404/antigravitycli-plugin": {
+      "repositoryId": 1276097157,
+      "headSha": "27d3fdba42b45e123383506da7faaed7acf9c445",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "casonadams/rho-plugin-antigravity": {
+      "repositoryId": 1355077106,
+      "headSha": "efef53959f23a950b30727bea4e3d036960e0a62",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "cencentno9/agy-context-menu": {
+      "repositoryId": 1456681351,
+      "headSha": "d4001ca56f7a659fba5abb04cea66d8bcdba7cfc",
+      "reason": "ERR_UNBUNDLED_NPM_DEPS",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "chanwoo040531/antigravity-plugin-cc": {
+      "repositoryId": 1280969100,
+      "headSha": "eae957794d537f10ab2fa6d6f7eaf4515a4d39dc",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "chilldd/antigravity-token-context": {
+      "repositoryId": 1460785476,
+      "headSha": "fca41f46b5c6e5cdf8dfc04f991619186305edc9",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "cholf5/tokenmetry": {
+      "repositoryId": 1272491416,
+      "headSha": "dff6b49a4112e8980d23f717bfd117c3c653574d",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "claw0gang/antigravity-plugin": {
+      "repositoryId": 1365093464,
+      "headSha": "7d7c4427f2f4cc255cd1d60dcec89305f355d9bf",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "codealive-ai/ai-driven-development": {
+      "repositoryId": 1135957152,
+      "headSha": "265d17b420918a86a2765966bc5c049d9e9fd1d1",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "codemeall/agent-fleet": {
+      "repositoryId": 1396369203,
+      "headSha": "b2b3355c9d45774b8e2a8c0ebe7c7820aaae3c18",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "coderabbitai/antigravity-plugin": {
+      "repositoryId": 0,
+      "headSha": null,
+      "reason": "ERR_REPO_NOT_FOUND",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "compnew2006/spec-kit-antigravity-skills": {
+      "repositoryId": 1140970663,
+      "headSha": "1650ad1dc3d4b394388aefafd6c7556eaa8824d1",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "comprono/antigravity-2-codex-plugin": {
+      "repositoryId": 1255420276,
+      "headSha": "30ba98d818f307549d78fe2df2770dd09feac12f",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-awesome-skills": {
+      "repositoryId": 1270131696,
+      "headSha": "4df50b3401500e739526ba997f6f675acdaee703",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-aas-agent-mcp-builder": {
+      "repositoryId": 1270131751,
+      "headSha": "932e42cb5fa324d60ec65bbe31760e71a67b12dc",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-aas-automation-builder": {
+      "repositoryId": 1270131815,
+      "headSha": "f9efc19ff2ffee9709f5c719947db7998584bed3",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-aas-data-analytics": {
+      "repositoryId": 1270131867,
+      "headSha": "d3344da20d11eea54d499d5465b4c323b52b13f0",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-aas-devops-cloud": {
+      "repositoryId": 1270131935,
+      "headSha": "9af5df82898351316b2066c6c9eac318de0ff159",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-aas-documents-presentations": {
+      "repositoryId": 1270131987,
+      "headSha": "39e97246a49526b16f2d0336b05d0a6c9399cc36",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-aas-marketing-seo-growth": {
+      "repositoryId": 1270132043,
+      "headSha": "fccb37f04f17751cc88e5ec0fcd04d4d8296d0ec",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-aas-mobile-app-builder": {
+      "repositoryId": 1270132114,
+      "headSha": "e2356396a413aa9381a664b9c477fd311cb7e2bd",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-aas-observability-ir": {
+      "repositoryId": 1270132179,
+      "headSha": "0232755ef7952e6a257bc5acf2841054062b4754",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-aas-oss-maintainer": {
+      "repositoryId": 1270132243,
+      "headSha": "8cfd4e141133790f4a00f24e97919a992d9be8b1",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-aas-product-design-studio": {
+      "repositoryId": 1270132308,
+      "headSha": "3ee7db44aae35f423ff9d4289cd64b3b9df83a60",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-aas-python-api-builder": {
+      "repositoryId": 1270132377,
+      "headSha": "4ad802562b8d6843df54fc9c8391ddd47c9b7b90",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-aas-qa-test-automation": {
+      "repositoryId": 1270132438,
+      "headSha": "245ef094a8e485db13b122ff0994701361dd2d1a",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-aas-secure-app-builder": {
+      "repositoryId": 1270132505,
+      "headSha": "230deeca7d4bc940b5cb177d6425beb1b6006d59",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-aas-security-engineer": {
+      "repositoryId": 1270132556,
+      "headSha": "1308d796dee484a0c392d0fac1bf07bb8de4a01b",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-aas-web-app-builder": {
+      "repositoryId": 1270132634,
+      "headSha": "64bcdbae6d197ce7dbb1b505347e40e29d16e33b",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-agent-architect": {
+      "repositoryId": 1270132680,
+      "headSha": "94b8950735e18bc1979c38dc8dee3acadebf888c",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-apple-platform-design": {
+      "repositoryId": 1270132738,
+      "headSha": "9aa9c2d2acbdaec065ae6cd587d7a03daeced0d0",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-architecture-design": {
+      "repositoryId": 1270132791,
+      "headSha": "5648aab2161909f02cd66b4b693956b2d81d1185",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-automation-builder": {
+      "repositoryId": 1270132839,
+      "headSha": "296b989181cc4de0da29fdfd686f002d43d1a9f5",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-azure-ai-cloud": {
+      "repositoryId": 1270132890,
+      "headSha": "df477a803140db2490d0e540ece8aca14fad2dc4",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-business-analyst": {
+      "repositoryId": 1270132947,
+      "headSha": "6ba65843b3fb2c70ce494890fdc99d05c6545a56",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-commerce-payments": {
+      "repositoryId": 1270132997,
+      "headSha": "f0f9024ea0dcd3b0a7a782fc9affe42bb8c80bf3",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-creative-director": {
+      "repositoryId": 1270133064,
+      "headSha": "495adf086579bb338f0fda6db2322893c6065476",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-data-analytics": {
+      "repositoryId": 1270133109,
+      "headSha": "598ef03cc420ebc1167315aa32e64a5a3ea0fdaf",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-data-engineering": {
+      "repositoryId": 1270133169,
+      "headSha": "6c506f2ad4fcd60a0b1530b37f6d65dfac7b6299",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-ddd-evented-architecture": {
+      "repositoryId": 1270133237,
+      "headSha": "c36fc354dda4dc0276665d642308243442beeaee",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-devops-cloud": {
+      "repositoryId": 1270133290,
+      "headSha": "390ecaf636deaaab4718c585b146cc58835ba061",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-documents-presentations": {
+      "repositoryId": 1270133347,
+      "headSha": "7e11c51f123ef38cc775d073c218b4b0ddaacbb4",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-essentials": {
+      "repositoryId": 1270133410,
+      "headSha": "147d0860f3ce949739525de1410bb7f0a80f883a",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-expo-react-native": {
+      "repositoryId": 1270133467,
+      "headSha": "4600a5c0a5c12fb295aac3a8c3eef4c2abec18b7",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-full-stack-developer": {
+      "repositoryId": 1270133512,
+      "headSha": "728cc78496aaaf4dcf22a22c4061de61c8a20505",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-indie-game-dev": {
+      "repositoryId": 1270133555,
+      "headSha": "8e947ae44da7049093267cf93d306ffd72f633e4",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-integration-apis": {
+      "repositoryId": 1270133599,
+      "headSha": "e89117be69760e44821072c435749bf040eedb14",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-llm-application-developer": {
+      "repositoryId": 1270133645,
+      "headSha": "a547f109cd0f96acb739a83d48cea47140d4099f",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-makepad-builder": {
+      "repositoryId": 1270133699,
+      "headSha": "3de4c4ab5e7691ac8d4b7d26eedfd75327eab241",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-marketing-growth": {
+      "repositoryId": 1270133759,
+      "headSha": "6b745428dfbad2713e804f645e5befe3a4c66a8c",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-mobile-developer": {
+      "repositoryId": 1270133830,
+      "headSha": "04444c1a95f2d827d9d90530e5c36671df4f17b2",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-observability-monitoring": {
+      "repositoryId": 1270133876,
+      "headSha": "e1f84853d5d4764c58862427093777bc0f380f54",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-odoo-erp": {
+      "repositoryId": 1270133925,
+      "headSha": "6e9142a8d19dd1075108f34980b7773cd586bbf1",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-oss-maintainer": {
+      "repositoryId": 1270133982,
+      "headSha": "4a717bf811ac91d23c5d297ac707f86bf5fc289a",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-python-pro": {
+      "repositoryId": 1270134046,
+      "headSha": "9a4d32866c5e1eb047fcfdccb5e6fd980671ec5b",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-qa-testing": {
+      "repositoryId": 1270134101,
+      "headSha": "670f66e4a53e90ad7067f2cc1cff800f97c66df6",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-revops-crm-automation": {
+      "repositoryId": 1270134158,
+      "headSha": "45c2d2a0119e3d676123be47fd307f38eaeb075f",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-security-developer": {
+      "repositoryId": 1270134214,
+      "headSha": "25701da9463ec472a7e9ea4c1ab3f6bd6596d8bd",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-security-engineer": {
+      "repositoryId": 1270134269,
+      "headSha": "42504848b255ac4ffe769c5f6786ecf020b2a3f4",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-seo-specialist": {
+      "repositoryId": 1270134324,
+      "headSha": "9fcf7e14f95087c8b67cb0277d5cc1906b65e886",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-startup-founder": {
+      "repositoryId": 1270134384,
+      "headSha": "de5207cd4838ef0dbb86d14f59fa383a13b4f302",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-systems-programming": {
+      "repositoryId": 1270134443,
+      "headSha": "e1bd1e5997fbf826d238f21f1fd35b0763d2fc3c",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-typescript-javascript": {
+      "repositoryId": 1270134493,
+      "headSha": "fbea96ad737201833b5cce0544b955db84651c7f",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-web-designer": {
+      "repositoryId": 1270134551,
+      "headSha": "3630653d92c4be4a46f3f18e2d597f768ca6faf4",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "costrict-plugins-repo/sickn33-antigravity-awesome-skills-antigravity-bundle-web-wizard": {
+      "repositoryId": 1270134612,
+      "headSha": "06d75634c68a62883d4f1def05980a2ac6d95476",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "ctxthuta/cortexops": {
+      "repositoryId": 1451161896,
+      "headSha": "846253ea0d2f6a4d9f7316c1630f35faf1f4e601",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "czg86389-hub/acp-ant": {
+      "repositoryId": 1449200797,
+      "headSha": "b6e6427e29d8136cfd028900112328fbf53ddfe5",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "danh-dev/agentdek-releases": {
+      "repositoryId": 1427850908,
+      "headSha": "45e0d5428750f6af2ed29a8a4540ed3cc018339e",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "dannykkh/skill-olympus": {
+      "repositoryId": 1141143480,
+      "headSha": "27caf0f6fecdf7d314b95f464175f17f855fc818",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "dannyyoung21/logi-antigravity-plugin": {
+      "repositoryId": 1418051255,
+      "headSha": "39712a7d72d863a24a904a29df106a54b99331ba",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "daohuutrong2404/ai-agent-skills": {
+      "repositoryId": 1462335957,
+      "headSha": "f71fee4f6e61a558d3dc795bbd6addaf44cb6bd1",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "datarobot-oss/datarobot-agent-skills": {
+      "repositoryId": 1116036816,
+      "headSha": "384b27a50a5df3ac4d05ae98b583e53c98f4d722",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "datit309/supergraph": {
+      "repositoryId": 1232531989,
+      "headSha": "6c77a1466eac6aaddccf7c293cfd435887b063ae",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "david-engelmann/recognitio": {
+      "repositoryId": 1421280020,
+      "headSha": "83e67098ed2c9684eefb4ce7506c345c822edeb3",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "davidwcn/adk-dev-flow": {
+      "repositoryId": 1465111913,
+      "headSha": "364975d472076e9f9e37bf905905bcbbaf4f9e8f",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "daymanondev/paseo-factory": {
+      "repositoryId": 1397238316,
+      "headSha": "c8de30a28893c94e1b7240a4002581fadd595f26",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "dbydd/agy-log-lens": {
+      "repositoryId": 1468155248,
+      "headSha": "b70ae7dd0c993fea14b8ec6111a588793d9268a7",
+      "reason": "ERR_UNBUNDLED_NPM_DEPS",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "dearcaat/agentbus-bridge": {
+      "repositoryId": 1455002726,
+      "headSha": "4c53a00bf9a73ec2ec32e4fd524c67104a310583",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "devclocked/antigravity-plugin": {
+      "repositoryId": 1344069168,
+      "headSha": "124d8dfa71ce090001f5613f848c9ad9d4a454f3",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "diagridio/diagrid-ai": {
+      "repositoryId": 1342598007,
+      "headSha": "58b917fed79668c677e2553bd928b3333a5820e9",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "dianafoxington/antigravity-plus": {
+      "repositoryId": 1458957331,
+      "headSha": "7bf4c5b7a7a302342aabc6ba55be66582e20378b",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "dmitry-ai/antigravity-addons": {
+      "repositoryId": 1437212301,
+      "headSha": "9143a09bf4e6a12662d54191265a49b863b50303",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "dobbymin/dev-principles": {
+      "repositoryId": 1467602004,
+      "headSha": "59a4743c3d7159a591ea577a01379957d2ee7a4e",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "dobbymin/github-convention": {
+      "repositoryId": 1465618590,
+      "headSha": "6532e0059ad59dbfca1d851b3e818b31c821786c",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "domush/dsh-plugin-antigravity-agents": {
+      "repositoryId": 1450030037,
+      "headSha": "183c7a7b4347c4d1b555096cd0272431c6d06cfa",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "domush/dsh-plugin-antigravity-rules": {
+      "repositoryId": 1450030595,
+      "headSha": "90b6d962ee73b783c1a3d9a84ea6877f016eef32",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "donghua3/cpa-plugin-antigravity": {
+      "repositoryId": 1436883055,
+      "headSha": "d80e3475e1c62144c921bbea8ac674f3ef919d62",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "dpa-plus/antigravity-plugin-cc": {
+      "repositoryId": 1269158834,
+      "headSha": "aa4be98fe06c7aed4204ad379e10672a73b3547d",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "draculabo/antigravitymanager": {
+      "repositoryId": 1106615912,
+      "headSha": "a286966c6d98e7296303f6f2efab14d2dff3390d",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "dugynoo/project-desk": {
+      "repositoryId": 1430266156,
+      "headSha": "424b01c08aa2a26d23308601323b29eb070cca97",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "dungvc-dev/fast-ios-device-test": {
+      "repositoryId": 1442458914,
+      "headSha": "0c82b29bafaabbf10f824113842bccc24575bef9",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "dyoshikawa/rulesync": {
+      "repositoryId": 1004340390,
+      "headSha": "833ceac27bb19be3b9543e0d9cf90c0626595f42",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "eakkapoom-name/antigravity-plugin-cc": {
+      "repositoryId": 1345729136,
+      "headSha": "e9c73571e19ba43d14d778e40d0db4d6d2447c92",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "easonn1/antigravity-plugins-localization-token-usage-statistics": {
+      "repositoryId": 1387521052,
+      "headSha": "938a718d4761dace87da03dd81b0c7fa6c20c514",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "eggmasonvalue/secstack": {
+      "repositoryId": 1269392227,
+      "headSha": "621a49b04f16ef6cfc9ffa6e06d1dd55b2535993",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "egonex-ai/understand-anything": {
+      "repositoryId": 1182081931,
+      "headSha": "b861852dda79273bd9d2e01c3160d42e2df510d2",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "ehsanshahbazii/shahbaz-viewer": {
+      "repositoryId": 1358988956,
+      "headSha": "38eedcb5c52c280871dda72f18b9301e7205008d",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "elarakaya/astrbot_plugin_antigravity_sandbox": {
+      "repositoryId": 1368597881,
+      "headSha": "4acd7565f386237846a77383909993e8f6dc9804",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "emertels/antigravity-traducao-ptbr": {
+      "repositoryId": 1403168796,
+      "headSha": "2d87d8d40be4bff7f4f91fd44eb8537af040469b",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "en-nagakiro/agy-token-analytics": {
+      "repositoryId": 1469699266,
+      "headSha": "3878a83b105754d063a134dec127a360d7ad451f",
+      "reason": "ERR_UNBUNDLED_NPM_DEPS",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "engineerabdullahbinzafar/antigravity-robotics-plugin": {
+      "repositoryId": 1438472301,
+      "headSha": "0cba570bf5be7589971cbd2c8204af4f300348fe",
+      "reason": "ERR_UNBUILT_SOURCE_ARCHIVE",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "ericsk/agy-gcp-companion": {
+      "repositoryId": 1457347184,
+      "headSha": "0106dd85e2fe8c516bf64ea4a0a478584c7df7d6",
+      "reason": "ERR_UNBUILT_SOURCE_ARCHIVE",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "eshanized/syswright": {
+      "repositoryId": 1469040122,
+      "headSha": "773ff31128f432cf827b126ae18aea1b16b6ce58",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "est7/skills-switch-tui": {
+      "repositoryId": 1298975068,
+      "headSha": "a64efd616f59bded5f42e1bf86f71457ae610d6b",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "etosheartem/ag-repatch": {
+      "repositoryId": 1365153976,
+      "headSha": "5199978cdac61141c63bb7e139db1079fdb5979f",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "evsdelat/antigravity-plugin-manager": {
+      "repositoryId": 1413772095,
+      "headSha": "68ead388627d3902b205d49deca8a6944db6c568",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "falconchen/antigravity-conversation-renamer-mcp": {
+      "repositoryId": 1468327071,
+      "headSha": "2ad75c4e3c18bc122a940292da048b33954bf3d7",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "felipecabargas/gambit": {
+      "repositoryId": 1212328821,
+      "headSha": "387d3a4c6581da3a4bb23ca4357f01ed4bb5f60f",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "fikrilal/agy-auth": {
+      "repositoryId": 1427664659,
+      "headSha": "c3aefae1ca1deee060100e4c369f7f09d261c74a",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "filipgutica/filip-stack": {
+      "repositoryId": 1205223951,
+      "headSha": "5f2ea1dade49a02d9a4d6c5bd4a901c5adbd7702",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "finerd-inc/mcp": {
+      "repositoryId": 1242395865,
+      "headSha": "a96451870263fc404c892e7a1d9c881bf7032051",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "fmedery/antigravity-plugin-flight-recorder": {
+      "repositoryId": 1469183063,
+      "headSha": "e9e666f2237fdc4b12f248cf28504f91a22b51c7",
+      "reason": "ERR_UNBUNDLED_NPM_DEPS",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "frane/vibesurfer": {
+      "repositoryId": 1232706994,
+      "headSha": "fd399b04940e18839d8565c989694a900bb1b1c6",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "franksde/agy-hud": {
+      "repositoryId": 1244130987,
+      "headSha": "5c7f29057ffa3c76acd2232c87003abfe4a2fc3f",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "gaolingx/kt-antigravity-plugin": {
+      "repositoryId": 1455510774,
+      "headSha": "2cfd071972ad7c022ddc65edb9db91a1d52c1c20",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "gewenyu99/heyclyde": {
+      "repositoryId": 1459572575,
+      "headSha": "ede3cc4304ca3ceb5cb9249122b133304851a967",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "giabaohuynhasu/antigravity-claude-plugin": {
+      "repositoryId": 1354542098,
+      "headSha": "f33edb3399220d04e7081a5bd7cb10386fec45fd",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "giovgio/claude-mem-agy-antigravity": {
+      "repositoryId": 1287505455,
+      "headSha": "3e3a27e4ad360b85a7082715aa0a2485fc697a2c",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "godwit-email/plugin-antigravity": {
+      "repositoryId": 1448976092,
+      "headSha": "501c2d37df1993992ac88964512681d71e8e23d4",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "google-antigravity/antigravity-cli": {
+      "repositoryId": 1237979735,
+      "headSha": "bb5c8da497ef2eb2e2b98e6a092baed90c567938",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "google-antigravity/antigravity-sdk-python": {
+      "repositoryId": 1225005463,
+      "headSha": "d82b5a3199c5ab367a8467258a8a385829a405b9",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "hashgraph-online/hol-guard": {
+      "repositoryId": 1194748811,
+      "headSha": "a72456acf9a16c461fc6d0a67ce34856fbd52f0e",
+      "reason": "ERR_TAR_DECOMPRESS_LIMIT",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "hassenchaaben/flow-film-director": {
+      "repositoryId": 1445113202,
+      "headSha": "67da56e776b6a22734134e6dbb1bba0c6ec8447b",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "hassenchaaben/micosoft_office_google_antigravity_plugin": {
+      "repositoryId": 1440188788,
+      "headSha": "d6e203439890b2ad593d8012a03866326e229745",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "hebertsb/diagramas-uml-ea": {
+      "repositoryId": 1461915059,
+      "headSha": "32932c09b4c57bacbac17fe92768989fcef37ee8",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "heshamnoaman/vscode-antigravity-backend-fix": {
+      "repositoryId": 1427037345,
+      "headSha": "697d742902cf7014ba0bcbaf67e8600dd10dbd2e",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "hjgyuhuk/kimi-rtk-hooks": {
+      "repositoryId": 1469910668,
+      "headSha": "b3e879a83235b991b84b2e83e546fa0b8ddf2192",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "hridayvayanta/unslop-studio": {
+      "repositoryId": 1463060463,
+      "headSha": "1a4b3a39bb3a5d86160f26f49cf599d4649645b5",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "hywooo/dsh-plugin-antigravity": {
+      "repositoryId": 1422141787,
+      "headSha": "a5c4e378a3377f3905f963d69658e4a0b7e82cd1",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "ibrahimdabir/antigravity-plugin-test": {
+      "repositoryId": 1379413277,
+      "headSha": "9ef181b29045470cc8f73c35e69dfc7071f680fb",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "icywhite22/antigravity-qqbot-plugin": {
+      "repositoryId": 1460175352,
+      "headSha": "f0da5605d7585c5e7a62aae137a1f4929a65ba74",
+      "reason": "ERR_UNBUILT_SOURCE_ARCHIVE",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "idun-group/antigravity-plugin-cc": {
+      "repositoryId": 1255214521,
+      "headSha": "be1d05faef588fc984202806ed89cc0e2f60ff0c",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "indranilbanerjee/neels-plugins": {
+      "repositoryId": 1158526331,
+      "headSha": "e0cfdb759ef14d47bfe9ac2885ec8c11fbd1e2bd",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "integrityauthority/office-agent-skills": {
+      "repositoryId": 1376670231,
+      "headSha": "02f227c8ed68aeb71fab6049efb803d3cf4c8ce9",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "irrumi/antigravity-plugin-codex": {
+      "repositoryId": 1395511864,
+      "headSha": "5eb13197c3da15a0327d4a9f5e4bf5767ecd5c28",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "itxfilas/flow.launcher.plugin.antigravityswitcher": {
+      "repositoryId": 1421234603,
+      "headSha": "2861156fd8e4bc109ed51e8bef973e95528031f2",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "ivyyang1999/dispatch": {
+      "repositoryId": 1446605302,
+      "headSha": "6d7082df1ef93288f0ecd59e1aba8aea4433d320",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "izomondo/antimetro": {
+      "repositoryId": 1468921712,
+      "headSha": "2b94bfc6f123da37222d7867e09351457e5b848b",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "jaeyeopme/hermes-plugin-antigravity-subscription": {
+      "repositoryId": 1283096138,
+      "headSha": "0e96b6e216bb501324c3949b22cbfeaf7ec51d6d",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "javierfrancoleal/best-ui-ux-designers": {
+      "repositoryId": 1466901251,
+      "headSha": "c61e185b5bb031e5d222db5eb035ff67d67a2314",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "jds0504/vite-plugin-antigravity-inspector": {
+      "repositoryId": 1364762120,
+      "headSha": "d4f763544625208ca0272ff2c3b6b87ff4461027",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "jeffreytse/grimoire-core": {
+      "repositoryId": 1272845922,
+      "headSha": "a0fe1284c0146804cb9527a5b2c56a8e5dd2b5f7",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "jegadeesh17/softwareengineeringagents": {
+      "repositoryId": 1391649203,
+      "headSha": "20fcc56501ba2a1c779afd1b28699f40a075bfd9",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "jellyfish-p/cpa-plugin-antigravity-coding-filter": {
+      "repositoryId": 1273550702,
+      "headSha": "9ee9e43e093f593c170acaf05592ef36e7d6b668",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "jeongu0569-ui/hermes-google-antigravity-plugin": {
+      "repositoryId": 1289677314,
+      "headSha": "c5a397ba312a7484ad1853abbf1a625cd0fb7e04",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "jepto/mcp": {
+      "repositoryId": 1408597516,
+      "headSha": "eba47038973081ff65c63a241f8db503315b07ae",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "jesusalbujas/better-gemini": {
+      "repositoryId": 1451568392,
+      "headSha": "e3ac141f626a980e58f08bbf941fe0cc16321298",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "jiaotashidi-bi/antigravity-quota-bar": {
+      "repositoryId": 1468228189,
+      "headSha": "6335d402f3f3f1a1320ed56205d8e51bc7daee63",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "jinseo-jang/antigravity-plugin-cc": {
+      "repositoryId": 1297520775,
+      "headSha": "8981a7a062ef594796494e7a3d7c2653e07cdf2b",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "jlcodes99/vscode-antigravity-cockpit": {
+      "repositoryId": 1112002090,
+      "headSha": "14d40df3771d399a0596221351852bcc721b423a",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "joexk1/joebro-plugins": {
+      "repositoryId": 1444217020,
+      "headSha": "c3a21ac7784b51d2b3ac881633d863bdb5aaf50b",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "johnstonskj/zsh-antigravity-plugin": {
+      "repositoryId": 1174638712,
+      "headSha": "22872ba77444c44f2473f44e553fc4eddf91b084",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "josephxcx/omarchy-antigravity-plugin": {
+      "repositoryId": 1352335677,
+      "headSha": "3bc65f3ec1374f09d876db4c4d3a1b90e7db2bfd",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "junhwan-kwon/deepbom-antigravity": {
+      "repositoryId": 1374273493,
+      "headSha": "b73fe31b8da3ffd6d52afd260b39a50f253627bd",
+      "reason": "ERR_UNBUNDLED_NPM_DEPS",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "justpassingbyte/agentic-test-ops": {
+      "repositoryId": 1361830094,
+      "headSha": "3489d169d98d5905e2280c5a178ece1ea0979c06",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "jvmantovani/antigravity-plugins": {
+      "repositoryId": 1237164627,
+      "headSha": "742a6f77d22e62de59986fe7235450cf7a1004e9",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "jzfgo/agents": {
+      "repositoryId": 1254374188,
+      "headSha": "c270b127642a7ca664852989fa464406e91bc2e6",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "kadmielp/antigravity-plugin-cc": {
+      "repositoryId": 1466572025,
+      "headSha": "cbf6c7a35e2e528f66685ee465270e936ca86bc8",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "kasprowiczm/mk-skills": {
+      "repositoryId": 1463878464,
+      "headSha": "9007afb4b90189a82dc1baf6e10879904238e83a",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "katherinekarpova/linux-mentor": {
+      "repositoryId": 1439848965,
+      "headSha": "b74b87f19fe8bc2d07aa8aafbf31d42a18cef3a6",
+      "reason": "ERR_RULES_PATH_EXFILTRATION",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "keli-wen/agy-staff": {
+      "repositoryId": 1338600136,
+      "headSha": "50090900874d9f0cb11dd2d82c1f374c20656541",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "kevin-sarria/antigravity-plugin-cc": {
+      "repositoryId": 1414816130,
+      "headSha": "4ea406c5cd6e2f1053266c4cd8b024290bcce8cc",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "khanhlean/codex-antigravity-mcp-plugin": {
+      "repositoryId": 1361214307,
+      "headSha": "8dc29375812ad5b32c66f553334a3a0ff7e4d404",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "koala73/worldmonitor": {
+      "repositoryId": 1130564872,
+      "headSha": "de602d000d9e10e7da651884bb589d2ad55f3593",
+      "reason": "ERR_TAR_DECOMPRESS_LIMIT",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "konstantinvladimirtsev69/antigravity-git-widget": {
+      "repositoryId": 1466939481,
+      "headSha": "3f13be8bd2d9d2d706fdbc3f6ad5753695339bf0",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "kozaksv/antigravity-plugin-cc": {
+      "repositoryId": 1276720237,
+      "headSha": "61753a416f8d25fd48c96bd6bbc947d183cb9356",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "krish-exe-29/ai-agent-skill-router": {
+      "repositoryId": 1445229926,
+      "headSha": "50bd7bbdde14ceca5f2ed0db255497d6e6ccaa13",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "krysbot-aimer/antigravity-theme-ban-style": {
+      "repositoryId": 1465291632,
+      "headSha": "e8d0e5389f71b576cbe96a8e0c9c5b7e5f9de15e",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "kumaomao9527/antigravity_plugins": {
+      "repositoryId": 1358713311,
+      "headSha": "a06347b8a12267fd54f226c4f4bd57e14e06f070",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "kupakupar/kupadesk-antigravity": {
+      "repositoryId": 1465069373,
+      "headSha": "02420b780a6e32fb4936f2eec3d90ab9bfbde2a2",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "kyongsik-yoon/antigravity-agy": {
+      "repositoryId": 1301619975,
+      "headSha": "1e294444f3e378ac3840982f470c0a606fee08d5",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "laorentou666/cpa-plugin-antigravity-verify": {
+      "repositoryId": 1465478246,
+      "headSha": "6714e47726419be0b8ce4ef3e616c4662bb189b9",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "lbjlaq/antigravity-manager": {
+      "repositoryId": 1104535633,
+      "headSha": "9b6dfc107df6076f114ad2bb516ba54c69aea784",
+      "reason": "ERR_TAR_DECOMPRESS_LIMIT",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "ldxm666/antigravity-third-party-model-plugin": {
+      "repositoryId": 1456450581,
+      "headSha": "b8f6def8bcf9a5142923036d4b3c6d6b05e1cfc3",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "lefos13/paseo-plugin-antigravity-cli": {
+      "repositoryId": 1384007585,
+      "headSha": "e52afdae91e063cf53805d54d5e19030b4527c0c",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "leobruneau/nexus": {
+      "repositoryId": 1447229480,
+      "headSha": "ec6ea29d2feb8674564dd4561984e62eee8af832",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "lightless233/superpowers-lite": {
+      "repositoryId": 1335771749,
+      "headSha": "cc29270f26fe7e3ddd87b7dadcd8fadd842302a5",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "lilembas/detailed-github-trending": {
+      "repositoryId": 1128696811,
+      "headSha": "b991e314ccfe219950e0b9a0775bd0e7bb39dce5",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "limeflash/antigravity-plugin-cc": {
+      "repositoryId": 1296560525,
+      "headSha": "72fc43c051a55ce15dfb977d90911d53b28a8b86",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "liu-yu7/astrbot_plugin_antigravity_acp": {
+      "repositoryId": 1455175641,
+      "headSha": "0275cf9fd0c60c700d7f127d9520ffe36ba71cc4",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "lllmoseslll/claude-implementation-plan-skill": {
+      "repositoryId": 1468744975,
+      "headSha": "6f230f694cc97ef667570b64be9e187377f09746",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "llysh-hannari/antigravity-codex-claude-effort-slider": {
+      "repositoryId": 1449436065,
+      "headSha": "5a251e07b86d0c6dd6c429f6477def871c459d62",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "losleonidos777/claude-antigravity-plugin": {
+      "repositoryId": 1253069565,
+      "headSha": "da746f283b0c69da4b24f099b769d0f0d836ded1",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "louis798000/antigravity-file-plugin": {
+      "repositoryId": 1375627299,
+      "headSha": "ccef021b454c3d1faf9ec2716e86617bdcf9ce3e",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "lovexiaoxiaowo/dsh-plugin-antigravity-acp": {
+      "repositoryId": 1439434803,
+      "headSha": "75234e6bdd014f2e0bb7d7d238845ae62ab6d3d0",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "lumiag5/antigravitymb": {
+      "repositoryId": 1432833638,
+      "headSha": "feddfee837e2ebc254ef16970ce5b23a7f24bc5b",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "luongnv89/skills": {
+      "repositoryId": 1149283918,
+      "headSha": "4819bf65cf0ff8742e445f8486a84495e663ec92",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "mafengkai/ekko-plugin-agy-accounts": {
+      "repositoryId": 1458157107,
+      "headSha": "d28c6aa1f086b05405102de8c3903ad82b807781",
+      "reason": "ERR_PLUGIN_JSON_NAME_FORMAT",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "magithar/skillmama": {
+      "repositoryId": 1254554103,
+      "headSha": "c2d219de6c31caa67f287e023c816d329141523b",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "maiquochuy/codex-antigravity-plugin": {
+      "repositoryId": 1298328933,
+      "headSha": "24bcb074d8b62699fe455b323b97c37640a8eff7",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "makecindy/cindy-antigravity-plugin": {
+      "repositoryId": 1463914965,
+      "headSha": "23c20e2128ffdf878fef594491c7d88c9f4af7b6",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "marcosnahuel/antigravity-plugin-cc": {
+      "repositoryId": 1247922975,
+      "headSha": "3227b4fc1e7198644d9bd8bbd61779dc2605844a",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "materialwebunofficial/antigravity-themes": {
+      "repositoryId": 1441753172,
+      "headSha": "6dad6ce8f35178d70de852ec614a8ec6f9753e47",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "maximxr/antigravity-plugin-manager": {
+      "repositoryId": 1274071621,
+      "headSha": "b3654a3c3034fe4bfac9b7d829b2736944c96a6f",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "mdmotaharmahtab/agent-kit": {
+      "repositoryId": 1441890767,
+      "headSha": "a335c3523c666def60d6579bc6012300102ae709",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "meapri/hermes-google-antigravity-plugin": {
+      "repositoryId": 1246536953,
+      "headSha": "846f9e0e17c5c2f1355810221305a6b47e0dd103",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "meetopenbot/plugin-antigravity": {
+      "repositoryId": 1266628486,
+      "headSha": "570f9ae054bb132c45e39a683d70f7eb3f9f055a",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "merllinsbeard/bb-plugin-provider-antigravity": {
+      "repositoryId": 1468927101,
+      "headSha": "ecc91b213908e594e613b99211aa2baac2d16183",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "merziller/dsh-video-workbench": {
+      "repositoryId": 1457633769,
+      "headSha": "6fd01ea60117d9346e094c8876fcdf1df748fde1",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "michaelzelbel/awesome-antigravity": {
+      "repositoryId": 1103291290,
+      "headSha": "123b64f1aead3cc7abc0e7f03655d6bd4af7414d",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "mimicte/antigravity-zh-cn": {
+      "repositoryId": 1322582014,
+      "headSha": "fd59274d939fbe3592c9c00344eceeff1cc84e31",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "miteshviras/plugin-ledger": {
+      "repositoryId": 1468574774,
+      "headSha": "c03e6d66d75170f7b4265e731ae2d42764eb7d88",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "mohan-the-octocat/antigravity-asana-plugin": {
+      "repositoryId": 1355767449,
+      "headSha": "3bfe84e64e3600915b8fb2b1c195f714fe144258",
+      "reason": "ERR_UNBUNDLED_NPM_DEPS",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "mokitastark/reeve-releases": {
+      "repositoryId": 1457417185,
+      "headSha": "cd170854ad98890fd0961f224d267d657da3937f",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "morrison-lab/ai-config": {
+      "repositoryId": 1242996892,
+      "headSha": "bd39e8fe8921d25fb74d2327df5a3bd012977fe4",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "mrblackman/agyhop": {
+      "repositoryId": 1368841782,
+      "headSha": "605d1a0400b9892ff406ce1cc245afb355385c0c",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "mtwuser/zero-cloud-gravity": {
+      "repositoryId": 1450842300,
+      "headSha": "cc8352db170b2c9a6116c0741c72eb7bb9926a16",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "mulkind/dsh-plugin-antigravity-acp": {
+      "repositoryId": 1449565917,
+      "headSha": "b90cc8fc7876ee0dfd7e4f41211bb8cc260522ca",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "mustafaakben/antigravity-inline-editor": {
+      "repositoryId": 1447070261,
+      "headSha": "a0e9960981412a1088ec2fdae767ec8c696ad748",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "n2ns/antigravity-panel": {
+      "repositoryId": 1113373470,
+      "headSha": "5caad5a634c053abce5da3eaacf24c0bf8270d74",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "nachei20/antigravity-plugin-cc": {
+      "repositoryId": 1363335054,
+      "headSha": "e289de3e47faadcdbb5cf44a1121ac9d87e27cbb",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "nanaism/yomiyasu": {
+      "repositoryId": 1397771878,
+      "headSha": "8831b14a5c2c12d41096495f0b8fe52d46d390c6",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "nathanvale/skills": {
+      "repositoryId": 1467317592,
+      "headSha": "ddb5c60f963d5232a07628e4c8c80ad4e041c8ea",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "nattapatpsw-game/antigravity-plugin-cc": {
+      "repositoryId": 1378081909,
+      "headSha": "1a6179d69f35c2c1050a5c516cca3636d1a11885",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "navenomktptg/antigravity-unlimited": {
+      "repositoryId": 1370294445,
+      "headSha": "34b16e74d1584eb0d06a425d20b60e089628074e",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "naznazj/stratify": {
+      "repositoryId": 1468287761,
+      "headSha": "5824be50b56a26614d7ef5318f0ecbd28fd318f8",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "netbka/local-commander-plugins": {
+      "repositoryId": 1424013982,
+      "headSha": "16d8c3fb4e0973f14d9fa6e09481addbf60a90bb",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "newrise0410/orca-orchestration-kit": {
+      "repositoryId": 1448291514,
+      "headSha": "b0023cb5bbc83d550806328440e6228df17539af",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "nextcortex/antigravity-monitor": {
+      "repositoryId": 1168170592,
+      "headSha": "bffb5424722a768b3a21d9a8c37642368bacc50b",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "nextlevelbuilder/ui-ux-pro-max-skill": {
+      "repositoryId": 1106996539,
+      "headSha": "a38d04c3d5c298c851dbe5e6ee1965ee3de42cb5",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "nghqqa/context-vault": {
+      "repositoryId": 1435962409,
+      "headSha": "d738fe7d0ec1a9c1cd7df9cf1e24783d8d469e3b",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "ngocsangyem/meowkit": {
+      "repositoryId": 1191880921,
+      "headSha": "b3732572973921dd69de1c8e9dc9f21cc7e2755f",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "nguyenphap-mt/hermes-antigravity-oauth-plugin": {
+      "repositoryId": 1351925761,
+      "headSha": "79c232f48d13a1452785dcaba039b3f85ed05e7e",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "nidrissi/mathbox": {
+      "repositoryId": 1349444654,
+      "headSha": "7a34cef180e1132ff02cb12148b9f9fb97d6d848",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "nikhitamaddala/antigravity_agy": {
+      "repositoryId": 1271078015,
+      "headSha": "94e44ca23614bc5de033214d0b3dc640f1da0c49",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "ninety2ua/agent-blueprint": {
+      "repositoryId": 1172527813,
+      "headSha": "3bb98dced1fa5f5724d1946b03a88fdd65f69ecc",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "nodecode-ai/nodecode-antigravity-auth-plugin": {
+      "repositoryId": 1153031088,
+      "headSha": "06985051a2bfb093955d56fe3ec289ecb5615322",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "nuchareviews-beep/bb-plugin-antigravity-acp": {
+      "repositoryId": 1342866289,
+      "headSha": "9171399fc2190fdff57203832351fc878922b60a",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "nuclearmilk/antigravity-taskbar": {
+      "repositoryId": 1461124947,
+      "headSha": "07bbdc7388546bbe6ceb94d127bfa93ea287e9bf",
+      "reason": "ERR_UNBUNDLED_NPM_DEPS",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "nuoyazhizhou/agent-commons": {
+      "repositoryId": 1469763979,
+      "headSha": "c9a578410cad94355780149782c746f7e4bfadce",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "nytc69/review-loop": {
+      "repositoryId": 1194465917,
+      "headSha": "05570f5142a2588efe7bf844605d3f8f54c8aeed",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "oceanswave/openclaw-antigravity-plugin": {
+      "repositoryId": 1166809277,
+      "headSha": "640b9b13e7792557e47247074c97da513b3a6082",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "ols-md/bb-plugin-antigravity": {
+      "repositoryId": 1446895251,
+      "headSha": "9a83545619a7cbbe5c1b38c3700c1e227e3c1493",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "omarqaterge/hermes-antigravity-plugin": {
+      "repositoryId": 1359610691,
+      "headSha": "cab65460fecf5005d40ba5c0369b549e13f1d889",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "open-bazaar/plugin-harness-antigravity": {
+      "repositoryId": 1469558056,
+      "headSha": "5f34dee83304082602a7fd02f7eadd3c4b1b16a3",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "open-uppu/antigravity-plugin-cc": {
+      "repositoryId": 1285792152,
+      "headSha": "b2b57398a11008ccbbf8156f1e112f9fae4b721a",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "or4cu1o/antigravity-plugin-cc": {
+      "repositoryId": 1327052463,
+      "headSha": "7f8e3873895206babf3c2232eac19c6c704d70db",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "orakulzero/agy-doctor-mux": {
+      "repositoryId": 1429990125,
+      "headSha": "37839e57007ae3efaa3bb2a41e000e870b6a857f",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "originjinmu/periodic-table-of-gemini-antigravity-plugin": {
+      "repositoryId": 1467520318,
+      "headSha": "98646d81bf639f6eebc3f1686c7e2d194d1079dc",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "oscarka/pocketagents": {
+      "repositoryId": 1442722187,
+      "headSha": "3cd89994c79778c80d3e172f7e0238ca3518ac25",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "palucdev/agyflow": {
+      "repositoryId": 1274723795,
+      "headSha": "d43f07a75a100bedde8842af748ac2b42aa9b5ad",
+      "reason": "ERR_UNBUNDLED_NPM_DEPS",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "pandas-studio/agent-team-plugins": {
+      "repositoryId": 1234561894,
+      "headSha": "d905252ce8cf97ac4afbef9d9f2bb2ae68ac2c82",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "peripheralvisions/omp-antigravity-quota-plugin": {
+      "repositoryId": 1382600507,
+      "headSha": "634c664ff4d0ee90456491f6654db643ed94bc69",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "petems/antigravity-plugin-cc": {
+      "repositoryId": 1346960886,
+      "headSha": "fd8040325b46b7a2a942c3fea0e0dc5c8c534c21",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "pohunekd/plugin-antigravity": {
+      "repositoryId": 1469938026,
+      "headSha": "74d4e071b6958f7b0eefad87882e7c0aaeba507e",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "polymath-void/termux-antigravity-cli-agy": {
+      "repositoryId": 1322056561,
+      "headSha": "24328026bcc29e5cbd1d9eeb587717ebb99d1847",
+      "reason": "ERR_TAR_DECOMPRESS_LIMIT",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "popysenpai/antigravity-rotator": {
+      "repositoryId": 1346318845,
+      "headSha": "0d1e53ecf8826c41cca72d2d5008c48cc091de72",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "ppphuang/idea-antigravity-plugin": {
+      "repositoryId": 1115638555,
+      "headSha": "a9d80541524bad579dd634076ba338dbfd031bc5",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "pranav-nexus/antigravity-skill-porter": {
+      "repositoryId": 1359914426,
+      "headSha": "7a5b42c0fe1be283ae9f5b5fe70792aa78733af7",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "pseudoming/remora-antigravity-plugin": {
+      "repositoryId": 1257004956,
+      "headSha": "64a2bf9b1fe6bb0e0f7f4b4642bad5e4ba419f7e",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "psychedelicpalimpsest/opencode-antigravity-plugin": {
+      "repositoryId": 1357507860,
+      "headSha": "4824f2ec33448ccf280b4886a3646f2c69a44e97",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "pvijaypal2000-tech/agy-gemini-pet": {
+      "repositoryId": 1469005306,
+      "headSha": "5c27e603ccd39920362dc065281290a192d93916",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "qnix-dev/eligibility-antigravity-patcher": {
+      "repositoryId": 1271110780,
+      "headSha": "90498f50353d414232f593dffe88899bc80b6312",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "rafaelp/agentic-whatsapp": {
+      "repositoryId": 1452191513,
+      "headSha": "ff0a0d6a532394ff7e820fc862e024d98a95003b",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "raine/workmux": {
+      "repositoryId": 1089830441,
+      "headSha": "748997d6e9a6cf4d8f25035ee996f85251bd65a9",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "ranxianglei/billion-context": {
+      "repositoryId": 1324949198,
+      "headSha": "6a641f378537e06e7430ec90c9abf035ffa12377",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "rawizhere/bb-plugin-antigravity-acp": {
+      "repositoryId": 1348344445,
+      "headSha": "ca96249895a2e473f07b46f28c92768d88bcea5b",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "rbbtsn0w/adg": {
+      "repositoryId": 1272397659,
+      "headSha": "8909e3acaf1891414fe0dd3d3da488257e9bb779",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "redfer855/claude-antigravity": {
+      "repositoryId": 1464550816,
+      "headSha": "15f661ba79133c3f9d666cc8a8922c1e4caeb7b2",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "rezasalimi01/rz-antigravity-rtl": {
+      "repositoryId": 1385156242,
+      "headSha": "b8c68604a0c6296ca754dc4bcb7dfe478d5f0da2",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "rhishi99/agy-headless-bridge": {
+      "repositoryId": 1268169803,
+      "headSha": "f34e57d070d2e014c78f2087cdbb7d89cfe050fa",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "riccardo-vecchi/antigravity-plugin": {
+      "repositoryId": 1434990537,
+      "headSha": "90a6e81bf50c6db0e551b5215f1a67746ef07bf9",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "richawo/yaps-plugins": {
+      "repositoryId": 1330895471,
+      "headSha": "ea08dc5d5046e2529bd2dd640cb4fccc2caa2c56",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "richuff/agy-ssh": {
+      "repositoryId": 1469572418,
+      "headSha": "75c7e73b5f36cd2466bbf9d6b94921e683aa8d68",
+      "reason": "ERR_UNBUNDLED_NPM_DEPS",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "rimesekai/antigravity-file-preview": {
+      "repositoryId": 1456881930,
+      "headSha": "876d8a33945c5e23962d94e7d099afa3e584bb4f",
+      "reason": "ERR_UNBUNDLED_NPM_DEPS",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "risonsimon/bb-plugin-antigravity": {
+      "repositoryId": 1467314548,
+      "headSha": "53f971e3a2489b43e34003c4ee94c4a856d0a7f3",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "roedyrustam/dev-flow-timer": {
+      "repositoryId": 1429142191,
+      "headSha": "809ee0d9a9bc109350d675eef05b42d3b0459d8e",
+      "reason": "ERR_UNBUILT_SOURCE_ARCHIVE",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "rominirani/antigravity-skills": {
+      "repositoryId": 1134163445,
+      "headSha": "731acca5d1aa8b0855549e1cb53bc3f84aa05e0d",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "ronnie3697/bcalinsights": {
+      "repositoryId": 1349356021,
+      "headSha": "78e699806f120fed1b52126bb62acd4ca2860c63",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "roundpilot/superpowers-antigravity": {
+      "repositoryId": 1266014461,
+      "headSha": "9063475102ea295de9ba3f94ed3ad4e3daae2dc5",
+      "reason": "ERR_RULES_PATH_EXFILTRATION",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "rove24/antigravity2-cn-newicos": {
+      "repositoryId": 1368713917,
+      "headSha": "d9b2148863f4fe9c948d29408aa29963cf107bea",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "russbellc/agyc-antigravity-cli-switcher": {
+      "repositoryId": 1421294233,
+      "headSha": "3343110b8e87c46905507e6e0e5475a38622889a",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "sadik-malik/codex-antigravity-plugin": {
+      "repositoryId": 1362270575,
+      "headSha": "74774370e656723133492a82f1d9208809494447",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "sakibsadmanshajib/antigravity-plugin": {
+      "repositoryId": 1247037691,
+      "headSha": "2d937fe6d6cd80fed8f44848b3a1b5444a03030b",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "santiquiroz/antigravity-plugin-cc": {
+      "repositoryId": 1363221189,
+      "headSha": "242dd3d17da4580319242e9c623a9c34e6f5c979",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "saroj-shahi/ship-site": {
+      "repositoryId": 1434550803,
+      "headSha": "836c2c59969ada22a43afe61cf62930d0215b87d",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "sawaki-zexi/zx_flow": {
+      "repositoryId": 1469931218,
+      "headSha": "69f2396c9b7fd78f3a2740d5daed8700c2c58fbe",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "sfrangulov/claude-code-handbook-ru": {
+      "repositoryId": 1238108965,
+      "headSha": "7940cfd2b6884f3ead8002df5ae1d1b6dd771771",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "shaashiekumha/antigravity-skill-converter": {
+      "repositoryId": 1363524812,
+      "headSha": "5be45312b800f2e8459d4676d9cd2ae4bbd37400",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "shaftoe/awesome-pi-coding-agent": {
+      "repositoryId": 1217066206,
+      "headSha": "be6fdcf749b855d5ee4f1a7e6be6704598394203",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "shimada666/lmnr-antigravity-plugin": {
+      "repositoryId": 1426508108,
+      "headSha": "bf62e81dc63bbb921f8bb0d3206790e8bc11dd71",
+      "reason": "ERR_UNBUNDLED_NPM_DEPS",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "shirakawayuina/astrbot_plugin_antigravity": {
+      "repositoryId": 1457370953,
+      "headSha": "e53155d11bed50c93932e1509e14a44f95dab94e",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "shirokun20/kuron-security": {
+      "repositoryId": 1466512257,
+      "headSha": "de8c26da39b60128b6cbd5f3005f728d4ae1f276",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "shtekxr/bb-plugin-antigravity": {
+      "repositoryId": 1466492805,
+      "headSha": "d39cd1f68b48c7dd31141f3d40cd99283df4c0af",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "shubashbiswas/multigravity-pro": {
+      "repositoryId": 1402231660,
+      "headSha": "8b1a7805725fc16932c65c7cb4ae7680433b4813",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "shubzkothekar/antigravity-acp": {
+      "repositoryId": 1283375853,
+      "headSha": "d10aa13c932236ef241863f2c8b3afdda2a2be12",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "shushila-rai/agy-cli-antigravity-project": {
+      "repositoryId": 1272395038,
+      "headSha": "7914897f1f40b277c382b64cdb0a2f75d2d98148",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "sibbl/google-antigravity-openclaw-plugin": {
+      "repositoryId": 1386873332,
+      "headSha": "e3d3e37f34bb213437025a5345916b27fb897f72",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "silas-02/antigravity-desktop-cn": {
+      "repositoryId": 1277882963,
+      "headSha": "0a245dc174a12a4af997912feeee34a2f587f4bf",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "simon-github-code/ratchet": {
+      "repositoryId": 1448944275,
+      "headSha": "f146ad41f08cbcb936c15d58962fb357af558877",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "simonepri/refined-antigravity-acp": {
+      "repositoryId": 1382021041,
+      "headSha": "6aa31d675d9ddc869a7e86c64cdeb83d008f64d8",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "simplybychris/antigravity-plugin-cc": {
+      "repositoryId": 1248329277,
+      "headSha": "1f88eebebc13001201a0034a354a02e4e7de9444",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "skyhook-io/skyhook-skills": {
+      "repositoryId": 1269302974,
+      "headSha": "2d4684700e60759e2f215a418a989b98283f2f96",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "sl251/astrbot_plugin_antigravity_acp": {
+      "repositoryId": 1448754538,
+      "headSha": "0a393de2ff88a8972cbe4849705548d79fbe43ae",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "smartworldarafath/rea_skill": {
+      "repositoryId": 1434569738,
+      "headSha": "b03acb93fe4a30f85c5de9f197755aa388f438da",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "snakeblack/ospec-workflow": {
+      "repositoryId": 1249002903,
+      "headSha": "f8b7181f5f0d2fd9c0e6b18ba199ff7b13c6ffc9",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "sodre90/mirador": {
+      "repositoryId": 1398646478,
+      "headSha": "791885ec58bae9ab1c7638365093f04367168944",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "sonar-samples/blueprint-sonarqube-plugin-antigravity": {
+      "repositoryId": 1300945114,
+      "headSha": "87a00f162b8ec0248f3c265adffa884446a4bdbf",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "spacedock-dev/compass": {
+      "repositoryId": 1309901092,
+      "headSha": "6649e0ae6c425edad27e3d3d95fdde85dd7a30af",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "sshahzaiib/agy-bridge": {
+      "repositoryId": 1266219046,
+      "headSha": "595e4c32fa0a11cc5051f3814f68f2b3184e2e0b",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "stankela16/agymg": {
+      "repositoryId": 1450633275,
+      "headSha": "9432ec5e004e3675b82207fcc4b02bc2a9fd0f6d",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "steema/teechart-mcp-server": {
+      "repositoryId": 1437289281,
+      "headSha": "e85a746aca1183ef618b86f747557e138874d96f",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "stukongeluk/the-human-c-suite": {
+      "repositoryId": 1465150671,
+      "headSha": "ff0cf7ae61ffc0e10103f09436365f82504b4ac0",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "sumanshaw009/antigravity-intellij-plugin": {
+      "repositoryId": 1323132973,
+      "headSha": "1b47c2d4e2bfaf04a784c681dfebd3ea51961d29",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "sumitake/agent-collab": {
+      "repositoryId": 1298417015,
+      "headSha": "404ba2b31421a44749a60f59e3d44f3f867318a6",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "suportebahia/php-doc-pt-br": {
+      "repositoryId": 1456733575,
+      "headSha": "3a4e9338680457ee0f7dfb6e1e52b3ba62eac3f0",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "swtmaxx/astrbot_plugin_antigravity_draw": {
+      "repositoryId": 1338433785,
+      "headSha": "eb89bd537c48d4dbd70e247e0b17b41c9e7a66d7",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "sxu99579-bit/lfh": {
+      "repositoryId": 1466363504,
+      "headSha": "a9f6a8bfa96ee13cc766eb2acf394eb1ade40c6d",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "syscat64/md-to-html": {
+      "repositoryId": 1287924282,
+      "headSha": "3480e4e17db49b6850a4f082b7a97c16d831e23c",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "tamnguyendinh/cheapapp-auto-switcher-releases": {
+      "repositoryId": 1457331093,
+      "headSha": "ff37a91cebc67237676460b150bbe491611669dd",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "tardisbooo/antigravity-codex-orchestrator": {
+      "repositoryId": 1462243061,
+      "headSha": "594e9ba66f103d8a7c590d5ad0e43f0fc24ce590",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "teknolista/skills": {
+      "repositoryId": 1433067801,
+      "headSha": "9700274ba929c019010d85823e8e24a2a1daedd7",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "terakota-stdio/bb-plugin-antigravity": {
+      "repositoryId": 1349591744,
+      "headSha": "ab929793863c0e4d54ff30b3bd95bd19adde7c14",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "thanhnguyxnorg/pixelcraft": {
+      "repositoryId": 1468275510,
+      "headSha": "60573bb80c1669e73f581cced2b4a05435e47e5f",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "the911fund/skill-of-skills": {
+      "repositoryId": 1140248066,
+      "headSha": "085a0857a3f202abc633ee0a318cb8b123890506",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "theafh/ai-modules": {
+      "repositoryId": 1228168995,
+      "headSha": "407fc2386cf79a96dacdcd1aae82acb206e0ff55",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "theeranon/jamesskills": {
+      "repositoryId": 1348813189,
+      "headSha": "3b8343d903e7c21aef89c2026857a7dce76cf0c6",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "theorhd/tokendiet-mcp": {
+      "repositoryId": 1329783301,
+      "headSha": "de0845f538cc8032467e47e0e5a0fe7809c9be71",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "thesmallhancat/flow2api": {
+      "repositoryId": 1103002213,
+      "headSha": "c557d1756ccea74ee27842a4ad4da2b110b44284",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "threeicream/cpa-antigravity-anti-truncation-plugin": {
+      "repositoryId": 1351312717,
+      "headSha": "a7e7bfbe7b079ff4987f296bc846b7cf509de643",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "threeicream/cpa-antigravity-daily-plugin": {
+      "repositoryId": 1320397836,
+      "headSha": "098e36051480f7a05eda532b7e6e073a6d3c8b45",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "thynk3rbot/antigravity-plugins": {
+      "repositoryId": 1230488121,
+      "headSha": "63971829e409171dc9dc8811a85ff066b9da4800",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "tison-g/antigravity-openmemory-plugin": {
+      "repositoryId": 1172252146,
+      "headSha": "6192c61d1a62bd2d0e8e8fda09d9cc5c4d6871a7",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "tolyk/antigravity-plugin-cc": {
+      "repositoryId": 1270719088,
+      "headSha": "479ef8719decb5d6f89a4612f1ab2ce2994e40f7",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "tonojkeee/orca-account-switcher": {
+      "repositoryId": 1467236637,
+      "headSha": "9c841025988965b80a6579754e1f594f0fb4a8c7",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "tonylonggu/antigravity-plugins": {
+      "repositoryId": 1354133010,
+      "headSha": "fa37b072c2efd46aeabce526306a8454d1163819",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "toriskr/orca-toris-neon": {
+      "repositoryId": 1463752746,
+      "headSha": "8a2ad6e44fe0c715bd8ae84c52ad22407c8858b6",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "tradertanmay/agent-opt": {
+      "repositoryId": 1425027657,
+      "headSha": "a7f770f2e74b4844aa411a5600bee5262e69174f",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "truverifai/antigravity-plugins": {
+      "repositoryId": 1317553199,
+      "headSha": "e977e9e0f3bc5e8786dd93cc2caa916ca7b20d97",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "tymshe/bb-plugin-antigravity-plus": {
+      "repositoryId": 1469319076,
+      "headSha": "24392eaa8906b279743df9635f3cd9dc3df77d0c",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "uihoshi/agentlogic": {
+      "repositoryId": 1207538576,
+      "headSha": "d6bb30138246797d5c2435c9e2ad69444ae4a6ff",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "undersdand/antigravity-guide-zh": {
+      "repositoryId": 1450176260,
+      "headSha": "539f2be2f5e28abfff9610226bb664a6f0c6d276",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "unlikelyzero/agy-companion": {
+      "repositoryId": 1329938817,
+      "headSha": "721af81419ecb4cae3ed9757bca1cfd17d57262e",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "valbeat/dotfiles": {
+      "repositoryId": 73088222,
+      "headSha": "6ac7d5a3dd5e15feb2f73e7cb77b48e0d99bd4a0",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "valedolla/dsh-plugin-antigravity-quota": {
+      "repositoryId": 1430878822,
+      "headSha": "f13fe05146bddad5e670a4889161e4bedf386a45",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "viateai/viate-plugin-antigravity": {
+      "repositoryId": 1468519988,
+      "headSha": "5644af44f69abefedb8fb0a6c6dbe264a729db10",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "vidurb/bb-plugin-antigravity-native": {
+      "repositoryId": 1445895355,
+      "headSha": "3374e75f11a90e5ab4cc1efdd9e523073406732b",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "vit129/agy-plugin-cc": {
+      "repositoryId": 1251346573,
+      "headSha": "ebe88383c6ceb056b526f1cd689e4e1c0642c88c",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "vit129/agy-plugin-codex": {
+      "repositoryId": 1251452705,
+      "headSha": "53f3a7395ce37a4dd804325201463571bfd12cd3",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "vlad-aleksandrov/antigravity-plugin-cc": {
+      "repositoryId": 1252882414,
+      "headSha": "e24a2bd08757f8c1ef2f8058f6be70f7e23f9046",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "vladpatr96/antigravity-plugin-cc": {
+      "repositoryId": 1293554494,
+      "headSha": "f98a168982d468d52940369c4906c4ca10a4f6de",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "voltaire-toledo/antigravity-plugin": {
+      "repositoryId": 1441238886,
+      "headSha": "1618576654176fc50ea8eb3d2fa58626f2328cfa",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "wassim-azi/agy-powerline": {
+      "repositoryId": 1414619170,
+      "headSha": "150291154ebe1dbea42c1a4880c04bb095871f1a",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "wedreamer/astrbot_plugin_antigravity": {
+      "repositoryId": 1402922913,
+      "headSha": "e1b84c0c030ac070da7595363032565495234f09",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "whitebr1ck/agy-powertools": {
+      "repositoryId": 1460598165,
+      "headSha": "a5ab779ac0fb50e791eeee300b5db9bec5199f0b",
+      "reason": "ERR_UNBUNDLED_NPM_DEPS",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "whitetowerai/ohmygame-plugins": {
+      "repositoryId": 1441557799,
+      "headSha": "787b4239e90dcb97a1ec488296c1fd3796bf862f",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "wilkomarketing/antigravity-n8n-skills": {
+      "repositoryId": 1135802919,
+      "headSha": "2aa931e70bf8bf8b2ebb37292d331c7e5e62ff8c",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "williams-campos/antigravity-plugin-for-cc": {
+      "repositoryId": 1460640253,
+      "headSha": "05a7619264dca3db96ea29ebaf7a3ae845a61c5e",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "witwave-ai/witself": {
+      "repositoryId": 1281690852,
+      "headSha": "2a55408244ec985e2d0971f6024a197e9c86b9e5",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "wmgx/claude-codex-bridge": {
+      "repositoryId": 1458354375,
+      "headSha": "72316986629031e890d2f437c81e97eb2e29181f",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "wycocoyu/antigravity-plugin-market": {
+      "repositoryId": 1459719584,
+      "headSha": "2292eedbea6c7b7c1b6ead51bb95a90c6db778f7",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "x7202670-cmd/bettergravity-office-pdf-preview": {
+      "repositoryId": 1467362698,
+      "headSha": "016630d7982597b084325237704c35d54405b15b",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "xaunpark/antigravity-compound-engineering-plugin": {
+      "repositoryId": 1122419828,
+      "headSha": "bb2f675b284a22de49a922a74e53e9cb08fa7804",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "xchacha20-poly1305/peon-py": {
+      "repositoryId": 1339360628,
+      "headSha": "6bf76a17821a2b711dd6410938fbdacbc3dbc081",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "xchacha20-poly1305/pet4agents": {
+      "repositoryId": 1309632721,
+      "headSha": "94ce6e118066254b0ffe03dc7deeca572f5e7006",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "xdevcoffee/antigravity-plugin-cc": {
+      "repositoryId": 1298015830,
+      "headSha": "b73c5b542445a778c6fe1438ca7dd7dec32f03f4",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "xiaolai/nlpm": {
+      "repositoryId": 1191355668,
+      "headSha": "b81eadb69ed053f38b940d5440cfc6d45d546239",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "xuan52766/agy-gemini-chan": {
+      "repositoryId": 1457529049,
+      "headSha": "781b3d69f2d98caca634d59c59a92010a8cd3ef7",
+      "reason": "ERR_UNBUILT_SOURCE_ARCHIVE",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "xzawed/claude-antigravity-plugin": {
+      "repositoryId": 1467529952,
+      "headSha": "83c3f7b1ca30270f651eabca3846058249b0bb6d",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "yafitiara/ai-agent-skills": {
+      "repositoryId": 1462294748,
+      "headSha": "5fb675c3db230e825f9dc7044d76bd3d70f9dbde",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "yamiru/claugravity": {
+      "repositoryId": 1424483499,
+      "headSha": "56f58331798a2a8c31d8d7e1bc4c53b5abf40942",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "yantra-labs/agy-antigravity-skill": {
+      "repositoryId": 1248140690,
+      "headSha": "e1b91ade431cabe135c5e026d30808765d48109c",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "yestoall/skills": {
+      "repositoryId": 1441648875,
+      "headSha": "2765cd50feaed2254f205b20865ee4d45cd7a44c",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "yhoanes/antigravity-android-plugins": {
+      "repositoryId": 1454642867,
+      "headSha": "611f031a986f0aeae0880ea8df3a315f26493d59",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "yitao340-rgb/antigravity2.0-chineseplugin": {
+      "repositoryId": 1247197875,
+      "headSha": "0f5aa1c83367c4f57c31db1254698835949ad7d2",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "yitao340-rgb/antigravity2.0-quota-pluging": {
+      "repositoryId": 1246568711,
+      "headSha": "1cc0d11518c998a0d8a17a00b78bbd85be895bb5",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "yohi/opencode-antigravity-plugin": {
+      "repositoryId": 1244217070,
+      "headSha": "c52e19b08f6eb879078a3b3565d53396feabc699",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "yomudogly/oh-my-agy": {
+      "repositoryId": 1431626904,
+      "headSha": "3d9298f121a10b16779792737398e71fb25eceef",
+      "reason": "ERR_UNBUILT_SOURCE_ARCHIVE",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "yonatangross/orchestkit": {
+      "repositoryId": 1125663750,
+      "headSha": "b37d1dcdd43cc48838fc02dbb182d9108d1233cb",
+      "reason": "ERR_TAR_DECOMPRESS_LIMIT",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "ytsu-ki/better-view": {
+      "repositoryId": 1461562870,
+      "headSha": "79b869bbda5c8e3becbcac430011f77b418d8003",
+      "reason": "ERR_UNBUILT_SOURCE_ARCHIVE",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "yuaotian/antigravity-proxy": {
+      "repositoryId": 1130311831,
+      "headSha": "ff9d865cf668e7969fa6763d3e7a561977c2a6d0",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "yunjuanyunshu114-byte/antigravity-zh-plugin": {
+      "repositoryId": 1453436150,
+      "headSha": "85f3423b563ad86c615220531b8f1c2d5b7c5f51",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "yunzinan/pi-desktop-antigravity-plugin": {
+      "repositoryId": 1428319355,
+      "headSha": "b545d5bfa08216a37bf3a48afea9a7b5ae8fd2d5",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "yuyu-fish2/antigravity-theme-dongxuelian": {
+      "repositoryId": 1457442750,
+      "headSha": "fa329858fb1be9556d3016981763f115dedeec1b",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "zaious/antigravity-skills-chronicle": {
+      "repositoryId": 1138809591,
+      "headSha": "6331d579403e5433c10bf9716419c8d2453832ca",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "zcop/agy-cli-manager": {
+      "repositoryId": 1285450616,
+      "headSha": "6884b8ec9b2d2991d4f91bcb073d29fc089347ee",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "zdy-yuluowusheng/antigravity-background": {
+      "repositoryId": 1386640505,
+      "headSha": "42ddd1c4c7cdca388c1ad86210a04bb3f7bee268",
+      "reason": "ERR_PLUGIN_JSON_NAME_FORMAT",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "zedarvates/botte-secrete": {
+      "repositoryId": 1263030229,
+      "headSha": "986a579138980c31bcd719caf5d3ca6d83d8a949",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "zen-logi/antigravityriderplugin": {
+      "repositoryId": 1113264974,
+      "headSha": "75bd13d33e0b8366a2f5f19face3c634d1343d5e",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "zhangyizhen123/ppt-study-reader": {
+      "repositoryId": 1469839947,
+      "headSha": "fb0f4926f0c4fa4ce92483d58c60cf3bce24089c",
+      "reason": "ERR_UNBUNDLED_NPM_DEPS",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "zxclushkin/dsh-plugin-antigravity": {
+      "repositoryId": 1446727324,
+      "headSha": "a5d4c94891071eba74ac0ba6e5be66a1aa200ee2",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T10:24:57.793Z",
+      "retryAfter": "2026-12-01T10:24:57.793Z"
+    }
+  }
 }
