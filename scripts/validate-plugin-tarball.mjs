@@ -14,6 +14,99 @@ import { inspectTarGzBuffer } from './lib/tar-stream.mjs';
 import { normalizeIconBuffer } from './sanitize-icon.mjs';
 import { scanPluginCapabilities } from './scan-capabilities.mjs';
 
+const MAX_README_CHARS = 64_000;
+const CJK_HAN_RE = /[\u3400-\u4DBF\u4E00-\u9FFF]/;
+const CJK_HAN_GLOBAL_RE = /[\u3400-\u4DBF\u4E00-\u9FFF]/g;
+const LATIN_LETTER_GLOBAL_RE = /[A-Za-z]/g;
+
+const ZH_README_CANDIDATES = [
+  'README.zh-CN.md',
+  'README_zh-CN.md',
+  'README.zh.md',
+  'README_zh.md',
+  'docs/README.zh-CN.md',
+  'docs/README.zh.md',
+];
+
+const EN_README_CANDIDATES = [
+  'README.en.md',
+  'README.en-US.md',
+  'README_en.md',
+  'docs/README.en.md',
+];
+
+const DEFAULT_README_CANDIDATES = ['README.md'];
+
+export function containsChineseCjk(text) {
+  return CJK_HAN_RE.test(String(text || ''));
+}
+
+export function isPredominantlyChinese(text) {
+  const s = String(text || '');
+  const cjkCount = (s.match(CJK_HAN_GLOBAL_RE) || []).length;
+  if (cjkCount === 0) return false;
+  const latinCount = (s.match(LATIN_LETTER_GLOBAL_RE) || []).length;
+  if (latinCount === 0) return true;
+  return cjkCount >= 10 && cjkCount * 4 >= latinCount;
+}
+
+function findMarkdownCandidate(scopedFiles, rootFiles, candidates) {
+  const maps = rootFiles && rootFiles !== scopedFiles ? [scopedFiles, rootFiles] : [scopedFiles];
+  for (const filesMap of maps) {
+    if (!filesMap) continue;
+    let lowerMap = null;
+    for (const candidate of candidates) {
+      if (filesMap.has(candidate)) {
+        return filesMap.get(candidate);
+      }
+      if (!lowerMap) {
+        lowerMap = new Map();
+        for (const [k, v] of filesMap.entries()) {
+          const lower = k.toLowerCase();
+          if (!lowerMap.has(lower)) lowerMap.set(lower, v);
+        }
+      }
+      const matched = lowerMap.get(candidate.toLowerCase());
+      if (matched) return matched;
+    }
+  }
+  return null;
+}
+
+function decodeReadmeBuffer(buf) {
+  if (!buf) return '';
+  return buf.toString('utf8').replace(/^\uFEFF/, '').slice(0, MAX_README_CHARS);
+}
+
+export function extractLocalizedReadmes(scopedFiles, rootFiles = null) {
+  const defaultReadme = decodeReadmeBuffer(findMarkdownCandidate(scopedFiles, rootFiles, DEFAULT_README_CANDIDATES));
+  const explicitZh = decodeReadmeBuffer(findMarkdownCandidate(scopedFiles, rootFiles, ZH_README_CANDIDATES));
+  const explicitEn = decodeReadmeBuffer(findMarkdownCandidate(scopedFiles, rootFiles, EN_README_CANDIDATES));
+
+  const defaultHasCjk = containsChineseCjk(defaultReadme);
+  const defaultMostlyZh = isPredominantlyChinese(defaultReadme);
+
+  const readmeZhMarkdown = explicitZh || (defaultHasCjk ? defaultReadme : '');
+
+  let readmeEnMarkdown = explicitEn;
+  if (!readmeEnMarkdown && defaultReadme) {
+    if (!defaultHasCjk) {
+      readmeEnMarkdown = defaultReadme;
+    } else if (explicitZh && !defaultMostlyZh) {
+      // Preserve English README.md when an explicit README.zh-CN.md exists alongside a small `[简体中文]` link or quote.
+      readmeEnMarkdown = defaultReadme;
+    }
+  }
+
+  const readmeMarkdown = defaultReadme || explicitEn || explicitZh || '';
+
+  return {
+    readmeMarkdown,
+    readmeZhMarkdown,
+    readmeEnMarkdown,
+  };
+}
+
 export function extractPluginRootFiles(allFilesMap, pluginRoot = '.') {
   const normRoot = normalizeRelPosix(pluginRoot);
   if (normRoot === '.') {
@@ -203,12 +296,7 @@ export function validatePluginTarball(
   // 4-Layer static capability & safety scan
   const { capabilities, components } = scanPluginCapabilities(scopedFiles, { pluginName: manifest.name });
 
-  const readmeBuf =
-    scopedFiles.get('README.md') ||
-    scopedFiles.get('readme.md') ||
-    tarInfo.files.get('README.md') ||
-    null;
-  const readmeMarkdown = readmeBuf ? readmeBuf.toString('utf8').slice(0, 64_000) : '';
+  const { readmeMarkdown, readmeZhMarkdown, readmeEnMarkdown } = extractLocalizedReadmes(scopedFiles, tarInfo.files);
 
   const parsedSemver = parseSemver(manifest.version || fallbackVersion || '0.1.0');
   if (!parsedSemver) {
@@ -236,6 +324,8 @@ export function validatePluginTarball(
     version: parsedSemver.version,
     iconArtifact,
     readmeMarkdown,
+    readmeZhMarkdown,
+    readmeEnMarkdown,
     capabilities,
     components,
     packageJson,

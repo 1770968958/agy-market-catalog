@@ -517,3 +517,189 @@ test('POSIX PAX extended header parser slices by UTF-8 byte length across multi-
     filePayload.toString('utf8'),
   );
 });
+
+test('Multilingual README extraction handles README.zh-CN.md, README.zh.md, docs/README.zh-CN.md, README.en.md, and CJK README.md', () => {
+  // 1. English README.md with a `[简体中文](README.zh-CN.md)` switcher link + explicit README.zh-CN.md (`agy-dart` style)
+  const enWithZhTar = makeSampleTarball({
+    'README.md': '# Prism Helper\n\n[简体中文](README.zh-CN.md) · English\n\nComplete English documentation for Antigravity.',
+    'README.zh-CN.md': '# 棱镜助手\n\n适用于 Google Antigravity 的简体中文完整文档。',
+  });
+  const res1 = validatePluginTarball(enWithZhTar);
+  assert.ok(res1.readmeMarkdown.includes('Complete English documentation'));
+  assert.ok(res1.readmeZhMarkdown.includes('简体中文完整文档'));
+  assert.ok(res1.readmeEnMarkdown.includes('Complete English documentation'));
+
+  // 2. Chinese primary README.md + explicit README.en.md (`agy-market` v1.2.0 style)
+  const zhPrimaryTar = makeSampleTarball({
+    'README.md': '# AGY Market · 反重力插件市场\n\n零 Token 损耗可视化社区插件市场。',
+    'README.en.md': '# AGY Market\n\nZero-token visual community plugin marketplace.',
+  });
+  const res2 = validatePluginTarball(zhPrimaryTar);
+  assert.ok(res2.readmeMarkdown.includes('反重力插件市场'));
+  assert.ok(res2.readmeZhMarkdown.includes('反重力插件市场'));
+  assert.ok(res2.readmeEnMarkdown.includes('Zero-token visual community'));
+
+  // 3. Fallback priority: README.zh.md & docs/README.zh-CN.md
+  const zhShortTar = makeSampleTarball({
+    'README.md': '# Short Zh Test\nEnglish default.',
+    'README.zh.md': '# 短后缀中文文档\n内容。',
+  });
+  const res3 = validatePluginTarball(zhShortTar);
+  assert.ok(res3.readmeZhMarkdown.includes('短后缀中文文档'));
+  assert.ok(res3.readmeEnMarkdown.includes('English default.'));
+
+  const docsZhTar = makeSampleTarball({
+    'README.md': '# Docs Zh Test\nEnglish default.',
+    'docs/README.zh-CN.md': '# 文档目录中文说明\n自动探测成功。',
+  });
+  const res4 = validatePluginTarball(docsZhTar);
+  assert.ok(res4.readmeZhMarkdown.includes('文档目录中文说明'));
+  assert.ok(res4.readmeEnMarkdown.includes('English default.'));
+
+  // 4. Chinese-only README.md (no README.en.md) vs English-only README.md (no ZH file)
+  const zhOnlyTar = makeSampleTarball({
+    'README.md': '# 猫娘观察台\n\n专为 Antigravity 打造的中文插件说明文档。',
+  });
+  const res5 = validatePluginTarball(zhOnlyTar);
+  assert.ok(res5.readmeZhMarkdown.includes('猫娘观察台'));
+  assert.equal(res5.readmeEnMarkdown, '');
+
+  const enOnlyTar = makeSampleTarball();
+  const res6 = validatePluginTarball(enOnlyTar);
+  assert.equal(res6.readmeZhMarkdown, '');
+  assert.ok(res6.readmeEnMarkdown.includes('Prism Helper'));
+});
+
+test('Submission, release sync, Track-2 crawl, and buildCatalogArtifacts compile backward-compatible readmes.json with entriesZh & entriesEn', () => {
+  const entry = validateSingleEntryFile(
+    'alice__prism-helper.yml',
+    `url: https://github.com/alice/prism-helper\ncategory: ui-themes\ndescription:\n  zh: 棱镜插件\n  en: Prism plugin.\n`,
+  );
+
+  // Track-1 submission with English README.md + README.zh-CN.md
+  const v120Tar = makeSampleTarball({
+    'README.md': '# Prism Helper v1.2\n\n[简体中文](README.zh-CN.md) · English\n\nEnglish guide.',
+    'README.zh-CN.md': '# 棱镜助手 v1.2\n\n简体中文使用指南。',
+  });
+  const approved = evaluateSubmission({
+    entry,
+    repoMeta: { id: 101, owner: { id: 11, login: 'alice' }, full_name: 'alice/prism-helper', created_at: '2026-11-01T00:00:00Z', stargazers_count: 88 },
+    commits: makeCommits(3),
+    releaseInfo: { tagName: 'v1.2.0', commitSha: COMMIT_A, tarballUrl: 'https://example.com/1.2.0.tar.gz' },
+    tarballBuffer: v120Tar,
+    ledger: { schemaVersion: 1, entries: {} },
+    versionsLock: { schemaVersion: 1, locks: {} },
+    nowMs: Date.parse('2026-11-23T12:00:00Z'),
+  });
+  assert.equal(approved.status, 'APPROVED');
+  assert.ok(approved.versionsLock.locks['alice__prism-helper'].versions['1.2.0'].readmeZhMarkdown.includes('简体中文使用指南'));
+  assert.ok(approved.versionsLock.locks['alice__prism-helper'].versions['1.2.0'].readmeEnMarkdown.includes('English guide.'));
+
+  // Release sync to v1.3.0 switching to Chinese primary README.md + README.en.md
+  const v130Tar = makeSampleTarball(
+    {
+      'README.md': '# 棱镜助手 v1.3\n\n极光棱镜新版简体中文主文档。',
+      'README.en.md': '# Prism Helper v1.3\n\nAurora Prism English documentation.',
+    },
+    { version: '1.3.0' },
+  );
+  const synced = evaluateRepoSyncUpdate({
+    ledgerRecord: approved.ledger.entries['prism-helper'],
+    lockRecord: approved.versionsLock.locks['alice__prism-helper'],
+    repoAtOldSlug: { id: 101, owner: { id: 11 }, full_name: 'alice/prism-helper' },
+    repoByNumericId: { id: 101, owner: { id: 11 }, full_name: 'alice/prism-helper', stargazers_count: 95 },
+    releases: [{ tagName: 'v1.3.0', commitSha: COMMIT_B, tarballUrl: 'https://example.com/1.3.0.tar.gz' }],
+    tarballBuffersByTag: new Map([['v1.3.0', v130Tar]]),
+  });
+  assert.equal(synced.lockRecord.latest, '1.3.0');
+  assert.ok(synced.lockRecord.versions['1.3.0'].readmeZhMarkdown.includes('极光棱镜新版简体中文主文档'));
+  assert.ok(synced.lockRecord.versions['1.3.0'].readmeEnMarkdown.includes('Aurora Prism English documentation'));
+
+  // Track-2 crawler extraction with docs/README.zh-CN.md + English README.md
+  const track2Tar = makeSampleTarball(
+    {
+      'README.md': '# Quick Note\n\nFast note taking.',
+      'docs/README.zh-CN.md': '# 快捷笔记\n\n极速记录灵感。',
+    },
+    { name: 'quick-note', displayName: 'Quick Note' },
+  );
+  const track2 = buildTrack2PluginRecord({
+    repoMeta: {
+      id: 505,
+      name: 'quick-note',
+      full_name: 'Dev-Team/quick-note',
+      html_url: 'https://github.com/Dev-Team/quick-note',
+      owner: { id: 55, login: 'Dev-Team' },
+      stargazers_count: 12,
+    },
+    releaseInfo: {
+      tagName: 'v0.3.0',
+      commitSha: COMMIT_A,
+      tarballUrl: 'https://github.com/Dev-Team/quick-note/releases/download/v0.3.0/quick-note.tar.gz',
+      publishedAt: '2026-11-24T01:00:00Z',
+    },
+    tarballBuffer: track2Tar,
+  });
+  assert.ok(track2.readmeZhMarkdown.includes('极速记录灵感'));
+  assert.ok(track2.readmeEnMarkdown.includes('Fast note taking'));
+
+  // Compile readmes.json and verify v1 `entries` + new `entriesZh` & `entriesEn` (plus legacy lock fallback)
+  const legacyLedger = structuredClone(approved.ledger);
+  legacyLedger.entries['prism-helper'] = synced.ledgerRecord;
+  legacyLedger.entries['legacy-zh'] = {
+    entrySlug: 'carol__legacy-zh',
+    canonicalName: 'legacy-zh',
+    repositoryId: 303,
+    ownerId: 33,
+    repoFullName: 'carol/legacy-zh',
+    pluginRoot: '.',
+    status: 'active',
+    claimedSkills: [],
+    claimedAgents: [],
+    claimedMcpServers: [],
+    registeredAt: '2026-11-20T00:00:00Z',
+  };
+  const legacyLocks = structuredClone(approved.versionsLock);
+  legacyLocks.locks['alice__prism-helper'] = synced.lockRecord;
+  legacyLocks.locks['carol__legacy-zh'] = {
+    latest: '1.0.0',
+    versions: {
+      '1.0.0': {
+        gitTag: 'v1.0.0',
+        commitSha: COMMIT_A,
+        tarballUrl: 'https://example.com/legacy.tar.gz',
+        sha256: 'a'.repeat(64),
+        sizeBytes: 1024,
+        publishedAt: '2026-11-20T00:00:00Z',
+        manifest: { name: 'legacy-zh', displayName: '旧版中文插件', description: '旧版中文插件' },
+        readmeMarkdown: '# 旧版中文插件\n\n尚未包含独立语言字段的早期中文文档说明。',
+      },
+    },
+  };
+
+  const compiled = compileCatalogArtifacts({
+    entries: [entry],
+    ledger: legacyLedger,
+    versionsLock: legacyLocks,
+    unverifiedCache: {
+      schemaVersion: 1,
+      plugins: [track2.pluginEntry],
+      readmes: { [track2.pluginEntry.id]: track2.readmeMarkdown },
+      readmesZh: { [track2.pluginEntry.id]: track2.readmeZhMarkdown },
+      readmesEn: { [track2.pluginEntry.id]: track2.readmeEnMarkdown },
+    },
+  });
+
+  // Backward-compatible `entries`
+  assert.ok(compiled.readmesJson.entries['alice__prism-helper'].includes('极光棱镜新版简体中文主文档'));
+  assert.ok(compiled.readmesJson.entries['dev-team__quick-note'].includes('Fast note taking'));
+  assert.ok(compiled.readmesJson.entries['carol__legacy-zh'].includes('旧版中文插件'));
+
+  // Multilingual `entriesZh` & `entriesEn`
+  assert.ok(compiled.readmesJson.entriesZh['alice__prism-helper'].includes('极光棱镜新版简体中文主文档'));
+  assert.ok(compiled.readmesJson.entriesEn['alice__prism-helper'].includes('Aurora Prism English documentation'));
+  assert.ok(compiled.readmesJson.entriesZh['dev-team__quick-note'].includes('极速记录灵感'));
+  assert.ok(compiled.readmesJson.entriesEn['dev-team__quick-note'].includes('Fast note taking'));
+  assert.ok(compiled.readmesJson.entriesZh['carol__legacy-zh'].includes('旧版中文插件'));
+  assert.equal(compiled.readmesJson.entriesEn['carol__legacy-zh'], undefined);
+});

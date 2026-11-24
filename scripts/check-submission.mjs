@@ -232,6 +232,8 @@ export function evaluateSubmission({
         capabilities: inspected.capabilities,
         stars: Number(repoMeta.stargazers_count || 0),
         readmeMarkdown: inspected.readmeMarkdown,
+        readmeZhMarkdown: inspected.readmeZhMarkdown || '',
+        readmeEnMarkdown: inspected.readmeEnMarkdown || '',
         iconExt: inspected.iconArtifact?.ext || null,
       },
     },

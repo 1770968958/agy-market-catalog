@@ -89,6 +89,8 @@ export function buildTrack2PluginRecord({
       updatedAt: releaseInfo.publishedAt || new Date().toISOString(),
     },
     readmeMarkdown: inspected.readmeMarkdown,
+    readmeZhMarkdown: inspected.readmeZhMarkdown || '',
+    readmeEnMarkdown: inspected.readmeEnMarkdown || '',
     iconArtifact: inspected.iconArtifact,
   };
 }
@@ -119,7 +121,11 @@ export async function crawlExperimentalTopics({ repoRoot = REPO_ROOT } = {}) {
   if (!token) {
     if (!existsSync(cachePath)) {
       mkdirSync(dirname(cachePath), { recursive: true });
-      writeFileSync(cachePath, `${JSON.stringify({ schemaVersion: 1, plugins: [], readmes: {} }, null, 2)}\n`, 'utf8');
+      writeFileSync(
+        cachePath,
+        `${JSON.stringify({ schemaVersion: 1, plugins: [], readmes: {}, readmesZh: {}, readmesEn: {} }, null, 2)}\n`,
+        'utf8',
+      );
     }
     console.log('[crawl-topics] No GITHUB_TOKEN set; preserving local unverified-cache.json.');
     return { discovered: 0 };
@@ -134,6 +140,8 @@ export async function crawlExperimentalTopics({ repoRoot = REPO_ROOT } = {}) {
   const seenRepoIds = new Set();
   const discoveredPlugins = [];
   const readmes = {};
+  const readmesZh = {};
+  const readmesEn = {};
   const stateIconsDir = join(repoRoot, 'state', 'icons');
   const iconsDir = join(repoRoot, 'dist', 'icons');
   mkdirSync(stateIconsDir, { recursive: true });
@@ -190,6 +198,12 @@ export async function crawlExperimentalTopics({ repoRoot = REPO_ROOT } = {}) {
           if (built.readmeMarkdown) {
             readmes[built.pluginEntry.id] = built.readmeMarkdown;
           }
+          if (built.readmeZhMarkdown) {
+            readmesZh[built.pluginEntry.id] = built.readmeZhMarkdown;
+          }
+          if (built.readmeEnMarkdown) {
+            readmesEn[built.pluginEntry.id] = built.readmeEnMarkdown;
+          }
           if (built.iconArtifact) {
             const iconFile = `${built.pluginEntry.id}${built.iconArtifact.ext}`;
             writeFileSync(join(stateIconsDir, iconFile), built.iconArtifact.sanitizedBuffer);
@@ -205,7 +219,7 @@ export async function crawlExperimentalTopics({ repoRoot = REPO_ROOT } = {}) {
   discoveredPlugins.sort((a, b) => a.id.localeCompare(b.id));
   writeFileSync(
     cachePath,
-    `${JSON.stringify({ schemaVersion: 1, plugins: discoveredPlugins, readmes }, null, 2)}\n`,
+    `${JSON.stringify({ schemaVersion: 1, plugins: discoveredPlugins, readmes, readmesZh, readmesEn }, null, 2)}\n`,
     'utf8',
   );
   return { discovered: discoveredPlugins.length };

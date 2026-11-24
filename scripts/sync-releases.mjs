@@ -160,6 +160,8 @@ export function evaluateRepoSyncUpdate({
       capabilities: inspected.capabilities,
       stars: Number(repoByNumericId.stargazers_count || 0),
       readmeMarkdown: inspected.readmeMarkdown,
+      readmeZhMarkdown: inspected.readmeZhMarkdown || '',
+      readmeEnMarkdown: inspected.readmeEnMarkdown || '',
       iconExt: inspected.iconArtifact?.ext || null,
       npmMirrorPkg: rel.npmMirrorPkg || null,
     };
