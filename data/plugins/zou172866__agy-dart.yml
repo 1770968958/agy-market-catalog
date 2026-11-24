@@ -1,6 +1,6 @@
 url: https://github.com/zou172866/agy-dart
 pluginRoot: .
-category: developer-tools
+category: context-cache
 description:
   zh: Antigravity 全合一低延迟加速、KV-Cache 保护、上下文窗口守卫与 Sidecar 卡死看门狗面板插件。
   en: All-in-one Antigravity latency accelerator, KV-cache protector, SQLite FTS5 context-window guard, and live Sidecar dashboard.

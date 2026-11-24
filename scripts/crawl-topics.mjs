@@ -45,6 +45,7 @@ import {
   synthesizeGitCommitVersion,
 } from './lib/discovery-sources.mjs';
 import { inspectTarGzBuffer } from './lib/tar-stream.mjs';
+import { CURATED_TAXONOMY_OVERRIDES, inferPluginTaxonomy } from './lib/taxonomy-classifier.mjs';
 import { validatePluginTarball } from './validate-plugin-tarball.mjs';
 
 export { buildShardedDateWindows };
@@ -176,6 +177,17 @@ export function buildTrack2PluginRecord({
 
   const companion = inspected.companion || {};
   const descText = String(inspected.manifest.description || repoMeta.description || '').trim();
+  const displayName = inspected.manifest.displayName || inspected.manifest.name;
+  const inferredTaxonomy = inferPluginTaxonomy({
+    id: identity.id,
+    canonicalName: identity.canonicalName,
+    displayName,
+    description: descText,
+    topics: Array.isArray(repoMeta.topics) ? repoMeta.topics : [],
+    capabilities: inspected.capabilities,
+    existingCategories: companion.categories || [],
+    existingTags: companion.tags || [],
+  });
 
   return {
     pluginEntry: {
@@ -183,7 +195,7 @@ export function buildTrack2PluginRecord({
       canonicalName: identity.canonicalName,
       scopedName: identity.scopedName,
       forceScopedInstall: true,
-      displayName: inspected.manifest.displayName || inspected.manifest.name,
+      displayName,
       description: {
         zh: descText,
         en: descText,
@@ -210,8 +222,8 @@ export function buildTrack2PluginRecord({
         screenshots: companion.screenshots || [],
       },
       taxonomy: {
-        categories: companion.categories?.length ? companion.categories : ['other'],
-        tags: companion.tags?.length ? companion.tags : ['experimental'],
+        categories: inferredTaxonomy.categories,
+        tags: inferredTaxonomy.tags,
         platforms: companion.platforms?.length ? companion.platforms : ['win32', 'darwin', 'linux'],
       },
       capabilities: inspected.capabilities,
@@ -304,6 +316,33 @@ export function buildTrack2PluginRecordsForArchive({
       totalValidRootsInRepo: validDrafts.length,
       usedScopedNames,
     });
+    let nextTaxonomy = built.pluginEntry.taxonomy;
+    if (
+      identity.id !== built.pluginEntry.id &&
+      (CURATED_TAXONOMY_OVERRIDES[identity.id] ||
+        !Array.isArray(built.pluginEntry.taxonomy?.categories) ||
+        built.pluginEntry.taxonomy.categories.length === 0 ||
+        built.pluginEntry.taxonomy.categories.every((c) => c === 'other'))
+    ) {
+      const reInferred = inferPluginTaxonomy({
+        id: identity.id,
+        canonicalName: identity.canonicalName,
+        displayName: built.pluginEntry.displayName,
+        description: built.pluginEntry.description,
+        topics: Array.isArray(repoMeta.topics) ? repoMeta.topics : [],
+        capabilities: built.pluginEntry.capabilities,
+        existingCategories: [],
+        existingTags: [],
+      });
+      nextTaxonomy = {
+        ...built.pluginEntry.taxonomy,
+        categories: reInferred.categories,
+        tags: reInferred.tags,
+        platforms: built.pluginEntry.taxonomy?.platforms?.length
+          ? built.pluginEntry.taxonomy.platforms
+          : ['win32', 'darwin', 'linux'],
+      };
+    }
     const nextEntry = {
       ...built.pluginEntry,
       id: identity.id,
@@ -313,6 +352,7 @@ export function buildTrack2PluginRecordsForArchive({
         ...built.pluginEntry.media,
         iconUrl: built.iconArtifact ? `${catalogBaseUrl}/icons/${identity.id}${built.iconArtifact.ext}` : null,
       },
+      taxonomy: nextTaxonomy,
     };
     return {
       ...built,
@@ -864,6 +904,40 @@ export async function crawlExperimentalTopics({
     });
   }
 
+  function maybeUpgradeCachedTaxonomy(oldEntry, repoMeta = null) {
+    const oldCategories = Array.isArray(oldEntry.taxonomy?.categories) ? oldEntry.taxonomy.categories : [];
+    const oldTags = Array.isArray(oldEntry.taxonomy?.tags) ? oldEntry.taxonomy.tags : [];
+    const platforms = oldEntry.taxonomy?.platforms?.length
+      ? oldEntry.taxonomy.platforms
+      : ['win32', 'darwin', 'linux'];
+    const needsUpgrade =
+      oldCategories.length === 0 ||
+      oldCategories.every((c) => c === 'other') ||
+      (oldTags.length === 1 && oldTags[0] === 'experimental');
+    if (!needsUpgrade) {
+      return {
+        categories: oldCategories,
+        tags: oldTags,
+        platforms,
+      };
+    }
+    const inferred = inferPluginTaxonomy({
+      id: oldEntry.id,
+      canonicalName: oldEntry.canonicalName,
+      displayName: oldEntry.displayName,
+      description: oldEntry.description,
+      topics: Array.isArray(repoMeta?.topics) ? repoMeta.topics : [],
+      capabilities: oldEntry.capabilities || {},
+      existingCategories: oldCategories,
+      existingTags: oldTags,
+    });
+    return {
+      categories: inferred.categories,
+      tags: inferred.tags,
+      platforms,
+    };
+  }
+
   function recordCacheReuse(cachedList, repoMeta) {
     for (const oldEntry of cachedList) {
       const normRoot = normalizeRelPosix(oldEntry.repository?.pluginRoot || '.');
@@ -885,6 +959,7 @@ export async function crawlExperimentalTopics({
               : Number(oldEntry.repository?.stars || 0),
           pluginRoot: normRoot,
         },
+        taxonomy: maybeUpgradeCachedTaxonomy(oldEntry, repoMeta),
         forceScopedInstall: true,
       };
       discoveredById.set(updatedEntry.id, updatedEntry);
@@ -1151,6 +1226,7 @@ export async function crawlExperimentalTopics({
       discoveredById.set(oldEntry.id, {
         ...oldEntry,
         repository: { ...oldEntry.repository, pluginRoot: normRoot },
+        taxonomy: maybeUpgradeCachedTaxonomy(oldEntry, null),
         forceScopedInstall: true,
       });
       if (existingCache.readmes?.[oldEntry.id]) readmes[oldEntry.id] = existingCache.readmes[oldEntry.id];

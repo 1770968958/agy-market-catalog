@@ -14,7 +14,7 @@
 
 > **🚀 插件作者快速入口 — 5 分钟上架你的 Antigravity 插件！**
 >
-> 👉 点击阅读 **[📖 申请收录插件完整教程 (`docs/SUBMISSION_GUIDE.md`)](./docs/SUBMISSION_GUIDE.md)**（含可直接复制粘贴的 `plugin.json`、`agy-market.json`、单文件 YAML 模板、12 个分类枚举表、打包命令与本地自检脚本）。
+> 👉 点击阅读 **[📖 申请收录插件完整教程 (`docs/SUBMISSION_GUIDE.md`)](./docs/SUBMISSION_GUIDE.md)**（含可直接复制粘贴的 `plugin.json`、`agy-market.json`、单文件 YAML 模板、15 个分类枚举表、打包命令与本地自检脚本）。
 >
 > - **方式一（推荐 · Track 1 官方认证目录）**：提交 **1 个 YAML 文件 PR** → 全自动门禁校验与自动合并 → **后续每次发版 0 PR 每 30 分钟自动同步**！
 > - **方式二（Track 2 实验源免 PR）**：给公开 GitHub 仓库添加 Topic `antigravity-plugin` 并发布正式 SemVer Release → 每 6 小时自动发现，采用 `<owner>--<slug>` 安全隔离安装。
@@ -63,8 +63,28 @@ description:
 
 > **规则速览**：
 > - 单个 PR 最多新增/修改 **`3`** 个条目（`MAX_ENTRIES_PER_PR = 3`），禁止手写 `sha256`、`npm`、`npmMirrorPkg`、`repositoryId`、`ownerId` 等机算字段。
-> - 允许的 `category` 枚举：`productivity`、`ui-themes`、`developer-tools`、`mcp-integrations`、`skills-workflows`、`data-science`、`cloud-devops`、`creative-media`、`writing-knowledge`、`automation`、`security`、`other`。
+> - 允许的 `category` 枚举（15 个）：`monitoring-quota`、`context-cache`、`ui-themes`、`agents-reasoning`、`developer-tools`、`mcp-integrations`、`skills-workflows`、`productivity`、`data-science`、`cloud-devops`、`creative-media`、`writing-knowledge`、`automation`、`security`、`other`。
 > - 如需指定 Release 资产文件名，可添加可选字段 `releaseAsset: my-plugin.tar.gz`。
+
+#### 分类枚举说明表（15 个合法枚举）
+
+| 枚举值 (`category`) | 中文分类名 | English Label |
+| :--- | :--- | :--- |
+| `monitoring-quota` | 状态与用量监控 | Telemetry & Quota |
+| `context-cache` | 上下文与缓存加速 | Context & Cache Boost |
+| `ui-themes` | 界面美化与汉化 | UI, Themes & i18n |
+| `agents-reasoning` | 多代理与思考控制 | Agents & Reasoning |
+| `developer-tools` | 开发与版本工具 | Git & DevTools |
+| `mcp-integrations` | 浏览器与系统 MCP | Browser & System MCP |
+| `skills-workflows` | 技能包与工程方法 | Skills & Frameworks |
+| `productivity` | 效率与插件管理 | Workspace & Market |
+| `data-science` | 数据与科学计算 | Data & Science |
+| `cloud-devops` | 云原生与部署 | Cloud & DevOps |
+| `creative-media` | 设计与多媒体 | Creative & Media |
+| `writing-knowledge` | 写作与知识库 | Writing & Knowledge |
+| `automation` | 定时与守护任务 | Automation |
+| `security` | 安全与审计 | Security |
+| `other` | 其他扩展 | Other |
 
 ### 第 3 步：双层 Fork 安全 CI 自动准入与零 PR 自动同步
 1. **Tier 1（`pr-check.yml`，零 Secret）**：即时校验 PR 路径白名单、YAML 结构并运行单元测试。

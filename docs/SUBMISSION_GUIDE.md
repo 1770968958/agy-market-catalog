@@ -123,7 +123,7 @@ Antigravity 宿主会静默剥离白名单之外的顶层字段，目录门禁�
 | :--- | :--- |
 | `schemaVersion` | 固定填 `1` |
 | `pluginRoot` | 插件根目录相对路径，默认为 `"."` |
-| `categories` | 多分类数组（必须属于下方 12 个合法分类枚举，优先于 YAML 里的单分类） |
+| `categories` | 多分类数组（必须属于下方 15 个合法分类枚举，优先于 YAML 里的单分类） |
 | `tags` | 自定义搜索关键词数组 |
 | `screenshots` | 预览截图相对路径数组 |
 | `minAntigravityVersion` | 最低兼容的 Antigravity 版本号 |
@@ -226,15 +226,18 @@ description:
 > - **禁止手写机算字段**：不要写 `sha256`、`npm`、`npmMirrorPkg`、`repositoryId`、`ownerId`（全部由 CI 自动计算并锁定，手写会报错 `ERR_FORBIDDEN_HANDWRITTEN_KEY`）。
 > - 每个 PR 最多新增/修改 **`3`** 个插件条目（`MAX_ENTRIES_PER_PR = 3`），且 **只能修改 `data/plugins/*.yml`**，不要修改 `README.md` 或任何脚本文件（否则 Tier-1 路径白名单校验会拦截）。
 
-#### 允许的 12 个分类枚举表（`category`）
+#### 允许的 15 个分类枚举表（`category`）
 
 | `category` 枚举值 | AGY Market 中文分类 | English Label | 典型插件类型 |
 | :--- | :--- | :--- | :--- |
-| `productivity` | 效率与工作流 | Productivity | 效率增强、工作台助手、状态监控、快捷操作 |
-| `ui-themes` | 界面与主题美化 | UI & Themes | 毛玻璃皮肤、壁纸工坊、桌面挂件、主题美化 |
-| `developer-tools` | 开发者工具 | Developer Tools | 调试加速、代码检索、缓存守卫、构建与诊断工具 |
-| `mcp-integrations` | MCP 服务集成 | MCP Integrations | 数据库、API、浏览器、第三方服务 MCP 连接器 |
-| `skills-workflows` | 技能与自动化 | Skills & Workflows | 纯 Markdown `SKILL.md` 技能集、多步开发工作流 |
+| `monitoring-quota` | 状态与用量监控 | Telemetry & Quota | Token / 额度监控、上下文 HUD 胶囊、网络探针、生成速度观察台 |
+| `context-cache` | 上下文与缓存加速 | Context & Cache Boost | KV-Cache 保护、上下文守卫、历史裁剪压缩、配额节省加速 |
+| `ui-themes` | 界面美化与汉化 | UI, Themes & i18n | 毛玻璃皮肤、壁纸工坊、桌面挂件、简体中文 UI 语言包与本地化 |
+| `agents-reasoning` | 多代理与思考控制 | Agents & Reasoning | 多代理蜂群协同、Subagent 路由调度、模型思考语言与推理控制 |
+| `developer-tools` | 开发与版本工具 | Git & DevTools | Git 分支图与 Diff、代码检索、调试构建与工程诊断工具 |
+| `mcp-integrations` | 浏览器与系统 MCP | Browser & System MCP | 浏览器控制、硬件温控、数据库、API 与第三方服务 MCP 连接器 |
+| `skills-workflows` | 技能包与工程方法 | Skills & Frameworks | 纯声明式 `SKILL.md` 技能集、产品工程方法论与多步开发工作流 |
+| `productivity` | 效率与插件管理 | Workspace & Market | 插件市场与管理器、工具目录导航、工作台效率助手与快捷操作 |
 | `data-science` | 数据与科学计算 | Data & Science | 数据分析、可视化、科研检索与建模辅助 |
 | `cloud-devops` | 云原生与部署 | Cloud & DevOps | 云部署、Docker/K8s、CI/CD 与基础设施工具 |
 | `creative-media` | 设计与多媒体 | Creative & Media | 音视频、图像生成、设计系统与创意媒体工具 |

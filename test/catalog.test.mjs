@@ -14,7 +14,8 @@ import {
   buildTrack2PluginRecordsForArchive,
   crawlExperimentalTopics,
 } from '../scripts/crawl-topics.mjs';
-import { buildSourceArchiveUrl, compareSemver } from '../scripts/lib/constants.mjs';
+import { ALLOWED_CATEGORIES, buildSourceArchiveUrl, compareSemver } from '../scripts/lib/constants.mjs';
+import { CURATED_TAXONOMY_OVERRIDES, inferPluginTaxonomy } from '../scripts/lib/taxonomy-classifier.mjs';
 import {
   buildChannelARepoQueries,
   deriveExplicitSubpathFromCodePath,
@@ -32,7 +33,7 @@ import { createTarGzBuffer, inspectTarGzBuffer, parsePaxRecords } from '../scrip
 import { verifyBidirectionalNpmOwnership } from '../scripts/probe-npm.mjs';
 import { sanitizeSvgIcon } from '../scripts/sanitize-icon.mjs';
 import { evaluateRepoSyncUpdate } from '../scripts/sync-releases.mjs';
-import { validatePrDiffLimits, validateSingleEntryFile } from '../scripts/validate-entries.mjs';
+import { validateEntriesDirectory, validatePrDiffLimits, validateSingleEntryFile } from '../scripts/validate-entries.mjs';
 import { validatePluginTarball } from '../scripts/validate-plugin-tarball.mjs';
 
 const __testDir = dirname(fileURLToPath(import.meta.url));
@@ -1826,4 +1827,483 @@ test('buildSourceArchiveUrl pins to immutable 40-char commit SHA and falls back 
     buildSourceArchiveUrl('zou172866/agy-dart', 'not-a-sha', 'v1.7.0+meta'),
     'https://github.com/zou172866/agy-dart/archive/refs/tags/v1.7.0%2Bmeta.tar.gz',
   );
+});
+
+test('15-category ALLOWED_CATEGORIES allowlist accepts new categories and rejects invalid categories with ERR_INVALID_CATEGORY', () => {
+  const expectedCategories = [
+    'monitoring-quota',
+    'context-cache',
+    'ui-themes',
+    'agents-reasoning',
+    'developer-tools',
+    'mcp-integrations',
+    'skills-workflows',
+    'productivity',
+    'data-science',
+    'cloud-devops',
+    'creative-media',
+    'writing-knowledge',
+    'automation',
+    'security',
+    'other',
+  ];
+  assert.equal(ALLOWED_CATEGORIES.size, 15);
+  for (const cat of expectedCategories) {
+    assert.ok(ALLOWED_CATEGORIES.has(cat), `Missing category "${cat}" in ALLOWED_CATEGORIES`);
+  }
+
+  for (const newCat of ['monitoring-quota', 'context-cache', 'agents-reasoning']) {
+    const valid = validateSingleEntryFile(
+      'alice__sample-plugin.yml',
+      `url: https://github.com/alice/sample-plugin\npluginRoot: .\ncategory: ${newCat}\ndescription:\n  zh: 测试新分类\n  en: Test new category.\n`,
+    );
+    assert.equal(valid.category, newCat);
+  }
+
+  assert.throws(
+    () =>
+      validateSingleEntryFile(
+        'alice__bad-cat.yml',
+        `url: https://github.com/alice/bad-cat\npluginRoot: .\ncategory: nonexistent-category\ndescription:\n  zh: 非法分类\n  en: Invalid category.\n`,
+      ),
+    /ERR_INVALID_CATEGORY/,
+  );
+
+  const badCompanionTar = makeSampleTarball({
+    'agy-market.json': JSON.stringify({
+      schemaVersion: 1,
+      categories: ['not-a-real-category'],
+    }),
+  });
+  assert.throws(() => validatePluginTarball(badCompanionTar, { lenientManifest: false }), /ERR_AGY_MARKET_CATEGORIES/);
+});
+
+test('inferPluginTaxonomy classifies unknown community plugins via multi-signal rules and respects curated & upstream overrides', () => {
+  assert.equal(Object.keys(CURATED_TAXONOMY_OVERRIDES).length, 17);
+  for (const [id, spec] of Object.entries(CURATED_TAXONOMY_OVERRIDES)) {
+    assert.ok(spec.categories.length >= 1, `${id} must have >=1 curated category`);
+    for (const c of spec.categories) {
+      assert.ok(ALLOWED_CATEGORIES.has(c), `${id} curated category "${c}" not in ALLOWED_CATEGORIES`);
+      assert.notEqual(c, 'other', `${id} must not be classified as other`);
+    }
+    assert.ok(spec.tags.length >= 1, `${id} must have >=1 curated tag`);
+  }
+
+  // Upstream explicit non-other companion categories take precedence over curated overrides
+  const explicitOverride = inferPluginTaxonomy({
+    id: 'zou172866__agy-dart',
+    existingCategories: ['productivity', 'automation'],
+    existingTags: ['custom-tag'],
+  });
+  assert.deepEqual(explicitOverride.categories, ['productivity', 'automation']);
+  assert.ok(explicitOverride.tags.includes('custom-tag'));
+
+  // Track-1 yamlCategory stays first and merges curated secondary categories without duplicates
+  const track1Merged = inferPluginTaxonomy({
+    id: 'yunjuanyunshu114-byte__antigravity-observer',
+    yamlCategory: 'monitoring-quota',
+  });
+  assert.deepEqual(track1Merged.categories, ['monitoring-quota', 'ui-themes']);
+  assert.deepEqual(track1Merged.tags, ['telemetry', 'quota', 'companion-widget', 'context']);
+
+  // Multi-signal inference for future unknown community plugins
+  const cases = [
+    {
+      input: {
+        id: 'future__aurora-glass-skin',
+        canonicalName: 'aurora-glass-skin',
+        displayName: 'Aurora Glass Skin & Wallpaper',
+        description: 'Frosted glass skin, wallpaper engine, and zh-CN UI localization theme.',
+        capabilities: { badges: ['sidecar-ui', 'host-enhancement'] },
+      },
+      expectedPrimary: 'ui-themes',
+    },
+    {
+      input: {
+        id: 'future__token-ttft-hud',
+        canonicalName: 'token-ttft-hud',
+        displayName: 'Token & Quota HUD',
+        description: 'Live token usage monitor, TTFT telemetry, and model quota observer.',
+        capabilities: { badges: ['sidecar-ui'] },
+      },
+      expectedPrimary: 'monitoring-quota',
+    },
+    {
+      input: {
+        id: 'future__prompt-cache-shield',
+        canonicalName: 'prompt-cache-shield',
+        displayName: 'Prompt Cache Shield',
+        description: 'KV-cache guard, context-radar, and smart /compact quota saver.',
+        capabilities: { badges: ['mcp-stdio', 'lifecycle-hooks'] },
+      },
+      expectedPrimary: 'context-cache',
+    },
+    {
+      input: {
+        id: 'future__multi-agent-planner',
+        canonicalName: 'multi-agent-planner',
+        displayName: 'Multi-Agent Swarm Planner',
+        description: 'Subagent orchestration and chain-of-thought reasoning controller.',
+        capabilities: { badges: ['global-rules', 'mcp-stdio'] },
+      },
+      expectedPrimary: 'agents-reasoning',
+    },
+    {
+      input: {
+        id: 'future__git-ast-inspector',
+        canonicalName: 'git-ast-inspector',
+        displayName: 'Git Diff & AST Inspector',
+        description: 'Interactive git branch diff, linter, and unit test debugger.',
+        capabilities: { badges: ['sidecar-ui'] },
+      },
+      expectedPrimary: 'developer-tools',
+    },
+    {
+      input: {
+        id: 'future__custom-bridge-mcp',
+        canonicalName: 'custom-bridge-mcp',
+        displayName: 'Custom Bridge',
+        description: 'Lightweight local stdio connector.',
+        capabilities: { badges: ['mcp-stdio'] },
+      },
+      expectedPrimary: 'mcp-integrations',
+    },
+    {
+      input: {
+        id: 'future__team-playbook',
+        canonicalName: 'team-playbook',
+        displayName: 'Team Playbook',
+        description: 'Declarative engineering handbook.',
+        capabilities: { badges: ['declarative-only'] },
+      },
+      expectedPrimary: 'skills-workflows',
+    },
+    {
+      input: {
+        id: 'future__repo-secret-audit',
+        canonicalName: 'repo-secret-audit',
+        displayName: 'Secret Audit Guard',
+        description: 'Automated security audit and secret scan before every tool call.',
+        capabilities: { badges: ['lifecycle-hooks'] },
+      },
+      expectedPrimary: 'security',
+    },
+    {
+      input: {
+        id: 'future__k8s-cloud-deploy',
+        canonicalName: 'k8s-cloud-deploy',
+        displayName: 'K8s Cloud Deployer',
+        description: 'Deploy Docker containers and Kubernetes manifests to cloud clusters.',
+        capabilities: { badges: ['mcp-remote'] },
+      },
+      expectedPrimary: 'cloud-devops',
+    },
+    {
+      input: {
+        id: 'future__blender-3d-studio',
+        canonicalName: 'blender-3d-studio',
+        displayName: 'Blender 3D Studio',
+        description: 'Parametric Blender rendering and text-to-3D GLB asset pipeline via MCP.',
+        capabilities: { badges: ['mcp-stdio'] },
+      },
+      expectedPrimary: 'creative-media',
+    },
+    {
+      input: {
+        id: 'future__vault-memory',
+        canonicalName: 'vault-memory',
+        displayName: 'Obsidian Memory Vault',
+        description: 'Persistent cross-session knowledge graph and Obsidian Zettelkasten memory.',
+        capabilities: { badges: ['mcp-stdio', 'lifecycle-hooks'] },
+      },
+      expectedPrimary: 'writing-knowledge',
+    },
+    {
+      input: {
+        id: 'future__quant-analytics',
+        canonicalName: 'quant-analytics',
+        displayName: 'Quant Portfolio Analytics',
+        description: 'SQL analytics, IBKR portfolio metrics, and vector search datasets.',
+        capabilities: { badges: ['mcp-remote'] },
+      },
+      expectedPrimary: 'data-science',
+    },
+    {
+      input: {
+        id: 'future__desktop-cua-runner',
+        canonicalName: 'desktop-cua-runner',
+        displayName: 'Desktop CUA Automation',
+        description: 'Background computer-use GUI automation and webhook notifier daemon.',
+        capabilities: { badges: ['mcp-stdio', 'lifecycle-hooks'] },
+      },
+      expectedPrimary: 'automation',
+    },
+    {
+      // Monorepo container name ("plugin-directory") must NOT hijack sub-plugin into productivity
+      input: {
+        id: 'ziggkaizen__antigravity-plugin-directory--plugins-nestjs-11',
+        canonicalName: 'nestjs-11',
+        displayName: 'nestjs-11',
+        description: 'NestJS 11 architecture, API endpoint review, and testing guidance.',
+        capabilities: { badges: ['global-rules', 'lifecycle-hooks'] },
+      },
+      expectedPrimary: 'developer-tools',
+    },
+    {
+      // Noise phrases ("Zero-telemetry", "via OAuth MCP", "跟随宿主主题") must NOT hijack primary domain
+      input: {
+        id: 'future__codex-collab-room',
+        canonicalName: 'codex-collab-room',
+        displayName: 'Codex Collab Room',
+        description: '多智能体协同对讲室（实时跟随宿主主题），零额外 Token 调度 OpenAI Codex 与子代理。',
+        capabilities: { badges: ['sidecar-ui', 'host-enhancement'] },
+      },
+      expectedPrimary: 'agents-reasoning',
+    },
+  ];
+
+  // Curated --plugin subpath variant still inherits exact curated override
+  const clamshellSubpath = inferPluginTaxonomy({
+    id: 'eatingdream-antigravity-plugins__mac-clamshell-mcp--plugin',
+    canonicalName: 'mac-clamshell-mcp',
+    displayName: 'Mac Clamshell MCP',
+    description: 'Native Rust macOS clamshell performance throttling and thermal guard.',
+    capabilities: { badges: ['mcp-stdio'] },
+  });
+  assert.deepEqual(clamshellSubpath.categories, ['mcp-integrations']);
+  assert.deepEqual(clamshellSubpath.tags, ['macos', 'hardware', 'thermal', 'mcp']);
+
+  for (const tc of cases) {
+    const res = inferPluginTaxonomy(tc.input);
+    assert.equal(res.categories[0], tc.expectedPrimary, `Expected ${tc.input.id} -> ${tc.expectedPrimary}, got ${JSON.stringify(res.categories)}`);
+    assert.ok(res.categories.length >= 1 && res.categories.length <= 2);
+    assert.ok(!res.categories.includes('other'));
+    assert.ok(res.tags.length >= 1 && !res.tags.includes('experimental'));
+  }
+});
+
+test('Real catalog compilation preserves all 17 core plugins accurately and classifies full cloud Track-2 catalog cleanly', async () => {
+  const entries = validateEntriesDirectory(join(CATALOG_REPO_ROOT, 'data', 'plugins'));
+  const ledger = JSON.parse(readFileSync(join(CATALOG_REPO_ROOT, 'state', 'ledger.json'), 'utf8'));
+  const versionsLock = JSON.parse(readFileSync(join(CATALOG_REPO_ROOT, 'state', 'versions-lock.json'), 'utf8'));
+  const unverifiedCache = JSON.parse(readFileSync(join(CATALOG_REPO_ROOT, 'state', 'unverified-cache.json'), 'utf8'));
+
+  const built = compileCatalogArtifacts({
+    entries,
+    ledger,
+    versionsLock,
+    unverifiedCache,
+    generatedAt: '2026-11-24T12:00:00.000Z',
+    catalogVersion: '2026.1124.2',
+  });
+
+  assert.equal(built.indexJson.plugins.length, 4);
+  assert.equal(built.unverifiedIndexJson.plugins.length, unverifiedCache.plugins.length);
+  assert.ok(built.unverifiedIndexJson.plugins.length >= 800, 'Expected full cloud Track-2 catalog (>=800 plugins)');
+
+  const allPlugins = [...built.indexJson.plugins, ...built.unverifiedIndexJson.plugins];
+  const byId = new Map(allPlugins.map((p) => [p.id, p]));
+
+  // 1. Verify all 17 original curated core plugins retain exact categories & 8-category distribution
+  const coreCounts = {};
+  for (const [coreId, spec] of Object.entries(CURATED_TAXONOMY_OVERRIDES)) {
+    const plugin = byId.get(coreId) || byId.get(`${coreId}--plugin`);
+    assert.ok(plugin, `Missing core plugin "${coreId}" in compiled catalog`);
+    assert.deepEqual(
+      plugin.taxonomy.categories,
+      [...spec.categories],
+      `Core plugin "${plugin.id}" categories drifted`,
+    );
+    for (const c of plugin.taxonomy.categories) {
+      coreCounts[c] = (coreCounts[c] || 0) + 1;
+    }
+  }
+  assert.deepEqual(coreCounts, {
+    'monitoring-quota': 5,
+    'context-cache': 3,
+    'ui-themes': 3,
+    'agents-reasoning': 3,
+    'developer-tools': 3,
+    'mcp-integrations': 2,
+    'skills-workflows': 2,
+    productivity: 2,
+  });
+
+  // 2. Verify full catalog taxonomy integrity across all 840+ plugins
+  const primaryCounts = {};
+  const totalCounts = {};
+  for (const p of allPlugins) {
+    assert.ok(Array.isArray(p.taxonomy?.categories) && p.taxonomy.categories.length >= 1, `${p.id} missing categories`);
+    assert.equal(new Set(p.taxonomy.categories).size, p.taxonomy.categories.length, `${p.id} has duplicate categories`);
+    primaryCounts[p.taxonomy.categories[0]] = (primaryCounts[p.taxonomy.categories[0]] || 0) + 1;
+    for (const c of p.taxonomy.categories) {
+      assert.ok(ALLOWED_CATEGORIES.has(c), `${p.id} has invalid category "${c}"`);
+      totalCounts[c] = (totalCounts[c] || 0) + 1;
+    }
+    assert.ok(Array.isArray(p.taxonomy?.tags) && p.taxonomy.tags.length >= 1, `${p.id} missing tags`);
+    assert.ok(!p.taxonomy.tags.includes('experimental'), `${p.id} should not retain placeholder experimental tag`);
+  }
+
+  // All 14 non-other domain categories must be actively populated with healthy distribution
+  const nonOtherCategories = [...ALLOWED_CATEGORIES].filter((c) => c !== 'other');
+  for (const cat of nonOtherCategories) {
+    assert.ok((primaryCounts[cat] || 0) >= 10, `Expected >=10 primary plugins in "${cat}", got ${primaryCounts[cat] || 0}`);
+  }
+  const otherCount = primaryCounts.other || 0;
+  assert.ok(otherCount <= 5, `Expected <=5 plugins in "other", got ${otherCount}`);
+
+  // 3. Spot-check representative newly crawled community plugins across all domains
+  const expectedDomainSamples = [
+    ['ammrysir__antigravity-plugins--plugins-blender-mcp', 'creative-media'],
+    ['tripo-developer__tripo-plugin-antigravity', 'creative-media'],
+    ['a16nights__antigravity-lanxi-memory', 'writing-knowledge'],
+    ['adiroy911__scholarocr', 'writing-knowledge'],
+    ['z21100644__antigravity-pi-plugins--plugins-pi-guardrails', 'security'],
+    ['allanbest__verisource', 'security'],
+    ['betterstackhq__antigravity-plugin', 'cloud-devops'],
+    ['bakzs__ibkr-antigravity-plugin', 'data-science'],
+    ['zilliztech__zilliz-plugin--plugins-zilliz', 'data-science'],
+    ['wezzard__antigravity-cua-driver', 'automation'],
+    ['ask-zzk__context-auto-split-', 'context-cache'],
+    ['bitq-m__agy-postman', 'developer-tools'],
+    ['wandering233__antigravity-plugin-manager', 'productivity'],
+    ['wlaeg__antigravity-pet', 'ui-themes'],
+    ['yoli-mi__agy-codex-bridge', 'agents-reasoning'],
+  ];
+  for (const [sampleId, expectedPrimary] of expectedDomainSamples) {
+    const sample = byId.get(sampleId);
+    assert.ok(sample, `Expected community sample "${sampleId}" in compiled catalog`);
+    assert.equal(
+      sample.taxonomy.categories[0],
+      expectedPrimary,
+      `Sample "${sampleId}" expected primary "${expectedPrimary}", got ${JSON.stringify(sample.taxonomy.categories)}`,
+    );
+  }
+
+  // Also verify compileCatalogArtifacts auto-upgrades legacy Track-2 cache entries stuck in ['other']
+  const legacyUpgraded = compileCatalogArtifacts({
+    entries: [],
+    ledger: { schemaVersion: 1, entries: {} },
+    versionsLock: { schemaVersion: 1, locks: {} },
+    unverifiedCache: {
+      schemaVersion: 1,
+      plugins: [
+        {
+          id: 'rimenine__antigravity-status-monitor',
+          canonicalName: 'agent-status-monitor',
+          scopedName: 'rimenine--agent-status-monitor',
+          displayName: 'Antigravity Status Monitor',
+          description: { zh: 'Status monitor', en: 'Status monitor' },
+          repository: { url: 'https://github.com/rimenine/antigravity-status-monitor', repositoryId: 1457854014, pluginRoot: '.' },
+          taxonomy: { categories: ['other'], tags: ['experimental'], platforms: ['win32', 'darwin', 'linux'] },
+          capabilities: { badges: ['sidecar-ui', 'lifecycle-hooks'] },
+        },
+      ],
+      readmes: {},
+      readmesZh: {},
+      readmesEn: {},
+    },
+  });
+  assert.deepEqual(legacyUpgraded.unverifiedIndexJson.plugins[0].taxonomy.categories, ['monitoring-quota']);
+  assert.deepEqual(legacyUpgraded.unverifiedIndexJson.plugins[0].taxonomy.tags, [
+    'status-monitor',
+    'network-probe',
+    'token',
+    'sidebar',
+  ]);
+
+  // Verify crawlExperimentalTopics cache reuse upgrades legacy ['other'] entries without re-downloading tarballs
+  const tmpRoot = mkdtempSync(join(tmpdir(), 'agy-taxonomy-reuse-'));
+  try {
+    mkdirSync(join(tmpRoot, 'data'), { recursive: true });
+    mkdirSync(join(tmpRoot, 'state'), { recursive: true });
+    writeFileSync(join(tmpRoot, 'data', 'aggregators.json'), JSON.stringify({ schemaVersion: 1, aggregators: [] }));
+    const cachedTarballUrl = `https://github.com/rimenine/antigravity-status-monitor/archive/${COMMIT_A}.tar.gz`;
+    writeFileSync(
+      join(tmpRoot, 'state', 'unverified-cache.json'),
+      JSON.stringify({
+        schemaVersion: 1,
+        plugins: [
+          {
+            id: 'rimenine__antigravity-status-monitor',
+            canonicalName: 'agent-status-monitor',
+            scopedName: 'rimenine--agent-status-monitor',
+            forceScopedInstall: true,
+            displayName: 'Antigravity Status Monitor',
+            description: { zh: 'Status monitor', en: 'Status monitor' },
+            version: '1.0.5',
+            gitTag: 'v1.0.5',
+            commitSha: COMMIT_A,
+            repository: {
+              url: 'https://github.com/rimenine/antigravity-status-monitor',
+              repositoryId: 1457854014,
+              ownerId: 356597235,
+              stars: 2,
+              pluginRoot: '.',
+            },
+            distribution: {
+              tarballUrl: cachedTarballUrl,
+              sha256: 'a'.repeat(64),
+              sizeBytes: 1024,
+              npmMirrorPkg: null,
+              preservePaths: [],
+            },
+            media: { iconUrl: null, screenshots: [] },
+            taxonomy: { categories: ['other'], tags: ['experimental'], platforms: ['win32', 'darwin', 'linux'] },
+            capabilities: { badges: ['sidecar-ui', 'lifecycle-hooks'] },
+            updatedAt: '2026-11-23T23:57:46Z',
+          },
+        ],
+        readmes: {},
+        readmesZh: {},
+        readmesEn: {},
+      }),
+    );
+
+    const pkt = (line) => {
+      const body = `${line}\n`;
+      return `${(body.length + 4).toString(16).padStart(4, '0')}${body}`;
+    };
+    let downloads = 0;
+    const reuseFetch = async (url, init = {}) => {
+      const s = String(url);
+      if (s === 'https://github.com/rimenine/antigravity-status-monitor/releases/latest' && init.method === 'HEAD') {
+        return new Response(null, {
+          status: 302,
+          headers: { location: 'https://github.com/rimenine/antigravity-status-monitor/releases' },
+        });
+      }
+      if (s.includes('rimenine/antigravity-status-monitor.git/info/refs')) {
+        return new Response(
+          `${pkt('# service=git-upload-pack')}0000${pkt(`${COMMIT_A} HEAD\0symref=HEAD:refs/heads/main`)}${pkt(`${COMMIT_A} refs/heads/main`)}${pkt(`${COMMIT_A} refs/tags/v1.0.5`)}0000`,
+          { status: 200 },
+        );
+      }
+      if (s.includes('/archive/')) {
+        downloads += 1;
+      }
+      return new Response('Not Found', { status: 404 });
+    };
+
+    const reuseOut = await crawlExperimentalTopics({
+      repoRoot: tmpRoot,
+      enableSearch: false,
+      enableAggregators: false,
+      explicitRepos: ['rimenine/antigravity-status-monitor'],
+      zeroQuota: true,
+      fetchImpl: reuseFetch,
+    });
+    assert.equal(reuseOut.reused, 1);
+    assert.equal(downloads, 0);
+    const updatedCache = JSON.parse(readFileSync(join(tmpRoot, 'state', 'unverified-cache.json'), 'utf8'));
+    assert.deepEqual(updatedCache.plugins[0].taxonomy.categories, ['monitoring-quota']);
+    assert.deepEqual(updatedCache.plugins[0].taxonomy.tags, [
+      'status-monitor',
+      'network-probe',
+      'token',
+      'sidebar',
+    ]);
+  } finally {
+    rmSync(tmpRoot, { recursive: true, force: true });
+  }
 });

@@ -47,11 +47,14 @@ export const SUBMISSION_YAML_ALLOWED_KEYS = new Set([
 ]);
 
 export const ALLOWED_CATEGORIES = new Set([
-  'productivity',
+  'monitoring-quota',
+  'context-cache',
   'ui-themes',
+  'agents-reasoning',
   'developer-tools',
   'mcp-integrations',
   'skills-workflows',
+  'productivity',
   'data-science',
   'cloud-devops',
   'creative-media',

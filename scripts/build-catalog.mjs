@@ -7,6 +7,7 @@ import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { DEFAULT_CATALOG_BASE_URL, normalizeRelPosix, toScopedPluginName } from './lib/constants.mjs';
+import { inferPluginTaxonomy } from './lib/taxonomy-classifier.mjs';
 import { validateEntriesDirectory } from './validate-entries.mjs';
 import { containsChineseCjk, isPredominantlyChinese } from './validate-plugin-tarball.mjs';
 
@@ -52,16 +53,27 @@ export function compileCatalogArtifacts({
     const companion = verData.companion || {};
     const owner = String(rec.repoFullName || '').split('/')[0] || rec.entrySlug.split('__')[0];
 
-    const categories = companion.categories?.length
-      ? companion.categories
-      : yamlEntry?.category
-        ? [yamlEntry.category]
-        : ['productivity'];
-
     const description = yamlEntry?.description || {
       zh: manifest.description || '',
       en: manifest.description || '',
     };
+
+    const resolvedTaxonomy = inferPluginTaxonomy({
+      id: rec.entrySlug,
+      canonicalName: rec.canonicalName,
+      displayName: manifest.displayName || rec.canonicalName,
+      description,
+      capabilities: verData.capabilities || {},
+      existingCategories: companion.categories || [],
+      existingTags: companion.tags || [],
+      yamlCategory: yamlEntry?.category || '',
+    });
+
+    const categories = resolvedTaxonomy.categories.length
+      ? resolvedTaxonomy.categories
+      : yamlEntry?.category
+        ? [yamlEntry.category]
+        : ['productivity'];
 
     const iconUrl = verData.iconExt ? `${catalogBaseUrl}/icons/${rec.entrySlug}${verData.iconExt}` : null;
 
@@ -95,7 +107,7 @@ export function compileCatalogArtifacts({
       },
       taxonomy: {
         categories,
-        tags: companion.tags || [],
+        tags: resolvedTaxonomy.tags,
         platforms: companion.platforms?.length ? companion.platforms : ['win32', 'darwin', 'linux'],
       },
       capabilities: verData.capabilities || {
@@ -165,12 +177,39 @@ export function compileCatalogArtifacts({
     if (repoRootKey && seenUnverifiedRepoRoots.has(repoRootKey)) continue;
     seenUnverifiedIds.add(p.id);
     if (repoRootKey) seenUnverifiedRepoRoots.add(repoRootKey);
+    const rawCategories = Array.isArray(p.taxonomy?.categories) ? p.taxonomy.categories : [];
+    const rawTags = Array.isArray(p.taxonomy?.tags) ? p.taxonomy.tags : [];
+    const platforms = p.taxonomy?.platforms?.length ? p.taxonomy.platforms : ['win32', 'darwin', 'linux'];
+    const needsTaxonomyUpgrade =
+      rawCategories.length === 0 ||
+      rawCategories.every((c) => c === 'other') ||
+      (rawTags.length === 1 && rawTags[0] === 'experimental');
+    const resolvedUnverifiedTaxonomy = needsTaxonomyUpgrade
+      ? {
+          ...inferPluginTaxonomy({
+            id: p.id,
+            canonicalName: p.canonicalName,
+            displayName: p.displayName,
+            description: p.description,
+            capabilities: p.capabilities || {},
+            existingCategories: rawCategories,
+            existingTags: rawTags,
+          }),
+          platforms,
+        }
+      : {
+          categories: rawCategories,
+          tags: rawTags,
+          platforms,
+        };
+
     unverifiedPlugins.push({
       ...p,
       repository: {
         ...p.repository,
         pluginRoot: normRoot,
       },
+      taxonomy: resolvedUnverifiedTaxonomy,
       forceScopedInstall: true,
     });
   }

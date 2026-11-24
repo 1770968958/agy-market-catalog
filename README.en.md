@@ -14,7 +14,7 @@
 
 > **🚀 Submit Your Plugin in 5 Minutes!**
 >
-> Read the full step-by-step **[📖 Plugin Submission Guide (`docs/SUBMISSION_GUIDE.md`, Simplified Chinese)](./docs/SUBMISSION_GUIDE.md)** with copy-pasteable `plugin.json`, `agy-market.json`, YAML templates, all 12 categories, packaging commands, and local pre-flight checks.
+> Read the full step-by-step **[📖 Plugin Submission Guide (`docs/SUBMISSION_GUIDE.md`, Simplified Chinese)](./docs/SUBMISSION_GUIDE.md)** with copy-pasteable `plugin.json`, `agy-market.json`, YAML templates, all 15 categories, packaging commands, and local pre-flight checks.
 >
 > - **Track 1 (Recommended — Curated Catalog)**: Submit **1 flat YAML PR** once → automated CI admission & squash-merge → **future SemVer releases sync automatically every 30m with 0 PRs**.
 > - **Track 2 (Experimental — Zero-PR Auto-Discovery)**: Add GitHub Topic `antigravity-plugin` and publish a SemVer Release → indexed every 6h with automatic `<owner>--<slug>` collision-safe isolation.
@@ -60,8 +60,28 @@ description:
 
 > **Submission Guardrails**:
 > - Max **`3`** added/modified entries per PR (`MAX_ENTRIES_PER_PR = 3`). Machine-computed fields (`sha256`, `npm`, `npmMirrorPkg`, `repositoryId`, `ownerId`) are forbidden in YAML.
-> - Allowed `category` values: `productivity`, `ui-themes`, `developer-tools`, `mcp-integrations`, `skills-workflows`, `data-science`, `cloud-devops`, `creative-media`, `writing-knowledge`, `automation`, `security`, `other`.
+> - Allowed `category` values (15): `monitoring-quota`, `context-cache`, `ui-themes`, `agents-reasoning`, `developer-tools`, `mcp-integrations`, `skills-workflows`, `productivity`, `data-science`, `cloud-devops`, `creative-media`, `writing-knowledge`, `automation`, `security`, `other`.
 > - Optional `releaseAsset: my-plugin.tar.gz` overrides release asset selection.
+
+#### Allowed Categories (15 Enum Values)
+
+| Category ID | English Label | 中文分类名 |
+| :--- | :--- | :--- |
+| `monitoring-quota` | Telemetry & Quota | 状态与用量监控 |
+| `context-cache` | Context & Cache Boost | 上下文与缓存加速 |
+| `ui-themes` | UI, Themes & i18n | 界面美化与汉化 |
+| `agents-reasoning` | Agents & Reasoning | 多代理与思考控制 |
+| `developer-tools` | Git & DevTools | 开发与版本工具 |
+| `mcp-integrations` | Browser & System MCP | 浏览器与系统 MCP |
+| `skills-workflows` | Skills & Frameworks | 技能包与工程方法 |
+| `productivity` | Workspace & Market | 效率与插件管理 |
+| `data-science` | Data & Science | 数据与科学计算 |
+| `cloud-devops` | Cloud & DevOps | 云原生与部署 |
+| `creative-media` | Creative & Media | 设计与多媒体 |
+| `writing-knowledge` | Writing & Knowledge | 写作与知识库 |
+| `automation` | Automation | 定时与守护任务 |
+| `security` | Security | 安全与审计 |
+| `other` | Other | 其他扩展 |
 
 ### 3. Two-Tier Fork-Safe Auto-Admission & Zero-PR Sync
 1. **Tier 1 (`pr-check.yml`, Zero Secrets)**: Immediately validates PR file paths, YAML schemas, and unit tests.
