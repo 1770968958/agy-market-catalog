@@ -1,0 +1,799 @@
+{
+  "schemaVersion": 1,
+  "plugins": [
+    {
+      "id": "a16nights__antigravity-think-zh",
+      "canonicalName": "think-zh",
+      "scopedName": "a16nights--think-zh",
+      "forceScopedInstall": true,
+      "displayName": "思语中文 · Think-ZH",
+      "description": {
+        "zh": "思语中文（Think-ZH）— 模型内部思考语言控制插件：引导模型全程使用简体中文进行内部思考与推理（保留代码、标识符、路径与报错原文），支持随时一键切回默认英文思考；具备静态规则与外接模型智能 PreInvocation 双通道防漂移强化、按回合去重、自定义指令文案及实时注入预览面板。",
+        "en": "思语中文（Think-ZH）— 模型内部思考语言控制插件：引导模型全程使用简体中文进行内部思考与推理（保留代码、标识符、路径与报错原文），支持随时一键切回默认英文思考；具备静态规则与外接模型智能 PreInvocation 双通道防漂移强化、按回合去重、自定义指令文案及实时注入预览面板。"
+      },
+      "version": "1.1.2",
+      "gitTag": "v1.1.2",
+      "commitSha": "88306909786f17c65dc7459ccda2cd5c0bb1ba8b",
+      "repository": {
+        "url": "https://github.com/A16Nights/antigravity-think-zh",
+        "repositoryId": 1464768433,
+        "ownerId": 104626775,
+        "stars": 1,
+        "pluginRoot": "."
+      },
+      "distribution": {
+        "tarballUrl": "https://github.com/A16Nights/antigravity-think-zh/archive/refs/tags/v1.1.2.tar.gz",
+        "sha256": "0d8fad27ce418383ab5a69d6159393f26c194e2ba2ca7db94f3f0f22e5a4b916",
+        "sizeBytes": 59319,
+        "npmMirrorPkg": null,
+        "preservePaths": []
+      },
+      "media": {
+        "iconUrl": "https://azwosile.github.io/agy-market-catalog/icons/a16nights__antigravity-think-zh.svg",
+        "screenshots": []
+      },
+      "taxonomy": {
+        "categories": [
+          "other"
+        ],
+        "tags": [
+          "experimental"
+        ],
+        "platforms": [
+          "win32",
+          "darwin",
+          "linux"
+        ]
+      },
+      "capabilities": {
+        "badges": [
+          "global-rules",
+          "sidecar-ui",
+          "mcp-stdio",
+          "lifecycle-hooks"
+        ],
+        "rulesEstimatedTokens": 159,
+        "mcpServers": [
+          "think-zh_think-zh"
+        ],
+        "mcpRemoteDomains": [],
+        "hookEvents": [
+          "PreInvocation",
+          "SessionStart"
+        ],
+        "hostEnhancementKind": []
+      },
+      "updatedAt": "2026-11-22T03:27:46Z"
+    },
+    {
+      "id": "carlosduplar__agy-lite-research",
+      "canonicalName": "antigravity-research-flash-lite",
+      "scopedName": "carlosduplar--antigravity-research-flash-lite",
+      "forceScopedInstall": true,
+      "displayName": "Research Flash-Lite Quota Saver",
+      "description": {
+        "zh": "Deterministic PreToolUse hook and tuned research/worker subagents that route research subagent calls to flash_lite for ~2.5x quota savings.",
+        "en": "Deterministic PreToolUse hook and tuned research/worker subagents that route research subagent calls to flash_lite for ~2.5x quota savings."
+      },
+      "version": "1.0.0",
+      "gitTag": "v0.2.0",
+      "commitSha": "45fb75ce57642f244333baa4e36380e94d974d62",
+      "repository": {
+        "url": "https://github.com/carlosduplar/agy-lite-research",
+        "repositoryId": 1461988119,
+        "ownerId": 48954117,
+        "stars": 0,
+        "pluginRoot": "."
+      },
+      "distribution": {
+        "tarballUrl": "https://github.com/carlosduplar/agy-lite-research/archive/refs/tags/v0.2.0.tar.gz",
+        "sha256": "d2886fd786e27ce2b13d3f2b4188ccee7d4ea8b984d89522076ebd1245528ab9",
+        "sizeBytes": 9078,
+        "npmMirrorPkg": null,
+        "preservePaths": []
+      },
+      "media": {
+        "iconUrl": "https://azwosile.github.io/agy-market-catalog/icons/carlosduplar__agy-lite-research.svg",
+        "screenshots": []
+      },
+      "taxonomy": {
+        "categories": [
+          "other"
+        ],
+        "tags": [
+          "experimental"
+        ],
+        "platforms": [
+          "win32",
+          "darwin",
+          "linux"
+        ]
+      },
+      "capabilities": {
+        "badges": [
+          "lifecycle-hooks"
+        ],
+        "rulesEstimatedTokens": 0,
+        "mcpServers": [],
+        "mcpRemoteDomains": [],
+        "hookEvents": [
+          "PreToolUse"
+        ],
+        "hostEnhancementKind": []
+      },
+      "updatedAt": "2026-11-23T08:39:11Z"
+    },
+    {
+      "id": "commit-or-die-studio__agy-git-graph",
+      "canonicalName": "agy-git-graph",
+      "scopedName": "commit-or-die-studio--agy-git-graph",
+      "forceScopedInstall": true,
+      "displayName": "AGY Git Graph",
+      "description": {
+        "zh": "Visual Git branch graph and commit diff viewer for AGY Auxiliary Pane. / 專為 AGY 側邊欄打造的 Git 視覺化分支圖與 Commit Diff 檢視器。",
+        "en": "Visual Git branch graph and commit diff viewer for AGY Auxiliary Pane. / 專為 AGY 側邊欄打造的 Git 視覺化分支圖與 Commit Diff 檢視器。"
+      },
+      "version": "1.0.8",
+      "gitTag": "v1.0.8",
+      "commitSha": "fa35b13231502851c05e71ac079a3a67ad50249f",
+      "repository": {
+        "url": "https://github.com/Commit-Or-Die-Studio/agy-git-graph",
+        "repositoryId": 1464866159,
+        "ownerId": 358136372,
+        "stars": 0,
+        "pluginRoot": "."
+      },
+      "distribution": {
+        "tarballUrl": "https://github.com/Commit-Or-Die-Studio/agy-git-graph/releases/download/v1.0.8/agy-git-graph-v1.0.8.tar.gz",
+        "sha256": "7a76464aef5f933cc9f0c2d8f9f6aed737c9023d1690f83ce36f0f73f55e4536",
+        "sizeBytes": 41259,
+        "npmMirrorPkg": null,
+        "preservePaths": []
+      },
+      "media": {
+        "iconUrl": "https://azwosile.github.io/agy-market-catalog/icons/commit-or-die-studio__agy-git-graph.svg",
+        "screenshots": []
+      },
+      "taxonomy": {
+        "categories": [
+          "other"
+        ],
+        "tags": [
+          "experimental"
+        ],
+        "platforms": [
+          "win32",
+          "darwin",
+          "linux"
+        ]
+      },
+      "capabilities": {
+        "badges": [
+          "sidecar-ui"
+        ],
+        "rulesEstimatedTokens": 0,
+        "mcpServers": [],
+        "mcpRemoteDomains": [],
+        "hookEvents": [],
+        "hostEnhancementKind": []
+      },
+      "updatedAt": "2026-11-23T18:54:35Z"
+    },
+    {
+      "id": "eatingdream-antigravity-plugins__chrome-stream-mcp",
+      "canonicalName": "chrome-stream-mcp",
+      "scopedName": "eatingdream-antigravity-plugins--chrome-stream-mcp",
+      "forceScopedInstall": true,
+      "displayName": "Chrome Stream MCP",
+      "description": {
+        "zh": "Low-bandwidth native Rust Chrome DevTools screencast relay, interactive tab controller, and MCP App viewer.",
+        "en": "Low-bandwidth native Rust Chrome DevTools screencast relay, interactive tab controller, and MCP App viewer."
+      },
+      "version": "0.1.0",
+      "gitTag": "v0.1.0",
+      "commitSha": "11299a948a56c6cf9c56b1faa51e88db49a88604",
+      "repository": {
+        "url": "https://github.com/eatingDream-antigravity-plugins/chrome-stream-mcp",
+        "repositoryId": 1469161400,
+        "ownerId": 360364117,
+        "stars": 0,
+        "pluginRoot": "."
+      },
+      "distribution": {
+        "tarballUrl": "https://github.com/eatingDream-antigravity-plugins/chrome-stream-mcp/releases/download/v0.1.0/chrome-stream-mcp-v0.1.0-aarch64-apple-darwin.tar.gz",
+        "sha256": "775dae7890ddcd871426a47f7a28f73e815a3b8bc40724660c8a63e79abd93e7",
+        "sizeBytes": 425031,
+        "npmMirrorPkg": null,
+        "preservePaths": []
+      },
+      "media": {
+        "iconUrl": "https://azwosile.github.io/agy-market-catalog/icons/eatingdream-antigravity-plugins__chrome-stream-mcp.svg",
+        "screenshots": []
+      },
+      "taxonomy": {
+        "categories": [
+          "other"
+        ],
+        "tags": [
+          "experimental"
+        ],
+        "platforms": [
+          "win32",
+          "darwin",
+          "linux"
+        ]
+      },
+      "capabilities": {
+        "badges": [
+          "mcp-stdio"
+        ],
+        "rulesEstimatedTokens": 0,
+        "mcpServers": [
+          "chrome-stream-mcp_chrome-stream-mcp"
+        ],
+        "mcpRemoteDomains": [],
+        "hookEvents": [],
+        "hostEnhancementKind": []
+      },
+      "updatedAt": "2026-11-23T18:38:25Z"
+    },
+    {
+      "id": "eatingdream-antigravity-plugins__context-radar-mcp",
+      "canonicalName": "context-radar-mcp",
+      "scopedName": "eatingdream-antigravity-plugins--context-radar-mcp",
+      "forceScopedInstall": true,
+      "displayName": "Context Radar MCP",
+      "description": {
+        "zh": "Native Rust Antigravity context telemetry, 3-way cold-cache attribution, prefix-safe slice distillation, gated /compact & target:new relay handoff MCP server, and execution guards.",
+        "en": "Native Rust Antigravity context telemetry, 3-way cold-cache attribution, prefix-safe slice distillation, gated /compact & target:new relay handoff MCP server, and execution guards."
+      },
+      "version": "1.0.0",
+      "gitTag": "v1.0.0",
+      "commitSha": "cc4d885779355f455cb45d27cbfa2ca39b79fbf7",
+      "repository": {
+        "url": "https://github.com/eatingDream-antigravity-plugins/context-radar-mcp",
+        "repositoryId": 1469159488,
+        "ownerId": 360364117,
+        "stars": 0,
+        "pluginRoot": "."
+      },
+      "distribution": {
+        "tarballUrl": "https://github.com/eatingDream-antigravity-plugins/context-radar-mcp/releases/download/v1.0.0/context-radar-mcp-v1.0.0-aarch64-apple-darwin.tar.gz",
+        "sha256": "5873c118668bc7de8fc8fdee0c1523b4c4f62622ce3b31b5f6ab176ee5e932d6",
+        "sizeBytes": 1871056,
+        "npmMirrorPkg": null,
+        "preservePaths": []
+      },
+      "media": {
+        "iconUrl": "https://azwosile.github.io/agy-market-catalog/icons/eatingdream-antigravity-plugins__context-radar-mcp.svg",
+        "screenshots": []
+      },
+      "taxonomy": {
+        "categories": [
+          "other"
+        ],
+        "tags": [
+          "experimental"
+        ],
+        "platforms": [
+          "win32",
+          "darwin",
+          "linux"
+        ]
+      },
+      "capabilities": {
+        "badges": [
+          "global-rules",
+          "mcp-stdio",
+          "lifecycle-hooks"
+        ],
+        "rulesEstimatedTokens": 76,
+        "mcpServers": [
+          "context-radar-mcp_context-radar-mcp"
+        ],
+        "mcpRemoteDomains": [],
+        "hookEvents": [
+          "PreToolUse",
+          "SessionStart"
+        ],
+        "hostEnhancementKind": []
+      },
+      "updatedAt": "2026-11-23T18:38:22Z"
+    },
+    {
+      "id": "eatingdream-antigravity-plugins__mac-clamshell-mcp",
+      "canonicalName": "mac-clamshell-mcp",
+      "scopedName": "eatingdream-antigravity-plugins--mac-clamshell-mcp",
+      "forceScopedInstall": true,
+      "displayName": "Mac Clamshell MCP",
+      "description": {
+        "zh": "Native Rust macOS clamshell performance throttling, display thermal guard, built-in brightness control, and low-bandwidth MCP dashboard.",
+        "en": "Native Rust macOS clamshell performance throttling, display thermal guard, built-in brightness control, and low-bandwidth MCP dashboard."
+      },
+      "version": "1.0.0",
+      "gitTag": "v1.0.0",
+      "commitSha": "816522ed399776cb8959c2e0767c93a15564a938",
+      "repository": {
+        "url": "https://github.com/eatingDream-antigravity-plugins/mac-clamshell-mcp",
+        "repositoryId": 1469159832,
+        "ownerId": 360364117,
+        "stars": 0,
+        "pluginRoot": "."
+      },
+      "distribution": {
+        "tarballUrl": "https://github.com/eatingDream-antigravity-plugins/mac-clamshell-mcp/releases/download/v1.0.0/mac-clamshell-mcp-v1.0.0-aarch64-apple-darwin.tar.gz",
+        "sha256": "14696525f1a99586e0944079db2a5e7e7c23a61c0b0972a7535798ba2211c6d6",
+        "sizeBytes": 399933,
+        "npmMirrorPkg": null,
+        "preservePaths": []
+      },
+      "media": {
+        "iconUrl": "https://azwosile.github.io/agy-market-catalog/icons/eatingdream-antigravity-plugins__mac-clamshell-mcp.svg",
+        "screenshots": []
+      },
+      "taxonomy": {
+        "categories": [
+          "other"
+        ],
+        "tags": [
+          "experimental"
+        ],
+        "platforms": [
+          "win32",
+          "darwin",
+          "linux"
+        ]
+      },
+      "capabilities": {
+        "badges": [
+          "global-rules",
+          "mcp-stdio",
+          "lifecycle-hooks"
+        ],
+        "rulesEstimatedTokens": 96,
+        "mcpServers": [
+          "mac-clamshell-mcp_mac-clamshell-mcp"
+        ],
+        "mcpRemoteDomains": [],
+        "hookEvents": [
+          "PreInvocation",
+          "SessionStart"
+        ],
+        "hostEnhancementKind": []
+      },
+      "updatedAt": "2026-11-23T18:38:22Z"
+    },
+    {
+      "id": "mskasal__sculpting-framework",
+      "canonicalName": "sculpting-framework",
+      "scopedName": "mskasal--sculpting-framework",
+      "forceScopedInstall": true,
+      "displayName": "Sculpting Framework",
+      "description": {
+        "zh": "Tool-agnostic, end-to-end Product Engineer operating framework: turn ambiguous problems into aligned, scoped, implementation-ready vertical slices (Block → Rough Cut → Detail → Polish).",
+        "en": "Tool-agnostic, end-to-end Product Engineer operating framework: turn ambiguous problems into aligned, scoped, implementation-ready vertical slices (Block → Rough Cut → Detail → Polish)."
+      },
+      "version": "1.0.1",
+      "gitTag": "v1.0.1",
+      "commitSha": "5b1fb74c0fd9325441daa9026ec6e1a0a9822706",
+      "repository": {
+        "url": "https://github.com/mskasal/sculpting-framework",
+        "repositoryId": 1467931912,
+        "ownerId": 2426680,
+        "stars": 0,
+        "pluginRoot": "."
+      },
+      "distribution": {
+        "tarballUrl": "https://github.com/mskasal/sculpting-framework/archive/refs/tags/v1.0.1.tar.gz",
+        "sha256": "2d085424cc30de2d29e8baff95e4ce9f8dfb9395a495d7c6002018394d74d09d",
+        "sizeBytes": 273783,
+        "npmMirrorPkg": null,
+        "preservePaths": []
+      },
+      "media": {
+        "iconUrl": "https://azwosile.github.io/agy-market-catalog/icons/mskasal__sculpting-framework.png",
+        "screenshots": []
+      },
+      "taxonomy": {
+        "categories": [
+          "other"
+        ],
+        "tags": [
+          "experimental"
+        ],
+        "platforms": [
+          "win32",
+          "darwin",
+          "linux"
+        ]
+      },
+      "capabilities": {
+        "badges": [
+          "declarative-only"
+        ],
+        "rulesEstimatedTokens": 0,
+        "mcpServers": [],
+        "mcpRemoteDomains": [],
+        "hookEvents": [],
+        "hostEnhancementKind": []
+      },
+      "updatedAt": "2026-11-22T21:30:21Z"
+    },
+    {
+      "id": "rimenine__antigravity-status-monitor",
+      "canonicalName": "agent-status-monitor",
+      "scopedName": "rimenine--agent-status-monitor",
+      "forceScopedInstall": true,
+      "displayName": "Antigravity Status Monitor",
+      "description": {
+        "zh": "A lightweight, zero-dependency side-pane monitor for Antigravity — combining agent phase, upstream network probes, and token usage so you can tell real progress from a silent \"Working\" hang at a glance.",
+        "en": "A lightweight, zero-dependency side-pane monitor for Antigravity — combining agent phase, upstream network probes, and token usage so you can tell real progress from a silent \"Working\" hang at a glance."
+      },
+      "version": "1.0.5",
+      "gitTag": "v1.0.5",
+      "commitSha": "4468480c342c32e27558c281a6a1daab509a85a0",
+      "repository": {
+        "url": "https://github.com/rimenine/antigravity-status-monitor",
+        "repositoryId": 1457854014,
+        "ownerId": 356597235,
+        "stars": 2,
+        "pluginRoot": "."
+      },
+      "distribution": {
+        "tarballUrl": "https://github.com/rimenine/antigravity-status-monitor/releases/download/v1.0.5/agent-status-monitor-v1.0.5.tar.gz",
+        "sha256": "5375015d4103ec697589d647657a9b7e54616e2cdf1d1d2ee016ea508ca80ece",
+        "sizeBytes": 104331,
+        "npmMirrorPkg": null,
+        "preservePaths": []
+      },
+      "media": {
+        "iconUrl": "https://azwosile.github.io/agy-market-catalog/icons/rimenine__antigravity-status-monitor.svg",
+        "screenshots": []
+      },
+      "taxonomy": {
+        "categories": [
+          "other"
+        ],
+        "tags": [
+          "experimental"
+        ],
+        "platforms": [
+          "win32",
+          "darwin",
+          "linux"
+        ]
+      },
+      "capabilities": {
+        "badges": [
+          "sidecar-ui",
+          "lifecycle-hooks"
+        ],
+        "rulesEstimatedTokens": 0,
+        "mcpServers": [],
+        "mcpRemoteDomains": [],
+        "hookEvents": [
+          "PreInvocation",
+          "Stop"
+        ],
+        "hostEnhancementKind": []
+      },
+      "updatedAt": "2026-11-23T23:57:46Z"
+    },
+    {
+      "id": "souma-sumire__antigravity-zh-cn",
+      "canonicalName": "zh-cn-ui",
+      "scopedName": "souma-sumire--zh-cn-ui",
+      "forceScopedInstall": true,
+      "displayName": "简体中文 UI 语言包",
+      "description": {
+        "zh": "Google Antigravity（反重力）2.0+ 简体中文 UI 语言包插件，零依赖支持 Windows / macOS / Linux，无需退出实时热注入、一键切换中英文、更新自愈与完整无痕卸载。Chinese (Simplified) zh-CN UI localization plugin for Google Antigravity 2.0+.",
+        "en": "Google Antigravity（反重力）2.0+ 简体中文 UI 语言包插件，零依赖支持 Windows / macOS / Linux，无需退出实时热注入、一键切换中英文、更新自愈与完整无痕卸载。Chinese (Simplified) zh-CN UI localization plugin for Google Antigravity 2.0+."
+      },
+      "version": "1.2.3",
+      "gitTag": "v1.2.3",
+      "commitSha": "11a29c03c6838e33a68c90069c21a21326f2f51e",
+      "repository": {
+        "url": "https://github.com/Souma-Sumire/antigravity-zh-cn",
+        "repositoryId": 1437585667,
+        "ownerId": 33572696,
+        "stars": 2,
+        "pluginRoot": "."
+      },
+      "distribution": {
+        "tarballUrl": "https://github.com/Souma-Sumire/antigravity-zh-cn/archive/refs/tags/v1.2.3.tar.gz",
+        "sha256": "56be00307b66de804a985eae0b57547cc50ebb693e5c5b394b246c1140fa90b1",
+        "sizeBytes": 204327,
+        "npmMirrorPkg": null,
+        "preservePaths": []
+      },
+      "media": {
+        "iconUrl": "https://azwosile.github.io/agy-market-catalog/icons/souma-sumire__antigravity-zh-cn.svg",
+        "screenshots": []
+      },
+      "taxonomy": {
+        "categories": [
+          "other"
+        ],
+        "tags": [
+          "experimental"
+        ],
+        "platforms": [
+          "win32",
+          "darwin",
+          "linux"
+        ]
+      },
+      "capabilities": {
+        "badges": [
+          "sidecar-ui",
+          "lifecycle-hooks",
+          "host-enhancement"
+        ],
+        "rulesEstimatedTokens": 0,
+        "mcpServers": [],
+        "mcpRemoteDomains": [],
+        "hookEvents": [
+          "PreInvocation",
+          "SessionStart",
+          "Stop"
+        ],
+        "hostEnhancementKind": [
+          "app-asar",
+          "cdp"
+        ]
+      },
+      "updatedAt": "2026-11-23T22:04:46Z"
+    },
+    {
+      "id": "wllzhang__awesome-antigravity-tools",
+      "canonicalName": "awesome-antigravity-tools",
+      "scopedName": "wllzhang--awesome-antigravity-tools",
+      "forceScopedInstall": true,
+      "displayName": "Awesome Antigravity Tools Advisor",
+      "description": {
+        "zh": "Schema-validated catalog and advisor for 100% Google Antigravity-exclusive IDE extensions, runtime hotfixes, official CLI/SDKs, and ACP gateways.",
+        "en": "Schema-validated catalog and advisor for 100% Google Antigravity-exclusive IDE extensions, runtime hotfixes, official CLI/SDKs, and ACP gateways."
+      },
+      "version": "2.0.0",
+      "gitTag": "v2.0.0",
+      "commitSha": "97f11c3bd4a626d479e7b98f87444db57a97d8a7",
+      "repository": {
+        "url": "https://github.com/wllzhang/awesome-antigravity-tools",
+        "repositoryId": 1461208959,
+        "ownerId": 25928906,
+        "stars": 0,
+        "pluginRoot": "."
+      },
+      "distribution": {
+        "tarballUrl": "https://github.com/wllzhang/awesome-antigravity-tools/archive/refs/tags/v2.0.0.tar.gz",
+        "sha256": "7ed3c941ad5393fe155a854ba96a77ada9533cecd8fe6e668764ba2f5e6efda8",
+        "sizeBytes": 103236,
+        "npmMirrorPkg": null,
+        "preservePaths": []
+      },
+      "media": {
+        "iconUrl": "https://azwosile.github.io/agy-market-catalog/icons/wllzhang__awesome-antigravity-tools.svg",
+        "screenshots": []
+      },
+      "taxonomy": {
+        "categories": [
+          "other"
+        ],
+        "tags": [
+          "experimental"
+        ],
+        "platforms": [
+          "win32",
+          "darwin",
+          "linux"
+        ]
+      },
+      "capabilities": {
+        "badges": [
+          "declarative-only"
+        ],
+        "rulesEstimatedTokens": 0,
+        "mcpServers": [],
+        "mcpRemoteDomains": [],
+        "hookEvents": [],
+        "hostEnhancementKind": []
+      },
+      "updatedAt": "2026-11-18T10:29:31Z"
+    },
+    {
+      "id": "xmt-cn__agy-ctx-ring",
+      "canonicalName": "agy-ctx-ring",
+      "scopedName": "xmt-cn--agy-ctx-ring",
+      "forceScopedInstall": true,
+      "displayName": "上下文胶囊",
+      "description": {
+        "zh": "DSH 风格极简无边框三段底栏与点击浮窗（会话统计 / Token 用量 / 上下文窗口），零侵入不改 app.asar、升级不丢失、自动跟随 Antigravity 主题。",
+        "en": "DSH 风格极简无边框三段底栏与点击浮窗（会话统计 / Token 用量 / 上下文窗口），零侵入不改 app.asar、升级不丢失、自动跟随 Antigravity 主题。"
+      },
+      "version": "1.2.8",
+      "gitTag": "v1.2.8",
+      "commitSha": "067bcc5300dbf9147e18680e7413d86b08ffe688",
+      "repository": {
+        "url": "https://github.com/XMT-CN/agy-ctx-ring",
+        "repositoryId": 1468243064,
+        "ownerId": 24997030,
+        "stars": 0,
+        "pluginRoot": "."
+      },
+      "distribution": {
+        "tarballUrl": "https://github.com/XMT-CN/agy-ctx-ring/archive/refs/tags/v1.2.8.tar.gz",
+        "sha256": "efa6477f203e5edc793c77a9fc3f344547c346c05831a4587541822c5f06c71f",
+        "sizeBytes": 378158,
+        "npmMirrorPkg": null,
+        "preservePaths": []
+      },
+      "media": {
+        "iconUrl": "https://azwosile.github.io/agy-market-catalog/icons/xmt-cn__agy-ctx-ring.svg",
+        "screenshots": []
+      },
+      "taxonomy": {
+        "categories": [
+          "other"
+        ],
+        "tags": [
+          "experimental"
+        ],
+        "platforms": [
+          "win32",
+          "darwin",
+          "linux"
+        ]
+      },
+      "capabilities": {
+        "badges": [
+          "sidecar-ui",
+          "host-enhancement"
+        ],
+        "rulesEstimatedTokens": 0,
+        "mcpServers": [],
+        "mcpRemoteDomains": [],
+        "hookEvents": [],
+        "hostEnhancementKind": [
+          "cdp"
+        ]
+      },
+      "updatedAt": "2026-11-23T07:39:00Z"
+    },
+    {
+      "id": "ycuwq__agy-ext-swarm",
+      "canonicalName": "agy-ext-swarm",
+      "scopedName": "ycuwq--agy-ext-swarm",
+      "forceScopedInstall": true,
+      "displayName": "AGY Ext Swarm",
+      "description": {
+        "zh": "External multi-CLI agent swarm plugin for Antigravity supporting dsh, Claude Code, Codex, Gemini CLI, and custom CLIs with shared board, @mention routing, git worktree isolation, unified token/cache telemetry, and bilingual (中/EN) live UI.",
+        "en": "External multi-CLI agent swarm plugin for Antigravity supporting dsh, Claude Code, Codex, Gemini CLI, and custom CLIs with shared board, @mention routing, git worktree isolation, unified token/cache telemetry, and bilingual (中/EN) live UI."
+      },
+      "version": "0.4.1",
+      "gitTag": "v0.4.1",
+      "commitSha": "b8241c4b068f653ba36beb0cbf6b3192cdfa47c9",
+      "repository": {
+        "url": "https://github.com/ycuwq/agy-ext-swarm",
+        "repositoryId": 1467628762,
+        "ownerId": 13866256,
+        "stars": 0,
+        "pluginRoot": "."
+      },
+      "distribution": {
+        "tarballUrl": "https://github.com/ycuwq/agy-ext-swarm/releases/download/v0.4.1/agy-ext-swarm-v0.4.1.tar.gz",
+        "sha256": "8da95380b5fc0059dca7a5419b75a1de9e6c3c6d26752cbfd9abc82a2867f548",
+        "sizeBytes": 418084,
+        "npmMirrorPkg": null,
+        "preservePaths": []
+      },
+      "media": {
+        "iconUrl": "https://azwosile.github.io/agy-market-catalog/icons/ycuwq__agy-ext-swarm.svg",
+        "screenshots": []
+      },
+      "taxonomy": {
+        "categories": [
+          "other"
+        ],
+        "tags": [
+          "experimental"
+        ],
+        "platforms": [
+          "win32",
+          "darwin",
+          "linux"
+        ]
+      },
+      "capabilities": {
+        "badges": [
+          "global-rules",
+          "mcp-stdio"
+        ],
+        "rulesEstimatedTokens": 277,
+        "mcpServers": [
+          "agy-ext-swarm_ext_swarm"
+        ],
+        "mcpRemoteDomains": [],
+        "hookEvents": [],
+        "hostEnhancementKind": []
+      },
+      "updatedAt": "2026-11-23T12:52:01Z"
+    },
+    {
+      "id": "yuhuan-dev__antigravity-usage-monitor",
+      "canonicalName": "usage-monitor",
+      "scopedName": "yuhuan-dev--usage-monitor",
+      "forceScopedInstall": true,
+      "displayName": "Usage & Speed Monitor",
+      "description": {
+        "zh": "实时查看生成速度、首字延迟、上下文占用、可用额度及历史用量。",
+        "en": "实时查看生成速度、首字延迟、上下文占用、可用额度及历史用量。"
+      },
+      "version": "1.5.4",
+      "gitTag": "v1.5.4",
+      "commitSha": "be200ba8ab26d4182b973311a1c3172a9815edb9",
+      "repository": {
+        "url": "https://github.com/yuhuan-dev/antigravity-usage-monitor",
+        "repositoryId": 1417850082,
+        "ownerId": 355444809,
+        "stars": 134,
+        "pluginRoot": "."
+      },
+      "distribution": {
+        "tarballUrl": "https://github.com/yuhuan-dev/antigravity-usage-monitor/archive/refs/tags/v1.5.4.tar.gz",
+        "sha256": "d6dd1335c781f939be563dc52f20a6d34d9dd26b7cf446fb0c7bb7a6fb428973",
+        "sizeBytes": 2436416,
+        "npmMirrorPkg": null,
+        "preservePaths": []
+      },
+      "media": {
+        "iconUrl": "https://azwosile.github.io/agy-market-catalog/icons/yuhuan-dev__antigravity-usage-monitor.svg",
+        "screenshots": []
+      },
+      "taxonomy": {
+        "categories": [
+          "other"
+        ],
+        "tags": [
+          "experimental"
+        ],
+        "platforms": [
+          "win32",
+          "darwin",
+          "linux"
+        ]
+      },
+      "capabilities": {
+        "badges": [
+          "sidecar-ui",
+          "mcp-stdio",
+          "host-enhancement"
+        ],
+        "rulesEstimatedTokens": 0,
+        "mcpServers": [
+          "usage-monitor_host"
+        ],
+        "mcpRemoteDomains": [],
+        "hookEvents": [],
+        "hostEnhancementKind": [
+          "cdp"
+        ]
+      },
+      "updatedAt": "2026-11-23T09:41:56Z"
+    }
+  ],
+  "readmes": {
+    "rimenine__antigravity-status-monitor": "**简体中文** | [English](README.en.md)\n\n# 反重力实时状态监控 (`antigravity-status-monitor`)\n\n用 Antigravity 跑长任务时，主界面常常一直转着 **\"Working\"** 却迟迟没有输出——有时只是模型在深度思考或执行工具，但很多时候其实是 **VPN 掉线**、TUN 虚拟网卡异常或代理失效，请求早已卡死，界面却仍停留在“假性工作中”。\n\n**反重力实时状态监控**是一个**纯本地、零第三方依赖**的右侧边栏监控面板。它实时汇总 Agent 执行阶段、宿主 `Language Server` 状态、直连/代理双链路 HTTPS 探针与 Token 消耗，让你扫一眼就能分辨「正常推进」与「静默挂起」，并在断网时给出桌面通知与就地排查入口。\n\n- **一眼定状态**：区分模型思考、工具执行、后台任务待唤醒、接口报错重试与断网挂起，减少误中断与盲等。\n- **窄栏原生体验**：适配右侧窄边栏与宽屏双栏布局，支持深浅主题自动跟随、中英双语、15 秒告警演练与即时悬停解释。\n- **纯本地零外发**：仅监听 `127.0.0.1`，默认全接口令牌鉴权与严格离线 CSP；网络探测仅发极轻量连通请求，不携带账号或对话数据。\n\n---\n\n## 界面预览\n\n| 实时工作态与悬停解释 | 断网演练与就地排查 | 浅色配置与探测说明 |\n| :---: | :---: | :---: |\n| <img src=\"docs/screenshots/status-working.jpg\" alt=\"实时工作态、探测曲线与页面内悬停解释卡片\" width=\"240\" /> | <img src=\"docs/screenshots/alert-preview.jpg\" alt=\"断网演练告警横幅与就地排查按钮\" width=\"240\" /> | <img src=\"docs/screenshots/settings-events.jpg\" alt=\"浅色主题设置面板与展开后的探测说明与边界\" width=\"240\" /> |\n\n> 点击任意预览图可查看原图：左图为深色工作态与页面内悬停解释浮层，中图为 15 秒断网演练及卡片内联操作，右图为浅色主题设置与展开后的「探测说明与边界」。\n\n---\n\n## 工作原理\n\n单看主界面的加载动画很难判断卡在哪一步，插件把四路直接信号拼在一起判断：\n\n1. **Lifecycle Hooks + Transcript 阶段推断、后台任务与 API 重试识别**\n   - [hooks.json](hooks.json) 只挂载 `PreInvocation` 与 `Stop` 两个关键事件（默认优先调用内置 `agy-node`，没装全局 Node 也能跑）；\n   - **后台任务待唤醒（`BACKGROUND_TASK`）**：当本轮对话暂告结束但仍有后台命令/子代理未完成时，识别 `Stop` Hook 的 `fullyIdle: false`（以及 `transcript.jsonl` 未闭合后台任务兜底），展示「后台任务运行中 · 等待回调唤醒」，既不再误显示 `空闲`，也不触发 `25s` 卡顿告警，待后台结束后自动随二次唤醒回归正常流程；\n   - **并行多工具进度与异常中止识别**：当单轮并发调用多个工具（如多个 `read_file` + `run_command`）且仅有部分快速工具回写结果时，仍保持 `工具执行中`；若 `PLANNER_RESPONSE` 带 `tool_calls` 却以 `CANCELLED`/`ERROR` 异常中止，则直接回到 `空闲`；\n   - 只要 `transcript.jsonl` 有新输出或有新 Hook 进来，等待计时就会立刻归零；同时实时解析 `ERROR_MESSAGE`（`wsasend` 上传重置、`EOF`、`stream idle timeout`、`model unreachable`，3 分钟独立过期）及常见中间步骤，在轻探针仍绿灯但接口报错重试时直接标出 `接口重试` 并同步到本对话事件流。\n2. **双链路 HTTPS 短连接探针（直连/TUN vs 代理）与分层防抖**\n   - 按设定周期分别走直连和代理测一次短连接可达性（默认探测 `https://daily-cloudcode-pa.googleapis.com`，默认单次超时 `4000ms`），支持自动读取环境变量/系统代理与手动 HTTP `Basic` / 无认证 SOCKS5 代理，再结合宿主 `Language Server` 的 443 端口连接状态一起判断链路；\n   - **分层防抖 + 混合路由纠偏 + 休眠保护**：硬断连（`ENOTFOUND`/`ECONNREFUSED`/HTTP 阻断）连续 2 次触发 `DISCONNECTED_HANG`，而纯慢超时（如 `2.5s~4s` 边缘波动）第 2 次先进入 `NET_SUSPECT` 复测、连续 3 次才升为断网挂起；若 `LS` 存在活跃代理连接且代理探针通畅而直连不通，优先采信代理链路（避免因零星直连或 `100.64.0.0/10` 运营商 CGNAT 误判成直连/TUN）；系统休眠唤醒产生的时间跳变会自动清零历史失败计数；\n   - **自适应短连接轮询 + 严格本对话隔离**：面板前台每 1 秒通过 `/api/status` 拉取状态（`~2ms` 用完即释放连接，切到后台自动暂停并释放连接槽位，彻底避免多个 Sidecar 标签长期占满 Chromium 6 条 HTTP/1.1 连接上限导致新面板转圈或按钮无响应）。前端无任何对话切换选项，服务端也彻底移除 `auto` 切换与跨目录抢占逻辑，每个对话均使用物理分桶的实时事件流，仅展示本对话的 Hooks、工具步骤、演练预警与网络变更，随宿主切换对话时同步切换；服务端仍保留 `/api/events` SSE 接口供外部按需订阅。\n3. **宿主进程追踪、分因告警防抖与自动退出**\n   - 优先按 `ANTIGRAVITY_LS_ADDRESS` 定位当前对应的宿主 `Language Server` 进程；进程退出立刻告警，进程存活时的 `/healthz` 检测（单次超时 `3000ms`）与高负载下带健康连接的孤立 `SYN_SENT` 均需连续 2 轮确认后才告警；若 Antigravity 关掉且 `/healthz` 连续 3 次不可达，Sidecar 会自动退出；\n   - **多会话告警评估 + 有界故障日志**：探测周期遍历当前钉选/首选活跃会话以防漏报后台对话挂起，严格区分 **VPN / 上游网络断开** 与 **Language Server 失联** 两类桌面通知文案，并将包含 `convId` 与 `message` 的完整故障/恢复记录持久化到 `.runtime/alerts.log`（有界 JSONL，自动裁剪）供事后排查。\n4. **默认全接口认证 + DNS 重绑定防护 + 严格 CSP 锁定**\n   - 仅监听 `127.0.0.1`，并在 HTTP 入口校验 `Host` 头仅允许回环地址（`127.0.0.1` / `localhost` / `[::1]`），直接拦截 DNS 重绑定探测；\n   - **所有 `GET /api/*` 与 `POST /api/*` 默认强制鉴权**：即使脱离宿主独立运行（未设置 `ANTIGRAVITY_SIDECAR_UI_TOKEN`），启动时也会自动生成随机 48 位 hex `uiToken`（并在控制台输出带 `?token=...` 的本机访问链接）；同时校验 `Sec-Fetch-Site`（拦截 `cross-site`）与 `Origin`（拦截 `Origin: null` 与外部域），`POST` 额外强制 `Content-Type: application/json`，Hook 上报使用独立的随机 `X-Hook-Token`（`.runtime/server.json` 不写入 `uiToken`）；\n   - **Dashboard 响应头锁定严格 CSP**：全部静态页面与 API 响应下发 `Content-Security-Policy: default-src 'self'; connect-src 'self'`（且前端无任何内联样式/脚本），从浏览器层面物理阻断面板向任何外部域名外发数据或加载外部资源。\n\n---\n\n## 已知局限与边界\n\n这只是一个轻量的 Sidecar 状态面板，并非内核级抓包工具，以下边界需要注意：\n\n* **新建短探针能通 ≠ 旧的长连接还活着**：网络探针是周期性新建 HTTPS GET 短连接测试域名 / TLS / HTTP 是否通畅（`2xx/3xx` 及 `400/404/405/410` 视为上游有响应，因为 `daily-cloudcode-pa.googleapis.com` 根路径默认返回 `404`；`401/403/407/408/429/451` 与 `5xx` 均判定为阻塞或失败）。如果只是代理节点波动导致**原本那条流式长连接或大包上传（`wsasend`）被远端重置**，在 Antigravity 写入 `ERROR_MESSAGE` 重试日志后，面板会立即标出 `接口重试`；若请求仍完全静默阻塞且尚未落盘报错、而新建探针刚好成功，则会倾向显示“网络正常 / 疑似模型卡顿”。\n* **代理与 TUN 识别覆盖范围**：支持环境变量（`HTTPS_PROXY` / `HTTP_PROXY` / `ALL_PROXY` / `NO_PROXY`）、Windows 注册表 `HKCU`/`HKLM`（含 `ProxyOverride` 绕过列表与 `DefaultConnectionSettings` 开关校验）、macOS `scutil`（含 `ExceptionsList`）、Linux GNOME `gsettings`（含 `ignore-hosts`）中的 **HTTP 代理**（含基础 `Basic` 鉴权）与**无认证 SOCKS5 代理**，并支持设置面板里的**「手动代理」**兜底（适合 PAC、非 GNOME 桌面、纯 SOCKS5 等场景）；**暂不支持解析 PAC 脚本（会给提示）、`https://`/`socks4://` 代理、带密码的 SOCKS5、企业 NTLM 域认证或按进程注入式透明分流工具；公司网关若使用了未导入 Node 信任链的中间人自签根证书，也可能报 TLS 失败**。TUN 网卡基于 `198.18.0.0/15`（Fake-IP）与 `100.64.0.0/10`（CGNAT / Tailscale / WireGuard 等常见段）做启发式归类；若同时存在活跃代理连接且仅代理探针通畅，插件会自动纠偏优先采用代理探测结果（避免因运营商宽带也使用 `100.64.0.0/10` 而误判）。\n* **超时阈值与高思考强度模型**：默认单次网络探测超时为 `4000ms`（纯超时需连续 `3` 次才触发断网挂起，硬错误连续 `2` 次触发）；Antigravity 通常在整轮思考/回复生成完毕后才落盘 `PLANNER_RESPONSE`，因此使用高思考强度模型单轮耗时超过 `25s` 属正常现象，可在设置中将卡顿预警阈值调至 `45s`。\n* **Hooks 与常驻开销**：Antigravity 每次 `PreInvocation` / `Stop` 时会拉起一次短暂的轻量 Hook 进程；Sidecar 本身为常驻本地 Node 进程。\n* **本地接口访问范围**：即使仅绑定 `127.0.0.1`，全部 `GET /api/*`（含 `/api/status`、`/api/events`）与 `POST /api/*` 均默认强制校验 `X-Sidecar-Token`（或 SSE 使用的 `?token=`）、`Host` 回环白名单、`Sec-Fetch-Site` 与 `Origin`；未授权网页或未携带 Token 的本机请求会被直接拦截（`401`/`403`）。\n* **Token 统计口径**：`total` 直接累加 `input_tokens + cache_read_tokens + output_tokens` 的原始次数，用来直观感受工作量与缓存命中趋势即可，不能直接等同于官方计费或配额扣减；当前会话优先走 Hook 上报路径，全量历史统计扫描 `transcript.jsonl`（不存在时回退 `transcript_full.jsonl`）。\n* **本地告警日志与弹窗控制**：Sidecar 仅在本地 `.runtime/alerts.log` 保留有界裁剪后的关键告警/恢复摘要 JSONL（默认上限 `64 KB` / 最近 `120` 条），不上传任何外部服务；指定 `ANTIGRAVITY_APP_DATA_DIR` 时会严格隔离 `brain/` 扫描范围，无头测试或自动化脚本可通过 `ASM_DISABLE_NOTIFICATIONS=1` 静默系统桌面弹窗。\n\n---\n\n## 跨平台支持矩阵\n\n| 平台 | HTTPS 可达性探针 | 系统代理探测 | Language Server & 443 套接字检测 | 系统桌面通知 | 验证程度 |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n| **Windows** | 支持 | 环境变量 + 注册表 `HKCU`/`HKLM`（HTTP / SOCKS5 / `ProxyOverride`；PAC 提示不支持，可手动指定代理） | `netstat -ano -p TCP` + `tasklist` + CIM | PowerShell WinRT Toast 通知 | **实机长运行验证** + CI 集成测试 |\n| **macOS** | 支持 | 环境变量 + `scutil --proxy`（HTTP / SOCKS5；PAC 提示不支持，可手动指定代理） | `lsof -nP -iTCP` + `pgrep`/`ps` | `osascript` 系统通知 | 单元测试 + GitHub Actions macOS CI |\n| **Linux** | 支持 | 环境变量（含 `ALL_PROXY`/`NO_PROXY`）+ GNOME `gsettings`（HTTP/SOCKS/PAC；非 GNOME 可用环境变量或手动代理） | `ss -tnap`（回退 `lsof`）+ `pgrep`/`ps` | `notify-send` | 单元测试 + GitHub Actions Ubuntu CI |\n\n---\n\n## 快速安装与卸载\n\n### 方式一：让反重力 (Antigravity) 帮你自动下载并安装（推荐，零 Git / 零命令行）\n\n不会用 Git 或命令行也没关系。新建一个 Antigravity 对话，直接复制下面这段话发给它，反重力会自动完成下载、校验、解压与安装（已有 `.runtime/config.json` 配置也会原样保留）：\n\n```text\n请帮我下载并安装（或更新）反重力状态监控插件 Antigravity Status Monitor：\n1. 从 https://github.com/rimenine/antigravity-status-monitor/releases/latest 下载适合我当前系统的安装包（Windows 用 agent-status-monitor.zip，macOS / Linux 用 agent-status-monitor.tar.gz），如有 SHA256SUMS.txt 请先校验文件完整性；若暂无预打包 Release，则改用主分支源码包。\n2. 解压到临时目录后，运行其中的 install.ps1（Windows）或 install.sh（macOS / Linux）完成安装，脚本会自动保留我原有的 .runtime/config.json。\n3. 安装完成后清理临时目录，并验证插件文件与面板入口是否就绪。\n```\n\n> 升级插件同样适用：把同一段话再发给 Antigravity 一次，它会自动停止旧版 Sidecar、替换运行文件并保留你的预警阈值与通知配置。\n\n### 方式二：手动下载 Releases 压缩包或命令行安装\n\n前后端无任何第三方依赖，可直接下载 [Releases](https://github.com/rimenine/antigravity-status-monitor/releases/latest) 中的预打包压缩包（附 `SHA256SUMS.txt`），解压到任意目录运行安装脚本（或直接将包内 `agent-status-monitor/` 目录解压放进 `~/.gemini/config/plugins/`），也可以直接执行一行安装命令：\n\n```powershell\n# Windows (PowerShell 一键拉取最新安装包并安装)\n$tmp = Join-Path $env:TEMP \"asm-install\"; Remove-Item $tmp -Recurse -Force -ErrorAction SilentlyContinue; New-Item -ItemType Directory -Force $tmp | Out-Null\nInvoke-WebRequest \"https://github.com/rimenine/antigravity-status-monitor/releases/latest/download/agent-status-monitor.zip\" -OutFile \"$tmp\\asm.zip\"\nExpand-Archive \"$tmp\\asm.zip\" -DestinationPath $tmp -Force\npowershell -ExecutionPolicy Bypass -File \"$tmp\\agent-status-monitor\\install.ps1\"\n```\n\n```bash\n# macOS / Linux (一键拉取最新安装包并安装)\nTMP_DIR=\"$(mktemp -d)\" && curl -fsSL \"https://github.com/rimenine/antigravity-status-monitor/releases/latest/download/agent-status-monitor.tar.gz\" | tar -xz -C \"$TMP_DIR\" && sh \"$TMP_DIR/agent-status-monitor/install.sh\" && rm -rf \"$TMP_DIR\"\n```\n\n### 方式三：Git 源码克隆安装与卸载\n\n```powershell\n# Windows (PowerShell)\ngit clone https://github.com/rimenine/antigravity-status-monitor.git\ncd antigravity-status-monitor\npowershell -ExecutionPolicy Bypass -File .\\install.ps1\n```\n\n```bash\n# macOS / Linux\ngit clone https://github.com/rimenine/antigravity-status-monitor.git\ncd antigravity-status-monitor\nsh ./install.sh\n```\n\n也可以直接将仓库克隆到 `~/.gemini/config/plugins/agent-status-monitor`。`install.ps1` / `install.sh` 脚本会自动检测 `~/.gemini/config` 和 `agy-node` / `node`，只拷贝运行必需文件（跳过 `tests/`、`docs/`、`.github/`、`.git/`、`scripts/` 与 `README.en.md`），已有的 `.runtime/config.json` 配置也会原样保留。\n\n卸载（脚本会自动先清理配置并停止运行中的 Sidecar；如果 Antigravity 正开着，建议先停用插件或关闭 IDE 再卸载，避免宿主保活拉起；也可以直接让 Antigravity 运行插件目录中的 `uninstall.ps1` / `uninstall.sh`）：\n\n```powershell\n# Windows (PowerShell)\npowershell -ExecutionPolicy Bypass -File .\\uninstall.ps1              # 完全卸载\npowershell -ExecutionPolicy Bypass -File .\\uninstall.ps1 -KeepConfig  # 卸载但保留配置文件\n```\n\n```bash\n# macOS / Linux\nsh ./uninstall.sh                # 完全卸载\nsh ./uninstall.sh --keep-config  # 卸载但保留配置文件\n```\n\n安装后打开或重启 Antigravity（若为覆盖更新，建议在插件管理中关闭再重新开启一次，或重启 IDE），在对话中发送 **`打开反重力状态监控面板`** 即可唤出右侧面板。\n\n---\n\n## 功能与配置说明\n\n- **顶部按钮**：`探测`（立即测速）、`演练告警` / `停止演练`（15 秒模拟断网挂起效果）、**齿轮图标**（在顶栏下方展开/收起配置，支持 `Esc` 快捷关闭并还原焦点）。\n- **告警内操作 & 悬停提示**：断网告警内附**立即探测**、**配置代理**与**停止演练**就地出口；带有细虚线下划线的项目（如 `(HTTP 404)` 可达解释、`健康正常`、HTTPS 连接数、折线采样点与缩写会话 ID）悬停即弹出高对比度解释卡片。\n- **可调参数**：界面语言（`中文` / `English`，首次按系统语言自动选择）、探测频率（`2s` / `3s` / `5s`）、卡顿预警阈值（`15s` / `25s` / `45s`）、探测目标、手动代理、主题模式（跟随宿主 / 系统、深色模式、浅色模式）、断网系统通知开关，底部附可折叠「探测说明与边界」。\n- **Token 卡片**：默认展示本轮上下文、本会话累计、今日全部会话、缓存命中率与比例进度条，点击「明细」可展开/收起输入、缓存读取与输出构成及统计口径。\n\n---\n\n## 目录结构\n\n```text\nantigravity-status-monitor/\n├── package.json                    # 插件元数据与测试入口（npm test）\n├── plugin.json                     # Antigravity 插件清单\n├── .github/workflows/\n│   ├── ci.yml                      # GitHub Actions 三平台自动化 CI\n│   └── release.yml                 # Tag / 手动一键打包 GitHub Release 流水线\n├── scripts/\n│   └── package-release.mjs         # 零依赖打包 .zip / .tar.gz 与 SHA256SUMS.txt\n├── hooks.json                      # 生命周期 Hooks（PreInvocation + Stop）\n├── install.ps1 / uninstall.ps1     # Windows 一键检测安装 / 卸载脚本\n├── install.sh / uninstall.sh       # macOS / Linux 一键检测安装 / 卸载脚本\n├── LICENSE                         # MIT 开源协议\n├── README.md                       # 中文说明文档\n├── README.en.md                    # 英文说明文档（English README）\n├── assets/logo.svg                 # 插件图标\n├── docs/screenshots/               # README 界面预览截图\n├── hooks/hook-reporter.mjs         # Hook 事件上报脚本（X-Hook-Token 鉴权）\n├── skills/status-monitor/SKILL.md  # 状态监控与排查引导 Skill\n├── tests/                          # 单元测试与真实系统命令集成测试（node:test）\n└── sidecars/status-monitor/\n    ├── sidecar.json                # Sidecar 注册配置\n    ├── server.mjs                  # Sidecar 入口、路由分发与生命周期组合\n    ├── lib/\n    │   ├── config.mjs              # 运行时路径、brain 隔离与配置持久化\n    │   ├── alert-logger.mjs        # 有界 JSONL 故障告警与恢复持久化日志\n    │   ├── runtime-paths.mjs       # 多窗口 .runtime/servers 与 hooks 作用域工具\n    │   ├── http-helpers.mjs        # 安全响应头、静态白名单与 JSON 收发\n    │   ├── sse-hub.mjs             # SSE 广播 hub 与多标签页钉选会话跟踪\n    │   ├── server-registry.mjs     # 多实例注册表与退出清理\n    │   ├── probe-coordinator.mjs   # 探针调度、LS 探查、分因告警去重与落盘\n    │   ├── i18n.mjs                # 中英文双语文案、分因通知与事件翻译\n    │   ├── security.mjs            # CSRF 防护、Content-Type 与双令牌鉴权\n    │   ├── sdk-bridge.mjs          # sidecar_sdk 桥接（/preload.js 与 AgentAPI）\n    │   ├── transcript-phase.mjs    # 步骤阶段推断、并行工具/后台任务及错误分类纯函数\n    │   ├── transcript-reader.mjs   # Transcript 尾部读取、时钟窗校验与快照解析\n    │   ├── fallback-hooks.mjs      # 离线 Hook 降级文件加载与作用域清理\n    │   ├── timeline-store.mjs      # 按会话物理分桶的时间线事件仓库\n    │   ├── state-store.mjs         # 严格单对话状态锁定与快照汇总\n    │   ├── verdict.mjs             # 纯函数状态诊断引擎\n    │   ├── proxy-bypass.mjs        # IP/CIDR/通配符/NO_PROXY 绕过匹配与 IP 标准化\n    │   ├── proxy-url.mjs           # 代理 URL 校验/解析与环境变量代理读取\n    │   ├── proxy-system.mjs        # Windows 注册表 / macOS scutil / Linux gsettings 代理检测\n    │   ├── proxy.mjs               # 代理检测缓存协调与统一导出门面\n    │   ├── proxy-tunnel.mjs        # HTTP CONNECT 与无认证 SOCKS5 隧道握手\n    │   ├── process-probe.mjs       # Language Server 进程、端口与路由探查\n    │   ├── notify.mjs              # 跨平台桌面系统通知（WinRT / AppleScript / libnotify）\n    │   ├── probe.mjs               # 直连与代理隧道 HTTPS 上游探测（统一导出门面）\n    │   └── tokens.mjs              # Token 计量解析与缓存聚合\n    └── public/\n        ├── index.html\n        ├── styles.css\n        ├── app.js                  # 面板入口装配、事件绑定、焦点还原与悬停浮层\n        └── js/\n            ├── i18n.js             # 前端双语词典与静态文本翻译\n            ├── format.js           # 时间/Token 格式化与主题自适应\n            ├── render.js           # 延迟曲线 SVG、时间线与各状态卡片渲染\n            └── client.js           # 鉴权请求、自适应短轮询与错条管理\n```\n\n---\n\n## 运行自动化测试\n\n零第三方依赖，可直接使用系统 Node 或 Antigravity 内置 `agy-node` 运行：\n\n```bash\nnpm test\n# 或使用 Antigravity 内置运行时：\nagy-node --test tests/*.test.mjs\n```\n\n---\n\n## License\n\n[MIT](LICENSE) © 2026 [rimenine](https://github.com/rimenine)\n",
+    "souma-sumire__antigravity-zh-cn": "# Antigravity 汉化补丁\n\n## 快速安装\n\n向 Agent 发送以下提示词即可：\n\n- `安装 Antigravity 汉化补丁：https://github.com/Souma-Sumire/antigravity-zh-cn`\n\n> Agent 执行规范详见 [AGENTS.md](AGENTS.md)。\n",
+    "eatingdream-antigravity-plugins__context-radar-mcp": "<div align=\"center\">\n\n<img src=\"assets/logo.svg\" alt=\"Context Radar MCP\" width=\"80\" height=\"80\">\n\n# Context Radar MCP\n\n**See how full your Antigravity context really is, why a turn got slow, and when it's actually worth compacting or starting fresh.**\n\n[![CI](https://github.com/eatingDream-antigravity-plugins/context-radar-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/eatingDream-antigravity-plugins/context-radar-mcp/actions/workflows/ci.yml)\n[![Release](https://img.shields.io/github/v/release/eatingDream-antigravity-plugins/context-radar-mcp?color=D97757&label=release)](https://github.com/eatingDream-antigravity-plugins/context-radar-mcp/releases)\n[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)\n![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux-555)\n\nEnglish | [简体中文](README.zh-CN.md)\n\n<img src=\"docs/social-preview.png\" alt=\"Context Radar MCP panel preview\" width=\"860\">\n\n</div>\n\n## Why this exists\n\nLong coding sessions in Antigravity tend to slow down and get expensive without telling you why. Maybe one huge file dump ate half the window, maybe something broke the prompt cache mid-turn, or maybe you ran `/compact` too early and threw away a warm cache for nothing.\n\nContext Radar puts a live status panel in Antigravity so you can see what is going on and let your agent make smarter decisions about trimming history or handing off to a new chat.\n\n## What it does\n\n- **Live context and cost meter**: Shows how much of your context window is used across the current chat and any running subagents, along with cache hit rate, response speed, and estimated cost.\n- **Explains slow turns**: Tells the difference between a normal new-turn cache miss, an unexpected mid-loop cache break, and a post-compact rebuild, so you know what actually slowed things down.\n- **Finds and trims bloated history**: Points out the specific turns that caused context spikes and lets your agent save a short summary of old work into `scratch/` instead of dragging raw logs around.\n- **Smarter `/compact` and fresh-chat handoffs**: Checks whether compacting or moving to a new conversation will actually save tokens over the next few turns, then gives you a one-click handoff card when it's time.\n- **Helpful optional guardrails**: Can gently keep the agent from backgrounding short shell commands too early, and optionally inject a short workspace status file at session start if you configure one.\n\n## Install\n\n### macOS & Linux (recommended)\n\n```sh\ncurl -fsSL https://raw.githubusercontent.com/eatingDream-antigravity-plugins/context-radar-mcp/main/scripts/install.sh | sh\n```\n\nThis downloads the prebuilt binary for your platform (macOS Apple Silicon, macOS Intel, or Linux x86_64), checks its SHA-256 hash, and installs the plugin into `~/.gemini/config/plugins/context-radar-mcp`. Restart or reload Antigravity afterward to pick it up.\n\nTo pin a specific release or custom plugin folder:\n\n```sh\nCONTEXT_RADAR_VERSION=v1.0.0 ANTIGRAVITY_PLUGINS_DIR=~/.gemini/config/plugins \\\n  curl -fsSL https://raw.githubusercontent.com/eatingDream-antigravity-plugins/context-radar-mcp/main/scripts/install.sh | sh\n```\n\n## How to use it\n\n### In Antigravity\n\nOpen **Context Radar** from the Antigravity side pane to watch your live context gauge, turn history, and cache health.\n\nYou can also just ask your agent in plain language. The plugin includes an on-demand skill so the agent knows how to read the numbers and act on them:\n\n- *\"Open Context Radar and show me how full this session is.\"*\n- *\"Why did the last few turns get slow? Did the cache break?\"*\n- *\"Find which turns bloated the context and summarize them.\"*\n- *\"Is it worth running `/compact` now, or should we hand off to a new chat?\"*\n\n### Tools available to your agent\n\n| Tool | What it does |\n| :--- | :--- |\n| `context_radar_overview` | Opens the live panel and returns the current session and subagent summary. |\n| `context_radar_turns` | Breaks down per-turn tokens, cache hits, cache-miss causes, speed, and estimated cost. |\n| `context_radar_hotspots` | Finds the biggest context spikes in the conversation and summarizes selected slices to `scratch/`. |\n| `context_radar_prepare_handoff` | Checks whether `/compact` or a fresh session makes sense right now. |\n| `context_radar_commit_handoff` | Creates the one-click `/compact` or new-conversation handoff card once checks pass. |\n\n## Configuration (optional)\n\nNo config file is needed out of the box. If you want custom model pricing, display currency, budget thresholds, or workspace startup notes, copy [settings.example.json](settings.example.json) to `~/.config/context-radar-mcp/settings.json`.\n\nIf your Antigravity data lives in a non-default folder, you can override it with `CONTEXT_RADAR_DATA_ROOT` (defaults to `~/.gemini/antigravity`) or point to a custom settings file with `CONTEXT_RADAR_CONFIG`.\n\n## Privacy\n\nEverything runs locally on your machine with zero network requests and no telemetry. Context Radar opens Antigravity's local database strictly in read-only mode, so it never edits or locks your conversation history.\n\n## Build from source\n\nRequires Rust (`cargo`) and Node.js 20+ (only to bundle and test the panel).\n\n```sh\ngit clone https://github.com/eatingDream-antigravity-plugins/context-radar-mcp.git\ncd context-radar-mcp\nnode panel/pack.mjs && node --test panel/panel.test.mjs\ncargo test --locked\ncargo build --release --locked\n```\n\n## Contributing & License\n\nContributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md), [CHANGELOG.md](CHANGELOG.md), and [SECURITY.md](SECURITY.md).\n\nLicensed under the [MIT License](LICENSE).\n",
+    "eatingdream-antigravity-plugins__chrome-stream-mcp": "<div align=\"center\">\n\n<img src=\"assets/logo.svg\" alt=\"Chrome Stream MCP\" width=\"80\" height=\"80\">\n\n# Chrome Stream MCP\n\n**View and interact with your own local Google Chrome tabs right inside Antigravity, even over a slow phone or remote connection.**\n\n[![CI](https://github.com/eatingDream-antigravity-plugins/chrome-stream-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/eatingDream-antigravity-plugins/chrome-stream-mcp/actions/workflows/ci.yml)\n[![Release](https://img.shields.io/github/v/release/eatingDream-antigravity-plugins/chrome-stream-mcp?color=D97757&label=release)](https://github.com/eatingDream-antigravity-plugins/chrome-stream-mcp/releases)\n[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)\n![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux-555)\n\nEnglish | [简体中文](README.zh-CN.md)\n\n<img src=\"docs/social-preview.png\" alt=\"Chrome Stream MCP panel preview\" width=\"860\">\n\n</div>\n\n## Why this exists\n\nSometimes you just want to check a page, click a button, or finish a login inside your real local Google Chrome (where your accounts and extensions already live) without leaving Antigravity. That's especially handy when you're controlling your workstation remotely from a phone over mobile data.\n\nChrome Stream MCP streams your local Chrome tabs into an interactive Antigravity panel and adjusts image quality automatically so it stays usable even on slow connections.\n\n## What it does\n\n- **Interactive local Chrome in Antigravity**: Click, type, scroll, navigate, and switch, open, or close tabs in your real local Chrome window directly from the panel.\n- **Click \"Allow\" once per browser session**: Keeps a background local relay connected so Chrome doesn't keep popping up the debugging approval prompt whenever the plugin reloads.\n- **You control when it connects**: Opening the panel never connects to Chrome behind your back. Use **Connect**, **Pause / Resume**, and **Disconnect** right in the header, and screen capture automatically rests when idle to save battery.\n- **Built for slow connections**: Automatically adapts image quality across four presets based on your connection latency, and skips sending frames when nothing on the page changed.\n- **Normal tab behavior**: Closing the last tab shows a clean empty state instead of forcing an unwanted `about:blank` tab back open.\n\n## Install & Setup\n\n### 1. Install the plugin (macOS & Linux)\n\n```sh\ncurl -fsSL https://raw.githubusercontent.com/eatingDream-antigravity-plugins/chrome-stream-mcp/main/scripts/install.sh | sh\n```\n\nThis downloads the prebuilt binary for your platform (macOS Apple Silicon, macOS Intel, or Linux x86_64), verifies its SHA-256 hash, and installs it into `~/.gemini/config/plugins/chrome-stream-mcp`. Restart or reload Antigravity afterward.\n\nTo pin a specific release:\n\n```sh\nCHROME_STREAM_VERSION=v0.1.0 curl -fsSL https://raw.githubusercontent.com/eatingDream-antigravity-plugins/chrome-stream-mcp/main/scripts/install.sh | sh\n```\n\n### 2. Turn on Chrome remote debugging (one-time)\n\n1. Keep Google Chrome open on your computer.\n2. Open `chrome://inspect/#remote-debugging` in Chrome and enable remote debugging (or launch Chrome locally with `--remote-debugging-port=9222`).\n3. Open **Chrome Stream** in Antigravity, click **Connect**, and click **Allow** once when Chrome asks.\n\nIf Chrome doesn't connect, run `chrome-stream-mcp doctor` in a terminal to see what's missing.\n\n## How to use it\n\n### In the panel\n\nClick **Connect** to start viewing your active tab. Use the tab bar, address bar, and mouse/keyboard just like a normal browser. Click **Pause** whenever you want to freeze the stream without losing authorization, or **Disconnect** when you're done to close the Chrome connection.\n\n### Ask your agent\n\nChrome Stream ships an on-demand skill (with zero always-on prompt overhead), so you can also control it from chat:\n\n- *\"Open Chrome Stream.\"*\n- *\"Connect Chrome Stream to my local Chrome.\"*\n- *\"Disconnect Chrome Stream when we're done.\"*\n\n| Tool | What it does |\n| :--- | :--- |\n| `chrome_stream_stage` | Opens the Chrome Stream panel and shows connection status without auto-connecting. |\n| `chrome_stream_connect` | Connects to your local Chrome session and starts streaming the active tab. |\n| `chrome_stream_disconnect` | Stops streaming and closes the Chrome debugging connection. |\n\n### Custom Chrome port or profile (optional)\n\nBy default, Chrome Stream finds your running Chrome automatically (with localhost port `9222` as fallback). If you run a custom setup, you can set `CHROME_STREAM_CHROME_DEBUG_PORT` or `CHROME_STREAM_CHROME_PORT_FILE`.\n\n## Privacy & Security\n\nChrome Stream only connects to Google Chrome on `localhost` (`127.0.0.1` / `::1`) and refuses non-local addresses. Never expose Chrome's remote debugging port to the public network. Local file paths and internal WebSocket tokens are stripped before anything is returned to the agent, and the plugin makes no outbound network requests.\n\n## Build from source\n\nRequires Rust (`cargo`) and Node.js 20+ (only to build and test the panel; no npm dependencies).\n\n```sh\ngit clone https://github.com/eatingDream-antigravity-plugins/chrome-stream-mcp.git\ncd chrome-stream-mcp\nnode panel/build.mjs && node --test panel/net-policy.test.mjs\ncargo test --locked\ncargo build --release --locked\n```\n\n## Contributing & License\n\nContributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md), [CHANGELOG.md](CHANGELOG.md), and [SECURITY.md](SECURITY.md).\n\nLicensed under the [MIT License](LICENSE).\n",
+    "eatingdream-antigravity-plugins__mac-clamshell-mcp": "<div align=\"center\">\n\n<img src=\"assets/logo.svg\" alt=\"Mac Clamshell MCP\" width=\"84\" height=\"84\">\n\n# Mac Clamshell MCP\n\n**Native Rust macOS clamshell performance controller, display thermal guard, built-in brightness manager, and zero-flicker SEP-1865 MCP dashboard.**\n\n[![CI](https://github.com/eatingDream-antigravity-plugins/mac-clamshell-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/eatingDream-antigravity-plugins/mac-clamshell-mcp/actions/workflows/ci.yml)\n[![Release](https://github.com/eatingDream-antigravity-plugins/mac-clamshell-mcp/actions/workflows/release.yml/badge.svg)](https://github.com/eatingDream-antigravity-plugins/mac-clamshell-mcp/releases)\n[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)\n![Rust](https://img.shields.io/badge/rust-1.80%2B-DEA584?logo=rust&logoColor=white)\n![macOS](https://img.shields.io/badge/macOS-Apple%20Silicon%20%7C%20Intel-1A1916?logo=apple&logoColor=white)\n![MCP App](https://img.shields.io/badge/MCP%20App-SEP--1865-D97757)\n\nEnglish | [简体中文](README.zh-CN.md)\n\n<img src=\"docs/social-preview.png\" alt=\"Mac Clamshell MCP preview\" width=\"860\">\n\n<sub>Single stripped macOS binary with native CoreGraphics &amp; DisplayServices FFI, automatic clamshell throttling, and a &lt;38 KiB dark-first MCP Apps panel.</sub>\n\n</div>\n\n## Features\n\n- **Lid / Power / Thermal Policy Engine** — Continuously evaluates `AppleClamshellState`, AC vs. battery power, low-battery threshold (`<= 20%`), Apple Silicon P/E-core topology, and `pmset -g therm` pressure into four tiers (`normal`, `utility`, `eco`, `strict`).\n- **Display Thermal Guard (`watch`)** — Automatically dims the built-in backlight to `0%` and sleeps the internal display whenever the lid closes (even when apps hold `NoDisplaySleepAssertion`), skips redundant CoreGraphics/disk work in steady state, fails safe on `ioreg` timeouts, and retries across lid-open wake races.\n- **Apple Silicon & macOS Brightness Control** — Direct `dlopen`/`dlsym` FFI bindings to `CoreGraphics` (`CGGetOnlineDisplayList`, `CGDisplayIsBuiltin`, `CGDisplayIsAsleep`) and `DisplayServices` (`DisplayServicesGetBrightness`, `DisplayServicesSetBrightness`). Adjusts `0%–100%` brightness immediately while open and awake, or safely updates the wake-restore target while closed without lighting the closed panel — synchronized via `O_NOFOLLOW` `flock` (`0600`).\n- **Adaptive `run` Wrapper** — Wraps heavy builds, tests, and scripts with live `taskpolicy` (`-c utility` / `-c background` / `-b`), `nice`, and 10 concurrency environment variables (`MAKEFLAGS`, `CARGO_BUILD_JOBS`, `CMAKE_BUILD_PARALLEL_LEVEL`, `OMP_NUM_THREADS`, `OPENBLAS_NUM_THREADS`, `MKL_NUM_THREADS`, `VECLIB_MAXIMUM_THREADS`, `RAYON_NUM_THREADS`, `UV_THREADPOOL_SIZE`, `GOMAXPROCS`).\n- **Zero-Flicker MCP Dashboard (`ui://mac-clamshell-mcp/panel`)** — Self-contained SEP-1865 (`2026-01-26`) single-file HTML (`<38 KiB`, `default-src 'none'`, zero external URLs), dark-first frame-0 lock (`#141311`) with transparent host CSS variable protection, startup pre-warm + single-flight SWR cache (`<0.5 ms` SSR `resources/read`), SHA-256 ETag `unchanged: true` deduplication, RTT-adaptive polling with `document.hidden` pause, optimistic controls, and a `250ms` debounced last-write-wins brightness slider.\n\n### Adaptive Profile Tiers\n\n| Profile | Trigger | Scheduler / QoS | Concurrency (`max_jobs`) |\n| :--- | :--- | :--- | :--- |\n| **Normal** | Lid open, thermal OK | Unrestricted | All logical cores |\n| **Utility** | Lid closed + AC power | `taskpolicy -c utility`, `nice 10` | E-cores (`2..4`) |\n| **Eco** | Lid closed + Battery | `taskpolicy -c background`, `nice 15` | `<= 2` (`1` when battery `<= 20%`) |\n| **Strict** | Thermal warning / throttle | `taskpolicy -b`, `nice 19` | `1` |\n\n## Architecture\n\n<p align=\"center\"><img src=\"docs/architecture.en.svg\" alt=\"Mac Clamshell MCP architecture\" width=\"100%\"></p>\n\n1. **macOS Hardware & FFI (`src/platform/`)** reads lid state (`IOKit`), power/thermal pressure (`pmset`), CPU topology & memory (`sysctlbyname`, `getloadavg`, Mach `host_statistics64`), and built-in display state (`CoreGraphics` + `DisplayServices` `dlopen` FFI).\n2. **Policy & Guard Core (`src/policy.rs`, `src/guard.rs`, `src/state.rs`, `src/runner.rs`)** resolves the active 4-tier profile, coordinates closed-lid backlight dimming & wake restoration under `O_NOFOLLOW` `flock`, and wraps heavy commands with `taskpolicy`/`nice`/concurrency caps.\n3. **Runtime Surfaces (`src/cli.rs`, `src/hook.rs`, `src/mcp/`)** exposes a single stripped Rust binary for CLI commands, `~1–3 ms` fail-open lifecycle hooks, the LaunchAgent display guard, and a pre-warmed SWR JSON-RPC 2.0 MCP server.\n4. **Agent & MCP Dashboard (`panel/`, `plugin/`)** delivers an editorial-warm `<38 KiB` SEP-1865 HTML panel, `<400 B` always-on rules, and an on-demand agent skill.\n\n## Quick Install\n\n### One-Line Release Installer (macOS Apple Silicon & Intel)\n\nDownloads the matching `aarch64-apple-darwin` or `x86_64-apple-darwin` release archive, verifies its SHA-256 checksum, and installs cleanly into `${ANTIGRAVITY_PLUGINS_DIR:-$HOME/.gemini/config/plugins}/mac-clamshell-mcp`:\n\n```sh\ncurl -fsSL https://raw.githubusercontent.com/eatingDream-antigravity-plugins/mac-clamshell-mcp/main/scripts/install.sh | sh\n```\n\nPin a specific version or destination:\n\n```sh\ncurl -fsSL https://raw.githubusercontent.com/eatingDream-antigravity-plugins/mac-clamshell-mcp/main/scripts/install.sh | sh -s -- --version v1.0.0\n```\n\n### Build from Source\n\nRequirements: macOS (Apple Silicon or Intel), Rust toolchain (`cargo`), and Node.js 20+ (to bundle `panel/dist/panel.html`).\n\n```sh\ngit clone https://github.com/eatingDream-antigravity-plugins/mac-clamshell-mcp.git\ncd mac-clamshell-mcp\n\n# 1. Pack and test the lean SEP-1865 panel HTML\n(cd panel && npm install) && node panel/pack.mjs && node --test panel/test/panel.test.mjs\n\n# 2. Build the stripped, path-remapped release binary\nRUSTFLAGS=\"--remap-path-prefix=$HOME=/build\" cargo build --release --locked\n\n# 3. Install into ~/.gemini/config/plugins/mac-clamshell-mcp (atomic binary swap)\n./scripts/install-plugin.sh\n```\n\n### Optional macOS LaunchAgent (Background Display Thermal Guard)\n\nInstall and load `~/Library/LaunchAgents/dev.mac-clamshell-mcp.display-guard.plist` so your built-in display stays safely dimmed and asleep whenever the lid closes (even outside agent sessions):\n\n```sh\n./scripts/install-launchagent.sh --interval 10\n```\n\n## Agent Integration & Skill\n\n`mac-clamshell-mcp` uses **low-intrusion progressive disclosure** so agent context stays virtually untouched during normal open-lid work:\n\n- **`plugin/rules/AGENTS.md` (`<400 B`)** — Tiny plain-markdown always-on rule telling the agent to operate normally unless an active `[mac-clamshell]` throttle notice appears.\n- **`plugin/skills/mac-clamshell/SKILL.md`** — On-demand skill loaded only when throttled (`utility`, `eco`, `strict`) or when the user asks about clamshell status, build wrapping, or built-in brightness.\n- **`plugin/hooks.json`** — Runs `mac-clamshell-mcp hook session-start` and `pre-invocation` with an early-exit balanced-JSON stdin reader (`~1–3 ms`, always fail-open). Returns silent `{}` whenever `profile=normal`.\n\n### MCP Tools\n\n| Tool | Visibility | Description |\n| :--- | :--- | :--- |\n| `clamshell_panel` | Model + App (`global` & `aux_pane`) | Opens the live Mac Clamshell dashboard (`ui://mac-clamshell-mcp/panel`) and returns concise hardware/policy telemetry. |\n| `clamshell_set_brightness` | Model + App | Adjusts built-in display brightness (`0–100%`) immediately when awake, or safely updates the wake-restore target while closed. |\n| `clamshell_refresh` | App only | Polls fresh telemetry with `ifHash` SHA-256 ETag deduplication (`unchanged: true`). |\n| `clamshell_configure` | App only | Persists mode override (`auto`/`normal`/`utility`/`eco`/`strict`), `max_jobs` cap, or closed-AC default profile. |\n\n## CLI Usage\n\n```sh\n# Status: inspect live lid, power, thermal pressure, display brightness, and active policy\nmac-clamshell-mcp status\nmac-clamshell-mcp status --json\n\n# Run: wrap heavy builds/tests with live clamshell & thermal throttling\nmac-clamshell-mcp run -- cargo test\nmac-clamshell-mcp run --mode eco --jobs 2 --sh \"npm run build && npm test\"\n\n# Brightness: read or set built-in display brightness (0-100%) synced with wake-restore\nmac-clamshell-mcp brightness get --json\nmac-clamshell-mcp brightness set 60\n\n# Display Guard: run a single check (LaunchAgent StartInterval) or foreground daemon\nmac-clamshell-mcp watch\nmac-clamshell-mcp watch --daemon --interval 10\n\n# MCP Server: start JSON-RPC 2.0 stdio transport\nmac-clamshell-mcp serve --data-dir \"$HOME/.gemini/antigravity/plugin_data/mac-clamshell-mcp\"\n```\n\n## Security & Privacy Boundary\n\n- **Zero outbound network at runtime** — All probes, FFI calls, state storage, hooks, and MCP stdio traffic stay 100% local on your Mac. The bundled dashboard HTML contains zero external URLs and enforces strict `default-src 'none'` CSP compatibility.\n- **Hardened local state** — Writable runtime files (`settings.json`, `display-guard-state.json`, `display-guard.lock`) live inside a dedicated `0700` data directory with `0600` atomic temp-file renames and `O_NOFOLLOW` `flock` locking to prevent symlink races.\n- **Reproducible, clean binaries** — Release artifacts are compiled with `RUSTFLAGS=\"--remap-path-prefix=$HOME=/build\"`, LTO, and symbol stripping; CI enforces `cargo test`, panel tests, `gitleaks` full-history scanning, and `scripts/check_sanitized.sh`.\n\n## Project Structure\n\n```text\nmac-clamshell-mcp/\n├── src/\n│   ├── main.rs                # Entry point\n│   ├── cli.rs                 # CLI subcommands (serve, status, brightness, run, hook, watch)\n│   ├── policy.rs              # Lid/power/thermal -> profile, taskpolicy, nice, max_jobs rules\n│   ├── state.rs               # Atomic 0600 persistence, O_NOFOLLOW flock, FIPS 180-4 SHA-256\n│   ├── guard.rs               # Display thermal guard state machine & synced brightness control\n│   ├── runner.rs              # Native taskpolicy + nice + concurrency env exec wrapper\n│   ├── hook.rs                # ~1-3 ms lifecycle hooks with early-exit JSON stdin reader\n│   ├── platform/\n│   │   ├── display_ffi.rs     # Native CoreGraphics & DisplayServices dlopen FFI\n│   │   └── macos.rs           # Native sysctl/Mach VM stats + bounded ioreg/pmset probes\n│   └── mcp/\n│       ├── telemetry.rs       # Pre-warm, SWR cache, single-flight coalescer, ETag\n│       ├── tools.rs           # MCP tools + SSR boot payload injection\n│       └── server.rs          # JSON-RPC 2.0 stdio transport\n├── panel/                     # SEP-1865 UI source, tests & packer -> panel/dist/panel.html\n├── plugin/                    # Antigravity plugin.json, mcp_config.json, hooks, AGENTS.md, SKILL.md\n├── scripts/                   # install.sh, install-plugin.sh, install-launchagent.sh, check_sanitized.sh\n├── docs/                      # Architecture SVGs (EN/ZH) & social preview\n├── assets/                    # Brand logo SVG\n├── tests/                     # Rust integration test suite\n└── .github/workflows/         # CI, Release Please & macOS arm64/x86_64 release packaging\n```\n\n## Contributing & License\n\nPull requests are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md) for branch, commit, and local verification steps, and [CHANGELOG.md](CHANGELOG.md) for release history. Please report security vulnerabilities privately per [SECURITY.md](SECURITY.md).\n\nLicensed under the [MIT License](LICENSE).\n",
+    "commit-or-die-studio__agy-git-graph": "# AGY Git Graph 🌿\r\n\r\n> **Visual Git branch graph and commit diff viewer for AGY Auxiliary Pane.**  \r\n> **專為 Antigravity (AGY) 輔助面板打造的 Git 視覺化分支圖與 Commit Diff 檢視器。**\r\n\r\n[![Version](https://img.shields.io/badge/Version-v1.0.8-orange.svg)](https://github.com/Commit-Or-Die-Studio/agy-git-graph/releases)\r\n[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)\r\n[![Platform: Antigravity](https://img.shields.io/badge/Platform-Antigravity%20(AGY)-673ab7.svg)](#)\r\n[![Zero Dependency](https://img.shields.io/badge/Dependencies-Zero%20(Native%20Node.js)-success.svg)](#)\r\n\r\n---\r\n\r\n## 📖 簡介 / Overview\r\n\r\n**AGY Git Graph** 是專為 **Antigravity (AGY) 桌面版** 量身打造的原生 UI 外掛（UI Plugin / Sidecar）。  \r\n常駐於 AGY 右側輔助面板（Auxiliary Pane，約 350px~500px 寬度），以流暢彩色的多軌平滑曲線直觀呈現專案的分支走向、Merge 線條、Commit 歷史與變更檔案 Diff，支援公司 Organization 私有儲存庫、Submodule 子模組切換與純本地離線運作。\r\n\r\n**AGY Git Graph** is a native UI Plugin & Sidecar tailored for the **Antigravity (AGY) Desktop App**.  \r\nIt embeds seamlessly into the AGY Auxiliary Pane (~350px-500px), rendering smooth multi-lane Bezier curves for branch trajectories, merge topologies, commit histories, and inline file diffs—fully offline and private-repo friendly with zero external dependencies.\r\n\r\n---\r\n\r\n## ✨ 核心特點 / Key Features\r\n\r\n* 🚀 **純本地零依賴 (Zero External Dependencies)**  \r\n  後端採用原生 Node.js（`node:http`、`node:child_process`、`node:fs`、`node:sqlite`），無需執行 `npm install` 下載龐大套件，啟動最輕量迅速。  \r\n  *Powered entirely by native Node.js standard libraries—no external npm modules needed.*\r\n\r\n* 🎨 **彩色多軌平滑分支圖與合體分支標籤 (Multi-Lane Smooth Curves & Synced Badges)**  \r\n  內建分支軌道演算法繪製平滑貝茲曲線（Bezier Curves）；當本地分支與遠端分支同步於同一 Commit 時，自動合併為單一漸層標籤（如 `[ ⎇ main ☁ ]`），精簡側邊欄空間。  \r\n  *Dynamic multi-lane layout with unified local/remote synced branch badges.*\r\n\r\n* 📱 **完美適配 AGY 側邊欄 (Tailored for Auxiliary Pane)**  \r\n  針對 350px~500px 寬度設計響應式暗色系介面，支援 Commit 關鍵字搜尋、分支下拉即時篩選與絕對時間戳記（`YYYY-MM-DD HH:mm`）。  \r\n  *Responsive dark-themed UI specifically tuned for 350px–500px panes with instant commit search and branch filters.*\r\n\r\n* 🔍 **即時 Commit 詳情、Working Tree 與 Diff 獨立視窗 (Details, Working Tree & Popout Diff)**  \r\n  點擊任一 Commit 或頂部工作區狀態列即可展開修改檔案清單（`[A]`、`[M]`、`[D]`、`[U]`），支援樹狀/列表檢視與一鍵彈出獨立大視窗檢視語法高亮 Diff。  \r\n  *Click any commit or the working-tree status bar to inspect modified files and view syntax-highlighted diffs inline or in a popout window.*\r\n\r\n* 🏢 **支援多專案、Submodule 子模組與私有倉庫切換 (Multi-Repo & Submodule Switch)**  \r\n  完全在本地執行 `git` 指令，安全無資安疑慮；內建 AGY 專案與 Git Submodule 階層選單，亦支援手動輸入任意本機倉庫路徑。  \r\n  *Local execution ensures 100% security for corporate private repos with built-in AGY project and submodule selector.*\r\n\r\n* 🔔 **GitHub 新版偵測與一鍵熱更新 (Release Update Notification & One-Click Hot Update)**  \r\n  自動比對 GitHub 最新 Release 版本，當有新版本發布時於面板右上角顯示 `⬆ vX.Y.Z` 提示按鈕；點擊即可自動下載更新包、校驗 `SHA256SUMS.txt`、覆蓋安裝並自動熱重啟面板，無須重開 AGY。  \r\n  *Automatically detects new GitHub Releases and displays an update pill in the toolbar for one-click SHA-256 verified hot updating.*\r\n\r\n---\r\n\r\n## 📁 專案架構 / Directory Structure\r\n\r\n```text\r\nagy-git-graph/\r\n├── plugin.json                 # AGY Plugin Manifest 清單設定檔\r\n├── package.json                # 專案資訊與打包腳本配置\r\n├── AGENTS.md                   # AI 代理人開發、文件同步與發布規範\r\n├── LICENSE                     # MIT License\r\n├── assets/\r\n│   └── logo.svg                # 外掛專屬圖示\r\n├── sidecars/\r\n│   └── git_graph_server/       # Sidecar 核心伺服器與前端 UI\r\n│       ├── sidecar.json        # AGY Sidecar 描述設定檔 (AUX_PANE 進入點)\r\n│       ├── server.mjs          # Node.js 輕量 HTTP 伺服器與 Git 解析器\r\n│       └── public/             # 前端介面 (HTML5 / CSS / SVG)\r\n│           ├── index.html      # 主頁面\r\n│           ├── style.css       # 暗色系響應式樣式\r\n│           └── app.js          # SVG 繪圖、狀態管理與互動邏輯\r\n├── scripts/\r\n│   ├── package.mjs             # 跨平台發行打包腳本 (支援 --next 預覽打包與自動生成 Release Notes)\r\n│   └── installer.cs            # Windows 原生自解壓安裝/解除安裝器 C# 原始碼\r\n├── skills/\r\n│   ├── local-package/SKILL.md  # 本機下一版本測試打包技能\r\n│   └── release/SKILL.md        # 正式壓版與 GitHub Release 自動發布技能\r\n└── README.md                   # 說明文件與版本更新紀錄\r\n```\r\n\r\n---\r\n\r\n## 📦 安裝與解除安裝 / Install & Uninstall\r\n\r\n請至 [GitHub Releases](https://github.com/Commit-Or-Die-Studio/agy-git-graph/releases) 下載最新版本的安裝檔：\r\n\r\n| 平台 | 檔案名稱 | 用途說明 |\r\n| :--- | :--- | :--- |\r\n| **Windows** | `agy-git-graph-v<VERSION>-setup.exe` | **Windows 一鍵安裝檔**：雙擊即可自動部署至 `~/.gemini/config/plugins/agy-git-graph/` |\r\n| **Windows** | `agy-git-graph-v<VERSION>-uninstall.exe` | **Windows 解除安裝檔**：雙擊自動關閉背景程序並完整移除外掛 |\r\n| **Linux / macOS** | `agy-git-graph-v<VERSION>-setup.sh` | **Linux / macOS 自解壓安裝腳本**：執行 `bash agy-git-graph-v<VERSION>-setup.sh` 自動完成安裝 |\r\n| **Linux / macOS** | `agy-git-graph-v<VERSION>-uninstall.sh` | **Linux / macOS 解除安裝腳本**：執行 `bash agy-git-graph-v<VERSION>-uninstall.sh` 乾淨移除 |\r\n| **跨平台手動包** | `agy-git-graph-v<VERSION>.zip` / `.tar.gz` | 手動解壓縮至 `~/.gemini/config/plugins/agy-git-graph/` |\r\n\r\n安裝完成後，重啟或重新整理 Antigravity (AGY)，於右側輔助面板開啟 **Git Graph** 即可使用。\r\n\r\n---\r\n\r\n## 🛠️ 本地開發與打包 / Local Development & Packaging\r\n\r\n### 1. 啟動本機測試伺服器\r\n```bash\r\nnode sidecars/git_graph_server/server.mjs\r\n```\r\n伺服器預設將在 `http://127.0.0.1:52888` 啟動。\r\n\r\n### 2. 本機預覽打包（不更動工作區版號）\r\n```bash\r\nnode scripts/package.mjs --next\r\n```\r\n會在 `dist/` 目錄下直接產出**下一版本號**的安裝檔與壓縮包，方便本地安裝實測且不與已發布的舊版號混淆。\r\n\r\n---\r\n\r\n## 📋 版本更新紀錄 / Changelog\r\n\r\n### v1.0.8 (2026-11-24)\r\n* 🏷️ **頂部工具列常駐顯示目前版本號與手動檢查更新**：\r\n  * 於第一排工具列右上角（重新整理按鈕旁）常駐顯示目前安裝版本標籤（如 `v1.0.8`），隨時可確認當前外掛版本。\r\n  * 平常點擊該版本標籤可主動連線 GitHub 檢查是否有新版本並顯示 Toast 狀態提示；當偵測到新版本時，標籤將直接亮起轉換為 `⬆ vX.Y.Z` 一鍵熱更新按鈕。\r\n\r\n### v1.0.7 (2026-11-24)\r\n* 🔔 **新增 GitHub Release 新版本偵測與頂部提示按鈕**：\r\n  * 面板啟動時、定時每 30 分鐘、以及點擊「重新整理 🔄」時自動檢查 GitHub 最新 Release（離線環境下靜默略過不影響本地運作）。\r\n  * 當線上最新 Release 版本大於本地安裝版本時，於工具列右上角顯示醒目的綠色漸層按鈕 `⬆ vX.Y.Z`。\r\n* ⚡ **一鍵自動下載、SHA-256 校驗與免重開機熱更新**：\r\n  * 點擊 `⬆ vX.Y.Z` 按鈕即可於背景自動下載最新發行包與 `SHA256SUMS.txt` 進行完整性驗證。\r\n  * 校驗通過後自動解壓縮覆蓋外掛檔案並觸發 Sidecar 伺服器熱重啟（`restart_policy: always`），前端自動重載切換至新版介面，全程無須手動下載或重開 AGY。\r\n\r\n### v1.0.6 (2026-11-24)\r\n* 🌿 **修復帶斜線 `/` 的本地分支誤判為遠端分支**：\r\n  * `git log` 改用 `--decorate=full` 搭配完整 `refs/heads/`（本地分支）與 `refs/remotes/`（遠端分支）解析。\r\n  * 解決 `feat/xxx`、`fix/xxx` 等含 `/` 命名的本地分支被誤判為遠端分支而重複顯示兩個藍色雲朵標籤的問題，並能正常與同名遠端分支合體為單一漸層標籤 `[ ⎇ feat/xxx ☁ ]`。\r\n* 📝 **自動化 Release 說明與開發規範升級**：\r\n  * 打包腳本自動擷取 `README.md` 對應版本更新紀錄產生 `dist/RELEASE_NOTES.md`，讓 GitHub Release 自動附帶完整更新摘要、安裝檔指引與 SHA-256 校驗碼。\r\n\r\n### v1.0.5 (2026-11-23)\r\n* 🛡️ **根治無變動時面板頻繁重刷與跨專案搶畫面問題**：\r\n  * **對話專案綁定優化**：僅在 AGY 明確提供 `conversationId` 變更時自動切換專案；無 ID 時僅於初次啟動未選定專案時偵測一次，徹底解決多視窗 / 多專案並行時互相搶奪畫面重刷的問題。\r\n  * **分離分支圖與工作區狀態輪詢**：將 `/api/watch-state` 拆分為 `graphHash`（HEAD / 分支 / 遠端）與 `stateHash`（含工作區狀態）。工作區未提交檔案微調時僅更新頂部狀態列，不再重繪整張 Commit 分支圖與彈出載入遮罩。\r\n  * **無鎖唯讀查詢與容錯**：所有 Git 唯讀查詢加入 `GIT_OPTIONAL_LOCKS=0`，且在任一查詢暫時失敗時跳過該輪比對，避免 `.git/index.lock` 互搶與假變更重刷。\r\n* 📦 **新增 `--next` 預覽打包與 `local-package` Skill**：\r\n  * `node scripts/package.mjs --next` 支援在不動到工作區 `package.json` / `plugin.json` 的前提下，直接打包出下一版號安裝檔供本地試用。\r\n\r\n### v1.0.4 (2026-11-21)\r\n* 🎨 **本地與遠端同步分支標籤合體 (Synced Branch Badges)**：\r\n  * 當本地分支與遠端分支（如 `main` 與 `origin/main`）停留在同一個 Commit 時，自動合併為單一漸層標籤 `[ ⎇ main ☁ ]`，大幅節省側邊欄水平空間；分歧時則自動拆開顯示。\r\n* 🧹 **移除冗餘 HEAD 標籤字串**：\r\n  * 左側節點已有同心圓（Bullseye）代表當前 Checkout (`HEAD`) 位置，移除標籤內重複的 `HEAD ->` 字串與冗餘的 `origin/HEAD` 標籤。\r\n* 🕒 **絕對時間戳記顯示**：\r\n  * Commit 時間由相對時間（「幾分鐘前」）改為直接顯示完整絕對時間 `YYYY-MM-DD HH:mm` 並防止換行擠壓。\r\n\r\n### v1.0.3 (2026-11-20)\r\n* ⚙️ **升級 GitHub Actions 自動發布管線**：\r\n  * 將 Release CI 建置環境切換至 `windows-latest`，於雲端自動編譯並掛載 Windows 原生雙擊安裝檔（`-setup.exe` / `-uninstall.exe`）、Linux/macOS 自解壓安裝腳本（`-setup.sh` / `-uninstall.sh`）、`.zip`、`.tar.gz` 與 `SHA256SUMS.txt`。\r\n\r\n### v1.0.2 (2026-11-20)\r\n* 🔍 **修復 `gitFolder` 專案資源偵測與自動對話同步**：\r\n  * 修正 AGY 以 `res.gitFolder.folderUri` 格式儲存 Git 專案資源時的解析邏輯，確保所有納管 Git 專案皆能正確列舉。\r\n  * 支援透過 `conversation_summaries.db`（`node:sqlite` 唯讀查詢）解析對話所屬之 `project_id` 與 `workspace_uris`。\r\n\r\n### v1.0.1 (2026-11-20)\r\n* ⚡ **超大型專案效能飛躍與體驗升級**：\r\n  * 狀態檢查加入 `--ignore-submodules=dirty`，Commit Log 加入 `--topo-order` 拓撲排序與後端記憶體快取，大型多子模組專案二次載入秒回。\r\n  * **遠端指標變更即時感知 (Live Remote Tracking)**：本地 `git push` 後自動感應遠端指針推進並刷新；點擊右上角重整按鈕時同步於背景執行 `git fetch --prune`。\r\n  * **Commit 點擊切換 (Toggle Interaction)**：點擊同一筆 Commit 或未提交變更狀態列可再次點擊立即收合明細抽屜。\r\n\r\n### v1.0.0 (2026-11-19)\r\n* 🎉 **AGY Git Graph 首個正式版發布**：\r\n  * 專為 Google Antigravity (AGY) 輔助面板打造的純本地零依賴視覺化 Git 分支圖與 Commit Diff 檢視外掛。\r\n  * 支援 8 色高對比多軌平滑貝茲曲線（Bezier Curves）、雙環同心圓 HEAD 高亮、4 通道 Git Submodules 樹狀選單、多對話專案切換、Flex Split-Pane 明細抽屜與 Windows / Linux 一鍵安裝包。\r\n\r\n---\r\n\r\n## 📄 授權條款 / License\r\n\r\n本專案採用 [MIT License](LICENSE) 授權。  \r\nCreated by **Commit-Or-Die-Studio**.\r\n",
+    "a16nights__antigravity-think-zh": "# 思语中文 · Think-ZH (`antigravity-think-zh`)\n\n[English Documentation](./README.en.md)\n\n面向 **Google Antigravity** 的零依赖思考语言控制插件：引导模型从第一个字起全程使用**简体中文**进行内部思考与推理（`thinking / reasoning`），同时严格保留代码、标识符、文件路径、命令行与报错原文不强行翻译，并支持随时一键切回**默认英文思考**。\n\n> **致谢**：本插件的核心规则与双通道强化思路受开源项目 [`Len7183/DSH-Think-zh`](https://github.com/Len7183/DSH-Think-zh)（MIT）启发，并结合 Antigravity 原生插件架构（Rules + Lifecycle Hooks + 外接模型智能识别 + MCP Server + Sidecar UI）重新设计与实现。\n\n---\n\n## ✨ 功能全景\n\n### 1. 双档位思考语言预设（即时热切换）\n- **简体中文思考（默认推荐，`zh`）**：\n  - 要求模型内部思考与推理（涵盖任务分析、方案规划、工具调用前后推理、日志排查、报错诊断与最终自查）从第一个字起全程使用简体中文，禁止先用英文起草再翻译；\n  - 即使提问、代码、报错、路径或工具输出为英文，内部思考仍保持简体中文；\n  - 代码、标识符、文件路径、命令行与报错原文保持原样；最终回复跟随用户最近一条实质提问语言。\n- **默认英文思考（`en`）**：\n  - 将内部思考语言交还模型默认英文习惯，仅保留「最终回复跟随用户提问语言」的基础约束。\n\n### 2. 双通道强化与外接模型智能识别（省 Token 防漂移）\n- **静态规则通道（`rules/AGENTS.md`）**：切换档位或修改自定义文案后，即时原子同步写入插件规则文件，轻量常驻生效。\n- **生命周期 Hook 通道（`SessionStart` + `PreInvocation`）**：\n  - **新会话开场提醒（`SessionStart`）**：会话启动时注入一次思考语言锚点；\n  - **外接模型智能前置强化（`PreInvocation` + `external-model-guard`）**：\n    - 自动识别当前主模型：当使用外接自定义模型或长对话英文日志较多时，按设定粒度注入前置中文思考提醒，防止模型在大量英文代码/报错诱导下漂移回英文思考；\n    - 当使用 Antigravity 内置原生模型时，默认自动跳过每轮重复注入以节省 Token；\n  - **智能去重与热切换感知**：支持「每轮用户提问一次（`per_user_turn`）」或「每次模型调用（`every_invocation`）」粒度，并在对话中途切换 `zh` ↔ `en` 时自动在下一轮通知模型更新思考语言。\n\n### 3. 自定义指令文案与实时预览\n- 支持在侧栏面板直接编写自定义思考语言指令（`customText`）覆盖内置文案，留空即可一键恢复官方推荐预设；\n- 面板底部提供 **「实时注入内容预览」**，清晰展示当前配置下实际写入 `AGENTS.md` 的静态规则与 Hook 前置注入文本。\n\n### 4. 苍蓝统一视觉与交互体系\n- **Sidecar + 独立 Web UI 双形态**：提供直观的右侧栏控制面板，点击顶栏 `Web UI` 可在系统默认浏览器中全屏打开。\n- **Neko Glass 毛玻璃界面 & 苍蓝主题色调中心**：支持深色/浅色切换、自定义毛玻璃下拉框（`AzureSelect`）、6 套官方主题预设 + 自定义双色 + 4 个自定义栏位跨插件同步、左侧栏快捷入口开关与 GitHub Release 在线更新检查。\n\n---\n\n## 🚀 安装方法\n\n> 前置要求：**Node.js >= 22.0.0**（零第三方 npm 依赖，纯 Node.js 原生 ESM 实现）。\n\n将本仓库克隆到 Antigravity 全局插件目录（目录名固定为 `think-zh`）：\n\n```powershell\n# Windows (PowerShell)\ngit clone https://github.com/A16Nights/antigravity-think-zh.git \"$env:USERPROFILE\\.gemini\\config\\plugins\\think-zh\"\n\n# macOS / Linux\ngit clone https://github.com/A16Nights/antigravity-think-zh.git ~/.gemini/config/plugins/think-zh\n```\n\n重启或重载 Antigravity（`Ctrl+R`），在 **Plugins** 管理页确认 **思语中文 · Think-ZH** 已启用即可生效。\n\n---\n\n## 🧰 MCP 工具一览（4 个）\n\n| 工具名 | 用途 |\n| :--- | :--- |\n| `think_zh_status` | 查看当前思考语言档位（`zh`/`en`）、各通道开关、去重策略、规则文件同步状态及注入预览 |\n| `think_zh_set` | 修改思考语言档位、静态规则开关、`SessionStart`/`PreInvocation` 开关、触发粒度或自定义指令文案 |\n| `think_zh_preview` | 不写入磁盘地预览指定参数组合下生成的静态规则与 Hook 注入文本 |\n| `think_zh_reset` | 一键恢复默认配置并自动同步 `rules/AGENTS.md` |\n\n---\n\n## 📂 数据与配置存储\n\n- **思考语言配置与会话去重状态**：`~/.gemini/think-zh/config.json`、`state.json`\n- **苍蓝套件共享主题 / 左侧栏配置**：`~/.gemini/azure-theme.json`、`~/.gemini/azure-sidebar-nav.json`\n\n---\n\n## 🧪 本地自检\n\n```bash\nnode --test tests/think-zh.test.mjs\n```\n\n## 📄 License\n\n[MIT License](./LICENSE)\n",
+    "ycuwq__agy-ext-swarm": "# AGY Ext Swarm — External Multi-CLI Agent Swarm Plugin for Antigravity\n\n> **[中文文档](./README.zh-CN.md)** | English\n\nAn open-source Antigravity (AGY) plugin that lets Antigravity act as the **Coordinator** (architect, task splitter, diff reviewer, and merger) while orchestrating external headless coding CLI workers across **`dsh` (DeepSeek Harness)**, **Claude Code (`claude`)**, **OpenAI Codex (`codex`)**, **Gemini CLI (`gemini`)**, or **any custom CLI command** over a shared message board.\n\n![AGY Ext Swarm Side-Pane Preview](./assets/preview.svg)\n\n## Key Capabilities\n\n- **Multi-CLI Model Auto-Discovery, Scene Routing & Orchestration Sub-Tabs**: Automatically probes local caches & CLI model lists (`app_discover_models`) with a checkbox model picker and grouped `dsh` multi-provider selection, binds model preferences by task scene (`task_routing` / `task_type`), lets you configure AGY Orchestrator delegation boundaries (`balanced` / `prefer-external` / `manual-only`), and separates Settings into focused `CLIs & Models` and `Orchestration & Routing` sub-tabs.\n- **First-Time CLI & Model Onboarding Wizard**: Automatically launches on first run to probe local CLIs, pick enabled backends and default models, optionally split Writer/Reader routing pools, and save everything in one batch.\n- **Zero-Setup AI Auto-Delegation (`rules/AGENTS.md`)**: Includes an always-on plugin rule that guides Antigravity to automatically compose and launch CLI squads for multi-module coding, batch tasks, broad research, or cross-review without manual squad setup—while staying out of the way for small single-file edits or when disabled.\n- **Pluggable External CLI Providers & One-Click Presets**: Auto-detects available CLIs across macOS, Linux, and Windows (`PATH`/`PATHEXT`), with one-click templates for popular coding CLIs (**OpenCode**, **Aider**, **Qwen Code**, **Goose**) plus inline `custom_command` or `providers.json`.\n- **Interactive UI Commander & Settings**: Create swarms, launch workers (with `depends_on` DAG dependencies, `allowed_files` whitelists, and `verify_commands`/`auto_verify`), start Multi-CLI Arenas, apply Team Playbook Templates (or generate templates from the current swarm), configure CLI binaries/models/pricing/custom `env` (`KEY=VALUE`), inspect live elapsed duration badges, `Kill & Clean` / `Kill All` worktrees, compose multiline messages (`Enter` to send, `Shift+Enter` for newline) with focus-safe polling, and preview/merge worktrees directly from the side-pane UI.\n- **Deterministic DAG Orchestration (`depends_on`)**: Downstream workers queue as `blocked`, ignore premature `@all` / peer wakes, unlock automatically with upstream diffs & board summaries once dependencies succeed, and fail safely without deadlock if upstream breaks.\n- **Zero-Side-Effect Conflict Preview & Safe Merge (`ext_swarm_merge`)**: Uses `git merge-tree --write-tree` to detect conflicts without touching the working tree, then merges cleanly via `squash`, `cherry-pick`, or `merge` with automatic abort-on-error and optional worktree cleanup.\n- **Multi-CLI Arena & Cross-Vendor Auto Review**: Race 2+ CLI backends in parallel isolated worktrees (`ext_swarm_arena`), compare commits/diff/tokens side by side, and trigger another CLI vendor to perform a read-only audit (`ext_swarm_cross_review`).\n- **Reusable Team Templates (`templates.json`)**: Ships with built-in playbooks (`feature-squad`, `bug-hunt`, `doc-and-test`) merged with global/repo `templates.json`.\n- **Shared Message Board, Timeouts & Watchdog**: Append-only `board.jsonl` with `@name`, `@group`, `@all`, `@coordinator`, `max_hops`, hard `turn_timeout_seconds`, and silence `stall_timeout_seconds` watchdog.\n- **Session Resume & In-Place Switch / Retry**: Captures `sessionId` / `thread_id` across follow-up wakes and lets you retry failed workers or switch their `provider` / `model` in place while preserving their existing `git worktree` and branch.\n- **Git Worktree Isolation, Colored Diff Drawer & Auto Verify**: Parallel writers run in isolated `git worktree` branches (`ext-swarm/<swarmId>/<worker>`); optional `allowed_files` whitelists check out-of-scope edits mechanically, `auto_verify: true` deterministically runs `verify_commands` host-side after each turn, and the Workers tab includes a full colored Git Diff drawer.\n- **Unified Token, Cache & Cost Telemetry + Markdown Export**: Tracks **AGY Main Model** (including **AGY Orchestrator (Plan/Execute)** multi-model breakdowns via `byModelSession` / `byModelSinceSwarm`) and **External CLI Workers** side-by-side (`cacheRead / (input + cacheRead)`), calculates optional estimated costs when model rates are set, and supports exporting full Markdown post-mortem reports (`ext_swarm_export`) or cleaning up historical swarms (`ext_swarm_delete`).\n- **Bilingual Side-Pane MCP App (`中 / EN`)**: Interactive Board, curved Bezier Graph & Replay scrubber (with DAG edges), Workers Commander + Event/Diff/Merge Drawers, Usage Dashboard, and Settings Center.\n\n## Supported CLI Providers\n\n| Provider ID | CLI Command | Session Resume | Streaming Events | Notes |\n| --- | --- | --- | --- | --- |\n| `dsh` | `dsh` (`$DSH_BIN`) | `--session-id` | NDJSON (`--json`) | Supports `--patch` per-worker model overrides via `cordis.patch.yml`. |\n| `claude` | `claude` (`$CLAUDE_BIN`) | `--resume` | `stream-json` | Maps permission presets to `plan` / `acceptEdits` / `--dangerously-skip-permissions`. |\n| `codex` | `codex` (`$CODEX_BIN`) | `exec resume` | JSONL (`--json`) | Runs `codex exec` / `codex exec resume` with `--sandbox`. |\n| `gemini` | `gemini` (`$GEMINI_BIN`) | `--resume` | `stream-json` | Runs `gemini -p --output-format stream-json`. |\n| `custom` / `<id>` | Any executable | Optional `resumeArgs` | `text` or `ndjson` | Inline via `custom_command` or defined in `providers.json`. |\n\n### Auto-Detection & `providers.json`\n\nWhen `default_provider` is omitted in `ext_swarm_create`, AGY Ext Swarm automatically picks:\n1. `\"defaultProvider\"` from `<repo_root>/.agy-ext-swarm/providers.json` or `${PLUGIN_DATA}/providers.json`, if set;\n2. Otherwise the first built-in CLI found on `PATH` (`dsh` -> `claude` -> `codex` -> `gemini`);\n3. Otherwise the first available custom provider.\n\nExample `providers.json`:\n\n```json\n{\n  \"defaultProvider\": \"my-agent\",\n  \"providers\": {\n    \"my-agent\": {\n      \"displayName\": \"My Local Coding CLI\",\n      \"command\": \"my-agent-cli\",\n      \"args\": [\"--cwd\", \"{{cwd}}\", \"--model\", \"{{model}}\", \"-p\", \"{{prompt}}\"],\n      \"resumeArgs\": [\"--cwd\", \"{{cwd}}\", \"--resume\", \"{{sessionId}}\", \"-p\", \"{{prompt}}\"],\n      \"promptMode\": \"arg\",\n      \"outputFormat\": \"text\",\n      \"defaultModel\": \"default\",\n      \"models\": [\"default\", \"fast\"]\n    }\n  }\n}\n```\n\nSupported template variables in `args` / `resumeArgs`:\n`{{prompt}}`, `{{model}}`, `{{cwd}}`, `{{sessionId}}`, `{{permissionMode}}`, `{{workerName}}`, `{{swarmDir}}`, `{{gitCommonDir}}`, `{{boardCli}}`.\n\n## Installation & Build\n\nThe repository ships **zero-dependency self-contained runtime bundles** (`server/dist/index.mjs` and `server/dist/board.html`, requiring no `node_modules` or `pnpm` at runtime). Choose any of the following installation methods:\n\n### 1. For `agy` CLI Users (Direct Repository Install)\n\n```bash\nagy plugin install https://github.com/ycuwq/agy-ext-swarm\n```\n\n### 2. For Antigravity Desktop App Users — `npx` One-Command Install (Recommended, Cross-Platform)\n\nRequires only `Node.js >= 20` (no `git`, `pnpm`, or `agy` CLI needed). Automatically copies the self-contained plugin into `~/.gemini/config/plugins/agy-ext-swarm` while preserving `.data/` across upgrades:\n\n```bash\nnpx -y agy-ext-swarm install\n```\n\nUseful management commands:\n```bash\nnpx -y agy-ext-swarm status               # Inspect install path, version, and bundle health\nnpx -y agy-ext-swarm install --workspace  # Install into ./.agents/plugins for team/repo sharing\nnpx -y agy-ext-swarm uninstall            # Uninstall the global plugin\n```\n\n### 3. GitHub Release One-Liners & Offline Archives (No `npm` Required)\n\n- **macOS / Linux**:\n  ```bash\n  curl -fsSL https://raw.githubusercontent.com/ycuwq/agy-ext-swarm/main/scripts/install.sh | bash\n  ```\n- **Windows (PowerShell)**:\n  ```powershell\n  irm https://raw.githubusercontent.com/ycuwq/agy-ext-swarm/main/scripts/install.ps1 | iex\n  ```\n- **Manual Offline Install**: Download `agy-ext-swarm.tar.gz` or `agy-ext-swarm.zip` from [GitHub Releases](https://github.com/ycuwq/agy-ext-swarm/releases) and extract the `agy-ext-swarm/` folder into `~/.gemini/config/plugins/` (or `.agents/plugins/`). No `pnpm install` step is needed.\n\n### 4. From Source (Contributors & Local Development)\n\n```bash\ngit clone https://github.com/ycuwq/agy-ext-swarm.git\ncd agy-ext-swarm\nnode scripts/install.mjs         # Symlink/junction from git checkout (--copy for standalone copy, --build to rebuild)\n```\n\nManual build:\n```bash\ncd agy-ext-swarm/server\npnpm install\npnpm build\n```\n\nRequirements: `Node.js >= 20`, `git` (`>= 2.38` recommended for `git merge-tree --write-tree`), and at least one CLI provider (`dsh`, `claude`, `codex`, `gemini`, or a custom command).\n\n### Notes on `dsh` Profile Isolation\n\nIf using `dsh`, never modify `~/.dsh/profiles/desktop` (locked by the desktop client). Configure your chosen `headless` (or custom) profile via `dsh` (and ensure any desired model catalog entries are populated in `~/.dsh/profiles/<profile>/cordis.patch.yml` or configured in the **Settings** tab / `providers.json`). Nothing is vendor-hardcoded in `agy-ext-swarm`; when no profile model is detected or configured, `dsh` runs with its own CLI defaults.\n\n## MCP Tools (41 Total: 18 Model + 23 App-Only)\n\n### Model Tools (18)\n- `ext_swarm_providers`: Inspect available built-in & custom CLI providers, binary status, active multi-CLI pool (`activePool`), routing policy (`routingPolicy` including `delegationMode`, `taskRouting`, `routingNotes`, writer/reader pools, and `autoFailover`), and resolved `defaultProvider`.\n- `ext_swarm_models`: Query models for a provider (`cordis.patch.yml` `lastCatalog` for `dsh`, or `providers.json` config for others).\n- `ext_swarm_create`: Create a swarm anchored at `repo_root` (supports `default_provider`, multi-select `active_providers` working pool, `routing_policy` with `delegation_mode`, `task_routing`, `routing_notes`, `writer_providers`/`reader_providers`, and `auto_failover`, `coordinator_conversation_id`, `turn_timeout_seconds`, `stall_timeout_seconds`).\n- `ext_swarm_add`: Spawn one worker, a multi-CLI fan-out (`providers: [...]` without `tasks`), or a `tasks` sharded pool rotated across `providers` / Swarm `routing_policy` (with `task_type` for scene routing, `models_by_provider`, `workspace`, `permission_mode`, `allowed_files`, `verify_commands`, `auto_verify`, `depends_on` DAG, and `arena_group`).\n- `ext_swarm_post`: Post as `coordinator` and wake `@mentioned` workers (excludes `killed` and `blocked` workers).\n- `ext_swarm_read`: Read board messages after `since`.\n- `ext_swarm_status`: Inspect workers, diffs, `outOfScopeFiles`, `lastVerifyResults`, and `coordinatorUsage`.\n- `ext_swarm_wait`: Wait 1–90s for `any_post`, `mentions_coordinator`, `all_idle`, or `worker_done` (with blocked-dependency deadlock safety).\n- `ext_swarm_update_worker`: Switch a waiting/failed worker's `provider` or `model` and/or retry in place keeping its worktree intact.\n- `ext_swarm_merge`: Zero-side-effect `git merge-tree` conflict preview (`action: \"preview\"`) and safe branch merge (`action: \"apply\"`, modes `squash` | `cherry-pick` | `merge`).\n- `ext_swarm_arena`: Spawn 2+ CLI providers/models side by side in isolated worktrees on the same task for comparison.\n- `ext_swarm_cross_review`: Auto-select (or specify) a different CLI vendor to run a read-only code review of a worker's diff/output.\n- `ext_swarm_templates`: List built-in and custom team playbook templates (from global & repo `templates.json`).\n- `ext_swarm_apply_template`: Instantiate a DAG team playbook (optionally creating a new swarm) with `{{goal}}` injection.\n- `ext_swarm_kill`: Terminate worker(s) or `all`, optionally removing temporary worktrees.\n- `ext_swarm_delete`: Terminate remaining processes, clean up worktrees/branches, and delete a historical swarm record.\n- `ext_swarm_export`: Generate a Markdown post-mortem report (workers, token/cache stats, optional costs, diffs, and full board transcript).\n- `ext_swarm_open_board`: Open the live side-pane / global MCP App UI.\n\n### App-Only Tools (23)\n- `app_get_snapshot`, `app_post_message`, `app_kill_worker`, `app_get_worker_log`, `app_get_worker_diff`, `app_retry_worker`, `app_bind_conversation`, `app_set_ui_prefs`, `app_get_provider_config`, `app_save_provider_config`, `app_test_provider`, `app_discover_models`, `app_delete_swarm`, `app_export_swarm`, `app_preview_merge`, `app_merge_worker`, `app_create_swarm`, `app_add_worker`, `app_start_arena`, `app_cross_review`, `app_get_templates`, `app_save_template`, `app_apply_template`.\n\n## Contributing & Security\n\n- See [CONTRIBUTING.md](./CONTRIBUTING.md) and [SECURITY.md](./SECURITY.md).\n\n## Privacy & Security\n\n- Main-model usage telemetry reads local Antigravity `transcript.jsonl` files in **strictly read-only mode** and never mutates Antigravity logs or sends telemetry anywhere externally.\n- Custom CLI `env` values configured in Settings are stored locally for UI editing and automatically redacted from LLM-facing tools (`ext_swarm_providers` returns only `envKeys`, and inline `custom_command.env` values in add/status/update tool outputs are masked as `***`).\n- External CLI workers run locally on your machine under their configured sandbox flags (`read-only`, `workspace-write`, `danger-full-access`).\n\n## Customizing the Side-Pane UI\n\nThe UI compiles into a self-contained single-file HTML bundle (`server/dist/board.html`) from:\n- `server/ui/index.html`\n- `server/ui/styles.css` (uses Antigravity host theme tokens)\n- `server/ui/app.ts` & `server/ui/i18n.ts` (`zh` / `en` dictionaries)\n\nAfter editing:\n```bash\ncd server && pnpm typecheck && pnpm build\n```\nThen refresh/restart `agy-ext-swarm_ext_swarm` in Antigravity MCP settings (or set `EXT_SWARM_APP_HTML` during UI iteration).\n\n## Tests & Packaging\n\n```bash\ncd server\npnpm typecheck        # Type-check server & UI\npnpm build            # Build zero-dependency dist/index.mjs, dist/providers.mjs, and dist/board.html\npnpm test:providers   # Offline multi-provider, parser, security, and i18n verification\npnpm test:standalone  # Zero-dependency standalone bundle & HTTP/SSE smoke test\npnpm test:smoke       # Live dsh E2E smoke test\n\n# From repository root: verify GitHub Release archives & SHA256 checksums\npnpm run pack:release\n```\n\n## License\n\n[MIT](./LICENSE)\n",
+    "yuhuan-dev__antigravity-usage-monitor": "<div align=\"center\">\n\n<img src=\"assets/logo.svg\" alt=\"Antigravity Usage & Speed Monitor Logo\" width=\"84\" />\n\n# Antigravity Usage & Speed Monitor\n\nLocal usage, speed, context, and quota monitor for Google Antigravity 2.0, Antigravity IDE, and Antigravity CLI, with no external npm dependencies.\n\n[![Release](https://img.shields.io/github/v/release/yuhuan-dev/antigravity-usage-monitor?style=flat-square&color=2A5E76&label=release)](https://github.com/yuhuan-dev/antigravity-usage-monitor/releases/latest)\n[![Downloads](https://img.shields.io/github/downloads/yuhuan-dev/antigravity-usage-monitor/total?style=flat-square&color=0ea5e9)](https://github.com/yuhuan-dev/antigravity-usage-monitor/releases)\n[![Stars](https://img.shields.io/github/stars/yuhuan-dev/antigravity-usage-monitor?style=flat-square&color=f59e0b)](https://github.com/yuhuan-dev/antigravity-usage-monitor/stargazers)\n[![License](https://img.shields.io/github/license/yuhuan-dev/antigravity-usage-monitor?style=flat-square&color=3b82f6)](LICENSE)\n[![Zero Dependencies](https://img.shields.io/badge/dependencies-0%20npm%20packages-10b981?style=flat-square)](#local-development)\n[![Platforms](https://img.shields.io/badge/platforms-Windows%20%7C%20macOS%20%7C%20Linux-6366f1?style=flat-square)](#client-support)\n\nEnglish · [简体中文](README.zh-CN.md)\n\n[Features](#features) · [Screenshots](#screenshots) · [Client Support](#client-support) · [Installation](#installation) · [Usage](#usage) · [Development](#local-development)\n\n<br />\n\n<img src=\"assets/preview.png\" alt=\"Antigravity Usage Monitor Preview\" width=\"100%\" />\n\n<br />\n\n[Latest Release](https://github.com/yuhuan-dev/antigravity-usage-monitor/releases/latest) · [Download ZIP (`usage-monitor.zip`)](https://github.com/yuhuan-dev/antigravity-usage-monitor/releases/latest/download/usage-monitor.zip)\n\n</div>\n\n---\n\n## Features\n\n- **Live Metrics & Customizable Layout**: Tracks output speed (`tok/s`), time-to-first-token (`TTFT`), session average speed, step/session USD cost, cache hit rate, tightest remaining quota, and session tokens. You can choose and reorder the overview metric cards (4 shown by default out of 9 options) and section blocks.\n- **10-Category Context Breakdown**: Shows the token breakdown of the latest request across assistant replies, tool results, user messages, subagent notifications, checkpoints, system prompts, system tools, MCP tools, skills, and user rules, with a switcher between the main agent and spawned subagents.\n- **Quota Pool Tracking**: Reads 5-hour and weekly quotas, reset timers, and cycle consumption across `Gemini`, `Gemini 4 Argon`, `Gemini 4 Carbon`, and `Claude & GPT` pools, preserving cached pool status with a stale badge when upstream quota data is temporarily unavailable.\n- **Main Agent, Subagents & Multi-Session Views**: Merges main agent and subagent steps in chronological order (or filters by individual agent), renders optional turn rails, expands running subagent tasks inline, and provides a recent-conversation selector in the header.\n- **Call Details & Custom Token Formats**: Includes **By Step** and **By Model** tabs (with multi-model throughput charts). Supports 2–14 configurable columns, optional speed color grading, preset `Ctx / Think / Reply` and `In / Out / Cache` columns, and custom token combination strings such as `context:new:cache` or `in:out:cache`.\n- **Historical Usage & Breakdowns**: Summarizes tokens, uncached input vs. cache-read savings, thinking/output split, hourly/daily trend curves, model rankings, client attribution (`Desktop App` / `IDE` / `CLI`), and monthly bar charts across `Today`, `1d`, `7d`, `14d`, `30d`, `All`, or custom date/time ranges.\n- **Multi-Client Capsules & Hover Popover**: Integrates as a titlebar or composer capsule and auxiliary sidebar in Antigravity 2.0, a titlebar/composer capsule in Antigravity IDE, a single-line 24-bit ANSI `statusLine` in Antigravity CLI (`agy`), and a standalone local web UI. Supports 1–5 customizable capsule slots, configurable hover cards, and `Auto Fit` or fixed (`440–1080 px`) popover widths.\n- **No `app.asar` Modification**: Titlebar/composer injection and context request hooks run in memory over local CDP (`DevToolsActivePort`). On Antigravity IDE, the only host file updated is adding `\"remote-debugging-port\": \"0\"` to `~/.antigravity-ide/argv.json`; installation binaries and `app.asar` are never altered.\n- **Per-Model Context Windows**: Sets context window limits per model series (across thinking levels) or follows host defaults under Settings. Desktop/IDE applies rules at runtime on outbound requests; CLI applies `AGY_CLI_AUTO_COMPACT_OVERRIDE`.\n- **Appearance, Offline Storage & Cloud Updates**: Supports `zh-CN` / `en-US` / host language, `sm / md / lg / xl` font scaling, 6 theme accents plus host matching, offline reading from CLI SQLite + WAL, `annotations/*.pbtxt`, `transcript.jsonl`, and `.deep_stats_cache.json`, GitHub [`pricing-catalog.json`](pricing-catalog.json) sync, in-panel release updates (`manual` / `auto` / `off`), and cache rebuild/settings reset tools.\n\n---\n\n## Screenshots\n\n### IDE & CLI\n\n<table>\n  <tr>\n    <td align=\"center\">\n      <img src=\"assets/ide-preview.png\" alt=\"Antigravity IDE Titlebar Capsule and Hover Overview\" width=\"100%\" />\n      <br />\n      <b>Antigravity IDE</b>\n      <br />\n      <sub>Titlebar capsule and hover popover showing step cost, context usage, and pool quotas</sub>\n    </td>\n  </tr>\n  <tr>\n    <td align=\"center\">\n      <img src=\"assets/cli-preview.png\" alt=\"Antigravity CLI Native statusLine Capsule\" width=\"100%\" />\n      <br />\n      <b>Antigravity CLI (<code>agy</code>)</b>\n      <br />\n      <sub>Single-line transparent 24-bit ANSI bottom <code>statusLine</code> with active count, TPS, TTFT, and context percentage</sub>\n    </td>\n  </tr>\n</table>\n\n### Panel Tabs\n\n<table>\n  <tr>\n    <td align=\"center\" width=\"33.3%\">\n      <img src=\"assets/context.png\" alt=\"Live Overview and Quotas\" />\n      <br />\n      <b>Live Overview</b>\n      <br />\n      <sub>TPS, TTFT, 10-category context bar, quota pools, and active tasks</sub>\n    </td>\n    <td align=\"center\" width=\"33.3%\">\n      <img src=\"assets/analytics.png\" alt=\"Usage Statistics\" />\n      <br />\n      <b>Usage Statistics</b>\n      <br />\n      <sub>Token totals, cache hit rate, trend chart, and model breakdown</sub>\n    </td>\n    <td align=\"center\" width=\"33.3%\">\n      <img src=\"assets/subagents.png\" alt=\"Call Details and Subagents\" />\n      <br />\n      <b>Call Details</b>\n      <br />\n      <sub>Step-by-step agent badge, model, speed, TTFT, tokens, and cost</sub>\n    </td>\n  </tr>\n</table>\n\n---\n\n## Client Support\n\n| Client | Status Capsule / Bar | Panel UI | Offline SQLite &amp; Logs | Per-Model Context Limit | Modifies `app.asar` |\n| :--- | :---: | :---: | :---: | :---: | :---: |\n| **Antigravity 2.0 (Desktop)** | Titlebar / Composer | Popover + Right Sidebar | Yes | Window Request Hook | No |\n| **Antigravity IDE** | Titlebar / Composer | Capsule Popover | Yes | Window Request Hook | No |\n| **Antigravity CLI (`agy`)** | Native ANSI `statusLine` | Standalone Web (`--port`) | Yes (`node:sqlite` + `.pbtxt`) | `AGY_CLI_AUTO_COMPACT_OVERRIDE` | No |\n| **Remote / Headless Linux** | Native ANSI `statusLine` | SSH Tunnel / `--token` Web | Yes | `AGY_CLI_AUTO_COMPACT_OVERRIDE` | No |\n\n> [!NOTE]\n> On **Antigravity IDE**, enabling the plugin automatically adds `\"remote-debugging-port\": \"0\"` to `~/.antigravity-ide/argv.json` (preserving comments and existing keys) via a zero-tool MCP keep-alive entry (`0` context tokens). Restart Antigravity IDE once after the first activation so the titlebar capsule can attach.\n\n---\n\n## Installation\n\nKeep the folder name as `usage-monitor`. **No `npm install` is needed.**\n\n### Option 1: Release ZIP\n\nDownload [`usage-monitor.zip`](https://github.com/yuhuan-dev/antigravity-usage-monitor/releases/latest/download/usage-monitor.zip) and extract it into `~/.gemini/config/plugins/` so the directory path is `~/.gemini/config/plugins/usage-monitor`.\n\n<details>\n<summary>Windows PowerShell command for ZIP installation</summary>\n\n```powershell\n$pluginsDir = \"$env:USERPROFILE\\.gemini\\config\\plugins\"\nNew-Item -ItemType Directory -Path $pluginsDir -Force | Out-Null\nInvoke-WebRequest -Uri \"https://github.com/yuhuan-dev/antigravity-usage-monitor/releases/latest/download/usage-monitor.zip\" -OutFile \"$env:TEMP\\usage-monitor.zip\"\nExpand-Archive -Path \"$env:TEMP\\usage-monitor.zip\" -DestinationPath $pluginsDir -Force\n```\n\n</details>\n\n### Option 2: Git Clone\n\n```powershell\n# Windows (PowerShell)\ngit clone --filter=blob:none --single-branch https://github.com/yuhuan-dev/antigravity-usage-monitor.git \"$env:USERPROFILE\\.gemini\\config\\plugins\\usage-monitor\"\n```\n\n```bash\n# macOS / Linux\ngit clone --filter=blob:none --single-branch https://github.com/yuhuan-dev/antigravity-usage-monitor.git ~/.gemini/config/plugins/usage-monitor\n```\n\nOr ask Antigravity directly:\n\n```text\nClone https://github.com/yuhuan-dev/antigravity-usage-monitor with --filter=blob:none --single-branch to ~/.gemini/config/plugins/usage-monitor and enable the plugin\n```\n\n---\n\n## Usage\n\n1. Open **Customizations → Installed** in the left sidebar and enable `usage-monitor`.\n2. **Antigravity 2.0 (Desktop)**:\n   - Mounts a capsule in the top-right titlebar (**hover** for summary, **click** for the 4-tab popover, **right-click** to refresh), alongside the right auxiliary sidebar pane.\n3. **Antigravity IDE**:\n   - **Restart Antigravity IDE once** after enabling for the first time. Keep **Mount Mode** on **Dual-mount** and click the top-bar capsule to open the panel.\n4. **Antigravity CLI (`agy`)**:\n   - When `~/.gemini/antigravity-cli` exists, `statusLine` in `settings.json` is configured automatically (existing third-party `statusLine.command` entries are left untouched) to render a single-line ANSI bar (`● 1 active   38.1 t/s | 0.85s | ◎ 17%`).\n   - Toggle via `/statusline` in `agy` or **Preferences → Structure → Mount & Capsule Bar**.\n5. **Standalone Web Server (Headless / Remote)**:\n\n```bash\n# 1. Start on the host (listens on 127.0.0.1:8787 by default)\nnode ~/.gemini/config/plugins/usage-monitor/sidecars/panel/standalone.mjs --port 8787\n\n# 2. Forward the port locally and open http://localhost:8787\nssh -L 8787:127.0.0.1:8787 user@your-server\n```\n\n<details>\n<summary>Standalone CLI flags, background auto-start, and non-loopback token auth</summary>\n\n- **Auto-start with `agy`**: Set `USAGE_MONITOR_STANDALONE_PORT=8787` or `\"standalonePort\": 8787` in `~/.gemini/antigravity-cli/sidecar_data/usage-monitor/panel/data/settings.json` to start the web UI together with the MCP sidecar supervisor.\n- **Non-loopback auth**: Binding to `0.0.0.0` or a LAN address requires `--token <secret>` (or `USAGE_MONITOR_STANDALONE_TOKEN`); starting on a non-loopback address without a token is rejected.\n- **Overrides**: Supports `--data-dir`, `--app-data-dir`, `--gemini-dir`, `--ls-addr`, and `--csrf-token`.\n- **Offline fallback**: When `agy` is not running, the backend reads `~/.gemini/antigravity-cli` (`conversation_summaries.db`, `conversations/*.db`, `annotations/*.pbtxt`, and `transcript.jsonl`) and switches to live RPC once `agy` starts.\n\n</details>\n\n---\n\n## Configuration & Calculation Notes\n\n<details>\n<summary>UI options: mount mode, capsule slots, token formats, model IDs, and context limits</summary>\n\n- **Mount Mode & Width**: Switch between **Dual-mount (Top Bar + Sidebar)**, **Composer**, and **Sidebar only**. Popover width defaults to **Auto Fit** (expands within window bounds for wide tables) or a fixed width (`440–1080 px`).\n- **Capsule Slots**: Choose 1–5 metric slots and reorder them (default: Output Speed, TTFT, Context Usage), plus an optional toggle for the active-session indicator.\n- **Call Details Table & Token Format**: Toggle agent badges, turn rail (off by default), and speed color grading (off by default). Choose `Ctx / Think / Reply`, `In / Out / Cache` (with per-item USD tooltips), or custom format strings like `context:new:cache` or `in:out:cache`.\n- **Model Name Format**: Choose **Compact short alias** (`argon-4-high`), **Full raw ID**, or **Trimmed raw ID** (strips `gemini-` / `claude-` / `gpt-` prefixes while keeping `·compact` suffixes intact). Orchestrator series IDs have a separate setting.\n- **Per-Model Context Limits**: Configure limits per model across thinking levels or follow host defaults under **Preferences → Other → Model Context Settings**. App/IDE applies saved rules at startup; CLI sets `AGY_CLI_AUTO_COMPACT_OVERRIDE`.\n\n</details>\n\n<details>\n<summary>Model identification, compaction inference, and cost estimation rules</summary>\n\n- **Model Resolution**: Read from each step's raw usage payload or matching generator metadata; explicit models are never overwritten. When an automatic compaction step omits the model field, it is inferred from adjacent steps in the same conversation (checking prior steps first, then following steps, preferring the same provider) for display and estimation, or shown as unknown compaction if none exist.\n- **Cost Calculation**: If a model or price entry cannot be resolved, step cost is shown as pending while tokens still count toward totals; session totals sum all resolved steps. USD numbers are estimated from public per-million-token API pricing in [`pricing-catalog.json`](pricing-catalog.json) for reference only and do **not** reflect subscription quota consumption.\n- **Cache & Speed Averages**: Upgrading re-checks cached entries against raw trajectory data while preserving token counts and valid timings. Compaction steps display request TPS in step tables but are excluded from session speed and TTFT averages.\n\n</details>\n\n<details>\n<summary>Updating and data directory</summary>\n\n- **In-Panel Update**: When a new GitHub release is available, a version badge appears next to the capsule and in the panel header. Update mode (`Manual` / `Auto` / `Off`) and price catalog sync can be configured under **Preferences → Other**.\n- **Manual Git Update**:\n  - Windows: `git -C \"$env:USERPROFILE\\.gemini\\config\\plugins\\usage-monitor\" pull --ff-only`\n  - macOS / Linux: `git -C ~/.gemini/config/plugins/usage-monitor pull --ff-only`\n  - Toggle the plugin off and back on in **Customizations → Installed**.\n- **Data Persistence**: Settings and parsed caches live in `~/.gemini/antigravity/sidecar_data/usage-monitor/` (or `sidecars/panel/.data/` in standalone mode), so updates keep existing history intact.\n\n</details>\n\n---\n\n## Local Development\n\nAll backend and frontend modules use Node.js ESM and native Web Components with **no external npm dependencies** (Node.js 22.5+ is recommended for built-in `node:sqlite`).\n\n```bash\ncd sidecars/panel\n\n# Rebuild app.js and styles.css after modifying src/\nnpm run build\n\n# Run unit and integration tests\nnpm test\n```\n\n## Contributing & License\n\nIssues and pull requests are welcome. If you modify files under `sidecars/panel/src/`, please rebuild via `npm run build` and make sure `npm test` passes.\n\nLicensed under the [GNU General Public License v3.0](LICENSE).\n\n## Star History\n\n<a href=\"https://www.star-history.com/#yuhuan-dev/antigravity-usage-monitor&Date\">\n  <picture>\n    <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://api.star-history.com/svg?repos=yuhuan-dev/antigravity-usage-monitor&type=Date&theme=dark\" />\n    <source media=\"(prefers-color-scheme: light)\" srcset=\"https://api.star-history.com/svg?repos=yuhuan-dev/antigravity-usage-monitor&type=Date\" />\n    <img alt=\"Star History Chart\" src=\"https://api.star-history.com/svg?repos=yuhuan-dev/antigravity-usage-monitor&type=Date\" />\n  </picture>\n</a>\n",
+    "wllzhang__awesome-antigravity-tools": "<!-- AUTO-GENERATED FROM data/tools.json BY scripts/generate_docs.py — DO NOT EDIT DIRECTLY -->\n\n# Awesome Antigravity Tools [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)\n\n[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)\n[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)\n[![Curated Tools](https://img.shields.io/badge/Curated-21%20Tools-4285F4.svg)](#contents)\n[![Daily Health Audit](https://github.com/wllzhang/awesome-antigravity-tools/actions/workflows/health-check.yml/badge.svg)](https://github.com/wllzhang/awesome-antigravity-tools/actions/workflows/health-check.yml)\n[![Repository Health](https://img.shields.io/badge/Health%20Audit-20/21%20Active%20%2895%25%29-brightgreen)](health_report.md)\n[![Antigravity](https://img.shields.io/badge/Google-Antigravity-4285F4.svg?logo=google)](https://antigravity.google)\n\n> A strictly curated, schema-validated directory of **100% native, dedicated tools, IDE extensions, runtime hotfixes, and engineering gateways** built exclusively for Google Antigravity.\n\n[🌐 Interactive Web Explorer](https://wllzhang.github.io/awesome-antigravity-tools/) · [📊 Comparison Matrix](COMPARISON.md) · [中文文档 (Chinese)](README.zh-CN.md) · [Contributing Guidelines](CONTRIBUTING.md) · [Daily Health Report](health_report.md) · [Submit a Tool](https://github.com/wllzhang/awesome-antigravity-tools/issues/new/choose)\n\n---\n\n## 🎯 Our Manifesto: Strictly Antigravity-Exclusive\n\nMost \"awesome\" lists in the AI agent space are flooded with two types of noise:\n1. **Generic Markdown prompt dumps** (`SKILL.md`) that work identically across Claude Code, Cursor, and Codex.\n2. **Generic multi-agent tools** that were designed for other platforms and merely slapped \"Antigravity\" onto their tags.\n\n**This repository rejects all generic padding.** Every single project curated here is **100% dedicated to Google Antigravity**:\n- Built specifically for the Antigravity IDE, CLI (`agy`), or `agy acp` protocol.\n- Directly fixes critical Antigravity bugs, OS runtime limitations, or telemetry blind spots.\n- Verified daily by our automated health audit (`scripts/health-check.py`) and backed by a single-source-of-truth JSON catalog (`data/tools.json`).\n\n> **Ecosystem Pulse**: `21` curated tools across `4` categories · `59.2k` combined GitHub stars · `20/21` active (`95.2%`) · Avg Health Score: `85.1/100` ([Full Audit](health_report.md))\n\n---\n\n## Contents\n\n- [Official CLI & SDKs (2)](#-official-cli--sdks)\n- [IDE Extensions & Cockpits (6)](#️-ide-extensions--cockpits)\n- [Platform Fixes & Runtime Patches (7)](#-platform-fixes--runtime-patches)\n- [Dedicated Gateways, ACP Adapters & Migration Tooling (6)](#-dedicated-gateways-acp-adapters--migration-tooling)\n- [Badge](#️-badge)\n- [Contributing](#-contributing)\n\n---\n\n## 🚀 Official CLI & SDKs\n\nFirst-party command-line harnesses and SDKs maintained under `google-antigravity` for terminal workflows and programmatic agent orchestration.\n\n- [antigravity-cli](https://github.com/google-antigravity/antigravity-cli) - Official Antigravity CLI (`agy`) bringing the reasoning, execution, and orchestration capabilities of the Antigravity agent harness directly into the terminal. `Official` `CLI` `Terminal`\n- [antigravity-sdk-python](https://github.com/google-antigravity/antigravity-sdk-python) - Official Apache-2.0 Python SDK for building programmatic AI agents and workflows powered directly by Google Antigravity. `Official` `Python` `SDK`\n\n---\n\n## 🖥️ IDE Extensions & Cockpits\n\nExtensions and desktop applications designed exclusively to monitor Antigravity model quotas, manage accounts, and provide HUD telemetry.\n\n- [antigravity-link-extension](https://github.com/cafeTechne/antigravity-link-extension) - Mobile companion extension specifically mirroring Antigravity IDE sessions to phone with emergency stop triggers and 9 MCP tools. `Mobile` `Antigravity-IDE` `MCP`\n- [Antigravity-Manager](https://github.com/lbjlaq/Antigravity-Manager) - Native desktop account manager and one-click switcher for Antigravity built with Tauri v2 (Rust) and React. `Desktop` `Rust` `Tauri`\n- [antigravity-panel](https://github.com/n2ns/antigravity-panel) - Quota monitor and cache manager for Google Antigravity IDE tracking Gemini, Claude, and GPT limits with usage trend analytics. `VS Code` `TypeScript` `Quota`\n- [AntigravityManager](https://github.com/Draculabo/AntigravityManager) - Desktop application for managing Google accounts across Antigravity Classic, Antigravity IDE, and `agy` CLI with real-time quota views. `Desktop` `TypeScript` `Quota`\n- [AntigravityQuotaWatcher](https://github.com/wusimpl/AntigravityQuotaWatcher) - VS Code extension for continuous monitoring and status bar alerts of Antigravity AI model quotas. `VS Code` `IDE` `Quota`\n- [vscode-antigravity-cockpit](https://github.com/jlcodes99/vscode-antigravity-cockpit) - VS Code extension for real-time Antigravity model quota tracking, status bar countdowns, multi-model pinning, and capability HUDs. `VS Code` `TypeScript` `HUD`\n\n---\n\n## 🔧 Platform Fixes & Runtime Patches\n\nSystem-level hotfixes, localization injectors, network bridges, and patches solving core Antigravity bugs and OS runtime limitations.\n\n- [Antigravity-Chinese-Localization](https://github.com/antigravity-cn-community/Antigravity-Chinese-Localization) - MIT-licensed one-click Chinese localization toolkit and UI translation patch tailored for Google Antigravity IDE. `Localization` `JavaScript` `Patch`\n- [antigravity-conversation-fix](https://github.com/FutureisinPast/antigravity-conversation-fix) - Repairs corrupted Antigravity session databases, missing threads, and out-of-order conversation history. `IDE` `Fix` `Recovery`\n- [antigravity-fixer](https://github.com/fulldiagnose/antigravity-fixer) - Automated diagnostic and credential-cleanup utility resolving the Google Antigravity 'not eligible' sign-in and account state error. `Python` `Fix` `Diagnostics`\n- [antigravity-junction-skill-fix](https://github.com/wllzhang/antigravity-junction-skill-fix) - Zero-copy NTFS hardlink directory bridge that resolves Go language server discovery failures for Windows directory junctions (`mklink /J`) and symlinks (`mklink /D`). `Windows` `PowerShell` `NTFS`\n- [antigravity-proxy](https://github.com/yuaotian/antigravity-proxy) - Transparent Windows DLL-injection proxy utility that routes Antigravity process traffic through SOCKS5/HTTP proxies without requiring TUN mode. `Windows` `C++` `Proxy`\n- [antigravity_bypass](https://github.com/Futureppo/antigravity_bypass) - Runtime patch raising local MCP tool limits to 8192 in Antigravity IDE and Windows desktop client with automated backup and restore. `Windows` `Patch` `MCP`\n- [vscode-antigravity-backend-fix](https://github.com/HeshamNoaman/vscode-antigravity-backend-fix) - Hotfix for the official VS Code Antigravity extension resolving the repeated ~202 MB `agy.exe` background download loop caused by Windows Defender timeouts. `Windows` `Node.js` `PowerShell`\n\n---\n\n## 🔌 Dedicated Gateways, ACP Adapters & Migration Tooling\n\nEngineering utilities specifically built around the official Antigravity Agent Client Protocol (`agy acp`) and native plugin specifications (`plugin.json`).\n\n- [ACP-Ant](https://github.com/czg86389-hub/ACP-Ant) - OpenAI and Anthropic compatible API server bridging Google's official Antigravity CLI over ACP with per-account proxy and tool-calling support. `Python` `ACP` `Gateway`\n- [agy-acp](https://github.com/shindgew/agy-acp) - Apache-2.0 Agent Client Protocol adapter wrapping the official Google Antigravity CLI (`agy`) for ACP-compatible editors. `TypeScript` `ACP` `Adapter`\n- [antigravity-acp](https://github.com/shubzkothekar/antigravity-acp) - Bun-powered Agent Client Protocol server for Google Antigravity's `agy` CLI featuring live streaming and session history replay. `TypeScript` `Bun` `ACP`\n- [antigravity-skill-porter](https://github.com/Pranav-Nexus/antigravity-skill-porter) - CLI tool specifically adapting, wrapping, and validating external skills into native Antigravity plugins with `plugin.json` and tool name mapping. `CLI` `Converter` `Plugin`\n- [liftgate](https://github.com/acking-you/liftgate) - Run Antigravity as a local OpenAI Responses and Anthropic Messages gateway via official `agy acp` over stdio with native GPUI desktop and TUI controls. `Rust` `GPUI` `Gateway`\n- [refined-antigravity-acp](https://github.com/simonepri/refined-antigravity-acp) - Drop-in refined Google Antigravity ACP binary wrapper resolving protocol compatibility quirks for external ACP clients. `TypeScript` `ACP` `Wrapper`\n\n---\n\n## 🏷️ Badge\n\nIf your tool is featured in this list, add this badge to your README:\n\n[![Awesome Antigravity Tools](https://img.shields.io/badge/Awesome-Antigravity--Tools-brightgreen?logo=google&logoColor=white)](https://github.com/wllzhang/awesome-antigravity-tools)\n\n```markdown\n[![Awesome Antigravity Tools](https://img.shields.io/badge/Awesome-Antigravity--Tools-brightgreen?logo=google&logoColor=white)](https://github.com/wllzhang/awesome-antigravity-tools)\n```\n\n---\n\n## 🤝 Contributing\n\nContributions are welcome! All entries are managed in [`data/tools.json`](data/tools.json) and rendered deterministically into both English and Chinese READMEs via `python scripts/generate_docs.py`.\n\n> **Tip**: This repository also ships as a native Antigravity plugin ([`plugin.json`](plugin.json) + `antigravity-tools-advisor` skill) and CLI (`python scripts/aat_cli.py search <query>`).\n\nPlease read our [Contributing Guidelines](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md) before submitting a pull request or issue.\n",
+    "carlosduplar__agy-lite-research": "# antigravity-research-flash-lite\n\nA deterministic `PreToolUse` hook, Python helper script, and agent configuration suite for Google Antigravity that rewrites `invoke_subagent` calls targeting **only the `research` subagent** to `Model: \"flash_lite\"` (`gemini-3.5-flash-lite`) before execution.\n\n> [!NOTE]\n> **Scope of savings**: Quota savings apply **strictly to delegated `research` subagent calls** (`TypeName=\"research\"`). Your primary session turns, `worker` edits, `self` subagents, and non-`research` tool calls continue consuming your selected frontier model quota as usual. Actual overall session savings depend on how much read-heavy exploration you delegate to `research`.\n\nOn fresh single-dispatch `agy -p` `research` benchmarks (Gemini AI Pro), routing `research` calls to `flash_lite` reduces the `research` subagent's own quota drain to **`< 0.01%` (`0.00%` measured)** — cutting benchmark-run drain by **2.67x** on **Gemini 4 Hydrogen (High)**, **4.26x** on **Gemini 4 Neon (High)**, **3.26x** on **Gemini 4 Argon (High)**, and keeping **Claude Opus 5.5 (Medium)** subagent drain at **0.00%**.\n\n![Research Subagent Quota Drain Comparison](./assets/benchmark-savings.svg)\n\n---\n\n## Why This Hook Is Essential\n\nAntigravity's `invoke_subagent` tool schema defaults its `Model` parameter to `'inherit'` (`['inherit', 'flash_lite', 'flash', 'pro']`). The system prompt instructs parent agents to default to `'inherit'` unless explicitly requested otherwise.\n\nWhen your main session uses a frontier model such as `Gemini 4 Hydrogen (High)`, `Gemini 4 Neon (High)`, `Gemini 4 Argon (High)`, or `Claude Opus 5.5 (Medium)`, any `invoke_subagent(TypeName=\"research\", Model=\"inherit\")` call **overrides `research.md`'s frontmatter model** (`model: flash_lite`). As a result, read-heavy exploratory `research` calls inadvertently inherit and drain your primary frontier model quota.\n\nBecause parent models frequently overlook prompt instructions not to pass `'inherit'`, this lifecycle hook intercepts `invoke_subagent` deterministically at the engine level, replacing `Model` with `\"flash_lite\"` **only when `TypeName == \"research\"`**. Other subagents (`worker`, `self`, etc.) are left untouched.\n\n---\n\n## Empirical Benchmark Results (`research` Subagent Only)\n\nA deterministic multi-model A/B benchmark was conducted on a **Gemini AI Pro** subscription using fresh, isolated `agy -p --model <id>` sessions (zero leftover conversation history) on a single heavy 6-document comparative synthesis task delegated to `research` across Antigravity's internal customization documentation (`hooks.md`, `json_configs.md`, `mcp_servers.md`, `plugins.md`, `rules.md`, `skills.md` — ~33KB source text).\n\nEach run invoked `invoke_subagent(TypeName=\"research\", Model=\"inherit\")` with live `/usage` quota snapshots measured immediately before and after that single `agy -p` dispatch. *(Percentage drains reflect a **Gemini AI Pro** quota pool and scale with your subscription tier.)*\n\n| Metric | Run A (`flash_lite`, Plugin ON) | Run B — Hydrogen High (`inherit`) | Run B — Neon High (`inherit`) | Run B — Argon High (`inherit`) |\n| :--- | :--- | :--- | :--- | :--- |\n| **Observed `PLANNER_RESPONSE.model`** | `gemini-3.5-flash-lite` | `gemini-4-hydrogen-high` | `gemini-4-neon-high` | `gemini-4-argon-high` |\n| **Benchmark-Run Quota Multiplier Savings** | **Baseline (`0.00%` / `< 0.01%` `research` drain)** | **2.20x Weekly / 2.67x 5-Hr lower run drain** (`-0.05% / -0.15%` ON vs `-0.11% / -0.40%` OFF) | **4.22x Weekly / 4.26x 5-Hr lower run drain** (`-0.09% / -0.31%` ON vs `-0.38% / -1.32%` OFF) | **3.26x lower Argon run drain** (`-0.38%` ON vs `-1.24%` OFF; **`0.00%` Argon** subagent drain) |\n\n### Key Findings & Discussion\n\n1. **Near-zero `research` subagent quota consumption (`< 0.01%`)**:\n   In both **Argon (High)** and **Claude Opus 5.5 (Medium)** Plugin ON runs (where parent turns billed against Argon or Claude pools while `research` ran on `gemini-3.5-flash-lite`), the General Weekly (`89.00%`) and 5-Hour (`93.81%`) counters moved **`0.00%`**. Thus a `flash_lite` `research` subagent call consumes `< 0.01%` of General quota and **`0.00%`** of Argon or Claude/GPT quota.\n2. **Argon & Claude pool preservation (`0.00%` subagent drain)**:\n   When working with `Gemini 4 Argon (High)`, disabling the plugin raised total Argon Weekly drain from **`-0.38%`** (parent-only) to **`-1.24%`** (**3.26x** higher), meaning the unhooked `research` subagent alone consumed **`-0.86%`** of weekly Argon quota. With **Claude Opus 5.5 (Medium)** + Plugin ON, parent turns consumed `-3.70%` Weekly / `-7.39%` 5-Hour Claude quota while `research` ran on `flash_lite` with **`0.00%`** Claude quota drain *(Plugin OFF skipped to preserve remaining Claude quota)*.\n3. **Fresh-session A/B multipliers on `Hydrogen` (`2.67x`) & `Neon` (`4.26x`)**:\n   In isolated `agy -p` single-dispatch runs (one parent turn delegating to `research`), enabling the plugin reduced 5-Hour drain from `-0.40%` to `-0.15%` (**2.67x**, Weekly `-0.11%` → `-0.05%` = **2.20x**) on `Gemini 4 Hydrogen (High)`, and from `-1.32%` to `-0.31%` (**4.26x**, Weekly `-0.38%` → `-0.09%` = **4.22x**) on `Gemini 4 Neon (High)`. These multipliers reflect a `research`-heavy single dispatch; sessions with fewer `research` calls or heavy parent/worker coding will see proportionally smaller overall savings.\n4. **Hardened `agents/research.md` configuration**:\n   The plugin also includes a hardened `agents/research.md` definition with explicit read-only instructions (`enable_write_tools: false`, return strictly via `send_message`). As observed during benchmarking, this prevents `research` from attempting tool workarounds on ambiguous tasks. Meanwhile, `agents/worker.md` intentionally remains unhooked on `flash` / parent model.\n\n### Estimated Overall Session Impact\n\n> [!IMPORTANT]\n> The measured benchmark multipliers above apply **to `research` subagent dispatches ONLY**—primary parent turns, `worker`, and `self` subagents still bill against your selected model quota.\n\nBecause Google does not publish an Antigravity-wide breakdown of `research` vs. main-agent quota usage, total session impact depends on how much of your workflow is delegated to `research` rather than handled directly by the parent agent. Grounded in Microsoft's [*FastContext* paper](https://arxiv.org/abs/2606.14066) (**46.5%** of main-agent tokens and **56.2%** of tool turns spent reading/searching code), scaling the measured per-model `research` multipliers gives:\n\n- **Small repos / targeted edits** (~10% `research` share): estimated total gains of **~22% on Hydrogen**, **~32% on Argon**, and **~44% on Neon**.\n- **Unfamiliar repos / exploration-heavy workflows** (~50% `research` share): estimated total gains up to **~1.1x on Hydrogen**, **~1.63x on Argon**, and **~2.1x on Neon** *(plus secondary prompt-cache savings from keeping bulky reads out of the parent context)*.\n\nCommon **exploration-heavy workflows** that benefit most from delegating discovery to `research` include:\n- **QA & bug triage**: reproducing symptoms, tracing execution paths, and inspecting logs/stack traces.\n- **Code audits & security reviews**: scanning auth boundaries, data flows, and configuration surfaces across modules.\n- **PR validation & impact analysis**: checking cross-file callers, breaking changes, and test coverage before merging.\n- **Unfamiliar codebase onboarding**: mapping repository architecture, entry points, and conventions.\n- **Large-scale refactoring discovery**: locating all symbol usages and edge cases before running edits.\n- **Dependency, API & documentation synthesis**: comparing internal specs, schemas, or third-party SDK usage across files.\n\n---\n\n## Subagents Architecture (`agents/`)\n\nThis repository includes refined definitions for both primary subagents:\n\n### 1. `agents/research.md` (Read-Only Explorer)\n- **Role**: Codebase exploration, file search, documentation lookup, and web research.\n- **Tools**: Read-only (`enable_write_tools: false`, `enable_mcp_tools: false`).\n- **Hook Policy**: **Forced to `flash_lite` via hook**. Massive quota savings with zero risk of code corruption.\n\n### 2. `agents/worker.md` (Mechanical Worker)\n- **Role**: Focused edits, lint/format fixes, single-file patches, and narrow test runs.\n- **Tools**: Write enabled (`enable_write_tools: true`).\n- **Hook Policy**: **NOT forced to `flash_lite`**. `gemini-3.5-flash-lite` has higher error rates on exact-match whitespace diffs (`edit_file`) and recovery loops. To avoid file corruption or looping edits, `worker` remains on `flash` / parent model.\n- **Guardrails**: Added strict pre-edit inspection (`read_file` first to copy whitespace byte-for-byte), scoped edits, and an explicit **fail visibly** policy that forbids speculative workarounds.\n\n---\n\n## Installation & Setup\n\n### Option 1: Antigravity Plugin (Recommended)\nInstall directly from GitHub via the Antigravity CLI:\n```bash\nagy plugin install https://github.com/carlosduplar/antigravity-research-flash-lite\n```\n\nOr clone locally and install from the directory (via CLI or `/plugin install <directory>` inside `agy`):\n```bash\ngit clone https://github.com/carlosduplar/antigravity-research-flash-lite.git\nagy plugin install ./antigravity-research-flash-lite\n```\n\nVerify installation with `agy plugin list`.\n\n### Option 2: Global Hook & Agent Configurations\n1. Copy `scripts/research-flash-lite.py` to `~/.agents/scripts/research-flash-lite.py`.\n2. Copy `agents/research.md` and `agents/worker.md` to `~/.gemini/config/agents/`.\n3. Merge `hooks.json` into `~/.gemini/config/hooks.json`.\n\n### Option 3: Project Workspace Hook\n1. Copy `scripts/research-flash-lite.py` to `<project-root>/.agents/scripts/research-flash-lite.py`.\n2. Copy `agents/*.md` to `<project-root>/.agents/agents/`.\n3. Copy `hooks.json` to `<project-root>/.agents/hooks.json`.\n\nThe fallback chain in `hooks.json` automatically resolves the script path across all three installation methods:\n```json\n\"command\": \"python scripts/research-flash-lite.py || python3 scripts/research-flash-lite.py || python ../../.agents/scripts/research-flash-lite.py || python3 ../../.agents/scripts/research-flash-lite.py\"\n```\n\n> [!IMPORTANT]\n> **Restart `agy` after installation**: Antigravity loads and caches `hooks.json` at session startup. Any changes to `hooks.json` require restarting the `agy` server process to take effect.\n\n---\n\n## Requirements\n\n- Python 3.8+ on `PATH` (`python` or `python3`).\n- Google Antigravity CLI (`agy`) or Antigravity IDE.\n",
+    "mskasal__sculpting-framework": "<p align=\"center\">\n  <img src=\"assets/icon.png\" alt=\"Sculpting Framework\" width=\"128\" height=\"128\" />\n</p>\n\n<h1 align=\"center\">Sculpting Framework</h1>\n\n<p align=\"center\">\n  <strong>Turn rough problems into aligned, scoped, implementation-ready vertical slices.</strong><br/>\n  An end-to-end, tool-agnostic AI agent plugin &amp; skill set for Product Engineers.\n</p>\n\n<p align=\"center\">\n  <code>v1.0.1</code><!-- x-release-please-version --> &nbsp;&middot;&nbsp; <a href=\"LICENSE\">MIT License</a> &nbsp;&middot;&nbsp; <code>SKILL.md</code> &amp; <code>MCP</code>\n</p>\n\n---\n\n## Why Sculpting?\n\nAI coding assistants and spec-driven dev tools already handle writing code, TDD, and code reviews. For modern **Product Engineers**, the real bottleneck is everything **before** the first commit:\n\n- Framing the right problem before jumping to solutions\n- Asking the right stakeholder the right 3 questions at the right time\n- Cutting scope ruthlessly (**Hard No-Go** vs. **Deferred**) without losing alignment\n- Closing technical/compliance unknowns *before* sprint planning\n- Handling real-world chaos: delayed decisions, mid-flight pivots, 1-week P0 pauses, and owner handoffs\n\nLike sculpting a block of stone, software delivery is not waterfall — it is **progressive resolution**. **Sculpting** guides you and your AI agent from raw block to polished release in four crisp stages, without AI slop or enterprise ceremony.\n\n```text\n  [ Raw Idea / Problem ]\n            │\n            ▼   1. BLOCK       — Problem without solution words, cost of inaction,\n            │                    Template 1 Async Discovery Pings, Living State Card\n            ▼   2. ROUGH CUT   — Realistic options (Anti-Strawman), No-Go vs. Deferred,\n            │                    Pre-Detail Spike (Template 5), Vendor/DPA Gate,\n            │                    Business Rules (Template 3) & Sign-off Lock (Template 2)\n            ▼   3. DETAIL      — Codebase-grounded contracts, Vertical Slices (Template 4),\n            │                    Conflict-free parallelism & 1-line capacity confirmations\n            ▼   4. POLISH      — Handoff to coding/TDD/review skills, No-Go scope brake,\n                                 progressive rollout, release comms & impact closure\n```\n\n---\n\n## Key Features\n\n- **Zero Bureaucracy on Small Tasks (`Fast-Track`):** ≤2-day, single-service micro-features skip heavy templates and move in **1 async turn** (3 questions + 1-line No-Go → single ticket → build).\n- **Anti-Slop & Anti-Over-Engineering:** Zero framework jargon in outgoing team messages. No strawman options just to fill tables.\n- **Minimal Recovery Protocol (1 Card + 2 Rules):**\n  - **Living State Card:** A single 10–15 line SSoT pinned at the top of your doc for instant post-pause catch-up and cold owner handoffs.\n  - **Assumption + Expiry:** Unblock delayed stakeholders on *no-regret* work while locking irreversible investments.\n  - **Delta & Sign-off Reset:** Handle pivots, 5+ day pauses, or owner handoffs with a concise delta — never rewrite the RFC.\n- **Tool-Agnostic Core:** Works with MCP-connected tools (Notion, Linear, Jira, Slack, GitHub), webhooks/CLI, or plain manual handoffs via a one-time **Context Layer**.\n- **Empirically Stress-Tested:** Validated across **7 multi-agent simulations** covering cross-team billing, SSO/RBAC compliance, GDPR data residency, chaos disruptions, veto deadlocks, 1-day micro-features, and an A/B regression test ([see validation log](docs/simulations.md)).\n\n---\n\n## Included Skills\n\n| Skill | Stage | Responsibility |\n| :--- | :--- | :--- |\n| **`sculpting`** | Orchestrator | First-time Context Layer onboarding, Triage, Fast-Track, Minimal Recovery Protocol, and stage routing |\n| **`sculpting-block`** | Stage 1 — Block | Solution-free problem framing, Living State Card initialization, and Template 1 Async Discovery Pings |\n| **`sculpting-rough-cut`** | Stage 2 — Rough Cut | Realistic options, Hard No-Go vs. Deferred, Vendor/DPA gate, Pre-Detail Spike (Template 5), Templates 2 & 3, and 25-min Meeting Fallback |\n| **`sculpting-detail`** | Stage 3 — Detail | Codebase-grounded contracts, Template 4 Vertical Slices, single-owner parallelism check, and 1-line capacity confirmations |\n| **`sculpting-polish`** | Stage 4 — Polish | Handoff to coding/review skills, No-Go scope brake, rollout/telemetry verification, release comms, and impact closure |\n\n---\n\n## Installation\n\nSculpting follows the open **`SKILL.md`** and marketplace plugin standards, so it works out of the box across major AI coding environments.\n\n### Antigravity\nClone or copy this repository into your Antigravity plugins directory:\n```bash\ngit clone https://github.com/mskasal/sculpting-framework.git ~/.gemini/config/plugins/sculpting-framework\n```\n*(Antigravity reads the root `plugin.json`, `assets/icon.png`, and `skills/*/SKILL.md` automatically.)*\n\n### Claude Code\nInstall directly as a Claude Code plugin marketplace repository:\n```bash\n/plugin marketplace add mskasal/sculpting-framework\n/plugin install sculpting-framework@sculpting-framework-marketplace\n```\n\n### Cursor / Codex / Other `SKILL.md` Agents\nInstall via `skills` CLI or copy the `skills/` directory into `.cursor/skills/` or `.claude/skills/`:\n```bash\nnpx skills add mskasal/sculpting-framework\n```\n\n---\n\n## Quick Start\n\n1. **Start a new feature:**\n   > *\"Let's sculpt a new feature: enterprise customers need Net-30 invoicing with EU VAT reverse-charge.\"*\n2. On your first run, **`sculpting`** asks 4 quick questions to create your workspace **Context Layer** (`sculpting.context.md`) — team owners, veto holders, escalation owner, tool adapters, and red lines.\n3. The agent automatically triages the work into **Fast-Track** or **Block → Rough Cut → Detail → Polish** and guides you through each gate.\n\n---\n\n## Documentation\n- [Sculpting Framework v1.0 Specification](docs/framework-v1.0.md)\n- [Empirical Validation Log (7 Simulations)](docs/simulations.md)\n\n## License\n[MIT](LICENSE) — created by [Samed Kasal](https://github.com/mskasal).\n",
+    "xmt-cn__agy-ctx-ring": "<div align=\"center\">\n\n<img src=\"./assets/logo.svg\" alt=\"agy-ctx-ring logo\" width=\"64\" height=\"64\" />\n\n# agy-ctx-ring\n\n**Zero-patch native composer HUD & click popovers for Antigravity — session stats, token usage, and native context breakdown.**\n\n[![Release](https://img.shields.io/badge/release-v1.2.8-d97706?style=flat-square)](https://github.com/XMT-CN/agy-ctx-ring/releases/latest)\n[![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](./LICENSE)\n[![Zero Dependencies](https://img.shields.io/badge/dependencies-zero-16a34a?style=flat-square)](#architecture--privacy)\n[![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows-52525b?style=flat-square)](#quick-start)\n\n**English** | [简体中文](./README.zh-CN.md)\n\n</div>\n\n---\n\n## Preview\n\nMounted directly inside Antigravity's composer footer to the left of the `Turbo` trigger — borderless, responsive, and automatically inheriting Light/Dark CSS tokens and Google Sans Flex typography:\n\n<p align=\"center\">\n  <img src=\"./docs/images/preview-bar.png\" alt=\"Inline 3-segment HUD bar in Light and Dark Antigravity themes\" width=\"900\" />\n</p>\n\nClicking any of the three segments opens a compact floating popover right above the composer:\n\n<p align=\"center\">\n  <img src=\"./docs/images/preview-popovers.png\" alt=\"Session Stats, Token Usage, and Context Window click popovers\" width=\"900\" />\n</p>\n\n- **Session Stats (`会话统计`)**: turns, steps, model wall time, deduplicated tool call wall time, average TTFT, and decode speed (`tok/s`).\n- **Token Usage (`Token 用量`)**: cumulative total tokens, cache hit rate, uncached input, cache read, and output tokens.\n- **Context Window (`上下文窗口`)**: ring progress (`正常` / `占用偏高` / `接近上限`), compaction indicator (`已压缩`), used / remaining / window cap, per-request cache hit (with model-switch cold-start indicator), plus the **5-category breakdown** decoded from Antigravity's native `gen_metadata` (`系统提示与规则` · `子智能体与系统消息` · `工具调用与输出` · `模型思考与回复` · `用户输入`).\n\n---\n\n## Features\n\n- **Zero-Patch Upgrade Survival**: Never modifies `Antigravity.app`, `app.asar`, or `~/.gemini/config/config.json`. Installed cleanly under `~/.gemini/config/plugins/agy-ctx-ring/` so official Antigravity updates never wipe your HUD.\n- **API Ground-Truth Prompt Usage & Native Breakdown**: Tracks server-returned prompt tokens (`uncached input + cache read`, aligned with Antigravity's actual compaction trigger) and scales the 5-category breakdown from Antigravity's native `gen_metadata` context tree (`ctx[3]`), isolating subagent / plan handoff `SYSTEM_MESSAGE` payloads from static system rules (with full-transcript `transcript_full.jsonl` fallback).\n- **Zero-Latency Session Switching**:\n  - Preloads the 40 most recent conversations into browser memory on attach;\n  - Hooks Chromium `window.navigation` (`currententrychange`), `popstate`, and a `queueMicrotask` `MutationObserver` to re-render in the same paint frame (~0 ms);\n  - Registers a CDP `Runtime.addBinding` wakeup channel so fresh SQLite metrics sync in ~5–15 ms without waiting for polling intervals.\n- **Instant New-Chat Reset**: Resets cleanly to `0 轮 0 步 · 0 tok · 0%` on `/` or before a conversation `.db` exists (no stale data leaked from previous chats).\n- **Headless Sidecar (`has_web_ui: false`)**: Adds zero extra sidebar tabs or Auxiliary Pane clutter, and runs directly on Antigravity's bundled Node 24 runtime with zero npm dependencies.\n\n---\n\n## Quick Start\n\n### macOS / Linux (One-Liner)\n\n```bash\ncurl -fsSL https://raw.githubusercontent.com/XMT-CN/agy-ctx-ring/main/scripts/install.sh | bash\n```\n\n### Windows (PowerShell)\n\n```powershell\nirm https://raw.githubusercontent.com/XMT-CN/agy-ctx-ring/main/scripts/install.ps1 | iex\n```\n\n### Manual Installation (`git clone`)\n\n```bash\ngit clone --depth 1 https://github.com/XMT-CN/agy-ctx-ring.git ~/.gemini/config/plugins/agy-ctx-ring\nbash ~/.gemini/config/plugins/agy-ctx-ring/scripts/install.sh\n```\n\n### After Installing\n\n1. **Quit Antigravity completely** if it is currently running without `--remote-debugging-port=0`.\n2. **Launch Antigravity via `Antigravity (HUD)`**:\n   - **macOS**: Open `~/Applications/Antigravity (HUD).app` (pin it to your Dock), or run:\n     ```bash\n     open -a \"Antigravity\" --args --remote-debugging-port=0\n     ```\n   - **Linux**: Use the `Antigravity (HUD)` application entry, or run:\n     ```bash\n     antigravity --remote-debugging-port=0\n     ```\n   - **Windows**: Double-click the `Antigravity (HUD)` shortcut created on your Desktop.\n3. Verify **上下文胶囊 (`agy-ctx-ring`)** is enabled under **Customizations → Plugins**.\n\n---\n\n## Architecture & Privacy\n\n```mermaid\nflowchart LR\n  A[\"~/.gemini/antigravity/conversations/*.db<br/>(SQLite readOnly)\"] --> B[\"Headless Sidecar<br/>Antigravity Node 24\"]\n  B -->|\"127.0.0.1 DevToolsActivePort (CDP)\"| C[\"Antigravity Workbench<br/>Composer Footer & Popovers\"]\n  C -->|\"Runtime.addBinding instant wakeup\"| B\n```\n\n- **100% Local & Read-Only**: Opens conversation SQLite files with `{ readOnly: true }`, reads `gen_metadata` and `steps` strictly locally, makes **zero** outbound network requests, and never writes to Antigravity's database or `config.json`.\n- **Zero External Dependencies**: Uses Antigravity's built-in `node:sqlite`, global `WebSocket`, and `fetch` — nothing to compile or `npm install`.\n\n---\n\n## Update & Uninstall\n\n### Update\n\nRe-run the one-line installer for your OS, or pull directly if installed via `git`:\n\n```bash\ngit -C ~/.gemini/config/plugins/agy-ctx-ring pull --ff-only\n```\n\nThen toggle the plugin off/on in **Customizations → Plugins** (or restart Antigravity).\n\n### Uninstall\n\n**macOS / Linux:**\n\n```bash\nbash ~/.gemini/config/plugins/agy-ctx-ring/scripts/uninstall.sh\n```\n\n**Windows (PowerShell):**\n\n```powershell\nRemove-Item -Recurse -Force \"$env:USERPROFILE\\.gemini\\config\\plugins\\agy-ctx-ring\" -ErrorAction SilentlyContinue\nRemove-Item -Force ([Environment]::GetFolderPath('Desktop') + '\\Antigravity (HUD).lnk') -ErrorAction SilentlyContinue\n```\n\n> Both uninstall paths leave `Antigravity.app` and `~/.gemini/config/config.json` untouched.\n\n---\n\n## FAQ\n\n<details>\n<summary><strong>Why is the <code>--remote-debugging-port=0</code> launcher needed?</strong></summary>\n\nTo keep the plugin completely non-invasive and immune to Antigravity auto-updates, `agy-ctx-ring` never patches `app.asar`. Instead, it injects the composer HUD at runtime over Antigravity's loopback-only `127.0.0.1` CDP port (`DevToolsActivePort`). Launching via `Antigravity (HUD)` simply passes `--remote-debugging-port=0` cleanly for you.\n\n</details>\n\n<details>\n<summary><strong>Why does Context Limit show <code>512K</code> or <code>256K</code> instead of <code>1M</code>?</strong></summary>\n\nThe plugin reads Antigravity's own per-conversation context ceiling field (`ctx[4]`), which is the actual compaction threshold Antigravity enforces (currently `512K` for Gemini 4 models and `256K` for Gemini 3.8 Flash), matching when Antigravity prompts you to compact.\n\n</details>\n\n<details>\n<summary><strong>The HUD bar didn't appear after enabling the plugin — what should I check?</strong></summary>\n\nMake sure you fully quit any pre-existing Antigravity instance and launched via `Antigravity (HUD)` (with `--remote-debugging-port=0`). If launched normally without that flag, Chromium does not create `DevToolsActivePort` and runtime injection cannot attach.\n\n</details>\n\n---\n\n## Project Structure\n\n```text\nagy-ctx-ring/\n├── plugin.json                # Antigravity plugin manifest\n├── assets/\n│   └── logo.svg               # Plugin icon\n├── docs/\n│   └── images/                # README preview screenshots\n├── sidecars/\n│   └── ctx_ring/\n│       ├── sidecar.json       # Headless sidecar configuration (has_web_ui: false)\n│       ├── main.mjs           # Daemon entrypoint\n│       ├── telemetry.mjs      # Read-only SQLite + native ctx[3] protobuf decoder\n│       ├── cdp_injector.mjs   # Loopback CDP injector + Runtime.addBinding + 40-conv preload\n│       └── ui_shared.mjs      # Native-themed 3-segment composer bar & click popovers\n└── scripts/\n    ├── install.sh             # macOS / Linux installer + launcher setup\n    ├── uninstall.sh           # Clean uninstaller\n    └── install.ps1            # Windows PowerShell installer + Desktop shortcut\n```\n\n## License\n\nReleased under the [MIT License](./LICENSE).\n"
+  }
+}
