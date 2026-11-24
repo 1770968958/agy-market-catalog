@@ -6,7 +6,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { DEFAULT_CATALOG_BASE_URL, toScopedPluginName } from './lib/constants.mjs';
+import { buildSourceArchiveUrl, DEFAULT_CATALOG_BASE_URL, toScopedPluginName } from './lib/constants.mjs';
 import { validatePluginTarball } from './validate-plugin-tarball.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -164,9 +164,6 @@ export async function crawlExperimentalTopics({ repoRoot = REPO_ROOT } = {}) {
       const rel = await relRes.json();
       if (rel.draft || rel.prerelease) continue;
       const asset = (rel.assets || []).find((a) => /\.(?:tar\.gz|tgz)$/i.test(a.name));
-      const downloadUrl = asset
-        ? asset.browser_download_url
-        : `https://github.com/${repo.full_name}/archive/refs/tags/${encodeURIComponent(rel.tag_name)}.tar.gz`;
       const requireSelfContained = !asset;
 
       const refRes = await fetch(
@@ -175,6 +172,9 @@ export async function crawlExperimentalTopics({ repoRoot = REPO_ROOT } = {}) {
       );
       if (!refRes.ok) continue;
       const refJson = await refRes.json();
+      const downloadUrl = asset
+        ? asset.browser_download_url
+        : buildSourceArchiveUrl(repo.full_name, refJson.sha, rel.tag_name);
 
       const dl = await fetch(downloadUrl, { headers: { 'User-Agent': 'agy-market-topic-crawler/1.0' } });
       if (!dl.ok) continue;

@@ -5,7 +5,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { compareSemver, parseSemver } from './lib/constants.mjs';
+import { buildSourceArchiveUrl, compareSemver, parseSemver } from './lib/constants.mjs';
 import { probeNpmMirrorPackage } from './probe-npm.mjs';
 import { validatePluginTarball } from './validate-plugin-tarball.mjs';
 
@@ -289,9 +289,6 @@ export async function syncAllRegisteredReleases({ repoRoot = REPO_ROOT } = {}) {
           const sem = parseSemver(r.tag_name);
           if (!sem) continue;
           const asset = (r.assets || []).find((a) => /\.(?:tar\.gz|tgz)$/i.test(a.name));
-          const downloadUrl = asset
-            ? asset.browser_download_url
-            : `https://github.com/${repoByNumericId.full_name}/archive/refs/tags/${encodeURIComponent(r.tag_name)}.tar.gz`;
           const requireSelfContained = !asset;
           const refRes = await fetch(
             `https://api.github.com/repositories/${rec.repositoryId}/commits/${encodeURIComponent(r.tag_name)}`,
@@ -299,6 +296,9 @@ export async function syncAllRegisteredReleases({ repoRoot = REPO_ROOT } = {}) {
           );
           if (!refRes.ok) continue;
           const refJson = await refRes.json();
+          const downloadUrl = asset
+            ? asset.browser_download_url
+            : buildSourceArchiveUrl(repoByNumericId.full_name, refJson.sha, r.tag_name);
           const publishedAt =
             r.published_at || refJson?.commit?.committer?.date || refJson?.commit?.author?.date || null;
 

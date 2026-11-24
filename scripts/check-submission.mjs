@@ -5,6 +5,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import {
+  buildSourceArchiveUrl,
   BUILTIN_AGENTS,
   BUILTIN_SKILLS,
   compareSemver,
@@ -283,7 +284,7 @@ async function resolveLiveReleaseCandidate(repoFullName, releaseAsset, token = '
       commitSha: tagRef.sha,
       tarballUrl: chosenAsset
         ? chosenAsset.browser_download_url
-        : `https://github.com/${repoFullName}/archive/refs/tags/${encodeURIComponent(release.tag_name)}.tar.gz`,
+        : buildSourceArchiveUrl(repoFullName, tagRef.sha, release.tag_name),
       publishedAt: release.published_at,
       requireSelfContained: !chosenAsset,
     };
@@ -313,7 +314,7 @@ async function resolveLiveReleaseCandidate(repoFullName, releaseAsset, token = '
   return {
     tagName: bestTag.name,
     commitSha: commitInfo.sha,
-    tarballUrl: `https://github.com/${repoFullName}/archive/refs/tags/${encodeURIComponent(bestTag.name)}.tar.gz`,
+    tarballUrl: buildSourceArchiveUrl(repoFullName, commitInfo.sha, bestTag.name),
     publishedAt: commitInfo?.commit?.committer?.date || commitInfo?.commit?.author?.date || new Date().toISOString(),
     requireSelfContained: true,
   };

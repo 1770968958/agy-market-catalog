@@ -5,6 +5,7 @@ import { gzipSync } from 'node:zlib';
 import { compileCatalogArtifacts } from '../scripts/build-catalog.mjs';
 import { evaluateSubmission } from '../scripts/check-submission.mjs';
 import { buildTrack2PluginRecord } from '../scripts/crawl-topics.mjs';
+import { buildSourceArchiveUrl } from '../scripts/lib/constants.mjs';
 import { createTarGzBuffer, inspectTarGzBuffer, parsePaxRecords } from '../scripts/lib/tar-stream.mjs';
 import { verifyBidirectionalNpmOwnership } from '../scripts/probe-npm.mjs';
 import { sanitizeSvgIcon } from '../scripts/sanitize-icon.mjs';
@@ -702,4 +703,19 @@ test('Submission, release sync, Track-2 crawl, and buildCatalogArtifacts compile
   assert.ok(compiled.readmesJson.entriesEn['dev-team__quick-note'].includes('Fast note taking'));
   assert.ok(compiled.readmesJson.entriesZh['carol__legacy-zh'].includes('旧版中文插件'));
   assert.equal(compiled.readmesJson.entriesEn['carol__legacy-zh'], undefined);
+});
+
+test('buildSourceArchiveUrl pins to immutable 40-char commit SHA and falls back to tag archive', () => {
+  assert.equal(
+    buildSourceArchiveUrl('zou172866/agy-dart', COMMIT_A, 'v1.7.0'),
+    `https://github.com/zou172866/agy-dart/archive/${COMMIT_A}.tar.gz`,
+  );
+  assert.equal(
+    buildSourceArchiveUrl('zou172866/agy-dart', '', 'v1.7.0'),
+    'https://github.com/zou172866/agy-dart/archive/refs/tags/v1.7.0.tar.gz',
+  );
+  assert.equal(
+    buildSourceArchiveUrl('zou172866/agy-dart', 'not-a-sha', 'v1.7.0+meta'),
+    'https://github.com/zou172866/agy-dart/archive/refs/tags/v1.7.0%2Bmeta.tar.gz',
+  );
 });

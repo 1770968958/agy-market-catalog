@@ -373,3 +373,16 @@ export function parseJsonc(rawText) {
   const withoutTrailingCommas = out.replace(/,\s*([}\]])/g, '$1');
   return JSON.parse(withoutTrailingCommas);
 }
+
+/**
+ * Build an immutable GitHub source archive URL pinned to the resolved 40-char commit SHA
+ * when available, falling back to the tag archive URL only if no valid commit SHA exists.
+ * Pinning to commit SHA prevents upstream tag force-pushes from breaking locked SHA-256 hashes.
+ */
+export function buildSourceArchiveUrl(repoFullName, commitSha, tagName) {
+  const sha = String(commitSha || '').trim();
+  if (/^[0-9a-f]{40}$/i.test(sha)) {
+    return `https://github.com/${repoFullName}/archive/${sha}.tar.gz`;
+  }
+  return `https://github.com/${repoFullName}/archive/refs/tags/${encodeURIComponent(String(tagName || ''))}.tar.gz`;
+}
