@@ -22,6 +22,13 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "777genius/universal-agent-plugins": {
+      "repositoryId": 1193031149,
+      "headSha": "4858d973afcf6cf31b49bba98bdf06482dce6226",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "a-cepheus/unified-memory-antigravity": {
       "repositoryId": 1469878388,
       "headSha": "120e0a8318d4116e30e781da1760a55323038a9b",
@@ -31,10 +38,10 @@
     },
     "a1lane/a1lane-mcp": {
       "repositoryId": 1443379882,
-      "headSha": "76dc513b69bdc2b37214b73888a47cb491763d13",
+      "headSha": "62ee7b60b5756e0a43e1b5561112ce62988acde3",
       "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "abeansits/mid-flight": {
       "repositoryId": 1168304160,
@@ -92,6 +99,13 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "aeghnnsw/cc-toolkit": {
+      "repositoryId": 1080158946,
+      "headSha": "2a6d84017fe0a5be6d81649488be8ed688253d8a",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "aeisek/limitlyai": {
       "repositoryId": 1421996975,
       "headSha": "dc6ad4896c8ea01f31536f4ee4fd2db6b3b7c626",
@@ -122,10 +136,10 @@
     },
     "agy-daddy/agy-daddy": {
       "repositoryId": 1469831986,
-      "headSha": "3133ed36f5c1f5b080d54b9d124ab025f3f55287",
+      "headSha": "eb4d65786ce414fa0a3f351a2bf8ed833d3dafe4",
       "reason": "ERR_MISSING_PLUGIN_JSON",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "ahmadghoniem/skills": {
       "repositoryId": 1338382945,
@@ -157,10 +171,10 @@
     },
     "alandvo/alandvo": {
       "repositoryId": 1408246148,
-      "headSha": "83cab5f86efa6adf98a60b21264451413c92ef64",
+      "headSha": "b743116245709f9a12e22b3bbdd6f5e7f2cf6df9",
       "reason": "ERR_MISSING_PLUGIN_JSON",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "aleksejsvazenins-wq/cloudcli-plugin-antigravity-quota": {
       "repositoryId": 1344000639,
@@ -204,6 +218,13 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "anhmtk/agentshare-mcp": {
+      "repositoryId": 1209130090,
+      "headSha": "f98968170fdba4e23253e6bf10a92a00f3dcea5e",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "antigravity-cn-community/antigravity-chinese-localization": {
       "repositoryId": 1248716248,
       "headSha": "e66b5151cc4e09fb825b1ec0846d720ded7131dc",
@@ -217,6 +238,20 @@
       "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "artcar12/agent-delegation-mcp": {
+      "repositoryId": 1334309253,
+      "headSha": "a5f43466e832ed38018c21f7e944a5728be1d148",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "artemhorbenko/product-lens-audit": {
+      "repositoryId": 1466565546,
+      "headSha": "89b067b7890d0a1c211b8b98823da40469f9e35a",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "artemy/semaphore": {
       "repositoryId": 1266302107,
@@ -274,6 +309,20 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "atelier-fashion/adlc-toolkit": {
+      "repositoryId": 1185342659,
+      "headSha": "8489acf5490bbf28eeefa0a6ea4f31d757ef6289",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "ausbeldev/config_files": {
+      "repositoryId": 781276708,
+      "headSha": "4e43d90dffe4b2243e73f5601e022de5790955a0",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "axiomfab/pdf-reviewer": {
       "repositoryId": 1427594236,
       "headSha": "a8d19eb97bfa5a93f60a927db487be0473945de5",
@@ -288,6 +337,13 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "azidan/archflow": {
+      "repositoryId": 1179480242,
+      "headSha": "22a5226a465a85427f181ae52ba3612f1e8cfee2",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "azurefly/antigravity-category-plugin": {
       "repositoryId": 1430448939,
       "headSha": "b213aa0ecd481fbbca3d09b9742ac8202e45ad11",
@@ -301,6 +357,20 @@
       "reason": "ERR_MISSING_PLUGIN_JSON",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "baas-ai-ip/llm-plugin": {
+      "repositoryId": 1459710588,
+      "headSha": "4a34cd39c4646099f6daac019d62201e755058b5",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "balloutcode/ecc-cursor": {
+      "repositoryId": 1464401293,
+      "headSha": "548d5d2da9e8ad2f86f8f0132282c084f69f88b0",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "basil-as/antigravity-plugin-cc": {
       "repositoryId": 1404846326,
@@ -360,10 +430,10 @@
     },
     "bitq-m/awesome-antigravity-plugins": {
       "repositoryId": 1468167288,
-      "headSha": "c1e90355c25895b698d86e49ec4b5b77b280c1a1",
+      "headSha": "24988c2e473c484c3a95e8f9caff284df89bee3b",
       "reason": "ERR_MISSING_PLUGIN_JSON",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "bizshuk/cc-plugin": {
       "repositoryId": 1235428773,
@@ -385,6 +455,20 @@
       "reason": "ERR_MISSING_PLUGIN_JSON",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "bob-tools/bob-plugins": {
+      "repositoryId": 1275437920,
+      "headSha": "bbc8e710b73b517f15327a27109632cc5a1e087a",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "boshuthebuilder/ai-tradecraft-skills": {
+      "repositoryId": 1265914718,
+      "headSha": "5809ccbdfaea7349fb84640d6114e1721a661072",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "botchixiaoye/antigravity-cache-monitor": {
       "repositoryId": 1469130683,
@@ -423,10 +507,10 @@
     },
     "buiquangvu235/antigravity-skills-engine": {
       "repositoryId": 1459165824,
-      "headSha": "0f542993befd5be178c8a31e53eb6b0abd32ed31",
+      "headSha": "11ea9bc84d1780355484f9af8f54619a898c310a",
       "reason": "ERR_MISSING_PLUGIN_JSON",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "businesskitai/businesskit": {
       "repositoryId": 1309849046,
@@ -456,12 +540,40 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "canonry/agent-human-communication": {
+      "repositoryId": 1470754235,
+      "headSha": "1fe2b03528ee83b2a3320855861bd06dc99b7a82",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "casonadams/rho-plugin-antigravity": {
       "repositoryId": 1355077106,
       "headSha": "efef53959f23a950b30727bea4e3d036960e0a62",
       "reason": "ERR_MISSING_PLUGIN_JSON",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "cassiobotaro/skills": {
+      "repositoryId": 1259910236,
+      "headSha": "157cf8054a39a4708665301a217088b36f117761",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "cccakeee/awesome-dsh-plugins": {
+      "repositoryId": 1333307673,
+      "headSha": "2b42e545cdf3ea80c253d00a26dc9638554ded74",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "cchonguyen/claude-harness-hub": {
+      "repositoryId": 1434725520,
+      "headSha": "09f0cb0ec93891ca50954a9c50fb7910c12fa0d1",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "cencentno9/agy-context-menu": {
       "repositoryId": 1456681351,
@@ -500,10 +612,10 @@
     },
     "codealive-ai/ai-driven-development": {
       "repositoryId": 1135957152,
-      "headSha": "265d17b420918a86a2765966bc5c049d9e9fd1d1",
+      "headSha": "00d52acf0368db9b4bd3e72f1944797fc0d99538",
       "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "codemeall/agent-fleet": {
       "repositoryId": 1396369203,
@@ -518,6 +630,20 @@
       "reason": "ERR_REPO_NOT_FOUND",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "cody-marcel-dfsm/bos_operations_ceneter": {
+      "repositoryId": 1317905752,
+      "headSha": "0c1ed62cf626f071a2347f30f2a54a93fc8885c0",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "cofoundy/cofoundy-marketplace": {
+      "repositoryId": 1237291495,
+      "headSha": "a945d83fd9932327551fd97f276756f644ca55a5",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "compnew2006/spec-kit-antigravity-skills": {
       "repositoryId": 1140970663,
@@ -904,6 +1030,13 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "cyucelen/orca-flow": {
+      "repositoryId": 1459273775,
+      "headSha": "6180358dccaca5bd3bbddd576b4f8d4b9aa1317b",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "czg86389-hub/acp-ant": {
       "repositoryId": 1449200797,
       "headSha": "b6e6427e29d8136cfd028900112328fbf53ddfe5",
@@ -953,12 +1086,19 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "davekim917/bootstrap": {
+      "repositoryId": 1174639785,
+      "headSha": "51beff7598f06939712850ac8a9da403c1955b3c",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "david-engelmann/recognitio": {
       "repositoryId": 1421280020,
-      "headSha": "83e67098ed2c9684eefb4ce7506c345c822edeb3",
+      "headSha": "49f72a846914f35ace2fa3c688cc2ea13073ecfe",
       "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "davidwcn/adk-dev-flow": {
       "repositoryId": 1465111913,
@@ -980,6 +1120,13 @@
       "reason": "ERR_UNBUNDLED_NPM_DEPS",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "ddg0808/antigravity-viewer-pulse": {
+      "repositoryId": 1463825125,
+      "headSha": "b4c35ebdac30273ddee68add7e543914643af96f",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "dearcaat/agentbus-bridge": {
       "repositoryId": 1455002726,
@@ -1065,6 +1212,13 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "dragonked2/alphacode": {
+      "repositoryId": 1353408336,
+      "headSha": "ad6c797364ff9838dcb35c552d3b2d8da8246992",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "dugynoo/project-desk": {
       "repositoryId": 1430266156,
       "headSha": "424b01c08aa2a26d23308601323b29eb070cca97",
@@ -1099,6 +1253,13 @@
       "reason": "ERR_MISSING_PLUGIN_JSON",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "efsalvarenga/artifice": {
+      "repositoryId": 1441712602,
+      "headSha": "be075d1523d1726275a97e8f58b529ecebaf412c",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "eggmasonvalue/secstack": {
       "repositoryId": 1269392227,
@@ -1149,6 +1310,27 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "enhansome/enhansome-ai-devtools": {
+      "repositoryId": 1331642736,
+      "headSha": "b0b08bc870bfe1bcc5bae6ba5dfcb3930bc5f6bc",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "enhansome/enhansome-ai-plugins": {
+      "repositoryId": 1331870763,
+      "headSha": "178614bf9fb43698521b3e3fafade8ae52622a90",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "enhansome/enhansome-claude-code-skills-zh": {
+      "repositoryId": 1331737177,
+      "headSha": "eadba3ed0437cd0c90bbd84231bacd9d6856c5fc",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "ericsk/agy-gcp-companion": {
       "repositoryId": 1457347184,
       "headSha": "0106dd85e2fe8c516bf64ea4a0a478584c7df7d6",
@@ -1162,6 +1344,13 @@
       "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "eshkil/agent-flow": {
+      "repositoryId": 1415791831,
+      "headSha": "dbb070dd2f32f94964fb6af0df20cd26dc1457ee",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "est7/skills-switch-tui": {
       "repositoryId": 1298975068,
@@ -1183,6 +1372,13 @@
       "reason": "ERR_MISSING_PLUGIN_JSON",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "excelsus4/sprezzatura": {
+      "repositoryId": 1470147203,
+      "headSha": "51411addaa2c5126c9f0edcbcb8909cd4d1032bd",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "falconchen/antigravity-conversation-renamer-mcp": {
       "repositoryId": 1468327071,
@@ -1221,10 +1417,17 @@
     },
     "fmedery/antigravity-plugin-flight-recorder": {
       "repositoryId": 1469183063,
-      "headSha": "e9e666f2237fdc4b12f248cf28504f91a22b51c7",
+      "headSha": "b02dcdea93a2a7b9735a71757e88b601d1a6a144",
       "reason": "ERR_UNBUNDLED_NPM_DEPS",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "fprochazka/slackcli": {
+      "repositoryId": 1147501221,
+      "headSha": "306d15f1df76aeb3065c934831a925f849b14f52",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "frane/vibesurfer": {
       "repositoryId": 1232706994,
@@ -1239,6 +1442,13 @@
       "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "gagaismo/orca-stack": {
+      "repositoryId": 1404340094,
+      "headSha": "5e8db5ea799f21fda907886d7879fd661d73e893",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "gaolingx/kt-antigravity-plugin": {
       "repositoryId": 1455510774,
@@ -1289,6 +1499,20 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "gregor-dietrich/agent-kit": {
+      "repositoryId": 1428157268,
+      "headSha": "19858a60b8ba713dd6ecaffe9a61b14ac86d68b0",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "hadbilen/plumbwork": {
+      "repositoryId": 1376860823,
+      "headSha": "2d2710a2ae1bba9fa84c385cf49b32b7ec9f33e4",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "hashgraph-online/hol-guard": {
       "repositoryId": 1194748811,
       "headSha": "a72456acf9a16c461fc6d0a67ce34856fbd52f0e",
@@ -1317,6 +1541,13 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "henrymoore3403/diary-dev": {
+      "repositoryId": 1448935610,
+      "headSha": "9b1d30b819720613440e27fb64d15b29de679905",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "heshamnoaman/vscode-antigravity-backend-fix": {
       "repositoryId": 1427037345,
       "headSha": "697d742902cf7014ba0bcbaf67e8600dd10dbd2e",
@@ -1338,6 +1569,13 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "hyphae-to/hyp": {
+      "repositoryId": 1469849718,
+      "headSha": "e3bdf298ef03118c61a6136655b310d97237aafb",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "hywooo/dsh-plugin-antigravity": {
       "repositoryId": 1422141787,
       "headSha": "a5c4e378a3377f3905f963d69658e4a0b7e82cd1",
@@ -1345,12 +1583,26 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "ibobbyts/external-subagent": {
+      "repositoryId": 1365367396,
+      "headSha": "76092f7dfe51b62199463d885838ccde9a198ebd",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "ibrahimdabir/antigravity-plugin-test": {
       "repositoryId": 1379413277,
       "headSha": "9ef181b29045470cc8f73c35e69dfc7071f680fb",
       "reason": "ERR_MISSING_PLUGIN_JSON",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "icaro0310/devin-brain": {
+      "repositoryId": 1396457650,
+      "headSha": "97da406f983745eb5fdec1f477bc1913b7f79aec",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "icywhite22/antigravity-qqbot-plugin": {
       "repositoryId": 1460175352,
@@ -1365,6 +1617,20 @@
       "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "iha2/superlite": {
+      "repositoryId": 1423614464,
+      "headSha": "d48d4b1efe044ed598d72748d9ac414c6dd187dc",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "ind4x/ai-agent-skills": {
+      "repositoryId": 1455144639,
+      "headSha": "357cbfbd4a874f12df1a7d800b04e22abef90cfb",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "indranilbanerjee/neels-plugins": {
       "repositoryId": 1158526331,
@@ -1403,10 +1669,17 @@
     },
     "izomondo/antimetro": {
       "repositoryId": 1468921712,
-      "headSha": "2b94bfc6f123da37222d7867e09351457e5b848b",
+      "headSha": "779e36fd02686193469c0c6e7059b1cf7fd68a5d",
       "reason": "ERR_MISSING_PLUGIN_JSON",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "j0ruge/skills": {
+      "repositoryId": 1198927131,
+      "headSha": "7cb3297313e4ff719f9dbc5eedab730aa173a223",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "jaeyeopme/hermes-plugin-antigravity-subscription": {
       "repositoryId": 1283096138,
@@ -1415,12 +1688,26 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "jamesoundb/ai_agents": {
+      "repositoryId": 1360751120,
+      "headSha": "183caefb892147d6be69d9af8eead48ea3968013",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "javierfrancoleal/best-ui-ux-designers": {
       "repositoryId": 1466901251,
       "headSha": "c61e185b5bb031e5d222db5eb035ff67d67a2314",
       "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "jayden-dong411/antigravity-file-viewer": {
+      "repositoryId": 1470863956,
+      "headSha": "bb241185e01b31a93ab6102b2d46afc539a48f0e",
+      "reason": "ERR_UNBUILT_SOURCE_ARCHIVE",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "jds0504/vite-plugin-antigravity-inspector": {
       "repositoryId": 1364762120,
@@ -1471,6 +1758,13 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "jgravelle/jcodemunch-mcp": {
+      "repositoryId": 1153178500,
+      "headSha": "1df7a32538b2b39c25c3f9ec8423ed293789169e",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "jiaotashidi-bi/antigravity-quota-bar": {
       "repositoryId": 1468228189,
       "headSha": "6335d402f3f3f1a1320ed56205d8e51bc7daee63",
@@ -1506,12 +1800,33 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "jomitiron/laneloop": {
+      "repositoryId": 1455777495,
+      "headSha": "0c62208f70866a1edbf1e5b3c62f7f6acbcb9b93",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "jornkbz/cursormesh-mcp": {
+      "repositoryId": 1470573601,
+      "headSha": "ee480c4363976f81267227bc6cfb0014f377c044",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "josephxcx/omarchy-antigravity-plugin": {
       "repositoryId": 1352335677,
       "headSha": "3bc65f3ec1374f09d876db4c4d3a1b90e7db2bfd",
       "reason": "ERR_MISSING_PLUGIN_JSON",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "juancaicedo/compound-engineering-plugin": {
+      "repositoryId": 1144501791,
+      "headSha": "134b81fff57874755b1e88636a977a0935753080",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "junhwan-kwon/deepbom-antigravity": {
       "repositoryId": 1374273493,
@@ -1627,10 +1942,17 @@
     },
     "kupakupar/kupadesk-antigravity": {
       "repositoryId": 1465069373,
-      "headSha": "02420b780a6e32fb4936f2eec3d90ab9bfbde2a2",
+      "headSha": "49f88188aa9574dd82b217f6ee6fc09239266ca8",
       "reason": "ERR_MISSING_PLUGIN_JSON",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "kurrent-io/kcap": {
+      "repositoryId": 1204932135,
+      "headSha": "e4fadd272cc6fb831590ca8b6db74d901e798fa2",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "kyongsik-yoon/antigravity-agy": {
       "repositoryId": 1301619975,
@@ -1645,6 +1967,13 @@
       "reason": "ERR_MISSING_PLUGIN_JSON",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "lbds137/seyag": {
+      "repositoryId": 1387008871,
+      "headSha": "a457eca36186e9b5a86e60f21152f25858ace1c9",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "lbjlaq/antigravity-manager": {
       "repositoryId": 1104535633,
@@ -1690,10 +2019,10 @@
     },
     "limeflash/antigravity-plugin-cc": {
       "repositoryId": 1296560525,
-      "headSha": "72fc43c051a55ce15dfb977d90911d53b28a8b86",
+      "headSha": "eb8fc5e8c3506076adcbdc803d2e8daca92fbe3a",
       "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "liu-yu7/astrbot_plugin_antigravity_acp": {
       "repositoryId": 1455175641,
@@ -1716,6 +2045,20 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "longkum/trending-agent-skills": {
+      "repositoryId": 1429192866,
+      "headSha": "2fb4161c1a73b8356eb035214a9a5799557a0069",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "lorengrz/agents-config": {
+      "repositoryId": 1320987157,
+      "headSha": "035681ac13b826ceec40b4220124b9dbf58f7240",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "losleonidos777/claude-antigravity-plugin": {
       "repositoryId": 1253069565,
       "headSha": "da746f283b0c69da4b24f099b769d0f0d836ded1",
@@ -1736,6 +2079,13 @@
       "reason": "ERR_MISSING_PLUGIN_JSON",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "lucasdifranco/comanda": {
+      "repositoryId": 1470602212,
+      "headSha": "309ebde4b3aeb736eaba4b65a2068dffb8016dbd",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "lumiag5/antigravitymb": {
       "repositoryId": 1432833638,
@@ -1779,12 +2129,33 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "mapbox/mapbox-agent-skills": {
+      "repositoryId": 1145479566,
+      "headSha": "84d991e36ad5ac7195796ff9e9fdc378155f470c",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "maraxen/cisternal": {
+      "repositoryId": 1308160475,
+      "headSha": "92984fcb535764a0bfbf27b9764a8f9f52fbb015",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "marcosnahuel/antigravity-plugin-cc": {
       "repositoryId": 1247922975,
       "headSha": "3227b4fc1e7198644d9bd8bbd61779dc2605844a",
       "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "marshung24/ai-agent-skills": {
+      "repositoryId": 1212677269,
+      "headSha": "42f58c7ed540a0c0e01119e4ae9770dc5bc212c9",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "materialwebunofficial/antigravity-themes": {
       "repositoryId": 1441753172,
@@ -1809,10 +2180,10 @@
     },
     "meapri/hermes-google-antigravity-plugin": {
       "repositoryId": 1246536953,
-      "headSha": "846f9e0e17c5c2f1355810221305a6b47e0dd103",
+      "headSha": "62e5f120df03774921b41afc58f87bf07c08c57e",
       "reason": "ERR_MISSING_PLUGIN_JSON",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "meetopenbot/plugin-antigravity": {
       "repositoryId": 1266628486,
@@ -1823,10 +2194,10 @@
     },
     "merllinsbeard/bb-plugin-provider-antigravity": {
       "repositoryId": 1468927101,
-      "headSha": "ecc91b213908e594e613b99211aa2baac2d16183",
+      "headSha": "30a19ac7d174fa2c34b5beef7c3d5439bbc635bf",
       "reason": "ERR_MISSING_PLUGIN_JSON",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "merziller/dsh-video-workbench": {
       "repositoryId": 1457633769,
@@ -1849,12 +2220,26 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "mistertelecom/zerith": {
+      "repositoryId": 1459996986,
+      "headSha": "2f0c6c7ecdbd218a4bde9b6c79231cc7d17fa8d8",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "miteshviras/plugin-ledger": {
       "repositoryId": 1468574774,
       "headSha": "c03e6d66d75170f7b4265e731ae2d42764eb7d88",
       "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "mk-1603/openclone": {
+      "repositoryId": 1467629529,
+      "headSha": "dc3e3cb1e3f8b2956102039e1addb6c4cca0cfaf",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "mohan-the-octocat/antigravity-asana-plugin": {
       "repositoryId": 1355767449,
@@ -1905,6 +2290,13 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "n0painnobrioche/pascal-plugin-antigravity": {
+      "repositoryId": 1470940327,
+      "headSha": "e8d74b123c6f62dea6bb7a9b2239b7eb0036ed5c",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "n2ns/antigravity-panel": {
       "repositoryId": 1113373470,
       "headSha": "5caad5a634c053abce5da3eaacf24c0bf8270d74",
@@ -1921,17 +2313,17 @@
     },
     "nanaism/yomiyasu": {
       "repositoryId": 1397771878,
-      "headSha": "8831b14a5c2c12d41096495f0b8fe52d46d390c6",
+      "headSha": "fbd4e420fb71a6ba90f475898cf611ccb6a08cb2",
       "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "nathanvale/skills": {
       "repositoryId": 1467317592,
-      "headSha": "ddb5c60f963d5232a07628e4c8c80ad4e041c8ea",
+      "headSha": "2bc426abedc67d416326304a1b0dfcb59326cf18",
       "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "nattapatpsw-game/antigravity-plugin-cc": {
       "repositoryId": 1378081909,
@@ -1953,6 +2345,13 @@
       "reason": "ERR_MISSING_PLUGIN_JSON",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "neocognitus70/portfolio-prompts": {
+      "repositoryId": 1266597046,
+      "headSha": "c103b1acc6ba93c6c55838163ca7959e8885087a",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "netbka/local-commander-plugins": {
       "repositoryId": 1424013982,
@@ -1982,6 +2381,13 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "nferrer-dev/antigravity-core": {
+      "repositoryId": 1288725278,
+      "headSha": "ad42405fa4815dc6c22b8e7189bfd0026a069f66",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "nghqqa/context-vault": {
       "repositoryId": 1435962409,
       "headSha": "d738fe7d0ec1a9c1cd7df9cf1e24783d8d469e3b",
@@ -2002,6 +2408,20 @@
       "reason": "ERR_MISSING_PLUGIN_JSON",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "nicobailon/visual-explainer": {
+      "repositoryId": 1159484260,
+      "headSha": "9d5f880b7e8e0a9a80c890b8e1bb6918b68481ad",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "nicolasmattozo/paktro": {
+      "repositoryId": 1456513979,
+      "headSha": "86c8bda48cd41b5f814aa48992cb483228916f25",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "nidrissi/mathbox": {
       "repositoryId": 1349444654,
@@ -2024,12 +2444,26 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "njfife/central-knot": {
+      "repositoryId": 1440435756,
+      "headSha": "d4ac5835c17c900db7c9dddcb2b162313540aadb",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "nodecode-ai/nodecode-antigravity-auth-plugin": {
       "repositoryId": 1153031088,
       "headSha": "06985051a2bfb093955d56fe3ec289ecb5615322",
       "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "nodesource/nsolid-plugin": {
+      "repositoryId": 1259142028,
+      "headSha": "1061fa084dc6be92214f2e5fd9a26c5460b5e6d9",
+      "reason": "ERR_UNBUNDLED_NPM_DEPS",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "nuchareviews-beep/bb-plugin-antigravity-acp": {
       "repositoryId": 1342866289,
@@ -2054,10 +2488,10 @@
     },
     "nytc69/review-loop": {
       "repositoryId": 1194465917,
-      "headSha": "05570f5142a2588efe7bf844605d3f8f54c8aeed",
+      "headSha": "745757368a2ebc45574bc114e7a1702ca123f840",
       "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "oceanswave/openclaw-antigravity-plugin": {
       "repositoryId": 1166809277,
@@ -2206,6 +2640,13 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "qira-dev/shellmind-guard": {
+      "repositoryId": 1457055605,
+      "headSha": "763494f168020be7db8c7ecb92539cb654053db1",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "qnix-dev/eligibility-antigravity-patcher": {
       "repositoryId": 1271110780,
       "headSha": "90498f50353d414232f593dffe88899bc80b6312",
@@ -2226,6 +2667,13 @@
       "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "raix2215/cross-harness-flow": {
+      "repositoryId": 1470410313,
+      "headSha": "9acfd1cf84105ccd6522aa78e3d2d6dfb24902fd",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "ranxianglei/billion-context": {
       "repositoryId": 1324949198,
@@ -2255,6 +2703,13 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "relux-works/skill-agents-management": {
+      "repositoryId": 1341869682,
+      "headSha": "8efb5e8226cf5abb6daef9aaa3c975413a13e6f2",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "rezasalimi01/rz-antigravity-rtl": {
       "repositoryId": 1385156242,
       "headSha": "b8c68604a0c6296ca754dc4bcb7dfe478d5f0da2",
@@ -2271,10 +2726,10 @@
     },
     "riccardo-vecchi/antigravity-plugin": {
       "repositoryId": 1434990537,
-      "headSha": "90a6e81bf50c6db0e551b5215f1a67746ef07bf9",
+      "headSha": "97dd7b9897ad5cd62ebdd6e9653c8c5cd423d0f5",
       "reason": "ERR_MISSING_PLUGIN_JSON",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "richawo/yaps-plugins": {
       "repositoryId": 1330895471,
@@ -2292,10 +2747,10 @@
     },
     "rimesekai/antigravity-file-preview": {
       "repositoryId": 1456881930,
-      "headSha": "876d8a33945c5e23962d94e7d099afa3e584bb4f",
+      "headSha": "e9218e97764b1df4c6a47421a04bd2ef31888f04",
       "reason": "ERR_UNBUNDLED_NPM_DEPS",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "risonsimon/bb-plugin-antigravity": {
       "repositoryId": 1467314548,
@@ -2360,6 +2815,13 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "sanhsien/ai-inbox": {
+      "repositoryId": 1423109469,
+      "headSha": "22d2bb7e1e2d019963a312a99b02feb7dc576da9",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "santiquiroz/antigravity-plugin-cc": {
       "repositoryId": 1363221189,
       "headSha": "242dd3d17da4580319242e9c623a9c34e6f5c979",
@@ -2383,10 +2845,10 @@
     },
     "sfrangulov/claude-code-handbook-ru": {
       "repositoryId": 1238108965,
-      "headSha": "7940cfd2b6884f3ead8002df5ae1d1b6dd771771",
+      "headSha": "93c2ec2415510d766be506abb0b8bedebbe03019",
       "reason": "ERR_MISSING_PLUGIN_JSON",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "shaashiekumha/antigravity-skill-converter": {
       "repositoryId": 1363524812,
@@ -2401,6 +2863,13 @@
       "reason": "ERR_MISSING_PLUGIN_JSON",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "shermanhuman/compound-v": {
+      "repositoryId": 1153078635,
+      "headSha": "d345c13ef9fe3d765ca8e6efbdbcee43137a5d0b",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "shimada666/lmnr-antigravity-plugin": {
       "repositoryId": 1426508108,
@@ -2467,17 +2936,17 @@
     },
     "simon-github-code/ratchet": {
       "repositoryId": 1448944275,
-      "headSha": "f146ad41f08cbcb936c15d58962fb357af558877",
+      "headSha": "f2ac11caaa7227e778af0ad93dfa3d44a8dbc51a",
       "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "simonepri/refined-antigravity-acp": {
       "repositoryId": 1382021041,
-      "headSha": "6aa31d675d9ddc869a7e86c64cdeb83d008f64d8",
+      "headSha": "4333f634358fdf05cbef712697a96811bd43dafe",
       "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "simplybychris/antigravity-plugin-cc": {
       "repositoryId": 1248329277,
@@ -2495,10 +2964,10 @@
     },
     "sl251/astrbot_plugin_antigravity_acp": {
       "repositoryId": 1448754538,
-      "headSha": "0a393de2ff88a8972cbe4849705548d79fbe43ae",
+      "headSha": "f0a6ca28a7875fd07797bea72d258cb964a759e8",
       "reason": "ERR_MISSING_PLUGIN_JSON",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "smartworldarafath/rea_skill": {
       "repositoryId": 1434569738,
@@ -2509,10 +2978,10 @@
     },
     "snakeblack/ospec-workflow": {
       "repositoryId": 1249002903,
-      "headSha": "f8b7181f5f0d2fd9c0e6b18ba199ff7b13c6ffc9",
+      "headSha": "02d9f2e8b9db8b5ab94c4f45ea84277f1b258cb0",
       "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "sodre90/mirador": {
       "repositoryId": 1398646478,
@@ -2530,10 +2999,10 @@
     },
     "spacedock-dev/compass": {
       "repositoryId": 1309901092,
-      "headSha": "6649e0ae6c425edad27e3d3d95fdde85dd7a30af",
+      "headSha": "d57d5ca205cdc5b4629a7027b85f2e19c3762fd7",
       "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "sshahzaiib/agy-bridge": {
       "repositoryId": 1266219046,
@@ -2558,10 +3027,10 @@
     },
     "stukongeluk/the-human-c-suite": {
       "repositoryId": 1465150671,
-      "headSha": "ff0cf7ae61ffc0e10103f09436365f82504b4ac0",
+      "headSha": "b17dcecef42ad730cd79dadde67ccfed5c85c29c",
       "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "sumanshaw009/antigravity-intellij-plugin": {
       "repositoryId": 1323132973,
@@ -2612,12 +3081,33 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "tanphat23/smcp": {
+      "repositoryId": 1396871773,
+      "headSha": "6b13fea14126eb7f63ad5ebeed94fd68c85c56cd",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "tardisbooo/antigravity-codex-orchestrator": {
       "repositoryId": 1462243061,
       "headSha": "594e9ba66f103d8a7c590d5ad0e43f0fc24ce590",
       "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "tcbhls/visual-canvas-studio": {
+      "repositoryId": 1470265689,
+      "headSha": "5f27d4d0d614ea2ee296a8751e05e9c9fd92d2b4",
+      "reason": "ERR_UNBUNDLED_NPM_DEPS",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "tecno-consultores/qa-testing-blueprints": {
+      "repositoryId": 1388207808,
+      "headSha": "ce8f7c776304afb5ecf2b5d3d2cc2b7cc69da844",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "teknolista/skills": {
       "repositoryId": 1433067801,
@@ -2696,12 +3186,33 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "ti-bag/ui_ux_design-": {
+      "repositoryId": 1470728119,
+      "headSha": "15a632f9a138daf9317b3bdc8e5edfb0a04d6a1b",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "tison-g/antigravity-openmemory-plugin": {
       "repositoryId": 1172252146,
       "headSha": "6192c61d1a62bd2d0e8e8fda09d9cc5c4d6871a7",
       "reason": "ERR_MISSING_PLUGIN_JSON",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "tobrun/workflow": {
+      "repositoryId": 1306608256,
+      "headSha": "94ce6495ef3163071d589b5eaec68a5daec989ee",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "todd866/antigravity-mission-control": {
+      "repositoryId": 1469566572,
+      "headSha": "912cfb9147d32af0f63fd620ce45d5d46bba5e85",
+      "reason": "ERR_UNBUNDLED_NPM_DEPS",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "tolyk/antigravity-plugin-cc": {
       "repositoryId": 1270719088,
@@ -2719,10 +3230,10 @@
     },
     "tonylonggu/antigravity-plugins": {
       "repositoryId": 1354133010,
-      "headSha": "fa37b072c2efd46aeabce526306a8454d1163819",
+      "headSha": "eb6f80fe920db07903daba703f1f1fbc209150c1",
       "reason": "ERR_MISSING_PLUGIN_JSON",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "toriskr/orca-toris-neon": {
       "repositoryId": 1463752746,
@@ -2747,10 +3258,24 @@
     },
     "tymshe/bb-plugin-antigravity-plus": {
       "repositoryId": 1469319076,
-      "headSha": "24392eaa8906b279743df9635f3cd9dc3df77d0c",
+      "headSha": "d9dff6ae9b2a1bd2aa8f9f1aa54e8013d96cfd48",
       "reason": "ERR_MISSING_PLUGIN_JSON",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "ubayouski/sparring": {
+      "repositoryId": 1470556325,
+      "headSha": "d585def9d782bbafdc3761ccda12f07306e5410c",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
+    "ucirello/compound-engineering-plugin": {
+      "repositoryId": 1280736622,
+      "headSha": "2db96cd1367ace45e4b2d65bb32e1e814014a8ab",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "uihoshi/agentlogic": {
       "repositoryId": 1207538576,
@@ -2787,6 +3312,13 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "versun/paseo-turnline": {
+      "repositoryId": 1465485792,
+      "headSha": "a0aada37f1be28f2592c6bb04628efc1930fdf0f",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "viateai/viate-plugin-antigravity": {
       "repositoryId": 1468519988,
       "headSha": "5644af44f69abefedb8fb0a6c6dbe264a729db10",
@@ -2803,10 +3335,10 @@
     },
     "vit129/agy-plugin-cc": {
       "repositoryId": 1251346573,
-      "headSha": "ebe88383c6ceb056b526f1cd689e4e1c0642c88c",
+      "headSha": "d9640648a3a3af8dc855f2fa2703f2ce7094d702",
       "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "vit129/agy-plugin-codex": {
       "repositoryId": 1251452705,
@@ -2838,10 +3370,10 @@
     },
     "wassim-azi/agy-powerline": {
       "repositoryId": 1414619170,
-      "headSha": "150291154ebe1dbea42c1a4880c04bb095871f1a",
+      "headSha": "7dd37d9d8f1b3e007510ab6da5568750bd11ce4b",
       "reason": "ERR_MISSING_PLUGIN_JSON",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "wedreamer/astrbot_plugin_antigravity": {
       "repositoryId": 1402922913,
@@ -2852,10 +3384,10 @@
     },
     "whitebr1ck/agy-powertools": {
       "repositoryId": 1460598165,
-      "headSha": "a5ab779ac0fb50e791eeee300b5db9bec5199f0b",
+      "headSha": "56db74c50a0f8183cd4f78ccb48504e20f4d7542",
       "reason": "ERR_UNBUNDLED_NPM_DEPS",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "whitetowerai/ohmygame-plugins": {
       "repositoryId": 1441557799,
@@ -2877,6 +3409,13 @@
       "reason": "ERR_MISSING_PLUGIN_JSON",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "windfile1-del/harnessmate_desktop": {
+      "repositoryId": 1467602543,
+      "headSha": "0409bc8a4ea85d05ef6b0ee85fc2d0b980f06039",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "witwave-ai/witself": {
       "repositoryId": 1281690852,
@@ -2941,6 +3480,13 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "xingyu-shi/meterlark": {
+      "repositoryId": 1430122953,
+      "headSha": "b1c91b9fddf91dba4945c2062a3f6cfc45a046a0",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "xuan52766/agy-gemini-chan": {
       "repositoryId": 1457529049,
       "headSha": "781b3d69f2d98caca634d59c59a92010a8cd3ef7",
@@ -2950,10 +3496,10 @@
     },
     "xzawed/claude-antigravity-plugin": {
       "repositoryId": 1467529952,
-      "headSha": "83c3f7b1ca30270f651eabca3846058249b0bb6d",
+      "headSha": "84e1e9461084dbe38048b7b2c9498c55698f6ee7",
       "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "yafitiara/ai-agent-skills": {
       "repositoryId": 1462294748,
@@ -2968,6 +3514,13 @@
       "reason": "ERR_MISSING_PLUGIN_JSON",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "yandy-r/ystack": {
+      "repositoryId": 1172721421,
+      "headSha": "8705d637e36411fab0aa8de18441871ff38fc6c0",
+      "reason": "ERR_TAR_SYMLINK_FORBIDDEN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "yantra-labs/agy-antigravity-skill": {
       "repositoryId": 1248140690,
@@ -2989,6 +3542,13 @@
       "reason": "ERR_MISSING_PLUGIN_JSON",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "yidhar/stellaris-mcp": {
+      "repositoryId": 1382541579,
+      "headSha": "a8c411860cdfb3290900358eb7f79b9f22b131ea",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "yitao340-rgb/antigravity2.0-chineseplugin": {
       "repositoryId": 1247197875,
@@ -3025,6 +3585,13 @@
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
     },
+    "youur/aaron-marketing-skills": {
+      "repositoryId": 1293264817,
+      "headSha": "c3b679c1b6cabdaf089cc0b40702897bb8a8e669",
+      "reason": "ERR_NOT_ANTIGRAVITY_PLUGIN",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
+    },
     "ytsu-ki/better-view": {
       "repositoryId": 1461562870,
       "headSha": "79b869bbda5c8e3becbcac430011f77b418d8003",
@@ -3038,6 +3605,13 @@
       "reason": "ERR_MISSING_PLUGIN_JSON",
       "checkedAt": "2026-11-24T10:24:57.793Z",
       "retryAfter": "2026-12-01T10:24:57.793Z"
+    },
+    "yuchanns/mikutv": {
+      "repositoryId": 1460780798,
+      "headSha": "5778b39eee76031db556af5afb0f5055c43fee4e",
+      "reason": "ERR_MISSING_PLUGIN_JSON",
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "yunjuanyunshu114-byte/antigravity-zh-plugin": {
       "repositoryId": 1453436150,
@@ -3097,10 +3671,10 @@
     },
     "zhangyizhen123/ppt-study-reader": {
       "repositoryId": 1469839947,
-      "headSha": "fb0f4926f0c4fa4ce92483d58c60cf3bce24089c",
+      "headSha": "15c6065a8b6ca509f7cdbdd543c97f0479132774",
       "reason": "ERR_UNBUNDLED_NPM_DEPS",
-      "checkedAt": "2026-11-24T10:24:57.793Z",
-      "retryAfter": "2026-12-01T10:24:57.793Z"
+      "checkedAt": "2026-11-24T22:45:24.252Z",
+      "retryAfter": "2026-12-01T22:45:24.252Z"
     },
     "zxclushkin/dsh-plugin-antigravity": {
       "repositoryId": 1446727324,
