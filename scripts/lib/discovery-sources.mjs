@@ -156,6 +156,7 @@ export function buildShardedDateWindows(nowMs = Date.now(), windowCount = 4, win
  */
 export function buildChannelARepoQueries(nowMs = Date.now()) {
   const windows = buildShardedDateWindows(nowMs);
+  const recent90dCutoff = new Date(nowMs - 90 * 86_400_000).toISOString().slice(0, 10);
   const queries = [];
 
   // Q1: Core singular + plural plugin topics
@@ -201,13 +202,21 @@ export function buildChannelARepoQueries(nowMs = Date.now()) {
     maxPages: 2,
   });
 
-  // Noise-reduced structural qualifiers (broad topics strictly paired with "plugin.json" in:readme)
+  // Noise-reduced structural qualifiers (broad topics strictly paired with "plugin.json" in:readme,
+  // with a 90-day pushed shard so newly pushed 0-star plugins are never buried behind 5,800+ older repos)
   queries.push({
-    id: 'Q2-readme-plugin-json',
-    query: '"antigravity" "plugin.json" in:readme archived:false',
+    id: `Q2-readme-plugin-json:pushed>=${recent90dCutoff}`,
+    query: `"antigravity" "plugin.json" in:readme archived:false pushed:>=${recent90dCutoff}`,
     sort: 'updated',
     perPage: 100,
     maxPages: 2,
+  });
+  queries.push({
+    id: `Q2-readme-plugin-json:pushed<${recent90dCutoff}`,
+    query: `"antigravity" "plugin.json" in:readme archived:false pushed:<${recent90dCutoff}`,
+    sort: 'updated',
+    perPage: 100,
+    maxPages: 1,
   });
   queries.push({
     id: 'Q2-topic-antigravity-qualified',
@@ -219,6 +228,33 @@ export function buildChannelARepoQueries(nowMs = Date.now()) {
   queries.push({
     id: 'Q2-topic-google-antigravity-qualified',
     query: 'topic:google-antigravity "plugin.json" in:readme archived:false',
+    sort: 'updated',
+    perPage: 100,
+    maxPages: 2,
+  });
+
+  // High-SNR Antigravity component README queries for pure `git push` repositories
+  // without manual GitHub Topics or literal "plugin.json" mentions in README.
+  // Note: GitHub Repo Search treats `in:` globally (trailing `in:readme` overrides `in:name`)
+  // and returns 0 for parenthesized `(...) in:readme` OR groups, so each component archetype
+  // uses flat quoted phrases scoped to `in:readme` with a recent 90-day pushed window.
+  queries.push({
+    id: 'Q2-readme-antigravity-sidecar',
+    query: '"antigravity" "sidecar.json" in:readme archived:false',
+    sort: 'updated',
+    perPage: 100,
+    maxPages: 3,
+  });
+  queries.push({
+    id: `Q2-readme-antigravity-mcp-rules:pushed>=${recent90dCutoff}`,
+    query: `"antigravity" "mcp_config.json" "rules/AGENTS.md" in:readme archived:false pushed:>=${recent90dCutoff}`,
+    sort: 'updated',
+    perPage: 100,
+    maxPages: 2,
+  });
+  queries.push({
+    id: `Q2-readme-antigravity-mcp-plugins-dir:pushed>=${recent90dCutoff}`,
+    query: `"antigravity" "mcp_config.json" ".gemini/config/plugins" in:readme archived:false pushed:>=${recent90dCutoff}`,
     sort: 'updated',
     perPage: 100,
     maxPages: 2,

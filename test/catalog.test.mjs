@@ -2313,3 +2313,49 @@ test('Real catalog compilation preserves all 17 core plugins accurately and clas
     rmSync(tmpRoot, { recursive: true, force: true });
   }
 });
+
+test('Channel A upgraded repo queries shard Q2-readme-plugin-json by 90-day window and cover topicless Antigravity component READMEs', () => {
+  const fixedNow = Date.parse('2026-11-25T05:00:00Z');
+  const queries = buildChannelARepoQueries(fixedNow);
+  const byId = new Map(queries.map((q) => [q.id, q]));
+
+  // All query IDs must be unique and obey GitHub Repo Search invariants
+  assert.equal(byId.size, queries.length, 'Duplicate Channel A query IDs detected');
+  for (const q of queries) {
+    assert.equal(q.sort, 'updated');
+    assert.equal(q.perPage, 100);
+    assert.ok(q.maxPages >= 1 && q.maxPages <= 5, `Unexpected maxPages for ${q.id}: ${q.maxPages}`);
+    assert.ok(q.query.includes('archived:false'), `${q.id} must exclude archived repos`);
+    assert.ok(!/^topic:antigravity\s+archived:false/.test(q.query), `${q.id} must never run bare topic:antigravity scan`);
+    // Guard against GitHub Repo Search syntax pitfalls: mixing in:name + in:readme, or parenthesized OR + in:readme
+    assert.ok(!(q.query.includes('in:name') && q.query.includes('in:readme')), `${q.id} mixes in:name and in:readme`);
+    assert.ok(!/\([^)]*\bOR\b[^)]*\)\s+in:readme/i.test(q.query), `${q.id} uses broken parenthesized OR + in:readme syntax`);
+  }
+
+  // Q2-readme-plugin-json must be split into recent 90-day pushed>= and historical pushed< shards
+  const recentPluginJson = byId.get('Q2-readme-plugin-json:pushed>=2026-08-27');
+  const olderPluginJson = byId.get('Q2-readme-plugin-json:pushed<2026-08-27');
+  assert.ok(recentPluginJson, 'Missing recent 90-day Q2-readme-plugin-json shard');
+  assert.ok(olderPluginJson, 'Missing historical Q2-readme-plugin-json shard');
+  assert.equal(recentPluginJson.query, '"antigravity" "plugin.json" in:readme archived:false pushed:>=2026-08-27');
+  assert.equal(olderPluginJson.query, '"antigravity" "plugin.json" in:readme archived:false pushed:<2026-08-27');
+  assert.ok(!byId.has('Q2-readme-plugin-json'), 'Legacy unsharded Q2-readme-plugin-json should be replaced by pushed shards');
+
+  // High-SNR component README queries for pure `git push` topicless plugins
+  const sidecarQuery = byId.get('Q2-readme-antigravity-sidecar');
+  const mcpRulesQuery = byId.get('Q2-readme-antigravity-mcp-rules:pushed>=2026-08-27');
+  const mcpPluginsDirQuery = byId.get('Q2-readme-antigravity-mcp-plugins-dir:pushed>=2026-08-27');
+  assert.ok(sidecarQuery, 'Missing Q2-readme-antigravity-sidecar query');
+  assert.ok(mcpRulesQuery, 'Missing Q2-readme-antigravity-mcp-rules query');
+  assert.ok(mcpPluginsDirQuery, 'Missing Q2-readme-antigravity-mcp-plugins-dir query');
+
+  assert.equal(sidecarQuery.query, '"antigravity" "sidecar.json" in:readme archived:false');
+  assert.equal(
+    mcpRulesQuery.query,
+    '"antigravity" "mcp_config.json" "rules/AGENTS.md" in:readme archived:false pushed:>=2026-08-27',
+  );
+  assert.equal(
+    mcpPluginsDirQuery.query,
+    '"antigravity" "mcp_config.json" ".gemini/config/plugins" in:readme archived:false pushed:>=2026-08-27',
+  );
+});
