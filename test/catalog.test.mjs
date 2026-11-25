@@ -68,7 +68,8 @@ function makeSampleTarball(extraFiles = {}, manifestOverrides = {}) {
     'plugin.json': JSON.stringify(manifest, null, 2),
     'assets/logo.svg': CLEAN_SVG,
     'README.md': '# Prism Helper\nZero-token plugin.',
-    'skills/prism-helper/SKILL.md': '---\nname: prism-helper\ndescription: Helper skill\n---\n# Prism Helper\n',
+    'skills/prism-helper/SKILL.md':
+      '---\nname: prism-helper\ndescription: Helper skill for Antigravity studio workflows\n---\n# Prism Helper\n\nProvides interactive diagnostics, workflow shortcuts, and status checks inside Google Antigravity.\n',
     ...extraFiles,
   });
 }
@@ -912,7 +913,8 @@ test('Dot-directory .antigravity-plugin/plugin.json, root sidecars.json, lenient
 
   const weakNoAffinityTar = createTarGzBuffer({
     'plugin.json': JSON.stringify({ name: 'generic-rules', description: 'Generic style rules' }),
-    'rules/lint.md': '# Generic rules',
+    'rules/lint.md':
+      '# Generic Style Rules\n\nAlways format TypeScript and JavaScript source modules consistently with two-space indentation, explicit return types, and clean error handling.\n',
   });
   assert.throws(
     () => validatePluginTarball(weakNoAffinityTar, { lenientManifest: true, requireAntigravityComponent: true }),
@@ -1012,7 +1014,8 @@ test('Channel A/B discovery queries, aggregators.json, URL security filter, and 
       displayName: 'Quota Pill',
       description: 'Quota pill widget.',
     }),
-    '.agents/plugins/quota-pill/skills/quota-pill/SKILL.md': '---\nname: quota-pill\n---\n# Quota\n',
+    '.agents/plugins/quota-pill/skills/quota-pill/SKILL.md':
+      '---\nname: quota-pill\ndescription: Inspect live Antigravity model quota and window usage\n---\n# Quota Pill\n\nDisplays remaining session and weekly model quota metrics cleanly inside Antigravity.\n',
     'node_modules/fake/plugin.json': JSON.stringify({ name: 'fake', description: 'Must ignore' }),
     'tests/fixture/plugin.json': JSON.stringify({ name: 'fixture', description: 'Must ignore' }),
   });
@@ -1432,7 +1435,8 @@ test('End-to-end 127.0.0.1 loopback HTTP Mock GitHub Server crawl + buildCatalog
         version: '1.2.0',
         description: 'Curated skills bundle.',
       }),
-      'antigravity-plugins-main/plugins/mattpocock-skills/skills/tdd/SKILL.md': '---\nname: tdd\n---\n# TDD\n',
+      'antigravity-plugins-main/plugins/mattpocock-skills/skills/tdd/SKILL.md':
+        '---\nname: tdd\ndescription: Red-green-refactor test-driven development workflow\n---\n# TDD Workflow\n\nGuides test-first feature design, vertical slices, and minimal clean refactoring loops.\n',
       'antigravity-plugins-main/plugins/mcp-manager/plugin.json': JSON.stringify({
         name: 'mcp-manager',
         displayName: 'MCP Manager',
@@ -1470,7 +1474,8 @@ test('End-to-end 127.0.0.1 loopback HTTP Mock GitHub Server crawl + buildCatalog
         description: 'Desktop theme plugin.',
         main: 'index.js',
       }),
-      'realuu-main/.agents/plugins/codex-theme/rules/theme.md': '# Codex theme rule for Antigravity',
+      'realuu-main/.agents/plugins/codex-theme/rules/theme.md':
+        '# Desktop Theme Rules for Antigravity\n\nApplies crisp contrast tokens, refined panel borders, and balanced dark/light surface elevation for Google Antigravity.\n',
       'realuu-main/.agents/plugins/notion-sidebar/plugin.json': JSON.stringify({
         name: 'notion-sidebar',
         displayName: 'Notion Sidebar',
@@ -1478,7 +1483,8 @@ test('End-to-end 127.0.0.1 loopback HTTP Mock GitHub Server crawl + buildCatalog
         description: 'Notion sidebar panel.',
         keywords: ['notion', 'sidebar'],
       }),
-      'realuu-main/.agents/plugins/notion-sidebar/skills/notion-sidebar/SKILL.md': '---\nname: notion-sidebar\n---\n# Notion\n',
+      'realuu-main/.agents/plugins/notion-sidebar/skills/notion-sidebar/SKILL.md':
+        '---\nname: notion-sidebar\ndescription: Browse and search Notion docs inside Antigravity\n---\n# Notion Sidebar\n\nConnects workspace pages and quick reference notes directly inside the Google Antigravity panel.\n',
     }),
     'linear/antigravity-plugin': createTarGzBuffer({
       'linear-main/.antigravity-plugin/plugin.json': JSON.stringify({

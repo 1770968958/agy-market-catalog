@@ -1,16 +1,22 @@
 #!/usr/bin/env node
 // Track-1 Zero-PR Release Sync & Immutable Numeric ID RepoJacking Guard (`scripts/sync-releases.mjs`).
-// Queries registered repositories in batches of 50-80 via GitHub GraphQL + `/repositories/:id`.
+// Uses GraphQL `batchTrack1DualLookup` (`nodes(ids:)` + aliased slug lookup + releases/tags)
+// with transparent REST fallback, always-on `computeCapabilityDiff` privilege review,
+// 3-strike >=72h `DEPRECATED_GONE` tombstones, `ARCHIVED` tracking, and historical README pruning.
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { buildSourceArchiveUrl, compareSemver, parseSemver } from './lib/constants.mjs';
+import { batchTrack1DualLookup } from './lib/graphql-batch.mjs';
+import { computeCapabilityDiff } from './lib/quality-ranker.mjs';
 import { probeNpmMirrorPackage } from './probe-npm.mjs';
 import { validatePluginTarball } from './validate-plugin-tarball.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(__dirname, '..');
+const DEPRECATED_GONE_MIN_STRIKES = 3;
+const DEPRECATED_GONE_MIN_ELAPSED_MS = 72 * 3_600_000; // 72 hours
 
 export function hasCapabilityExpansion(prevCapabilities, nextCapabilities) {
   if (!prevCapabilities) return false;
@@ -26,10 +32,31 @@ export function hasCapabilityExpansion(prevCapabilities, nextCapabilities) {
 }
 
 /**
+ * Strips bulky README fields from non-`latest` historical versions in a lock record
+ * while keeping README fields intact on `lockRecord.latest`.
+ */
+export function stripHistoricalLockReadmes(lockRecord) {
+  if (!lockRecord || typeof lockRecord !== 'object' || !lockRecord.versions) return lockRecord;
+  const latest = lockRecord.latest;
+  for (const [ver, vd] of Object.entries(lockRecord.versions)) {
+    if (!vd || typeof vd !== 'object' || ver === latest) continue;
+    delete vd.readmeMarkdown;
+    delete vd.readmeZhMarkdown;
+    delete vd.readmeEnMarkdown;
+  }
+  return lockRecord;
+}
+
+/**
  * Evaluates a single registered Track-1 repository snapshot during scheduled sync:
  *   - Case A: `repoAtOldSlug.id !== ledgerRecord.repositoryId` -> REPOJACKING_BLOCKED
+ *   - Missing (`repoByNumericId == null`): 3-strike >=72h -> DEPRECATED_GONE (keeps tombstone!)
+ *   - Archived: transitions status to `ARCHIVED`
  *   - Case B: `repoByNumericId.id === ledgerRecord.repositoryId` & same `ownerId` -> seamless rename support
- *   - Case C: `repoByNumericId.owner.id !== ledgerRecord.ownerId` -> OWNERSHIP_TRANSFER_REVIEW if capabilities expand
+ *   - Always-on `computeCapabilityDiff`:
+ *       * ownerChanged + expansion -> OWNERSHIP_TRANSFER_REVIEW (hold release)
+ *       * CRITICAL -> PRIVILEGE_REVIEW (hold release)
+ *       * MODERATE -> ALLOW + attach `lastEscalation` for client modal
  *   - Verifies existing locked tags for `TAG_MUTATION_BLOCKED` before appending new SemVer releases.
  */
 export function evaluateRepoSyncUpdate({
@@ -55,9 +82,43 @@ export function evaluateRepoSyncUpdate({
     }
   }
 
-  if (!repoByNumericId || repoByNumericId.archived || repoByNumericId.disabled) {
+  // Confirmed gone / 404 by numeric ID -> 3-strike >=72h DEPRECATED_GONE (preserves permanent tombstone!)
+  if (!repoByNumericId) {
+    const missCount = Number(updatedLedger.missCount || 0) + 1;
+    const firstMissedAt = updatedLedger.firstMissedAt || nowIso;
+    const elapsedMs = Math.max(0, Date.parse(nowIso) - Date.parse(firstMissedAt));
+    updatedLedger.missCount = missCount;
+    updatedLedger.firstMissedAt = firstMissedAt;
+    updatedLedger.lastCheckedAt = nowIso;
+
+    if (missCount >= DEPRECATED_GONE_MIN_STRIKES && elapsedMs >= DEPRECATED_GONE_MIN_ELAPSED_MS) {
+      updatedLedger.status = 'DEPRECATED_GONE';
+      events.push(`DEPRECATED_GONE:${updatedLedger.canonicalName}`);
+    } else {
+      events.push(`MISSING_STRIKE_${missCount}:${updatedLedger.canonicalName}`);
+    }
+    return { ledgerRecord: updatedLedger, lockRecord: updatedLock, events };
+  }
+
+  // Repo is reachable -> clear any prior 404 miss streak & persist nodeId if provided
+  if (updatedLedger.missCount) delete updatedLedger.missCount;
+  if (updatedLedger.firstMissedAt) delete updatedLedger.firstMissedAt;
+  if (repoByNumericId.node_id && !updatedLedger.nodeId) {
+    updatedLedger.nodeId = repoByNumericId.node_id;
+  }
+
+  if (repoByNumericId.archived) {
+    updatedLedger.status = 'ARCHIVED';
+    events.push(`REPO_ARCHIVED:${updatedLedger.canonicalName}`);
+    return { ledgerRecord: updatedLedger, lockRecord: updatedLock, events };
+  }
+  if (repoByNumericId.disabled) {
     events.push(`SKIPPED_INACTIVE:${updatedLedger.canonicalName}`);
     return { ledgerRecord: updatedLedger, lockRecord: updatedLock, events };
+  }
+  if (updatedLedger.status === 'ARCHIVED') {
+    updatedLedger.status = 'active';
+    events.push(`REPO_UNARCHIVED:${updatedLedger.canonicalName}`);
   }
 
   // Case B: Repo renamed under same ownerId
@@ -89,12 +150,6 @@ export function evaluateRepoSyncUpdate({
       return { ledgerRecord: updatedLedger, lockRecord: updatedLock, events };
     }
   }
-
-  // Find latestlocked capabilities for ownership-transfer comparison
-  const prevLatestCap =
-    updatedLock.latest && updatedLock.versions?.[updatedLock.latest]
-      ? updatedLock.versions[updatedLock.latest].capabilities
-      : null;
 
   // Process any new SemVer releases in chronological/semver order
   const candidateReleases = releases
@@ -136,16 +191,72 @@ export function evaluateRepoSyncUpdate({
       continue;
     }
 
+    // Always-on capability privilege-escalation diff against current latest locked version
+    const prevLatestVer = updatedLock.latest || '';
+    const prevLatestCap =
+      prevLatestVer && updatedLock.versions?.[prevLatestVer]
+        ? updatedLock.versions[prevLatestVer].capabilities
+        : null;
+
+    const capDiff = prevLatestCap
+      ? computeCapabilityDiff(prevLatestCap, inspected.capabilities, {
+          ownerChanged: Boolean(ownerChanged),
+          prevVersion: prevLatestVer,
+          nextVersion: sem.version,
+          scopedFiles: inspected.scopedFiles || null,
+        })
+      : { severity: 'NONE', action: 'ALLOW', hasExpansion: false, reasons: [], escalation: null };
+
     // Case C: Ownership transfer + capability expansion -> hold in OWNERSHIP_TRANSFER_REVIEW
-    if (ownerChanged && hasCapabilityExpansion(prevLatestCap, inspected.capabilities)) {
+    if (ownerChanged && (capDiff.hasExpansion || hasCapabilityExpansion(prevLatestCap, inspected.capabilities))) {
       updatedLedger.status = 'OWNERSHIP_TRANSFER_REVIEW';
+      updatedLedger.lastEscalation = {
+        fromVersion: prevLatestVer || null,
+        toVersion: sem.version,
+        severity: capDiff.severity,
+        reasons: capDiff.reasons,
+        escalation: capDiff.escalation,
+        detectedAt: nowIso,
+      };
       events.push(`OWNERSHIP_TRANSFER_REVIEW:${updatedLedger.canonicalName}@${sem.version}`);
+      return { ledgerRecord: updatedLedger, lockRecord: updatedLock, events };
+    }
+
+    // Always-on CRITICAL privilege escalation (even without ownership transfer!) -> hold in PRIVILEGE_REVIEW
+    if (capDiff.action === 'PRIVILEGE_REVIEW') {
+      updatedLedger.status = 'PRIVILEGE_REVIEW';
+      updatedLedger.lastEscalation = {
+        fromVersion: prevLatestVer || null,
+        toVersion: sem.version,
+        severity: capDiff.severity,
+        reasons: capDiff.reasons,
+        escalation: capDiff.escalation,
+        detectedAt: nowIso,
+      };
+      events.push(`PRIVILEGE_REVIEW:${updatedLedger.canonicalName}@${sem.version}:${capDiff.reasons.join('|')}`);
       return { ledgerRecord: updatedLedger, lockRecord: updatedLock, events };
     }
 
     if (ownerChanged) {
       updatedLedger.ownerId = repoByNumericId.owner.id;
       delete updatedLedger.pendingOwnerId;
+    }
+
+    const moderateEscalation =
+      capDiff.action === 'ESCALATION_MODAL'
+        ? {
+            fromVersion: prevLatestVer || null,
+            toVersion: sem.version,
+            severity: capDiff.severity,
+            reasons: capDiff.reasons,
+            escalation: capDiff.escalation,
+            detectedAt: nowIso,
+          }
+        : null;
+
+    if (moderateEscalation) {
+      updatedLedger.lastEscalation = moderateEscalation;
+      events.push(`ESCALATION_MODERATE:${updatedLedger.canonicalName}@${sem.version}`);
     }
 
     updatedLock.versions[sem.version] = {
@@ -164,6 +275,7 @@ export function evaluateRepoSyncUpdate({
       readmeEnMarkdown: inspected.readmeEnMarkdown || '',
       iconExt: inspected.iconArtifact?.ext || null,
       npmMirrorPkg: rel.npmMirrorPkg || null,
+      ...(moderateEscalation ? { lastEscalation: moderateEscalation } : {}),
     };
 
     if (!updatedLock.latest || compareSemver(sem.version, updatedLock.latest) > 0) {
@@ -171,6 +283,8 @@ export function evaluateRepoSyncUpdate({
     }
     events.push(`SYNCED_VERSION:${updatedLedger.canonicalName}@${sem.version}`);
   }
+
+  stripHistoricalLockReadmes(updatedLock);
 
   return { ledgerRecord: updatedLedger, lockRecord: updatedLock, events, probeNpmMirrorPackage };
 }
@@ -183,7 +297,13 @@ export function chunkArray(items, size = 60) {
   return batches;
 }
 
-export async function syncAllRegisteredReleases({ repoRoot = REPO_ROOT } = {}) {
+export async function syncAllRegisteredReleases({
+  repoRoot = REPO_ROOT,
+  token = process.env.GITHUB_TOKEN || '',
+  fetchImpl = fetch,
+  nowIso = new Date().toISOString(),
+  useGraphql = true,
+} = {}) {
   const ledgerPath = join(repoRoot, 'state', 'ledger.json');
   const lockPath = join(repoRoot, 'state', 'versions-lock.json');
   const iconsDir = join(repoRoot, 'dist', 'icons');
@@ -194,12 +314,13 @@ export async function syncAllRegisteredReleases({ repoRoot = REPO_ROOT } = {}) {
     ? JSON.parse(readFileSync(lockPath, 'utf8'))
     : { schemaVersion: 1, locks: {} };
 
-  const activeRecords = Object.values(ledger.entries).filter((e) => e.status === 'active');
+  const activeRecords = Object.values(ledger.entries).filter(
+    (e) => e.status === 'active' || e.status === 'ARCHIVED',
+  );
   if (activeRecords.length === 0) {
     return { synced: 0, events: [] };
   }
 
-  const token = process.env.GITHUB_TOKEN || '';
   if (process.argv.includes('--offline')) {
     console.log('[sync-releases] Offline mode enabled; skipping remote polling.');
     return { synced: 0, events: ['OFFLINE_MODE'] };
@@ -207,7 +328,7 @@ export async function syncAllRegisteredReleases({ repoRoot = REPO_ROOT } = {}) {
 
   const headers = {
     Accept: 'application/vnd.github+json',
-    'User-Agent': 'agy-market-catalog-sync/1.0',
+    'User-Agent': 'agy-market-catalog-sync/1.6',
   };
   if (token) {
     headers.Authorization = `Bearer ${token}`;
@@ -216,13 +337,135 @@ export async function syncAllRegisteredReleases({ repoRoot = REPO_ROOT } = {}) {
   const stateIconsDir = join(repoRoot, 'state', 'icons');
   mkdirSync(stateIconsDir, { recursive: true });
 
+  // Attempt batched GraphQL dual lookup first (`nodes(ids:)` + aliased slug lookup + releases + tags)
+  let gqlResults = null;
+  if (useGraphql && token) {
+    const gqlOut = await batchTrack1DualLookup(activeRecords, {
+      batchSize: 25,
+      token,
+      fetchImpl,
+      userAgent: 'agy-market-catalog-sync/1.6',
+    });
+    if (gqlOut.ok) {
+      gqlResults = gqlOut.results;
+    }
+  }
+
+  async function downloadAndPrepareCandidate({ rec, repoByNumericId, tagName, commitSha, assets, publishedAt }) {
+    const sem = parseSemver(tagName);
+    if (!sem) return null;
+    const asset = (assets || []).find((a) => /\.(?:tar\.gz|tgz)$/i.test(a.name));
+    const requireSelfContained = !asset;
+    const downloadUrl = asset
+      ? asset.browser_download_url || asset.downloadUrl
+      : buildSourceArchiveUrl(repoByNumericId.full_name, commitSha, tagName);
+
+    const alreadyLocked = versionsLock.locks[rec.entrySlug]?.versions?.[sem.version];
+    let npmMirrorPkg = alreadyLocked?.npmMirrorPkg || null;
+    let tarballBuf = null;
+
+    if (!alreadyLocked) {
+      const dl = await fetchImpl(downloadUrl, {
+        headers: { 'User-Agent': 'agy-market-catalog-sync/1.6' },
+        signal: AbortSignal.timeout(45_000),
+      });
+      if (dl.ok) {
+        tarballBuf = Buffer.from(await dl.arrayBuffer());
+        try {
+          const parsed = validatePluginTarball(tarballBuf, {
+            pluginRoot: rec.pluginRoot || '.',
+            allowScopedName: false,
+            fallbackVersion: tagName,
+            requireSelfContained,
+          });
+          if (parsed.iconArtifact) {
+            const iconFile = `${rec.entrySlug}${parsed.iconArtifact.ext}`;
+            writeFileSync(join(stateIconsDir, iconFile), parsed.iconArtifact.sanitizedBuffer);
+            writeFileSync(join(iconsDir, iconFile), parsed.iconArtifact.sanitizedBuffer);
+          }
+          if (parsed.packageJson) {
+            npmMirrorPkg = await probeNpmMirrorPackage(parsed.packageJson, repoByNumericId.full_name);
+          }
+        } catch {
+          /* handled inside evaluateRepoSyncUpdate */
+        }
+      }
+    }
+
+    return {
+      rel: {
+        tagName,
+        commitSha,
+        tarballUrl: downloadUrl,
+        publishedAt,
+        npmMirrorPkg,
+        requireSelfContained,
+      },
+      tarballBuf,
+    };
+  }
+
   const allEvents = [];
-  // Batch poll in groups of 60 to stay well within GitHub API limits
-  for (const batch of chunkArray(activeRecords, 60)) {
-    for (const rec of batch) {
+  for (const rec of activeRecords) {
+    let repoByNumericId = null;
+    let repoAtOldSlug = null;
+    const releases = [];
+    const tarballBuffersByTag = new Map();
+
+    const gqlEntry = gqlResults?.get(rec.entrySlug) || null;
+    let usedGraphqlForRec = false;
+
+    if (gqlEntry && gqlEntry.status === 'ok' && !gqlEntry.needsRestFallbackById) {
+      usedGraphqlForRec = true;
+      repoByNumericId = gqlEntry.repoByNumericId;
+      repoAtOldSlug = gqlEntry.repoAtOldSlug;
+
+      if (gqlEntry.nodeId && !rec.nodeId) {
+        rec.nodeId = gqlEntry.nodeId;
+      }
+
+      if (repoByNumericId && !repoByNumericId.archived && !repoByNumericId.disabled) {
+        const seenTagNames = new Set();
+        const candidateTags = [];
+
+        for (const r of gqlEntry.releases || []) {
+          const sem = parseSemver(r.tagName);
+          if (!sem || sem.prerelease.length > 0 || r.isDraft || r.isPrerelease || !r.commitSha) continue;
+          seenTagNames.add(r.tagName);
+          candidateTags.push({
+            tagName: r.tagName,
+            commitSha: r.commitSha,
+            assets: r.assets || [],
+            publishedAt: r.publishedAt || null,
+          });
+        }
+        for (const t of gqlEntry.tags || []) {
+          if (!t?.name || seenTagNames.has(t.name) || !t.commitSha) continue;
+          const sem = parseSemver(t.name);
+          if (!sem || sem.prerelease.length > 0) continue;
+          seenTagNames.add(t.name);
+          candidateTags.push({
+            tagName: t.name,
+            commitSha: t.commitSha,
+            assets: [],
+            publishedAt: t.committedDate || null,
+          });
+        }
+
+        for (const cand of candidateTags) {
+          const prepared = await downloadAndPrepareCandidate({ rec, repoByNumericId, ...cand });
+          if (!prepared) continue;
+          if (prepared.tarballBuf) tarballBuffersByTag.set(cand.tagName, prepared.tarballBuf);
+          releases.push(prepared.rel);
+        }
+      }
+    }
+
+    // Transparent REST fallback (unauthenticated, GraphQL error, or first-run `needsRestFallbackById`)
+    if (!usedGraphqlForRec) {
       let byIdRes;
       try {
-        byIdRes = await fetch(`https://api.github.com/repositories/${rec.repositoryId}`, {
+        byIdRes = await fetchImpl(`https://api.github.com/repositories/${rec.repositoryId}`, {
           headers,
           signal: AbortSignal.timeout(15_000),
         });
@@ -234,8 +477,12 @@ export async function syncAllRegisteredReleases({ repoRoot = REPO_ROOT } = {}) {
         allEvents.push(`SKIPPED_API_${byIdRes.status}:${rec.canonicalName}`);
         continue;
       }
-      const repoByNumericId = byIdRes.ok ? await byIdRes.json() : null;
-      const bySlugRes = await fetch(`https://api.github.com/repos/${rec.repoFullName}`, {
+      repoByNumericId = byIdRes.ok ? await byIdRes.json() : null;
+      if (repoByNumericId?.node_id && !rec.nodeId) {
+        rec.nodeId = repoByNumericId.node_id;
+      }
+
+      const bySlugRes = await fetchImpl(`https://api.github.com/repos/${rec.repoFullName}`, {
         headers,
         signal: AbortSignal.timeout(15_000),
       });
@@ -243,12 +490,10 @@ export async function syncAllRegisteredReleases({ repoRoot = REPO_ROOT } = {}) {
         allEvents.push(`SKIPPED_API_${bySlugRes.status}:${rec.canonicalName}`);
         continue;
       }
-      const repoAtOldSlug = bySlugRes.ok ? await bySlugRes.json() : null;
+      repoAtOldSlug = bySlugRes.ok ? await bySlugRes.json() : null;
 
-      let releases = [];
-      const tarballBuffersByTag = new Map();
       if (repoByNumericId && !repoByNumericId.archived && !repoByNumericId.disabled) {
-        const relRes = await fetch(`https://api.github.com/repositories/${rec.repositoryId}/releases?per_page=10`, {
+        const relRes = await fetchImpl(`https://api.github.com/repositories/${rec.repositoryId}/releases?per_page=10`, {
           headers,
           signal: AbortSignal.timeout(15_000),
         });
@@ -261,14 +506,13 @@ export async function syncAllRegisteredReleases({ repoRoot = REPO_ROOT } = {}) {
           if (!sem || sem.prerelease.length > 0 || r.draft || r.prerelease) continue;
           seenTagNames.add(r.tag_name);
           candidateTags.push({
-            tag_name: r.tag_name,
+            tagName: r.tag_name,
             assets: r.assets || [],
-            published_at: r.published_at || null,
+            publishedAt: r.published_at || null,
           });
         }
 
-        // Also discover SemVer Git tags (e.g. `v1.0.1`) for self-contained zero-build-step bundles
-        const tagsRes = await fetch(`https://api.github.com/repositories/${rec.repositoryId}/tags?per_page=10`, {
+        const tagsRes = await fetchImpl(`https://api.github.com/repositories/${rec.repositoryId}/tags?per_page=10`, {
           headers,
           signal: AbortSignal.timeout(15_000),
         });
@@ -279,82 +523,53 @@ export async function syncAllRegisteredReleases({ repoRoot = REPO_ROOT } = {}) {
           if (!sem || sem.prerelease.length > 0) continue;
           seenTagNames.add(t.name);
           candidateTags.push({
-            tag_name: t.name,
+            tagName: t.name,
             assets: [],
-            published_at: null,
+            publishedAt: null,
           });
         }
 
         for (const r of candidateTags) {
-          const sem = parseSemver(r.tag_name);
-          if (!sem) continue;
-          const asset = (r.assets || []).find((a) => /\.(?:tar\.gz|tgz)$/i.test(a.name));
-          const requireSelfContained = !asset;
-          const refRes = await fetch(
-            `https://api.github.com/repositories/${rec.repositoryId}/commits/${encodeURIComponent(r.tag_name)}`,
+          const refRes = await fetchImpl(
+            `https://api.github.com/repositories/${rec.repositoryId}/commits/${encodeURIComponent(r.tagName)}`,
             { headers, signal: AbortSignal.timeout(15_000) },
           );
           if (!refRes.ok) continue;
           const refJson = await refRes.json();
-          const downloadUrl = asset
-            ? asset.browser_download_url
-            : buildSourceArchiveUrl(repoByNumericId.full_name, refJson.sha, r.tag_name);
           const publishedAt =
-            r.published_at || refJson?.commit?.committer?.date || refJson?.commit?.author?.date || null;
-
-          const alreadyLocked = versionsLock.locks[rec.entrySlug]?.versions?.[sem.version];
-          let npmMirrorPkg = alreadyLocked?.npmMirrorPkg || null;
-          if (!alreadyLocked) {
-            const dl = await fetch(downloadUrl, {
-              headers: { 'User-Agent': 'agy-market-catalog-sync/1.0' },
-              signal: AbortSignal.timeout(45_000),
-            });
-            if (dl.ok) {
-              const buf = Buffer.from(await dl.arrayBuffer());
-              tarballBuffersByTag.set(r.tag_name, buf);
-              try {
-                const parsed = validatePluginTarball(buf, {
-                  pluginRoot: rec.pluginRoot || '.',
-                  allowScopedName: false,
-                  fallbackVersion: r.tag_name,
-                  requireSelfContained,
-                });
-                if (parsed.iconArtifact) {
-                  const iconFile = `${rec.entrySlug}${parsed.iconArtifact.ext}`;
-                  writeFileSync(join(stateIconsDir, iconFile), parsed.iconArtifact.sanitizedBuffer);
-                  writeFileSync(join(iconsDir, iconFile), parsed.iconArtifact.sanitizedBuffer);
-                }
-                if (parsed.packageJson) {
-                  npmMirrorPkg = await probeNpmMirrorPackage(parsed.packageJson, repoByNumericId.full_name);
-                }
-              } catch {
-                /* handled inside evaluateRepoSyncUpdate */
-              }
-            }
-          }
-          releases.push({
-            tagName: r.tag_name,
+            r.publishedAt || refJson?.commit?.committer?.date || refJson?.commit?.author?.date || null;
+          const prepared = await downloadAndPrepareCandidate({
+            rec,
+            repoByNumericId,
+            tagName: r.tagName,
             commitSha: refJson.sha,
-            tarballUrl: downloadUrl,
+            assets: r.assets,
             publishedAt,
-            npmMirrorPkg,
-            requireSelfContained,
           });
+          if (!prepared) continue;
+          if (prepared.tarballBuf) tarballBuffersByTag.set(r.tagName, prepared.tarballBuf);
+          releases.push(prepared.rel);
         }
       }
-
-      const out = evaluateRepoSyncUpdate({
-        ledgerRecord: rec,
-        lockRecord: versionsLock.locks[rec.entrySlug],
-        repoAtOldSlug,
-        repoByNumericId,
-        releases,
-        tarballBuffersByTag,
-      });
-      ledger.entries[rec.canonicalName] = out.ledgerRecord;
-      versionsLock.locks[rec.entrySlug] = out.lockRecord;
-      allEvents.push(...out.events);
     }
+
+    const out = evaluateRepoSyncUpdate({
+      ledgerRecord: rec,
+      lockRecord: versionsLock.locks[rec.entrySlug],
+      repoAtOldSlug,
+      repoByNumericId,
+      releases,
+      tarballBuffersByTag,
+      nowIso,
+    });
+    ledger.entries[rec.canonicalName] = out.ledgerRecord;
+    versionsLock.locks[rec.entrySlug] = out.lockRecord;
+    allEvents.push(...out.events);
+  }
+
+  // Prune historical READMEs across all lock entries before persisting
+  for (const lockRec of Object.values(versionsLock.locks || {})) {
+    stripHistoricalLockReadmes(lockRec);
   }
 
   writeFileSync(ledgerPath, `${JSON.stringify(ledger, null, 2)}\n`, 'utf8');

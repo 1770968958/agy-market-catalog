@@ -1,5 +1,6 @@
 // Streaming Tarball & Antigravity 10-Field `plugin.json` + `agy-market.json` Validator (`scripts/validate-plugin-tarball.mjs`).
 
+import { scoreAntigravityAuthenticity } from './lib/authenticity-scorer.mjs';
 import {
   AGY_MARKET_JSON_ALLOWED_KEYS,
   ALLOWED_CATEGORIES,
@@ -10,6 +11,7 @@ import {
   PLUGIN_JSON_ALLOWED_KEYS,
   SCOPED_NAME_RE,
 } from './lib/constants.mjs';
+import { computePluginFingerprint } from './lib/dedup-engine.mjs';
 import { inspectTarGzBuffer } from './lib/tar-stream.mjs';
 import { normalizeIconBuffer } from './sanitize-icon.mjs';
 import { scanPluginCapabilities } from './scan-capabilities.mjs';
@@ -654,6 +656,162 @@ export function verifySelfContainedPrebuiltFiles(scopedFiles, packageJson = null
   }
 }
 
+function doesLinkTargetTraversePluginRoot(linkPath, rawTarget, normRoot, strippedTopDir = '', typeFlag = '2') {
+  const target = String(rawTarget || '').trim().replace(/\\/g, '/');
+  if (!target || normRoot === '.') return false;
+
+  const entersPluginRoot = (relPath) => {
+    const clean = relPath.replace(/^\/+|\/+$/g, '');
+    return clean === normRoot || clean.startsWith(`${normRoot}/`);
+  };
+
+  // Evaluate both the raw target and a version stripped of the archive's
+  // single top-level wrapper folder (e.g. GitHub `repo-sha/...` hardlinks).
+  const candidates = [target];
+  if (strippedTopDir) {
+    const cleanTarget = target.replace(/^(\.\/)+/, '').replace(/^\/+/, '');
+    if (cleanTarget.startsWith(`${strippedTopDir}/`)) {
+      candidates.push(cleanTarget.slice(strippedTopDir.length + 1));
+    }
+  }
+
+  for (const cand of candidates) {
+    const isAbs = cand.startsWith('/') || /^[A-Za-z]:/.test(cand);
+    const strippedAbs = cand.replace(/^[A-Za-z]:/, '').replace(/^\/+/, '');
+    if (entersPluginRoot(strippedAbs)) return true;
+
+    // POSIX tar hardlinks (typeFlag === '1') resolve relative to the archive root,
+    // NOT relative to dirname(linkPath). Symlinks (typeFlag === '2') resolve from dirname(linkPath).
+    const startSegs =
+      isAbs || typeFlag === '1'
+        ? []
+        : linkPath.includes('/')
+          ? linkPath.slice(0, linkPath.lastIndexOf('/')).split('/').filter(Boolean)
+          : [];
+    const segs = [...startSegs];
+    let escapedAboveRoot = false;
+    for (const part of cand.split('/')) {
+      if (!part || part === '.') continue;
+      if (part === '..') {
+        if (segs.length === 0) {
+          escapedAboveRoot = true;
+        } else {
+          segs.pop();
+        }
+      } else {
+        segs.push(part);
+      }
+      if (!escapedAboveRoot && segs.length > 0 && entersPluginRoot(segs.join('/'))) {
+        return true;
+      }
+    }
+    if (!escapedAboveRoot && segs.length > 0 && entersPluginRoot(segs.join('/'))) {
+      return true;
+    }
+  }
+  return false;
+}
+
+/**
+ * Enforces scoped symlink safety against `tarInfo.symlinkPaths` (1:1 parity with
+ * client `agy-market/src/installer/tar-extract.mjs` `assertNoScopedSymlinks`):
+ *   - Hard-throws `ERR_TAR_SYMLINK_FORBIDDEN` if `pluginRoot === '.'` and ANY link exists.
+ *   - Hard-throws `ERR_TAR_SYMLINK_FORBIDDEN` if ANY link sits inside `pluginRoot`,
+ *     is an ancestor of `pluginRoot`, or resolves/traverses through `pluginRoot`
+ *     (including archive-root-relative hardlinks and `strippedRoot`-prefixed targets).
+ *   - Returns `{ hasExternalSymlinks: true }` when links exist strictly outside `pluginRoot`.
+ */
+export function enforceScopedSymlinkSafety(tarInfo, pluginRoot = '.') {
+  const symlinks = Array.isArray(tarInfo?.symlinkPaths) ? tarInfo.symlinkPaths : [];
+  if (symlinks.length === 0) {
+    return { hasExternalSymlinks: false, externalSymlinkCount: 0 };
+  }
+  const normRoot = normalizeRelPosix(pluginRoot || '.');
+  if (normRoot === '.') {
+    throw new Error(
+      `ERR_TAR_SYMLINK_FORBIDDEN: Root plugin archive contains forbidden link "${symlinks[0].path}"`,
+    );
+  }
+  const rootPrefix = `${normRoot}/`;
+  const strippedTopDir = String(tarInfo?.strippedRoot || '').replace(/^\/+|\/+$/g, '');
+  for (const link of symlinks) {
+    const lp = normalizeRelPosix(link.path || '');
+    if (!lp || lp === '.' || lp === normRoot || lp.startsWith(rootPrefix)) {
+      throw new Error(
+        `ERR_TAR_SYMLINK_FORBIDDEN: Archive link "${lp || link.path}" sits inside pluginRoot "${normRoot}"`,
+      );
+    }
+    if (normRoot.startsWith(`${lp}/`)) {
+      throw new Error(
+        `ERR_TAR_SYMLINK_FORBIDDEN: Archive link "${lp}" is an ancestor of pluginRoot "${normRoot}"`,
+      );
+    }
+    if (
+      link.target &&
+      doesLinkTargetTraversePluginRoot(lp, link.target, normRoot, strippedTopDir, link.typeflag || '2')
+    ) {
+      throw new Error(
+        `ERR_TAR_SYMLINK_FORBIDDEN: Archive link "${lp}" -> "${link.target}" traverses into pluginRoot "${normRoot}"`,
+      );
+    }
+  }
+  return { hasExternalSymlinks: true, externalSymlinkCount: symlinks.length };
+}
+
+function computeStructuralMeta({ rawManifest, manifest, manifestPath, companion, scopedFiles, allFiles, affinityContext }) {
+  let strictManifest = false;
+  try {
+    validatePluginManifestObject(rawManifest, { allowScopedName: false, lenientManifest: false });
+    if (manifest.logo) {
+      const logoRel = normalizeRelPosix(manifest.logo);
+      strictManifest = Boolean(
+        scopedFiles.has(logoRel) ||
+          (manifestPath === '.antigravity-plugin/plugin.json' && scopedFiles.has(`.antigravity-plugin/${logoRel}`)),
+      );
+    } else {
+      strictManifest = true;
+    }
+  } catch {
+    strictManifest = false;
+  }
+
+  let hasLicense = Boolean(
+    affinityContext?.licenseSpdxId &&
+      String(affinityContext.licenseSpdxId).toUpperCase() !== 'NOASSERTION',
+  );
+  let hasCiTests = false;
+  const fileMaps = allFiles && allFiles !== scopedFiles ? [scopedFiles, allFiles] : [scopedFiles];
+  for (const map of fileMaps) {
+    if (!map) continue;
+    for (const rel of map.keys()) {
+      if (!hasLicense && /^(?:licen[cs]e|copying)(?:\.(?:md|txt))?$/i.test(rel)) {
+        hasLicense = true;
+      }
+      if (
+        !hasCiTests &&
+        (/^\.github\/workflows\/[^/]+\.ya?ml$/i.test(rel) ||
+          /(?:^|\/)(?:test|tests|__tests__)\/|\.(?:test|spec)\.[a-z0-9]+$/i.test(rel))
+      ) {
+        hasCiTests = true;
+      }
+      if (hasLicense && hasCiTests) break;
+    }
+  }
+
+  const hasSuggestedPrompts = Boolean(
+    Array.isArray(manifest?.suggestedPrompts) && manifest.suggestedPrompts.length >= 1,
+  );
+  const hasCompanion = Boolean(companion && typeof companion === 'object');
+
+  return {
+    strictManifest,
+    hasLicense,
+    hasSuggestedPrompts,
+    hasCompanion,
+    hasCiTests,
+  };
+}
+
 export function validatePluginTarball(
   compressedBuf,
   {
@@ -663,14 +821,19 @@ export function validatePluginTarball(
     requireSelfContained = false,
     lenientManifest = false,
     requireAntigravityComponent = false,
+    allowExternalSymlinks = false,
     fallbackDescription = '',
     fallbackName = '',
     affinityContext = null,
     tarInfo: preInspectedTarInfo = null,
   } = {},
 ) {
-  const tarInfo = preInspectedTarInfo || inspectTarGzBuffer(compressedBuf);
-  const scopedFiles = extractPluginRootFiles(tarInfo.files, pluginRoot);
+  const normRoot = normalizeRelPosix(pluginRoot || '.');
+  const tarInfo =
+    preInspectedTarInfo ||
+    inspectTarGzBuffer(compressedBuf, { allowExternalSymlinks: Boolean(allowExternalSymlinks) });
+  const { hasExternalSymlinks } = enforceScopedSymlinkSafety(tarInfo, normRoot);
+  const scopedFiles = extractPluginRootFiles(tarInfo.files, normRoot);
 
   const manifestPath = scopedFiles.has('plugin.json')
     ? 'plugin.json'
@@ -679,7 +842,7 @@ export function validatePluginTarball(
       : null;
 
   if (!manifestPath) {
-    throw new Error(`ERR_MISSING_PLUGIN_JSON: No plugin.json found at pluginRoot "${pluginRoot}"`);
+    throw new Error(`ERR_MISSING_PLUGIN_JSON: No plugin.json found at pluginRoot "${normRoot}"`);
   }
 
   let rawManifest;
@@ -733,9 +896,45 @@ export function validatePluginTarball(
   const { capabilities, components } = scanPluginCapabilities(scopedFiles, { pluginName: manifest.name });
 
   const { readmeMarkdown, readmeZhMarkdown, readmeEnMarkdown } = extractLocalizedReadmes(scopedFiles, tarInfo.files);
+  const scopedReadme = decodeReadmeBuffer(findMarkdownInMap(scopedFiles, DEFAULT_README_CANDIDATES));
+
+  // Hard veto on hooks.json with non-empty hook declarations and 0 valid ANTIGRAVITY_HOOK_EVENTS
+  const signals = components.signals || {};
+  if (
+    signals.hasHooks &&
+    !signals.hasAntigravityHookEvent &&
+    ((capabilities.hookEvents || []).length > 0 || (signals.hooksJsonNonMetaKeyCount || 0) > 0)
+  ) {
+    throw new Error(
+      'ERR_FOREIGN_HOST_HOOKS: hooks.json declares hook events outside valid Antigravity hook lifecycle events',
+    );
+  }
+
+  const repoMetaForAuth = affinityContext
+    ? {
+        name: affinityContext.repoName || '',
+        full_name: affinityContext.repoFullName || '',
+        description: affinityContext.repoDescription || '',
+        topics: Array.isArray(affinityContext.topics) ? affinityContext.topics : [],
+        is_template: Boolean(affinityContext.isTemplate),
+      }
+    : null;
+
+  const authenticity = scoreAntigravityAuthenticity({
+    manifestPath,
+    pluginRoot: normRoot,
+    rawManifest,
+    companion,
+    scopedFiles,
+    capabilities,
+    components,
+    readmes: { readmeMarkdown, readmeZhMarkdown, readmeEnMarkdown },
+    scopedReadme,
+    repoMeta: repoMetaForAuth,
+    isHeterogeneousManifest: isHeterogeneousEcosystemManifest(rawManifest),
+  });
 
   if (requireAntigravityComponent) {
-    const signals = components.signals || {};
     const hasStrong = Boolean(signals.hasStrongSignal || companion);
     if (isHeterogeneousEcosystemManifest(rawManifest) && !hasStrong) {
       throw new Error(
@@ -757,6 +956,12 @@ export function validatePluginTarball(
     ) {
       throw new Error(
         'ERR_NOT_ANTIGRAVITY_PLUGIN: Weak-only components (rules/agents) lack Antigravity ecosystem affinity',
+      );
+    }
+    if (authenticity.decision !== 'accept') {
+      const code = authenticity.reasonCode || 'ERR_LOW_AGY_CONFIDENCE';
+      throw new Error(
+        `${code}: Authenticity classifier decision="${authenticity.decision}" (score=${authenticity.score})`,
       );
     }
   }
@@ -782,6 +987,22 @@ export function validatePluginTarball(
     verifySelfContainedPrebuiltFiles(scopedFiles, packageJson);
   }
 
+  const structuralMeta = computeStructuralMeta({
+    rawManifest,
+    manifest,
+    manifestPath,
+    companion,
+    scopedFiles,
+    allFiles: tarInfo.files,
+    affinityContext,
+  });
+
+  const fingerprint = computePluginFingerprint(scopedFiles, {
+    description: manifest.description,
+    capabilities,
+    readmeMarkdown,
+  });
+
   return {
     sha256: tarInfo.sha256,
     sizeBytes: tarInfo.compressedBytes,
@@ -796,5 +1017,11 @@ export function validatePluginTarball(
     capabilities,
     components,
     packageJson,
+    hasExternalSymlinks,
+    authenticity,
+    structuralMeta,
+    fingerprint,
+    skillDescriptions: components.skillDescriptions || [],
+    scopedFiles,
   };
 }

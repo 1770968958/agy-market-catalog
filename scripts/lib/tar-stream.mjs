@@ -79,7 +79,12 @@ export function validateSafeArchivePath(rawPath) {
  */
 export function inspectTarGzBuffer(
   compressedBuf,
-  { maxCompressedBytes = MAX_TARBALL_BYTES, maxUncompressedBytes = MAX_TARBALL_BYTES, stripSingleTopDir = true } = {},
+  {
+    maxCompressedBytes = MAX_TARBALL_BYTES,
+    maxUncompressedBytes = MAX_TARBALL_BYTES,
+    stripSingleTopDir = true,
+    allowExternalSymlinks = false,
+  } = {},
 ) {
   if (!Buffer.isBuffer(compressedBuf)) {
     throw new Error('ERR_TAR_INPUT: Expected Buffer');
@@ -103,10 +108,12 @@ export function inspectTarGzBuffer(
   }
 
   const rawFiles = new Map();
+  const rawSymlinks = [];
   let offset = 0;
   let nextPax = {};
   let globalPax = {};
   let nextLongName = '';
+  let nextLongLink = '';
 
   while (offset + 512 <= tarBuf.length) {
     const header = tarBuf.subarray(offset, offset + 512);
@@ -124,6 +131,7 @@ export function inspectTarGzBuffer(
 
     const namePart = readCleanString(header, 0, 100);
     const prefixPart = readCleanString(header, 345, 155);
+    const linkNamePart = readCleanString(header, 157, 100);
     const typeFlagChar = header[156] === 0 ? '0' : String.fromCharCode(header[156]);
     let size = parseTarOctal(header, 124, 12);
     if (nextPax.size !== undefined) {
@@ -147,9 +155,13 @@ export function inspectTarGzBuffer(
       globalPax = { ...globalPax, ...parsePaxRecords(payload) };
       continue;
     }
-    // GNU LongLink path override
+    // GNU LongLink path / linktarget overrides
     if (typeFlagChar === 'L') {
       nextLongName = readCleanString(payload, 0, payload.length);
+      continue;
+    }
+    if (typeFlagChar === 'K') {
+      nextLongLink = readCleanString(payload, 0, payload.length);
       continue;
     }
 
@@ -162,9 +174,23 @@ export function inspectTarGzBuffer(
       (prefixPart ? `${prefixPart}/${namePart}` : namePart);
     nextLongName = '';
 
-    // Hard-block symlinks, hardlinks, FIFOs, character/block devices
+    const rawLinkTarget = nextLongLink || mergedPax.linkpath || linkNamePart || '';
+    nextLongLink = '';
+
+    // Hard-block symlinks & hardlinks unless caller explicitly requests scoped external-symlink collection
     if (typeFlagChar === '1' || typeFlagChar === '2') {
-      throw new Error(`ERR_TAR_SYMLINK_FORBIDDEN: Archive entry "${rawEntryName}" is a link (typeflag=${typeFlagChar})`);
+      if (!allowExternalSymlinks) {
+        throw new Error(`ERR_TAR_SYMLINK_FORBIDDEN: Archive entry "${rawEntryName}" is a link (typeflag=${typeFlagChar})`);
+      }
+      const safeLinkPath = validateSafeArchivePath(rawEntryName);
+      if (safeLinkPath) {
+        rawSymlinks.push({
+          path: safeLinkPath,
+          target: rawLinkTarget,
+          typeflag: typeFlagChar,
+        });
+      }
+      continue;
     }
     if (typeFlagChar !== '0' && typeFlagChar !== '5') {
       throw new Error(`ERR_TAR_UNSUPPORTED_TYPE: Archive entry "${rawEntryName}" has disallowed typeflag "${typeFlagChar}"`);
@@ -181,6 +207,7 @@ export function inspectTarGzBuffer(
   // Normalize optional single top-level wrapper folder (e.g. `package/plugin.json` or `my-plugin-1.0.0/plugin.json`)
   // ONLY when `plugin.json` is not already at the archive root.
   let files = rawFiles;
+  let symlinkPaths = rawSymlinks;
   let strippedRoot = '';
   if (stripSingleTopDir && !rawFiles.has('plugin.json') && rawFiles.size > 0) {
     const firstSegments = new Set();
@@ -193,6 +220,16 @@ export function inspectTarGzBuffer(
       }
       firstSegments.add(p.slice(0, slash));
     }
+    if (allNested) {
+      for (const s of rawSymlinks) {
+        const slash = s.path.indexOf('/');
+        if (slash === -1) {
+          allNested = false;
+          break;
+        }
+        firstSegments.add(s.path.slice(0, slash));
+      }
+    }
     if (allNested && firstSegments.size === 1) {
       const [onlyRoot] = firstSegments;
       strippedRoot = onlyRoot;
@@ -200,6 +237,11 @@ export function inspectTarGzBuffer(
       for (const [p, buf] of rawFiles.entries()) {
         files.set(p.slice(onlyRoot.length + 1), buf);
       }
+      const rootPrefix = `${onlyRoot}/`;
+      symlinkPaths = rawSymlinks.map((s) => ({
+        ...s,
+        path: s.path.startsWith(rootPrefix) ? s.path.slice(rootPrefix.length) : s.path,
+      }));
     }
   }
 
@@ -209,6 +251,7 @@ export function inspectTarGzBuffer(
     uncompressedBytes: tarBuf.length,
     strippedRoot,
     files,
+    symlinkPaths,
     rawPaths: [...rawFiles.keys()],
   };
 }

@@ -144,6 +144,8 @@ export const FIRST_PARTY_REPO_OWNERS = new Set([
   'google',
   'google-deepmind',
   'antigravity-plugins-official',
+  'google-labs-code',
+  'googlecloudplatform',
 ]);
 
 export const CANONICAL_NAME_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;

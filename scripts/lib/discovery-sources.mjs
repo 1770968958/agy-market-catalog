@@ -11,6 +11,7 @@
 
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { pruneNestedCandidateRoots } from './authenticity-scorer.mjs';
 import {
   buildSourceArchiveUrl,
   compareSemver,
@@ -98,7 +99,10 @@ export const GITHUB_NON_CODE_SUBPATHS = new Set([
   'archive',
 ]);
 
-// Explicitly preserves `.agents`, `.agent`, and `.antigravity-plugin`.
+// Explicitly preserves `.agents`, `.agent`, `.antigravity-plugin`, and `host_resources`.
+// Synced with `EXCLUDED_SCAN_DIR_SEGMENTS_V2` (`templates`/`template`/`starter` handled via
+// `pruneNestedCandidateRoots` + `scoreAntigravityAuthenticity` so genuine `templates/plugin/agent-guard`
+// survives while placeholder stubs are rejected).
 export const EXCLUDED_SCAN_DIR_SEGMENTS = new Set([
   'node_modules',
   '.git',
@@ -116,6 +120,30 @@ export const EXCLUDED_SCAN_DIR_SEGMENTS = new Set([
   'target',
   'dist',
   'build',
+  '.claude-plugin',
+  '.claude',
+  '.cursor',
+  '.cursor-plugin',
+  '.codex',
+  '.codex-plugin',
+  '.opencode',
+  'copilot',
+  'dsh',
+  'examples',
+  'example',
+  'samples',
+  'sample',
+  'demo',
+  'demos',
+  'boilerplate',
+  'archive',
+  'archived',
+  'deprecated',
+  'docs',
+  'website',
+  'site',
+  'locales',
+  'plugin-src',
 ]);
 
 const PLATFORM_SPECIFIC_ASSET_RE =
@@ -262,6 +290,24 @@ export function buildChannelARepoQueries(nowMs = Date.now()) {
 
   return queries;
 }
+
+/**
+ * Unsharded base Repo Search arms for `AdaptiveRangeSlicer` + `DiscountedUcb1Cost`.
+ * Date/star/size partitioning is managed dynamically by `AdaptiveRangeSlicer`.
+ */
+export const CHANNEL_A_ADAPTIVE_BASE_QUERIES = Object.freeze([
+  { id: 'Q1-topic-singular', baseQuery: 'topic:antigravity-plugin archived:false', maxUnits: 6 },
+  { id: 'Q1-topic-plural', baseQuery: 'topic:antigravity-plugins archived:false', maxUnits: 4 },
+  { id: 'Q2-name-singular', baseQuery: 'antigravity-plugin in:name archived:false', maxUnits: 6 },
+  { id: 'Q2-name-plural', baseQuery: 'antigravity-plugins in:name archived:false', maxUnits: 4 },
+  { id: 'Q2-name-agy-prefix', baseQuery: 'agy- in:name antigravity archived:false', maxUnits: 4 },
+  { id: 'Q2-readme-plugin-json', baseQuery: '"antigravity" "plugin.json" in:readme archived:false', maxUnits: 5 },
+  { id: 'Q2-topic-antigravity-qualified', baseQuery: 'topic:antigravity "plugin.json" in:readme archived:false', maxUnits: 4 },
+  { id: 'Q2-topic-google-antigravity-qualified', baseQuery: 'topic:google-antigravity "plugin.json" in:readme archived:false', maxUnits: 4 },
+  { id: 'Q2-readme-antigravity-sidecar', baseQuery: '"antigravity" "sidecar.json" in:readme archived:false', maxUnits: 4 },
+  { id: 'Q2-readme-antigravity-mcp-rules', baseQuery: '"antigravity" "mcp_config.json" "rules/AGENTS.md" in:readme archived:false', maxUnits: 3 },
+  { id: 'Q2-readme-antigravity-mcp-plugins-dir', baseQuery: '"antigravity" "mcp_config.json" ".gemini/config/plugins" in:readme archived:false', maxUnits: 3 },
+]);
 
 export function loadAggregatorsConfig(repoRoot) {
   const filePath = join(repoRoot, 'data', 'aggregators.json');
@@ -579,7 +625,22 @@ export function discoverPluginRootsInArchive(
     }
   }
 
-  return [...new Set(selected)].slice(0, Math.max(1, maxPlugins));
+  const uniqueSelected = [...new Set(selected)];
+  const pruned = pruneNestedCandidateRoots(uniqueSelected, filesMap, { isMonorepo });
+
+  // Preserve real non-placeholder `templates/plugin/<name>` roots (e.g., `anksarvesh-lgtm/agent-guard`)
+  // ONLY when no non-template plugin roots exist in the repo; placeholder stubs are rejected downstream
+  // by `scoreAntigravityAuthenticity`.
+  const finalRoots =
+    pruned.length > 0
+      ? pruned
+      : uniqueSelected.filter(
+          (dir) =>
+            /^templates\/plugin\/[^/]+$/i.test(dir) &&
+            !/__name__|\{\{[^}]+\}\}|starter-plugin|example-plugin|default-bundle|template-plugin/i.test(dir),
+        );
+
+  return finalRoots.slice(0, Math.max(1, maxPlugins));
 }
 
 export function normalizeSubpathSlug(pluginRoot) {

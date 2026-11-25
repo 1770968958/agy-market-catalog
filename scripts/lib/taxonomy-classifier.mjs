@@ -1,6 +1,8 @@
-// Curated taxonomy overrides + deterministic multi-signal classifier (`scripts/lib/taxonomy-classifier.mjs`).
+// Curated taxonomy overrides + deterministic multi-signal classifier v2 (`scripts/lib/taxonomy-classifier.mjs`).
 
 import { ALLOWED_CATEGORIES } from './constants.mjs';
+
+export const TAXONOMY_VERSION = 2;
 
 export const CURATED_TAXONOMY_OVERRIDES = Object.freeze({
   'azwosile__agy-market': Object.freeze({
@@ -123,7 +125,7 @@ function stripGenericContainerWords(slug) {
     .trim();
 }
 
-function extractPluginSlugFromId(normId) {
+export function extractPluginSlugFromId(normId) {
   const raw = String(normId || '').trim().toLowerCase();
   if (!raw) return '';
   const afterOwner = raw.includes('__') ? raw.slice(raw.indexOf('__') + 2) : raw;
@@ -145,7 +147,7 @@ function extractPluginSlugFromId(normId) {
   return cleanedSub;
 }
 
-function sanitizeDescriptionNoise(text) {
+export function sanitizeDescriptionNoise(text) {
   return String(text || '')
     .replace(/\b(?:zero|0|no)[-_\s]?tokens?\b/gi, ' ')
     .replace(/(?:零(?:额外)?|不消耗|无需)\s*tokens?/gi, ' ')
@@ -156,6 +158,8 @@ function sanitizeDescriptionNoise(text) {
     .replace(/\bTODO\s*:/gi, ' ')
     .replace(/\binvestment\s+themes?\b/gi, ' ')
     .replace(/(?:实时|自动)?跟随(?:宿主|系统|antigravity)?\s*主题/gi, ' ')
+    .replace(/安全审查白名单(?:内|中)?/g, ' ')
+    .replace(/\b(?:command|safety|safe|review)\s+allowlist\b/gi, ' ')
     .replace(/\b(?:via|with|through)\s+(?:scoped\s+)?oauth(?:\s+(?:mcp|sign[-_\s]?in))?\b/gi, ' ')
     .replace(/\boauth2?\s+(?:or\s+app\s+password|sign[-_\s]?in|login|mcp)\b/gi, ' ')
     .replace(/\b(?:windows|wsl2?|macos|linux)(?:\s*(?:,|\/|&|and)\s*(?:windows|wsl2?|macos|linux))+\b/gi, ' ')
@@ -227,7 +231,7 @@ const SIGNAL_RULES = Object.freeze([
     category: 'ui-themes',
     weight: 7,
     tag: 'companion-widget',
-    re: /\b(?:companion[-_\s]?widget|desktop[-_\s]?pet|antigravity[-_\s]?pet|gemini[-_\s]?pet|dsh[-_\s]?pet|agy[-_\s]?piggy|piggy|mascot|antigravity[-_\s]?bee|pixel[-_\s]?mascot)\b|桌面宠物|桌宠|猫娘挂件|桌面挂件|挂件/i,
+    re: /\b(?:companion[-_\s]?widget|(?:animated\s+)?desktop[-_\s]?companion|desktop[-_\s]?pet|antigravity[-_\s]?pet|gemini[-_\s]?pet|dsh[-_\s]?pet|\bpets\b|agy[-_\s]?piggy|piggy|mascot|antigravity[-_\s]?bee|pixel[-_\s]?mascot)\b|桌面宠物|桌宠|猫娘挂件|桌面挂件|挂件/i,
   },
   {
     category: 'ui-themes',
@@ -275,7 +279,7 @@ const SIGNAL_RULES = Object.freeze([
     category: 'writing-knowledge',
     weight: 7,
     tag: 'knowledge',
-    re: /\b(?:lanxi[-_\s]?memory|soul[-_\s]?md|archivist|obsidian|notion|scholarocr|contextstream|teach[-_\s]?skill|mnemon|nowledge[-_\s]?mem|agentic[-_\s]?vault|alexein|memorix|everos|memlin|hindsight|openviking|memory[-_\s]?bank|conductor[-_\s]?memory|cognitive[-_\s]?persistence|local[-_\s]?memory|agent[-_\s]?learning|evolver|coalhearth|knowledge[-_\s]?compiler|affine|rivul|research[-_\s]?literature|epigraphy|humanizer|less[-_\s]?ai[-_\s]?tone|deslop[-_\s]?copyeditor|copyeditor|well[-_\s]?document|aimake|jotter|meeting[-_\s]?notes|anchor[-_\s]?wheel|aletheia[-_\s]?research|antigravity[-_\s]?tutor|cs[-_\s]?tutor|pick[-_\s]?me|lolcv|wordpress|wp[-_\s]?publisher|writing[-_\s]?and[-_\s]?learning|make[-_\s]?laprak|scientific[-_\s]?writing|promptbase|redpine|factdock|primary[-_\s]?source|current[-_\s]?information[-_\s]?research|chinese[-_\s]?translation|chinese[-_\s]?community[-_\s]?pack|help[-_\s]?agent|agy[-_\s]?help)\b|蓝汐|潮汐认知图谱|苍蓝魂匣|长期记忆|持久化记忆|知识库|知识图谱|认知图谱|记忆管理|去\s*ai\s*味|中文写作|润色|学术论文|文献|笔记|教学|简历|中文翻譯/i,
+    re: /\b(?:lanxi[-_\s]?memory|soul[-_\s]?md|archivist|obsidian|notion|scholarocr|contextstream|teach[-_\s]?skill|mnemon|nowledge[-_\s]?mem|agentic[-_\s]?vault|alexein|memorix|everos|memlin|hindsight|openviking|memory[-_\s]?bank|conductor[-_\s]?memory|cognitive[-_\s]?persistence|local[-_\s]?memory|agent[-_\s]?learning|evolver|coalhearth|knowledge[-_\s]?compiler|affine|rivul|research[-_\s]?literature|epigraphy|humanizer|avoid[-_\s]?ai[-_\s]?writing|ai[-_\s]?writing[-_\s]?patterns?|ai[-_\s]?isms?|less[-_\s]?ai[-_\s]?tone|deslop[-_\s]?copyeditor|copyeditor|well[-_\s]?document|aimake|jotter|meeting[-_\s]?notes|anchor[-_\s]?wheel|aletheia[-_\s]?research|antigravity[-_\s]?tutor|cs[-_\s]?tutor|pick[-_\s]?me|lolcv|wordpress|wp[-_\s]?publisher|writing[-_\s]?and[-_\s]?learning|make[-_\s]?laprak|scientific[-_\s]?writing|promptbase|redpine|factdock|primary[-_\s]?source|current[-_\s]?information[-_\s]?research|chinese[-_\s]?translation|chinese[-_\s]?community[-_\s]?pack|help[-_\s]?agent|agy[-_\s]?help)\b|蓝汐|潮汐认知图谱|苍蓝魂匣|长期记忆|持久化记忆|知识库|知识图谱|认知图谱|记忆管理|去\s*ai\s*味|中文写作|润色|学术论文|文献|笔记|教学|简历|中文翻譯/i,
   },
   {
     category: 'writing-knowledge',
@@ -480,8 +484,117 @@ function deriveTopicTags(topics) {
   return tags;
 }
 
+const VERSION_STUB_DESC_RE = /^[a-z0-9._\s-]+\s+v?\d+\.\d+(?:\.\d+)?$/i;
+const CJK_CHAR_RE = /[\u3400-\u4dbf\u4e00-\u9fff]/;
+
+function stripMarkdownToCleanLead(mdText, maxChars = 220) {
+  const raw = String(mdText || '').replace(/^\uFEFF/, '');
+  if (!raw.trim()) return '';
+  // Strip YAML frontmatter and fenced code blocks
+  const withoutBlocks = raw
+    .replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/, '')
+    .replace(/^ {0,3}(`{3,}|~{3,})[^\r\n]*\r?\n[\s\S]*?^ {0,3}\1[ \t]*$/gm, '')
+    .replace(/<!--[\s\S]*?-->/g, '');
+
+  const paragraphs = withoutBlocks.split(/\r?\n\s*\r?\n/);
+  for (const rawPara of paragraphs) {
+    const lines = rawPara
+      .split(/\r?\n/)
+      .map((l) => l.trim())
+      .filter((l) => {
+        if (!l) return false;
+        if (/^#{1,6}\s/.test(l)) return false;
+        if (/^[-*_]{3,}$/.test(l)) return false;
+        if (/^<[^>]+>$/.test(l)) return false;
+        if (/^\|/.test(l)) return false;
+        // Skip badge-only lines and language switcher lines
+        if (/^(?:\[!\[[^\]]*\]\([^)]*\)\]\([^)]*\)|!\[[^\]]*\]\([^)]*\)|<img\b[^>]*>|\s)+$/i.test(l)) return false;
+        if (/^\[(?:简体中文|中文|english|en|日本語|한국어)[^\]]*\]\([^)]+\)/i.test(l)) return false;
+        return true;
+      });
+    if (lines.length === 0) continue;
+
+    const cleaned = lines
+      .join(' ')
+      .replace(/^>\s*/g, '')
+      .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/`([^`]+)`/g, '$1')
+      .replace(/[*_~]{1,3}([^*_~]+)[*_~]{1,3}/g, '$1')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    if (cleaned.length >= 16) {
+      return cleaned.length > maxChars ? `${cleaned.slice(0, maxChars - 1).trimEnd()}…` : cleaned;
+    }
+  }
+  return '';
+}
+
+function isWeakDescription(text) {
+  const s = String(text || '').trim();
+  if (s.length < 15) return true;
+  if (VERSION_STUB_DESC_RE.test(s)) return true;
+  return false;
+}
+
 /**
- * Deterministic curated-override + multi-signal taxonomy classifier for Track-1 & Track-2 plugins.
+ * Extracts clean bilingual `{ zh, en }` summaries from localized READMEs when `description`
+ * is missing, too short, version-stub-only, or monolingual.
+ */
+export function extractBilingualSummaryFromReadmes({
+  description = '',
+  readmeZh = '',
+  readmeEn = '',
+  maxZhChars = 180,
+  maxEnChars = 240,
+} = {}) {
+  const rawZh =
+    typeof description === 'object' && description !== null
+      ? String(description.zh || '').trim()
+      : String(description || '').trim();
+  const rawEn =
+    typeof description === 'object' && description !== null
+      ? String(description.en || '').trim()
+      : String(description || '').trim();
+
+  const leadZh = stripMarkdownToCleanLead(readmeZh, maxZhChars);
+  const leadEn = stripMarkdownToCleanLead(readmeEn, maxEnChars);
+
+  let zh = rawZh;
+  let en = rawEn;
+  const extractedFromReadme = { zh: false, en: false };
+
+  if (leadZh && (isWeakDescription(zh) || (!CJK_CHAR_RE.test(zh) && CJK_CHAR_RE.test(leadZh)))) {
+    zh = leadZh;
+    extractedFromReadme.zh = true;
+  }
+  if (leadEn && (isWeakDescription(en) || (CJK_CHAR_RE.test(en) && !CJK_CHAR_RE.test(leadEn)))) {
+    en = leadEn;
+    extractedFromReadme.en = true;
+  }
+
+  if (!zh && en) zh = en;
+  if (!en && zh) en = zh;
+
+  return { zh, en, extractedFromReadme };
+}
+
+function sanitizeReadmeForFallback(readmeText, skillDescriptions = []) {
+  const skillsJoined = (Array.isArray(skillDescriptions) ? skillDescriptions : [])
+    .filter((s) => typeof s === 'string' && s.trim())
+    .join(' ');
+  const readmeCleaned = String(readmeText || '')
+    .replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/, '')
+    .replace(/^ {0,3}(`{3,}|~{3,})[^\r\n]*\r?\n[\s\S]*?^ {0,3}\1[ \t]*$/gm, ' ')
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+    .slice(0, 2000);
+  return sanitizeDescriptionNoise(`${skillsJoined} ${readmeCleaned}`);
+}
+
+/**
+ * Deterministic curated-override + multi-signal taxonomy classifier v2 for Track-1 & Track-2 plugins.
  */
 export function inferPluginTaxonomy({
   id = '',
@@ -493,6 +606,8 @@ export function inferPluginTaxonomy({
   existingCategories = [],
   existingTags = [],
   yamlCategory = '',
+  readmeText = '',
+  skillDescriptions = [],
 } = {}) {
   const normId = String(id || '').trim().toLowerCase();
   const badges = Array.isArray(capabilities?.badges) ? capabilities.badges : [];
@@ -517,6 +632,7 @@ export function inferPluginTaxonomy({
     return {
       categories: explicitExistingCategories,
       tags: mergedTags,
+      taxonomyVersion: TAXONOMY_VERSION,
     };
   }
 
@@ -530,6 +646,7 @@ export function inferPluginTaxonomy({
     return {
       categories: categories.length > 0 ? categories : ['other'],
       tags,
+      taxonomyVersion: TAXONOMY_VERSION,
     };
   }
 
@@ -562,6 +679,27 @@ export function inferPluginTaxonomy({
     }
   }
 
+  // 3b. Low-weight README + SKILL.md description fallback ONLY when title+desc top score < 4.
+  let maxTextScore = 0;
+  for (const sc of scores.values()) {
+    if (sc > maxTextScore) maxTextScore = sc;
+  }
+  if (maxTextScore < 4 && (readmeText || (Array.isArray(skillDescriptions) && skillDescriptions.length > 0))) {
+    const fallbackCorpus = sanitizeReadmeForFallback(readmeText, skillDescriptions);
+    if (fallbackCorpus) {
+      for (const rule of SIGNAL_RULES) {
+        if (rule.re.test(fallbackCorpus)) {
+          const lowWeight = Math.min(4, Math.max(2, Math.ceil(rule.weight * 0.55)));
+          bumpScore(rule.category, lowWeight);
+          if (rule.tag) matchedTags.push(rule.tag);
+        }
+      }
+      for (const sc of scores.values()) {
+        if (sc > maxTextScore) maxTextScore = sc;
+      }
+    }
+  }
+
   // Capability badge & identifier signals (gentle boosts, never overpowering explicit domain matches)
   const hasMcpBadge = badges.includes('mcp-stdio') || badges.includes('mcp-remote');
   const isDeclarativeOnly = badges.includes('declarative-only');
@@ -576,7 +714,13 @@ export function inferPluginTaxonomy({
     bumpScore('mcp-integrations', 2);
   }
   if (isDeclarativeOnly) {
-    bumpScore('skills-workflows', 2);
+    // Never let declarative-only badge boost (+2) override an already-matched concrete non-workflow domain!
+    const topNonWorkflowScore = [...scores.entries()]
+      .filter(([cat]) => cat !== 'skills-workflows')
+      .reduce((mx, [, sc]) => Math.max(mx, sc), 0);
+    if (topNonWorkflowScore < 4) {
+      bumpScore('skills-workflows', 2);
+    }
   }
   if (hasHostEnhancement && (scores.get('ui-themes') || 0) > 0) {
     bumpScore('ui-themes', 1);
@@ -630,5 +774,6 @@ export function inferPluginTaxonomy({
   return {
     categories: finalCategories.length > 0 ? finalCategories : ['other'],
     tags: finalTags.length > 0 ? finalTags : fallbackTags.length > 0 ? fallbackTags : ['community'],
+    taxonomyVersion: TAXONOMY_VERSION,
   };
 }

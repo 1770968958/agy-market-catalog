@@ -1,0 +1,30 @@
+name: Nominate Community Antigravity Plugin
+description: Suggest a public GitHub repository to be automatically crawled and indexed into Track 2 (Experimental Community Feed).
+title: "[Discovery] "
+labels: ["community-discovery"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Submit a **public** GitHub repository containing a valid Google Antigravity plugin (`plugin.json` or `.antigravity-plugin/plugin.json`).
+        Our automated crawler will validate the repository statically (zero code execution) and index it into Track 2 if eligible.
+        Please submit only public repositories — never include tokens, private repo URLs, or personal data.
+
+  - type: input
+    id: repo
+    attributes:
+      label: Repository
+      description: Public GitHub repository (`owner/repo` or `https://github.com/owner/repo`)
+      placeholder: owner/my-antigravity-plugin
+    validations:
+      required: true
+
+  - type: input
+    id: plugin_root
+    attributes:
+      label: Plugin Root
+      description: Relative subdirectory containing `plugin.json` (leave as `.` for root plugins)
+      placeholder: .
+      value: .
+    validations:
+      required: false

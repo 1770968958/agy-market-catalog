@@ -209,6 +209,15 @@ function parseSkillFrontmatterName(mdText) {
   return nameMatch[1].trim().replace(/^['"]|['"]$/g, '');
 }
 
+function parseSkillFrontmatterDescription(mdText) {
+  const clean = mdText.replace(/^\uFEFF/, '');
+  const m = /^---\r?\n([\s\S]*?)\r?\n---/.exec(clean);
+  if (!m) return '';
+  const descMatch = /^\s*description\s*:\s*([^\r\n]+)/m.exec(m[1]);
+  if (!descMatch) return '';
+  return descMatch[1].trim().replace(/^['"]|['"]$/g, '');
+}
+
 /**
  * Inspects files inside `<pluginRoot>` (`Map<string, Buffer>`) and produces
  * `{ capabilities, components }` or throws on hard-blocked exfiltration/smuggling.
@@ -221,6 +230,7 @@ export function scanPluginCapabilities(pluginFilesMap, { pluginName = '' } = {})
   let hasMcpStdio = false;
   let hasMcpRemote = false;
   let hasLifecycleHooks = false;
+  let hooksJsonNonMetaKeyCount = 0;
   let hasSkillsOrAgents = false;
   let nonEmptySkillsCount = 0;
   let nonEmptyAgentsCount = 0;
@@ -232,6 +242,7 @@ export function scanPluginCapabilities(pluginFilesMap, { pluginName = '' } = {})
   const hookEvents = new Set();
   const hostEnhancementKinds = new Set();
   const claimedSkills = [];
+  const skillDescriptions = [];
   const claimedAgents = [];
 
   for (const [relPath, buf] of pluginFilesMap.entries()) {
@@ -271,6 +282,8 @@ export function scanPluginCapabilities(pluginFilesMap, { pluginName = '' } = {})
         nonEmptySkillsCount += 1;
       }
       const fmName = parseSkillFrontmatterName(text);
+      const fmDesc = parseSkillFrontmatterDescription(text);
+      if (fmDesc) skillDescriptions.push(fmDesc);
       claimedSkills.push({ dir: skillDir, frontmatterName: fmName || skillDir });
     } else if (/^skills\/.+\/SKILL\.md$/i.test(relPath)) {
       const text = buf.toString('utf8');
@@ -340,6 +353,7 @@ export function scanPluginCapabilities(pluginFilesMap, { pluginName = '' } = {})
       if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
         for (const [topKey, topVal] of Object.entries(parsed)) {
           if (HOOK_META_KEYS.has(topKey)) continue;
+          hooksJsonNonMetaKeyCount += 1;
           if (Array.isArray(topVal)) {
             hookEvents.add(topKey);
           } else if (topVal && typeof topVal === 'object') {
@@ -414,6 +428,7 @@ export function scanPluginCapabilities(pluginFilesMap, { pluginName = '' } = {})
     },
     components: {
       claimedSkills,
+      skillDescriptions,
       claimedAgents: claimedAgents.sort(),
       mcpRawKeys,
       genericMcpViolations,
@@ -423,7 +438,8 @@ export function scanPluginCapabilities(pluginFilesMap, { pluginName = '' } = {})
         hasRule: nonEmptyRulesCount > 0,
         hasMcp,
         hasSidecar: hasSidecarUi,
-        hasHooks: hookEvents.size > 0,
+        hasHooks: hookEvents.size > 0 || hooksJsonNonMetaKeyCount > 0,
+        hooksJsonNonMetaKeyCount,
         hasAntigravityHookEvent,
         hasAnyComponent,
         hasStrongSignal,

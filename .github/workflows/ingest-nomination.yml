@@ -1,0 +1,170 @@
+name: Tier 0 — Community Plugin Nomination Ingestion
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: catalog-state-publish
+  cancel-in-progress: false
+
+jobs:
+  ingest-nomination:
+    if: ${{ contains(github.event.issue.labels.*.name, 'community-discovery') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout trusted main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Enforce per-author daily nomination rate limit (max 5/day)
+        id: ratelimit
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+        run: |
+          set -euo pipefail
+          SINCE=$(date -u -d '24 hours ago' +%Y-%m-%dT%H:%M:%SZ)
+          COUNT=$(gh issue list --repo "$REPO" --author "$ISSUE_AUTHOR" --label "community-discovery" --state all --search "created:>=$SINCE" --json number --jq 'length')
+          echo "Recent nominations by $ISSUE_AUTHOR in last 24h: $COUNT"
+          if [ "$COUNT" -gt 5 ]; then
+            gh issue comment "$ISSUE_NUMBER" --repo "$REPO" --body "⏳ **Rate limit reached**: Each GitHub account may submit up to **5** plugin nominations per 24 hours. Please try again tomorrow."
+            gh issue close "$ISSUE_NUMBER" --repo "$REPO" --reason "not planned"
+            echo "allowed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "allowed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Parse & validate nomination payload
+        id: parse
+        if: ${{ steps.ratelimit.outputs.allowed == 'true' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          set +e
+          PARSED=$(node scripts/parse-nomination.mjs)
+          CODE=$?
+          set -e
+          echo "$PARSED"
+          if [ "$CODE" -ne 0 ]; then
+            MSG=$(echo "$PARSED" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{try{console.log(JSON.parse(s).message||'Invalid nomination')}catch{console.log('Invalid nomination payload')}})")
+            gh issue comment "$ISSUE_NUMBER" --repo "$REPO" --body "❌ **Nomination rejected**: ${MSG}"
+            gh issue close "$ISSUE_NUMBER" --repo "$REPO" --reason "not planned"
+            echo "valid=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          TARGET_ARG=$(echo "$PARSED" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>console.log(JSON.parse(s).targetArg||''))")
+          FULL_NAME=$(echo "$PARSED" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>console.log(JSON.parse(s).fullName||''))")
+          echo "valid=true" >> "$GITHUB_OUTPUT"
+          echo "target_arg=${TARGET_ARG}" >> "$GITHUB_OUTPUT"
+          echo "full_name=${FULL_NAME}" >> "$GITHUB_OUTPUT"
+
+      - name: Seed per-plugin READMEs from gh-pages
+        if: ${{ steps.parse.outputs.valid == 'true' }}
+        run: |
+          mkdir -p .tmp/gh-pages-seed/readmes
+          if git fetch --depth=1 origin gh-pages 2>/dev/null; then
+            git archive origin/gh-pages -- readmes 2>/dev/null | tar -x -C .tmp/gh-pages-seed || true
+          fi
+
+      - name: Crawl nominated repository, rebuild catalog, publish, and comment outcome
+        if: ${{ steps.parse.outputs.valid == 'true' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CRAWLER_TOKEN: ${{ secrets.CATALOG_CRAWLER_TOKEN || secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          TARGET_ARG: ${{ steps.parse.outputs.target_arg }}
+          FULL_NAME: ${{ steps.parse.outputs.full_name }}
+        run: |
+          set -euo pipefail
+          set +e
+          CRAWL_OUT=$(GITHUB_TOKEN="$CRAWLER_TOKEN" node scripts/crawl-topics.mjs --repos="$TARGET_ARG" --no-neg-cache --seed-readmes-dir=.tmp/gh-pages-seed/readmes --out-readmes-dir=dist/readmes 2>&1)
+          CRAWL_CODE=$?
+          set -e
+          echo "$CRAWL_OUT"
+
+          SAFE_CRAWL_OUT=$(printf '%s' "$CRAWL_OUT" | node -e '
+            let s = "";
+            process.stdin.on("data", (d) => { s += d; }).on("end", () => {
+              s = s.replace(/`{3,}/g, "\x27\x27\x27").trim();
+              if (s.length > 2000) {
+                s = s.slice(0, 1000) + "\n... [truncated] ...\n" + s.slice(-950);
+              }
+              process.stdout.write(s);
+            });
+          ')
+
+          if [ "$CRAWL_CODE" -ne 0 ]; then
+            printf '⚠️ **Crawler error** while inspecting `%s`:\n\n```\n%s\n```\n' "$FULL_NAME" "$SAFE_CRAWL_OUT" \
+              | gh issue comment "$ISSUE_NUMBER" --repo "$REPO" --body-file -
+            gh issue close "$ISSUE_NUMBER" --repo "$REPO" --reason "not planned"
+            exit 0
+          fi
+
+          node scripts/build-catalog.mjs --seed-readmes-dir=.tmp/gh-pages-seed/readmes
+
+          FOUND=$(node --input-type=module -e "
+            import { readFileSync } from 'node:fs';
+            const cache = JSON.parse(readFileSync('state/unverified-cache.json', 'utf8'));
+            const target = 'https://github.com/' + process.env.FULL_NAME.toLowerCase();
+            const matches = (cache.plugins || []).filter(p => String(p.repository?.url || '').toLowerCase() === target);
+            console.log(JSON.stringify({ count: matches.length, ids: matches.map(m => m.id) }));
+          ")
+          MATCH_COUNT=$(echo "$FOUND" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>console.log(JSON.parse(s).count||0))")
+          MATCH_IDS=$(echo "$FOUND" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>console.log((JSON.parse(s).ids||[]).join(', ')))")
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(nomination): ingest ${FULL_NAME} from issue #${ISSUE_NUMBER}"
+            for attempt in 1 2 3; do
+              if git pull --rebase --autostash origin main && git push origin HEAD:main; then
+                break
+              fi
+              if [ "$attempt" -eq 3 ]; then
+                echo "Failed to push nomination state to main after 3 attempts"
+                exit 1
+              fi
+              sleep $((attempt * 3))
+            done
+
+            mkdir -p .tmp/gh-pages
+            cp -r dist/* .tmp/gh-pages/
+            touch .tmp/gh-pages/.nojekyll
+            (
+              cd .tmp/gh-pages
+              git init -b gh-pages
+              git config user.name "github-actions[bot]"
+              git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+              git add -A
+              git commit -m "chore(catalog): publish nominated plugin ${FULL_NAME}"
+              git push --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages:gh-pages
+            )
+          fi
+
+          if [ "$MATCH_COUNT" -gt 0 ]; then
+            printf '✅ **Indexed in Track 2!**\n\nRepository `%s` validated cleanly (%s plugin(s): `%s`) and has been published to the experimental community catalog.\n' "$FULL_NAME" "$MATCH_COUNT" "$MATCH_IDS" \
+              | gh issue comment "$ISSUE_NUMBER" --repo "$REPO" --body-file -
+            gh issue close "$ISSUE_NUMBER" --repo "$REPO" --reason "completed"
+          else
+            printf 'ℹ️ **Not indexed in Track 2** for `%s`. Diagnostic summary:\n\n```\n%s\n```\n\nEnsure the repository is public, contains a valid `plugin.json` (or `.antigravity-plugin/plugin.json`) with Antigravity components (`skills/`, `sidecars/`, `mcp_config.json`, `rules/`, or valid `hooks.json`), and is not already in Track 1.\n' "$FULL_NAME" "$SAFE_CRAWL_OUT" \
+              | gh issue comment "$ISSUE_NUMBER" --repo "$REPO" --body-file -
+            gh issue close "$ISSUE_NUMBER" --repo "$REPO" --reason "not planned"
+          fi
