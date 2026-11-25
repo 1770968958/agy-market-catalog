@@ -20,7 +20,8 @@
       "registeredAt": "2026-11-23T11:29:14.873Z",
       "previousRepoFullNames": [
         "zou172866/agy-dart"
-      ]
+      ],
+      "nodeId": "R_kgDOV1h23g"
     },
     "agy-market": {
       "entrySlug": "azwosile__agy-market",
@@ -35,7 +36,8 @@
       ],
       "claimedAgents": [],
       "claimedMcpServers": [],
-      "registeredAt": "2026-11-23T11:32:50.740Z"
+      "registeredAt": "2026-11-23T11:32:50.740Z",
+      "nodeId": "R_kgDOV4nVCQ"
     },
     "agy-wallpaper-prism": {
       "entrySlug": "azwosile__agy-wallpaper-prism",
@@ -50,7 +52,8 @@
       ],
       "claimedAgents": [],
       "claimedMcpServers": [],
-      "registeredAt": "2026-11-23T11:32:54.682Z"
+      "registeredAt": "2026-11-23T11:32:54.682Z",
+      "nodeId": "R_kgDOV3dSHQ"
     },
     "gemini-neko-cockpit": {
       "entrySlug": "yunjuanyunshu114-byte__antigravity-observer",
@@ -65,7 +68,8 @@
       ],
       "claimedAgents": [],
       "claimedMcpServers": [],
-      "registeredAt": "2026-11-23T11:33:02.584Z"
+      "registeredAt": "2026-11-23T11:33:02.584Z",
+      "nodeId": "R_kgDOVv6uvw"
     }
   }
 }
