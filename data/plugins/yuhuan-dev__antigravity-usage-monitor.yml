@@ -1,0 +1,6 @@
+url: https://github.com/yuhuan-dev/antigravity-usage-monitor
+pluginRoot: .
+category: monitoring-quota
+description:
+  zh: 实时查看生成速度、首字延迟、上下文占用、可用额度及历史用量，支持 Desktop、IDE 和 CLI。
+  en: Real-time output speed, TTFT, context breakdown, quota tracking, and historical usage analytics for Antigravity Desktop, IDE, and CLI.
